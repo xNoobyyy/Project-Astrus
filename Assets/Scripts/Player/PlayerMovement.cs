@@ -16,8 +16,8 @@ namespace Player {
         }
 
         private void Update() {
-            var horizontalMove = Input.GetAxis("Horizontal");
-            var verticalMove = Input.GetAxis("Vertical");
+            var horizontalMove = Input.GetAxisRaw("Horizontal");
+            var verticalMove = Input.GetAxisRaw("Vertical");
 
             movement = new Vector3(horizontalMove, verticalMove, 0);
 
