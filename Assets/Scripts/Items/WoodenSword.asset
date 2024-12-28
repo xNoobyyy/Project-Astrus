@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 29b56daf8c41440c831a5ed744d3cd8d, type: 3}
   m_Name: WoodenSword
   m_EditorClassIdentifier: Assembly-CSharp:Items:CombatItem
   itemName: Wooden Sword
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: -3493546860208996330, guid: 94cbb50f659ddfd4988fe2f5e0e2bba7, type: 3}
   itemDescription: Sword made out of Wood.
