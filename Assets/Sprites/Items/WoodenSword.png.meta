@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      WoodenSword_0: -3493546860208996330
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
