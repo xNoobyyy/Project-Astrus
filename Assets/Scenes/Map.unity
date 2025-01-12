@@ -288,11 +288,6 @@ MonoBehaviour:
     Time: 1
     Smoothing: 5
     IgnoreY: 0
---- !u!4 &187816963 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1385403212543244299, guid: ab7b45dc591d5614dade6f9e5ae8530d, type: 3}
-  m_PrefabInstance: {fileID: 2145298953}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &319524118
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,6 +364,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 319524118}
   m_CullTransparentMesh: 1
+--- !u!4 &187816963 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1385403212543244299, guid: ab7b45dc591d5614dade6f9e5ae8530d, type: 3}
+  m_PrefabInstance: {fileID: 2145298953}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
