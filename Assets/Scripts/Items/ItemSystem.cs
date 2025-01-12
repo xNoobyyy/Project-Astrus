@@ -10,7 +10,6 @@ namespace Items {
 
     public abstract class BaseItem : ScriptableObject {
         public string itemName;
-        public ItemType itemType { get; protected set; }
         public Sprite itemIcon;
         public string itemDescription;
     }

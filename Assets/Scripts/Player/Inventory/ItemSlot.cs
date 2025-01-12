@@ -1,15 +1,25 @@
+using Items;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Image))]
-public class ItemSlot : MonoBehaviour {
-    
-    private Image icon;
+namespace Player.Inventory {
+    public class ItemSlot : MonoBehaviour {
+        
+        public BaseItem item;
+        
+        public GameObject itemRenderer;
 
-    void Start() {
-        icon = GetComponent<Image>();
+        private void Start() { }
+
+        public void SetItem(BaseItem newItem) {
+            item = newItem;
+            
+            if (item == null) {
+                itemRenderer.SetActive(false);
+            } else {
+                itemRenderer.SetActive(true);
+                itemRenderer.GetComponent<Image>().sprite = item.itemIcon;
+            }
+        }
     }
-
-    
-    
 }
