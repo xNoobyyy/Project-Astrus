@@ -1,16 +1,20 @@
 ﻿using UnityEngine;
 
 namespace Items {
-    public enum ItemType {
-        Combat,
-        Axe,
-        Pickaxe,
-        Resource,
-    }
 
-    public abstract class BaseItem : ScriptableObject {
-        public string itemName;
-        public Sprite itemIcon;
-        public string itemDescription;
+    public abstract class Item : ScriptableObject {
+        
+        public string Name { get; private set; }
+        public string Description { get; private set; }
+        public Sprite Icon { get; private set; }
+
+        protected Item(string name, string description, Sprite icon) {
+            Name = name;
+            Description = description;
+            Icon = icon;
+        }
+
+        public abstract void OnUse();
+
     }
 }

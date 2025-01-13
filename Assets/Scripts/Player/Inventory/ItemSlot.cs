@@ -5,20 +5,20 @@ using UnityEngine.UI;
 namespace Player.Inventory {
     public class ItemSlot : MonoBehaviour {
         
-        public BaseItem item;
+        public Item item;
         
         public GameObject itemRenderer;
 
         private void Start() { }
 
-        public void SetItem(BaseItem newItem) {
+        public void SetItem(Item newItem) {
             item = newItem;
             
             if (item == null) {
                 itemRenderer.SetActive(false);
             } else {
                 itemRenderer.SetActive(true);
-                itemRenderer.GetComponent<Image>().sprite = item.itemIcon;
+                itemRenderer.GetComponent<Image>().sprite = item.Icon;
             }
         }
     }

@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 
 namespace Items {
-    [CreateAssetMenu(fileName = "NewResourceItem", menuName = "Items/Resource")]
-    public class ResourceItem : BaseItem {
-        private void OnEnable() { }
+    public abstract class ResourceItem : Item {
+        protected ResourceItem(string name, string description, Sprite icon) : base(name, description, icon) { }
+
+        public override void OnUse() { }
     }
 }

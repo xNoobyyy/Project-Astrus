@@ -16,11 +16,11 @@ namespace Player.Inventory {
             }
         }
 
-        public void SetItem(int index, BaseItem item) {
+        public void SetItem(int index, Item item) {
             slots[index].SetItem(item);
         }
 
-        public BaseItem GetItem(int index) {
+        public Item GetItem(int index) {
             return slots[index].item;
         }
 

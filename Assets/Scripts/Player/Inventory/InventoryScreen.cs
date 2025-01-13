@@ -4,7 +4,7 @@ namespace Player.Inventory {
     public class InventoryScreen : MonoBehaviour {
         public ItemSlot itemSlotPrefab;
         public GameObject itemSlotContainer;
-
+        
         private void Start() {
             var playerInventory = PlayerInventory.Instance;
             for (var i = 0; i < 8; i++) {
