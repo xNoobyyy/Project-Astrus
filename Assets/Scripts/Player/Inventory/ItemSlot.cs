@@ -2,34 +2,78 @@ using System;
 using Items;
 using Items.Items;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Player.Inventory {
-    public class ItemSlot : MonoBehaviour {
+    public class ItemSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IDropHandler {
         public Item Item { get; private set; }
 
         public GameObject itemRenderer;
 
-        private void Start() { }
-
         public void SetItem(Item item) {
             Item = item;
 
+            Debug.Log("ItemSlot.SetItem(); " + (Item == null ? "null" : Item.Name));
+
+            var itemRenderImageComponent = itemRenderer.GetComponent<Image>();
+
             if (Item == null) {
-                itemRenderer.SetActive(false);
+                itemRenderImageComponent.enabled = false;
             } else {
-                itemRenderer.SetActive(true);
-                itemRenderer.GetComponent<Image>().sprite = Item.Icon;
+                itemRenderImageComponent.enabled = true;
+                itemRenderImageComponent.GetComponent<Image>().sprite = Item.Icon;
             }
         }
 
-        private void OnMouseDown() {
-            Debug.Log("ItemSlot.OnMouseDown()");
-            
+        public void OnPointerClick(PointerEventData eventData) {
+            Debug.Log("ItemSlot.OnMouseDown(); " + (Item == null ? "null" : Item.Name));
+
             if (Item != null) return;
             PlayerInventory.Instance.SetItem(
-                Array.FindIndex(PlayerInventory.Instance.slots, slot => slot == this),
+                Array.IndexOf(PlayerInventory.Instance.slots, this),
                 new IronPickaxe());
+        }
+
+        public void OnBeginDrag(PointerEventData eventData) {
+            Debug.Log("ItemSlot.OnBeginDrag(); " + (Item == null ? "null" : Item.Name));
+
+            if (Item == null) return;
+
+            InventoryScreen.Instance.StartDragging(this);
+        }
+
+        // DO NOT DELETE
+        public void OnDrag(PointerEventData eventData) { }
+
+        public void OnDrop(PointerEventData eventData) {
+            Debug.Log("ItemSlot.OnEndDrag(); " + (Item == null ? "null" : Item.Name));
+
+            if (InventoryScreen.Instance.DraggingFrom == null) return;
+
+            var draggingItemSlot = Array.IndexOf(
+                PlayerInventory.Instance.slots,
+                InventoryScreen.Instance.DraggingFrom
+            );
+
+            var thisItemSlot = Array.IndexOf(
+                PlayerInventory.Instance.slots,
+                this
+            );
+
+            var currentItem = Item;
+
+            PlayerInventory.Instance.SetItem(
+                thisItemSlot,
+                InventoryScreen.Instance.DraggingFrom.Item
+            );
+
+            PlayerInventory.Instance.SetItem(
+                draggingItemSlot,
+                currentItem
+            );
+
+            InventoryScreen.Instance.ResetDragging();
         }
     }
 }
