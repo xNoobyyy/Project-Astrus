@@ -21,7 +21,7 @@ namespace Player.Inventory {
         }
 
         public Item GetItem(int index) {
-            return slots[index].item;
+            return slots[index].Item;
         }
 
         public void RemoveItem(int index) {

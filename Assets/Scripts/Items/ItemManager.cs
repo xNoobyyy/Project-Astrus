@@ -1,0 +1,21 @@
+﻿using System;
+using UnityEngine;
+
+namespace Items {
+    public class ItemManager : MonoBehaviour {
+        
+        [Header("Item Icons")]
+        public Sprite ironPickaxeIcon;
+        
+        public static ItemManager Instance { get; private set; }
+
+        private void Awake() {
+            if (Instance == null) {
+                Instance = this;
+            } else {
+                Destroy(gameObject);
+            }
+        }
+        
+    }
+}
