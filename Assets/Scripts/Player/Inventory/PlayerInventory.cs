@@ -17,7 +17,6 @@ namespace Player.Inventory {
         }
 
         public void SetItem(int index, Item item) {
-            Debug.Log("PlayerInventory.SetItem(); " + (item == null ? "null" : item.Name));
             slots[index].SetItem(item);
         }
 

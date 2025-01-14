@@ -13,9 +13,7 @@ namespace Player.Inventory {
 
         public void SetItem(Item item) {
             Item = item;
-
-            Debug.Log("ItemSlot.SetItem(); " + (Item == null ? "null" : Item.Name));
-
+            
             var itemRenderImageComponent = itemRenderer.GetComponent<Image>();
 
             if (Item == null) {
@@ -27,8 +25,6 @@ namespace Player.Inventory {
         }
 
         public void OnPointerClick(PointerEventData eventData) {
-            Debug.Log("ItemSlot.OnMouseDown(); " + (Item == null ? "null" : Item.Name));
-
             if (Item != null) return;
             PlayerInventory.Instance.SetItem(
                 Array.IndexOf(PlayerInventory.Instance.slots, this),
@@ -36,8 +32,6 @@ namespace Player.Inventory {
         }
 
         public void OnBeginDrag(PointerEventData eventData) {
-            Debug.Log("ItemSlot.OnBeginDrag(); " + (Item == null ? "null" : Item.Name));
-
             if (Item == null) return;
 
             InventoryScreen.Instance.StartDragging(this);
@@ -47,8 +41,6 @@ namespace Player.Inventory {
         public void OnDrag(PointerEventData eventData) { }
 
         public void OnDrop(PointerEventData eventData) {
-            Debug.Log("ItemSlot.OnEndDrag(); " + (Item == null ? "null" : Item.Name));
-
             if (InventoryScreen.Instance.DraggingFrom == null) return;
 
             var draggingItemSlot = Array.IndexOf(
