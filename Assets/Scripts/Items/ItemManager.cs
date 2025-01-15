@@ -3,6 +3,8 @@
 namespace Items {
     public class ItemManager : MonoBehaviour {
         [Header("Item Icons")] public Sprite ironPickaxeIcon;
+        public Sprite ironIcon;
+        public Sprite stoneIcon;
 
         [Header("Prefabs")] public GameObject droppedItemPrefab;
 

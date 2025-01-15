@@ -27,9 +27,19 @@ namespace Player.Inventory {
 
         public void OnPointerClick(PointerEventData eventData) {
             if (Item != null) return;
-            PlayerInventory.Instance.SetItem(
-                Array.IndexOf(PlayerInventory.Instance.slots, this),
-                new IronPickaxe());
+
+            switch (eventData.button) {
+                case PointerEventData.InputButton.Left:
+                    PlayerInventory.Instance.SetItem(
+                        Array.IndexOf(PlayerInventory.Instance.slots, this),
+                        new IronPickaxe());
+                    break;
+                case PointerEventData.InputButton.Right:
+                    PlayerInventory.Instance.SetItem(
+                        Array.IndexOf(PlayerInventory.Instance.slots, this),
+                        new Iron(19));
+                    break;
+            }
         }
 
         public void OnBeginDrag(PointerEventData eventData) {

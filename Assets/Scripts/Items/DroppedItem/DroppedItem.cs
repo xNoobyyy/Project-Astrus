@@ -7,12 +7,6 @@ namespace Items.DroppedItem {
     public class DroppedItem : MonoBehaviour {
         public Item Item { get; private set; }
 
-        private void Start() {
-            // for debugging
-            Item = new IronPickaxe();
-            GetComponent<SpriteRenderer>().sprite = Item.Icon;
-        }
-
         public void Initialize(Item item) {
             Item = item;
             GetComponent<SpriteRenderer>().sprite = Item.Icon;

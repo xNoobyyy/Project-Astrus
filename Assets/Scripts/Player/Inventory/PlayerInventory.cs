@@ -42,7 +42,7 @@ namespace Player.Inventory {
         /// If the item is a ResourceItem, it will try to stack it with existing items.
         /// </summary>
         /// <param name="item">The item to check</param>
-        /// <returns>true if it can pick up the full item with the full amount</returns>
+        /// <returns>true if it can pick up any amount of the item</returns>
         public bool CanPickUpItem(Item item) {
             if (item is not ResourceItem resourceItem) return FirstEmpty() != -1;
 
@@ -51,18 +51,23 @@ namespace Player.Inventory {
             var restAmount = resourceItem.Amount;
 
             foreach (var slot in slots) {
-                if (slot.Item is ResourceItem slotResourceItem &&
-                    slotResourceItem.GetType() == resourceItem.GetType()) {
-                    restAmount -= (slotResourceItem.MaxAmount - slotResourceItem.Amount);
-                }
+                if (slot.Item is not ResourceItem slotResourceItem ||
+                    slotResourceItem.GetType() != resourceItem.GetType()) continue;
 
-                if (restAmount <= 0) return true;
+                if (slotResourceItem.Amount != slotResourceItem.MaxAmount) {
+                    return true;
+                }
             }
 
             return false;
         }
 
-        public Item PickupItem(Item item) {
+        /// <summary>
+        /// Tries to pick up the item. If the item is a ResourceItem, it will first try to stack it with existing items.
+        /// </summary>
+        /// <param name="item">The item to pick up</param>
+        /// <returns>true, when the full item was picked up, false when the full item was not picked up and the amount of the referenced item was changed</returns>
+        public bool PickupItem(Item item) {
             if (item is ResourceItem resourceItem) {
                 var restAmount = resourceItem.Amount;
 
@@ -74,7 +79,7 @@ namespace Player.Inventory {
 
                     if (rest >= restAmount) {
                         slotResourceItem.SetAmount(slotResourceItem.Amount + restAmount);
-                        return null;
+                        return true;
                     }
 
                     slotResourceItem.SetAmount(slotResourceItem.MaxAmount);
@@ -83,19 +88,19 @@ namespace Player.Inventory {
 
                 resourceItem.SetAmount(restAmount);
 
-                if (restAmount <= 0) return null;
+                if (restAmount <= 0) return true;
                 var firstEmpty = FirstEmpty();
-                if (firstEmpty == -1) return resourceItem;
+                if (firstEmpty == -1) return false;
 
                 SetItem(firstEmpty, resourceItem);
             } else {
                 var firstEmpty = FirstEmpty();
-                if (firstEmpty == -1) return item;
+                if (firstEmpty == -1) return false;
 
                 SetItem(firstEmpty, item);
             }
 
-            return null;
+            return true;
         }
     }
 }

@@ -38,7 +38,7 @@ namespace Player.Inventory {
                         0
                     );
 
-                    playerInventory.slots[i + j * 8] = itemSlot;
+                    playerInventory.slots[j + i * 8] = itemSlot;
                 }
             }
 
