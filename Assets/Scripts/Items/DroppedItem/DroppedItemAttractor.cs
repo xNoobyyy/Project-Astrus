@@ -7,10 +7,10 @@ namespace Items.DroppedItem {
 
         private Transform player;
 
-        public const float AttractionRadius = 0.5f;
+        public const float AttractionRadius = 1f;
 
         private void Awake() {
-            GetComponent<CircleCollider2D>().radius = AttractionRadius;
+            GetComponent<CircleCollider2D>().radius = AttractionRadius / 2;
         }
 
         // called whilst player is inside the attraction radius
@@ -23,10 +23,10 @@ namespace Items.DroppedItem {
 
             var distance = Vector2.Distance(player.position, droppedItem.transform.position);
 
-            if (distance is > AttractionRadius * 2 or < 0.1f) return;
+            if (distance is > AttractionRadius or < 0.1f) return;
 
             // f(x) = (x-1)^2 -> 0 at radius and 1 at 0
-            var attraction = Mathf.Pow((distance - AttractionRadius * 2) / (AttractionRadius * 2), 2);
+            var attraction = Mathf.Pow((distance - AttractionRadius) / AttractionRadius, 2);
 
             Debug.Log($"Distance: {distance}, Attraction: {attraction}");
 

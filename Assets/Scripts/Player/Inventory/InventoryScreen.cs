@@ -2,6 +2,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 namespace Player.Inventory {
     public class InventoryScreen : MonoBehaviour {
@@ -11,9 +12,9 @@ namespace Player.Inventory {
         public ItemSlot DraggingFrom { get; private set; }
 
         public static InventoryScreen Instance { get; private set; }
+        public Canvas Canvas { get; private set; }
+        public RectTransform CanvasRect { get; private set; }
 
-        private RectTransform canvasRect;
-        private Canvas canvas;
         private RectTransform draggedItemRendererRect;
 
         private void Awake() {
@@ -41,8 +42,8 @@ namespace Player.Inventory {
                 }
             }
 
-            canvasRect = GetComponent<RectTransform>();
-            canvas = GetComponent<Canvas>();
+            CanvasRect = GetComponent<RectTransform>();
+            Canvas = GetComponent<Canvas>();
         }
 
         private void Update() {
@@ -51,9 +52,9 @@ namespace Player.Inventory {
             Vector2 cursorPosition = Input.mousePosition;
 
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                canvasRect,
+                CanvasRect,
                 cursorPosition,
-                canvas.worldCamera,
+                Canvas.worldCamera,
                 out var canvasPosition
             );
 
@@ -75,7 +76,7 @@ namespace Player.Inventory {
         public void StartDragging(ItemSlot itemSlot) {
             DraggingFrom = itemSlot;
             draggedItemRendererRect =
-                Instantiate(itemSlot.itemRenderer, canvas.transform).GetComponent<RectTransform>();
+                Instantiate(itemSlot.itemRenderer, Canvas.transform).GetComponent<RectTransform>();
         }
 
         public void ResetDragging() {

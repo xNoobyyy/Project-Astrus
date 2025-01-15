@@ -6,14 +6,15 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Player.Inventory {
-    public class ItemSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IDropHandler {
+    public class ItemSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler,
+        IDropHandler {
         public Item Item { get; private set; }
 
         public GameObject itemRenderer;
 
         public void SetItem(Item item) {
             Item = item;
-            
+
             var itemRenderImageComponent = itemRenderer.GetComponent<Image>();
 
             if (Item == null) {
@@ -37,11 +38,23 @@ namespace Player.Inventory {
             InventoryScreen.Instance.StartDragging(this);
         }
 
+        public void OnEndDrag(PointerEventData eventData) {
+            if (InventoryScreen.Instance.DraggingFrom == null) return;
+
+            InventoryScreen.Instance.ResetDragging();
+        }
+
+
         // DO NOT DELETE
         public void OnDrag(PointerEventData eventData) { }
 
         public void OnDrop(PointerEventData eventData) {
             if (InventoryScreen.Instance.DraggingFrom == null) return;
+
+            if (InventoryScreen.Instance.DraggingFrom == this) {
+                InventoryScreen.Instance.ResetDragging();
+                return;
+            }
 
             var draggingItemSlot = Array.IndexOf(
                 PlayerInventory.Instance.slots,
