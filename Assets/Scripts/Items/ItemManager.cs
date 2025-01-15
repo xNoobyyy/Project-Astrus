@@ -1,12 +1,11 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Items {
     public class ItemManager : MonoBehaviour {
-        
-        [Header("Item Icons")]
-        public Sprite ironPickaxeIcon;
-        
+        [Header("Item Icons")] public Sprite ironPickaxeIcon;
+
+        [Header("Prefabs")] public GameObject droppedItemPrefab;
+
         public static ItemManager Instance { get; private set; }
 
         private void Awake() {
@@ -16,6 +15,14 @@ namespace Items {
                 Destroy(gameObject);
             }
         }
-        
+
+        public GameObject CreateDroppedItem(Vector3 position, Item item) {
+            var droppedItem = Instantiate(droppedItemPrefab, position, Quaternion.identity);
+
+            var droppedItemComponent = droppedItem.GetComponent<DroppedItem.DroppedItem>();
+            droppedItemComponent.Initialize(item);
+
+            return droppedItem;
+        }
     }
 }
