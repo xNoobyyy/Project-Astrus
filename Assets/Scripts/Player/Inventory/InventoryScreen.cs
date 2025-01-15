@@ -1,13 +1,15 @@
-using System;
-using Unity.VisualScripting;
+using Items;
+using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace Player.Inventory {
     public class InventoryScreen : MonoBehaviour {
-        public ItemSlot itemSlotPrefab;
-        public GameObject itemSlotContainer;
+        public GameObject itemSlotsContainer;
+        public GameObject draggedItem;
+        public Image draggedItemImage;
+        public GameObject draggedItemAmount;
+        public TMP_Text draggedItemAmountText;
 
         public ItemSlot DraggingFrom { get; private set; }
 
@@ -15,7 +17,7 @@ namespace Player.Inventory {
         public Canvas Canvas { get; private set; }
         public RectTransform CanvasRect { get; private set; }
 
-        private RectTransform draggedItemRendererRect;
+        private RectTransform draggedItemRect;
 
         private void Awake() {
             if (Instance == null) {
@@ -28,22 +30,11 @@ namespace Player.Inventory {
         private void Start() {
             gameObject.SetActive(false);
 
-            var playerInventory = PlayerInventory.Instance;
-            for (var i = 0; i < 4; i++) {
-                for (var j = 0; j < 8; j++) {
-                    var itemSlot = Instantiate(itemSlotPrefab, itemSlotContainer.transform);
-                    itemSlot.GetComponent<RectTransform>().localPosition = new Vector3(
-                        j * 70,
-                        i * -70,
-                        0
-                    );
-
-                    playerInventory.slots[j + i * 8] = itemSlot;
-                }
-            }
+            PlayerInventory.Instance.Slots = itemSlotsContainer.GetComponentsInChildren<ItemSlot>();
 
             CanvasRect = GetComponent<RectTransform>();
             Canvas = GetComponent<Canvas>();
+            draggedItemRect = draggedItem.GetComponent<RectTransform>();
         }
 
         private void Update() {
@@ -58,7 +49,7 @@ namespace Player.Inventory {
                 out var canvasPosition
             );
 
-            draggedItemRendererRect.localPosition = canvasPosition;
+            draggedItemRect.localPosition = canvasPosition;
         }
 
         public void Open() {
@@ -75,13 +66,21 @@ namespace Player.Inventory {
 
         public void StartDragging(ItemSlot itemSlot) {
             DraggingFrom = itemSlot;
-            draggedItemRendererRect =
-                Instantiate(itemSlot.itemRenderer, Canvas.transform).GetComponent<RectTransform>();
+
+            draggedItem.SetActive(true);
+            draggedItemImage.sprite = itemSlot.Item.Icon;
+
+            if (itemSlot.Item is ResourceItem resourceItem) {
+                draggedItemAmount.SetActive(true);
+                draggedItemAmountText.text = resourceItem.Amount.ToString();
+            } else {
+                draggedItemAmount.SetActive(false);
+            }
         }
 
         public void ResetDragging() {
             DraggingFrom = null;
-            Destroy(draggedItemRendererRect.gameObject);
+            draggedItem.SetActive(false);
         }
     }
 }

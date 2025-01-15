@@ -1,10 +1,9 @@
-using System;
 using Items;
 using UnityEngine;
 
 namespace Player.Inventory {
     public class PlayerInventory : MonoBehaviour {
-        public ItemSlot[] slots = new ItemSlot[32];
+        public ItemSlot[] Slots { get; set; }
 
         public static PlayerInventory Instance { get; private set; }
 
@@ -17,20 +16,20 @@ namespace Player.Inventory {
         }
 
         public void SetItem(int index, Item item) {
-            slots[index].SetItem(item);
+            Slots[index].SetItem(item);
         }
 
         public Item GetItem(int index) {
-            return slots[index].Item;
+            return Slots[index].Item;
         }
 
         public void RemoveItem(int index) {
-            slots[index].SetItem(null);
+            Slots[index].SetItem(null);
         }
 
         public int FirstEmpty() {
-            for (var i = 0; i < slots.Length; i++) {
-                if (slots[i].Item == null) {
+            for (var i = 0; i < Slots.Length; i++) {
+                if (Slots[i].Item == null) {
                     return i;
                 }
             }
@@ -45,12 +44,9 @@ namespace Player.Inventory {
         /// <returns>true if it can pick up any amount of the item</returns>
         public bool CanPickUpItem(Item item) {
             if (item is not ResourceItem resourceItem) return FirstEmpty() != -1;
-
             if (FirstEmpty() != -1) return true;
 
-            var restAmount = resourceItem.Amount;
-
-            foreach (var slot in slots) {
+            foreach (var slot in Slots) {
                 if (slot.Item is not ResourceItem slotResourceItem ||
                     slotResourceItem.GetType() != resourceItem.GetType()) continue;
 
@@ -71,7 +67,7 @@ namespace Player.Inventory {
             if (item is ResourceItem resourceItem) {
                 var restAmount = resourceItem.Amount;
 
-                foreach (var slot in slots) {
+                foreach (var slot in Slots) {
                     if (slot.Item is not ResourceItem slotResourceItem ||
                         slotResourceItem.GetType() != resourceItem.GetType()) continue;
 
@@ -79,10 +75,12 @@ namespace Player.Inventory {
 
                     if (rest >= restAmount) {
                         slotResourceItem.SetAmount(slotResourceItem.Amount + restAmount);
+                        slot.UpdateDisplay();
                         return true;
                     }
 
                     slotResourceItem.SetAmount(slotResourceItem.MaxAmount);
+                    slot.UpdateDisplay();
                     restAmount -= rest;
                 }
 

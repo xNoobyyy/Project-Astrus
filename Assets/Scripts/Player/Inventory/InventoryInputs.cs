@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Player.Inventory {
     public class InventoryInputs : MonoBehaviour {

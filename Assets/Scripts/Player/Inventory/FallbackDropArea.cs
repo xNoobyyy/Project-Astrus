@@ -28,7 +28,7 @@ namespace Player.Inventory {
             );
 
             var draggingItemSlot = Array.IndexOf(
-                PlayerInventory.Instance.slots,
+                PlayerInventory.Instance.Slots,
                 InventoryScreen.Instance.DraggingFrom
             );
 

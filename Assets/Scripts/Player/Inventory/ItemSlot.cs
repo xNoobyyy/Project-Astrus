@@ -1,6 +1,7 @@
 using System;
 using Items;
 using Items.Items;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -11,6 +12,8 @@ namespace Player.Inventory {
         public Item Item { get; private set; }
 
         public GameObject itemRenderer;
+        public GameObject itemAmountRenderer;
+        public TMP_Text itemAmountText;
 
         public void SetItem(Item item) {
             Item = item;
@@ -18,11 +21,24 @@ namespace Player.Inventory {
             var itemRenderImageComponent = itemRenderer.GetComponent<Image>();
 
             if (Item == null) {
-                itemRenderImageComponent.enabled = false;
+                itemRenderer.SetActive(false);
+                itemAmountRenderer.SetActive(false);
             } else {
-                itemRenderImageComponent.enabled = true;
-                itemRenderImageComponent.GetComponent<Image>().sprite = Item.Icon;
+                itemRenderer.SetActive(true);
+                itemRenderImageComponent.sprite = Item.Icon;
+                itemRenderImageComponent.preserveAspect = true;
+
+                if (Item is ResourceItem resourceItem) {
+                    itemAmountRenderer.SetActive(true);
+                    itemAmountText.text = resourceItem.Amount.ToString();
+                } else {
+                    itemAmountRenderer.SetActive(false);
+                }
             }
+        }
+
+        public void UpdateDisplay() {
+            SetItem(Item);
         }
 
         public void OnPointerClick(PointerEventData eventData) {
@@ -31,12 +47,12 @@ namespace Player.Inventory {
             switch (eventData.button) {
                 case PointerEventData.InputButton.Left:
                     PlayerInventory.Instance.SetItem(
-                        Array.IndexOf(PlayerInventory.Instance.slots, this),
+                        Array.IndexOf(PlayerInventory.Instance.Slots, this),
                         new IronPickaxe());
                     break;
                 case PointerEventData.InputButton.Right:
                     PlayerInventory.Instance.SetItem(
-                        Array.IndexOf(PlayerInventory.Instance.slots, this),
+                        Array.IndexOf(PlayerInventory.Instance.Slots, this),
                         new Iron(19));
                     break;
             }
@@ -49,44 +65,50 @@ namespace Player.Inventory {
         }
 
         public void OnEndDrag(PointerEventData eventData) {
+            Debug.Log("OnEndDrag");
             if (InventoryScreen.Instance.DraggingFrom == null) return;
 
             InventoryScreen.Instance.ResetDragging();
         }
 
-
-        // DO NOT DELETE
-        public void OnDrag(PointerEventData eventData) { }
+        public void OnDrag(PointerEventData eventData) { } // DO NOT DELETE
 
         public void OnDrop(PointerEventData eventData) {
+            Debug.Log("OnDrop");
             if (InventoryScreen.Instance.DraggingFrom == null) return;
+            Debug.Log("OnDrop 2");
 
             if (InventoryScreen.Instance.DraggingFrom == this) {
                 InventoryScreen.Instance.ResetDragging();
                 return;
             }
+            
+            Debug.Log("OnDrop 3");
 
-            var draggingItemSlot = Array.IndexOf(
-                PlayerInventory.Instance.slots,
-                InventoryScreen.Instance.DraggingFrom
-            );
+            if (InventoryScreen.Instance.DraggingFrom.Item is ResourceItem draggedResourceItem &&
+                Item is ResourceItem resourceItem && draggedResourceItem.GetType() == resourceItem.GetType() &&
+                resourceItem.Amount < resourceItem.MaxAmount) {
+                Debug.Log("OnDrop; ResourceItem");
+                var left = resourceItem.MaxAmount - resourceItem.Amount;
 
-            var thisItemSlot = Array.IndexOf(
-                PlayerInventory.Instance.slots,
-                this
-            );
+                if (left >= draggedResourceItem.Amount) {
+                    resourceItem.SetAmount(resourceItem.Amount + draggedResourceItem.Amount);
+                    UpdateDisplay();
+                    InventoryScreen.Instance.DraggingFrom.SetItem(null);
+                } else {
+                    resourceItem.SetAmount(resourceItem.MaxAmount);
+                    UpdateDisplay();
 
-            var currentItem = Item;
+                    draggedResourceItem.SetAmount(draggedResourceItem.Amount - left);
+                    InventoryScreen.Instance.DraggingFrom.UpdateDisplay();
+                }
+            } else {
+                Debug.Log("OnDrop; Item");
+                var currentItem = Item;
 
-            PlayerInventory.Instance.SetItem(
-                thisItemSlot,
-                InventoryScreen.Instance.DraggingFrom.Item
-            );
-
-            PlayerInventory.Instance.SetItem(
-                draggingItemSlot,
-                currentItem
-            );
+                SetItem(InventoryScreen.Instance.DraggingFrom.Item);
+                InventoryScreen.Instance.DraggingFrom.SetItem(currentItem);
+            }
 
             InventoryScreen.Instance.ResetDragging();
         }
