@@ -29,12 +29,12 @@ namespace Player.Inventory {
             gameObject.SetActive(false);
 
             var playerInventory = PlayerInventory.Instance;
-            for (var i = 0; i < 8; i++) {
-                for (var j = 0; j < 4; j++) {
+            for (var i = 0; i < 4; i++) {
+                for (var j = 0; j < 8; j++) {
                     var itemSlot = Instantiate(itemSlotPrefab, itemSlotContainer.transform);
                     itemSlot.GetComponent<RectTransform>().localPosition = new Vector3(
-                        i * 70,
-                        j * -70,
+                        j * 70,
+                        i * -70,
                         0
                     );
 
