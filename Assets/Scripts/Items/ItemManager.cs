@@ -18,11 +18,13 @@ namespace Items {
             }
         }
 
-        public GameObject CreateDroppedItem(Vector3 position, Item item) {
-            var droppedItem = Instantiate(droppedItemPrefab, position, Quaternion.identity);
+        public GameObject CreateDroppedItem(Vector3 position, Vector3 from, Item item) {
+            var droppedItem = Instantiate(droppedItemPrefab, from, Quaternion.identity);
 
             var droppedItemComponent = droppedItem.GetComponent<DroppedItem.DroppedItem>();
             droppedItemComponent.Initialize(item);
+
+            droppedItemComponent.MoveTo(position);
 
             return droppedItem;
         }

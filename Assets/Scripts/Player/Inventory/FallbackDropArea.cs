@@ -21,9 +21,12 @@ namespace Player.Inventory {
             Vector3 direction = canvasPosition - canvasCenter;
             direction.Normalize();
 
+            var playerPosition = GameObject.FindWithTag("Player").transform.position;
+            var dropPosition = playerPosition + direction * (DroppedItemAttractor.AttractionRadius + 0.1f);
+
             ItemManager.Instance.CreateDroppedItem(
-                GameObject.FindWithTag("Player").transform.position +
-                direction * (DroppedItemAttractor.AttractionRadius + 0.1f),
+                dropPosition,
+                playerPosition,
                 InventoryScreen.Instance.DraggingFrom.Item
             );
 
