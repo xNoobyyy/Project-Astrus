@@ -1,7 +1,8 @@
 using Items;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
+using Image = UnityEngine.UI.Image;
 
 namespace Player.Inventory {
     public class InventoryScreen : MonoBehaviour {
@@ -18,6 +19,8 @@ namespace Player.Inventory {
         public RectTransform CanvasRect { get; private set; }
 
         private RectTransform draggedItemRect;
+
+        
 
         private void Awake() {
             if (Instance == null) {
@@ -82,5 +85,7 @@ namespace Player.Inventory {
             DraggingFrom = null;
             draggedItem.SetActive(false);
         }
+
+        
     }
 }
