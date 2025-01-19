@@ -3,3 +3,4 @@
 *.prefab text eol=lf
 *.prefab merge=unityyamlmerge
 /Assets/Sprites/Map/Winter/PSD/Objects.psd filter=lfs diff=lfs merge=lfs -text
+/Assets/Scenes/Map.unity filter=lfs diff=lfs merge=lfs -text
