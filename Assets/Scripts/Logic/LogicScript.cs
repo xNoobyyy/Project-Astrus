@@ -9,17 +9,26 @@ public class LogicScript : MonoBehaviour
     public InventoryScreen inventoryScreen;
     public GameObject background;
     public RectTransform inventoryScreenVisu;
-    
+    public RectTransform questScreenVisu;
+    private Vector2 QuestPosition;
+    private Vector2 QuestSize;
+    private bool InventoryOpen = false;
     
     void Start() {
         inventoryScreen.Close();
-        
+        QuestPosition = questScreenVisu.transform.position;
+        QuestSize = questScreenVisu.sizeDelta;
+
     }
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.I))
         {
             OpenInventoryScreen();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && InventoryOpen) {
+            CloseInventoryScreen();
         }
     }
 
@@ -34,10 +43,14 @@ public class LogicScript : MonoBehaviour
     public void OpenInventoryScreen() {
         
         questScreen.ConvertToInventory(inventoryScreenVisu.transform.position.x, inventoryScreenVisu.transform.position.y, inventoryScreenVisu.sizeDelta.x, inventoryScreenVisu.sizeDelta.y );
-        inventoryScreen.Open();
+        
+        //inventoryScreen.Open();
+        InventoryOpen = true;
     }
 
     public void CloseInventoryScreen() {
+        questScreen.ConvertToQuestUI(QuestPosition.x, QuestPosition.y, QuestSize.x, QuestSize.y );
         inventoryScreen.Close();
+        InventoryOpen = false;
     }
 }

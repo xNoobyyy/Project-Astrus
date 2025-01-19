@@ -1,5 +1,6 @@
 
 using System.Collections.Generic;
+using Player.Inventory;
 using TMPro; // Für TextMeshPro
 using UnityEngine;
 
@@ -8,8 +9,10 @@ public class QuestScreenScript : MonoBehaviour
     public GameObject questPanel;
     public RectTransform questScreenVisu;
     public TextMeshProUGUI questText; // Verweise auf das Text-Objekt im Panel
+    public InventoryScreen inventoryScreen;
     private List<string> quests = new List<string>();
     private bool transforming = false;
+    private bool transformingToInventory = false;
     private Vector2 targetPosition;
     private Vector2 targetSize;
     private int transformationSpeed = 10;
@@ -36,15 +39,22 @@ public class QuestScreenScript : MonoBehaviour
                 Time.deltaTime * transformationSpeed
             );
 
-            float tolerance = 0.0001f; // Toleranzwert
+            float tolerance = 0.5f; // Toleranzwert
 
             if ((Vector2.Distance(questScreenVisu.sizeDelta, targetSize) < tolerance) &&
                 (Vector2.Distance(questScreenVisu.transform.position, targetPosition) < tolerance))
             {
                 transforming = false;
                 
+                if (transformingToInventory) {
+                    transformingToInventory = false;
+                    
+                    inventoryScreen.Open();
+
+                }
+                
                 questScreenVisu.sizeDelta = targetSize;
-                questScreenVisu.anchoredPosition = targetPosition;
+                questScreenVisu.transform.position = targetPosition;
             }
 
         }
@@ -70,8 +80,17 @@ public class QuestScreenScript : MonoBehaviour
     public void ConvertToInventory(float PosX, float PosY, float Width, float Height) {
         targetPosition = new Vector2(PosX, PosY);
         targetSize = new Vector2(Width, Height);
+        transformingToInventory = true;
         transforming = true;
+        
         questText.text = "";
 
+    }
+
+    public void ConvertToQuestUI(float PosX, float PosY, float Width, float Height) {
+        targetPosition = new Vector2(PosX, PosY);
+        targetSize = new Vector2(Width, Height);
+        transforming = true;
+        UpdateQuestUI();
     }
 }
