@@ -226,7 +226,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -240,7 +240,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -1709,7 +1709,71 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      rocks_details_0: -7039520600157214615
+      rocks_details_1: -7724976979585583258
+      rocks_details_10: 7990719487329309315
+      rocks_details_11: 4060143468260343984
+      rocks_details_12: 4919360910200661805
+      rocks_details_13: 5177956987089405077
+      rocks_details_14: 5954523427770420893
+      rocks_details_15: -8782501355255635433
+      rocks_details_16: 7651767388462621948
+      rocks_details_17: 4014536180290954852
+      rocks_details_18: -1064135074951887450
+      rocks_details_19: -649983208147573441
+      rocks_details_2: 426481046485027350
+      rocks_details_20: 2820462315438742494
+      rocks_details_21: 228392945617979478
+      rocks_details_22: 6368496598338384147
+      rocks_details_23: -626839226761449065
+      rocks_details_24: 1943566732232372070
+      rocks_details_25: 6935004048641832691
+      rocks_details_26: 7906178307596233921
+      rocks_details_27: -58798364788588980
+      rocks_details_28: -6596657488194676323
+      rocks_details_29: -1360418698400386088
+      rocks_details_3: 3785211723892040760
+      rocks_details_30: -8665290315321383754
+      rocks_details_31: 37870798798614035
+      rocks_details_32: -1654053078525616167
+      rocks_details_33: -2564391130942941327
+      rocks_details_34: -4038448712632779956
+      rocks_details_35: 3192020857490801928
+      rocks_details_36: -3755624486972362919
+      rocks_details_37: -1347064413695867176
+      rocks_details_38: 6649233839394363199
+      rocks_details_39: 597836714846586444
+      rocks_details_4: 4244224150590450279
+      rocks_details_40: -3923511772210304145
+      rocks_details_41: 4296798023356969504
+      rocks_details_42: 5200940140582987816
+      rocks_details_43: 3467877235534412556
+      rocks_details_44: -748633791924511412
+      rocks_details_45: -6386279687129865870
+      rocks_details_46: -483820460078483430
+      rocks_details_47: -5240692103417077877
+      rocks_details_48: 6073937627477994237
+      rocks_details_49: 8801886267208321266
+      rocks_details_5: -4533141945172641000
+      rocks_details_50: 6083334584463040629
+      rocks_details_51: 8861446643506564090
+      rocks_details_52: 520815680397757816
+      rocks_details_53: -2750030753419209612
+      rocks_details_54: -4611149911175538356
+      rocks_details_55: -3747360382734012059
+      rocks_details_56: 8057991354781030452
+      rocks_details_57: -8826220599885969487
+      rocks_details_58: 6773790361849213457
+      rocks_details_59: -1954785407702740688
+      rocks_details_6: -9195554641420699606
+      rocks_details_60: 626318325619432611
+      rocks_details_61: 5041883073428933973
+      rocks_details_62: -7237305477469310694
+      rocks_details_63: -4887503545505040673
+      rocks_details_7: 15125685821143022
+      rocks_details_8: -32317033733479315
+      rocks_details_9: -6479058317298190131
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
