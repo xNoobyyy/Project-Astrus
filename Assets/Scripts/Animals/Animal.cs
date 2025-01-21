@@ -8,8 +8,7 @@ namespace Pathfinding {
         public Vector2 Position { get; private set; }
         public float Health { get; private set; }
 
-        public float Health { get; private set; }
-
+        public float Health { get; private se
         public AStar aStar;
         public Collider2D collider;
 
