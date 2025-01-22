@@ -129,6 +129,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -409,7 +435,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Statue_animated_0: 1197517333980881499
+      Statue_animated_1: 8966094193664928327
+      Statue_animated_10: -3985859349405280471
+      Statue_animated_11: 4842413486058803092
+      Statue_animated_2: -5500095010170424382
+      Statue_animated_3: -353376767280136055
+      Statue_animated_4: -3091987763790064490
+      Statue_animated_5: -542908291455803642
+      Statue_animated_6: -5504814985275551391
+      Statue_animated_7: -1641750386590301889
+      Statue_animated_8: -8481192686265600512
+      Statue_animated_9: -1825277882614220498
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

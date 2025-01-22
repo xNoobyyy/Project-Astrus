@@ -321,6 +321,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -2009,7 +2035,83 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ground_moss_0: -2618052203089620610
+      Ground_moss_1: -7572991527776685554
+      Ground_moss_10: -7132793666758077143
+      Ground_moss_11: 730536158637632384
+      Ground_moss_12: 6546905532307882581
+      Ground_moss_13: 4729072874109366712
+      Ground_moss_14: 6701325794873992325
+      Ground_moss_15: -6653964163610688952
+      Ground_moss_16: 1449996009317492233
+      Ground_moss_17: -9200366779472573160
+      Ground_moss_18: 6518569529616730084
+      Ground_moss_19: 1108360212296155967
+      Ground_moss_2: -4986936832294395540
+      Ground_moss_20: 363411815609375132
+      Ground_moss_21: -2632159254259644315
+      Ground_moss_22: 7812272986149259515
+      Ground_moss_23: -5216410368257470224
+      Ground_moss_24: 718011282774987273
+      Ground_moss_25: 6013035214655977003
+      Ground_moss_26: 2435732773478438679
+      Ground_moss_27: 8753908640469780509
+      Ground_moss_28: 1006991498896796387
+      Ground_moss_29: 756651682129786355
+      Ground_moss_3: -730943121369645802
+      Ground_moss_30: -8236228469766356477
+      Ground_moss_31: 5667692903048041791
+      Ground_moss_32: -2857874081193741908
+      Ground_moss_33: 4127154762819495268
+      Ground_moss_34: 1020040155509447583
+      Ground_moss_35: -1750786567303669024
+      Ground_moss_36: -5930576685686643119
+      Ground_moss_37: -1218807680577045728
+      Ground_moss_38: 2394286741789386079
+      Ground_moss_39: 9173018170848434908
+      Ground_moss_4: -3230039514273872827
+      Ground_moss_40: -3175567279030341772
+      Ground_moss_41: 5061776503609952596
+      Ground_moss_42: 7506543018976515539
+      Ground_moss_43: 3376908572037078940
+      Ground_moss_44: -203868068936113103
+      Ground_moss_45: 7600886382841188358
+      Ground_moss_46: 8918434613784710576
+      Ground_moss_47: -3358481562261228006
+      Ground_moss_48: 4307360758206936902
+      Ground_moss_49: -4003117954862200933
+      Ground_moss_5: 2886548231294866579
+      Ground_moss_50: 2371467494668484021
+      Ground_moss_51: -8552416218677791003
+      Ground_moss_52: -2298925377767656117
+      Ground_moss_53: -4336008021845709803
+      Ground_moss_54: 813968906058270321
+      Ground_moss_55: 7263140619265664521
+      Ground_moss_56: -7298009144071438240
+      Ground_moss_57: -8468839628346666865
+      Ground_moss_58: 2448431092274750092
+      Ground_moss_59: 8504132909810162452
+      Ground_moss_6: -550766487425142025
+      Ground_moss_60: 47486217570983461
+      Ground_moss_61: 5687741504773255545
+      Ground_moss_62: 7896283823657339941
+      Ground_moss_63: -7497449573295782212
+      Ground_moss_64: -3509401246082721302
+      Ground_moss_65: -3372240153643299629
+      Ground_moss_66: 5904693442865820892
+      Ground_moss_67: -8090395327758023479
+      Ground_moss_68: -190747282270610926
+      Ground_moss_69: 5071326085273475153
+      Ground_moss_7: -6926601135646013617
+      Ground_moss_70: -8366367770821785758
+      Ground_moss_71: 3462976574962575635
+      Ground_moss_72: 80495284175729506
+      Ground_moss_73: 69669685587020890
+      Ground_moss_74: -7574234690343616428
+      Ground_moss_75: 8167180817116271285
+      Ground_moss_8: 3864318910072178342
+      Ground_moss_9: 7257397062288903884
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

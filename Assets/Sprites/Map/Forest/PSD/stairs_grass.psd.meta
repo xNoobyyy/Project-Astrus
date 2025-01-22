@@ -339,6 +339,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -2159,7 +2185,89 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      stairs_grass_0: -28685604725646461
+      stairs_grass_1: -5642265061827567946
+      stairs_grass_10: -7531938250980869930
+      stairs_grass_11: 2045004551965366710
+      stairs_grass_12: 6910523614629283046
+      stairs_grass_13: 2420355317057978869
+      stairs_grass_14: -8413183327118319249
+      stairs_grass_15: 2450737607257508126
+      stairs_grass_16: 727991849261406401
+      stairs_grass_17: -1309712088326651645
+      stairs_grass_18: 8630388905829584944
+      stairs_grass_19: -5615499165338634222
+      stairs_grass_2: -5442942762917214985
+      stairs_grass_20: -778283529850622160
+      stairs_grass_21: -5862160819072256525
+      stairs_grass_22: -302938534270601417
+      stairs_grass_23: -5702453035206165420
+      stairs_grass_24: -535770721228247608
+      stairs_grass_25: -1620524989267851064
+      stairs_grass_26: 2934352913468095182
+      stairs_grass_27: 1924413394791190574
+      stairs_grass_28: -7311333986275522718
+      stairs_grass_29: 9145006566726277269
+      stairs_grass_3: -4105992643205500155
+      stairs_grass_30: 1080870936205413980
+      stairs_grass_31: 6078183162117886033
+      stairs_grass_32: 6741108577533125657
+      stairs_grass_33: 589159156180238679
+      stairs_grass_34: 2955971572925521973
+      stairs_grass_35: 6767494469925225060
+      stairs_grass_36: 4458666172914158295
+      stairs_grass_37: -3527637328710610480
+      stairs_grass_38: 5876326090878525539
+      stairs_grass_39: -6276157484578043665
+      stairs_grass_4: -8696514914254820862
+      stairs_grass_40: 9038213140142370635
+      stairs_grass_41: 3488279713227628838
+      stairs_grass_42: 8377753414480620741
+      stairs_grass_43: 6197515744364354145
+      stairs_grass_44: -522606863088576448
+      stairs_grass_45: -4556097051573014302
+      stairs_grass_46: 2715274204421215628
+      stairs_grass_47: 1113779042884447645
+      stairs_grass_48: -8896552823015159335
+      stairs_grass_49: 7302961906197350224
+      stairs_grass_5: 8978659963140906424
+      stairs_grass_50: 6476578559399362219
+      stairs_grass_51: -1493828415609823395
+      stairs_grass_52: -6260363949667200472
+      stairs_grass_53: -1767140783182730691
+      stairs_grass_54: 7022383148747138811
+      stairs_grass_55: -4723066012586130432
+      stairs_grass_56: 1968030623150365493
+      stairs_grass_57: -8322613583273800066
+      stairs_grass_58: 9210972140719959331
+      stairs_grass_59: -9157636751252619840
+      stairs_grass_6: 5746811773759217700
+      stairs_grass_60: 3583794070596532341
+      stairs_grass_61: 2627158480592067673
+      stairs_grass_62: -8900837382128193208
+      stairs_grass_63: -7083951067503632655
+      stairs_grass_64: -364832723297111779
+      stairs_grass_65: -7023339790843060395
+      stairs_grass_66: -8123477538794616281
+      stairs_grass_67: -4582047048465589769
+      stairs_grass_68: 8462927752967776088
+      stairs_grass_69: 5337606206847755713
+      stairs_grass_7: 1944585717765973698
+      stairs_grass_70: 2018165842652007599
+      stairs_grass_71: 1722301770260172331
+      stairs_grass_72: 4846065521439350641
+      stairs_grass_73: -3238839100570067878
+      stairs_grass_74: 1561426336115975718
+      stairs_grass_75: 5291549661372656191
+      stairs_grass_76: -7030103757565016636
+      stairs_grass_77: 6742980160750360677
+      stairs_grass_78: -6150152229892588875
+      stairs_grass_79: -6533600804765964599
+      stairs_grass_8: -3465375030471393667
+      stairs_grass_80: -7153151355702404444
+      stairs_grass_81: 876769749716624848
+      stairs_grass_9: 6338644621349239125
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

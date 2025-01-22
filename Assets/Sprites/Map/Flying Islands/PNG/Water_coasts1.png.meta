@@ -243,6 +243,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1359,7 +1385,57 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Water_coasts1_0: -3028562360314672157
+      Water_coasts1_1: 8999537920679477135
+      Water_coasts1_10: -8369330935851706244
+      Water_coasts1_11: 8090138270018786963
+      Water_coasts1_12: 7185696731548474523
+      Water_coasts1_13: 2312960001486539043
+      Water_coasts1_14: 4486885346925478387
+      Water_coasts1_15: 3561759462446907163
+      Water_coasts1_16: 3578447898240667516
+      Water_coasts1_17: -765286550434059894
+      Water_coasts1_18: 5570081763784174340
+      Water_coasts1_19: 3640762758973667272
+      Water_coasts1_2: 3220432752019299621
+      Water_coasts1_20: -2560158202010273236
+      Water_coasts1_21: -5885704742720434455
+      Water_coasts1_22: -4628578343310233752
+      Water_coasts1_23: 1067474356374564203
+      Water_coasts1_24: -5047788599112085354
+      Water_coasts1_25: -916416393927898785
+      Water_coasts1_26: -8621318604847222213
+      Water_coasts1_27: 5681300971581046626
+      Water_coasts1_28: 3700191545662732019
+      Water_coasts1_29: 4962221637822016590
+      Water_coasts1_3: -5263906186173445315
+      Water_coasts1_30: -7455106791679675390
+      Water_coasts1_31: 8490270861137718574
+      Water_coasts1_32: -342107462819019073
+      Water_coasts1_33: 1578203361557069924
+      Water_coasts1_34: 2620889512013628301
+      Water_coasts1_35: 5301543023765579009
+      Water_coasts1_36: 6869448684195560663
+      Water_coasts1_37: -9092859384027077986
+      Water_coasts1_38: 5465980687266059720
+      Water_coasts1_39: -1089810475596292711
+      Water_coasts1_4: 6230286449236877628
+      Water_coasts1_40: -2282060300992716922
+      Water_coasts1_41: 6714395189097966977
+      Water_coasts1_42: 536987648705442122
+      Water_coasts1_43: -6158282308120133721
+      Water_coasts1_44: 6642049738696200321
+      Water_coasts1_45: 6568865227303311885
+      Water_coasts1_46: -7849610718563144661
+      Water_coasts1_47: -416019387254581567
+      Water_coasts1_48: -6422263073221294968
+      Water_coasts1_49: -308855629229568907
+      Water_coasts1_5: 3401464696367039924
+      Water_coasts1_6: 5917588200680284265
+      Water_coasts1_7: -1669748587133263069
+      Water_coasts1_8: -2775429167876640434
+      Water_coasts1_9: 7694900273099252643
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

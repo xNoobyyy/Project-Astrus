@@ -498,6 +498,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -3484,7 +3510,142 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      water_detilazation_source_0: 7072180874178117379
+      water_detilazation_source_1: -8200859181188384166
+      water_detilazation_source_10: 442880262225781207
+      water_detilazation_source_100: 4630321739559914475
+      water_detilazation_source_101: 3520871265321747504
+      water_detilazation_source_102: 7417574667597772734
+      water_detilazation_source_103: 7837126491760612510
+      water_detilazation_source_104: -4259329108873698849
+      water_detilazation_source_105: 3571554716563452375
+      water_detilazation_source_106: -6696324977312138787
+      water_detilazation_source_107: -8915757863883457354
+      water_detilazation_source_108: 8714189575544844183
+      water_detilazation_source_109: 2521657624738372195
+      water_detilazation_source_11: -4928281058132866450
+      water_detilazation_source_110: 7817776442329948094
+      water_detilazation_source_111: 3853982692917788113
+      water_detilazation_source_112: 7677955592746771625
+      water_detilazation_source_113: 1304836804796595713
+      water_detilazation_source_114: -6200852365590307993
+      water_detilazation_source_115: -9036910752007511726
+      water_detilazation_source_116: -4191278690593961799
+      water_detilazation_source_117: -3574449179923914388
+      water_detilazation_source_118: 8113121587786907224
+      water_detilazation_source_119: 131739640113389437
+      water_detilazation_source_12: -7095395318315481444
+      water_detilazation_source_120: -7304363373471254160
+      water_detilazation_source_121: 5731438174715737478
+      water_detilazation_source_122: 2773259640826189631
+      water_detilazation_source_123: 7325628805343331622
+      water_detilazation_source_124: -1248370566315794366
+      water_detilazation_source_125: -1051961742012849653
+      water_detilazation_source_126: 6878897496964527726
+      water_detilazation_source_127: 1361431945793896044
+      water_detilazation_source_128: 1067252032879211508
+      water_detilazation_source_129: -6873736987721716422
+      water_detilazation_source_13: -2451701927528111550
+      water_detilazation_source_130: -8772376631888354831
+      water_detilazation_source_131: 5925286542411771455
+      water_detilazation_source_132: -1143148826483729574
+      water_detilazation_source_133: 4087358636018179895
+      water_detilazation_source_134: 3189855208752088883
+      water_detilazation_source_14: -3702402400428229088
+      water_detilazation_source_15: 3723949454535652686
+      water_detilazation_source_16: -6769376112135219875
+      water_detilazation_source_17: 1517375433521506224
+      water_detilazation_source_18: 3929890891494682817
+      water_detilazation_source_19: 4516234193633333120
+      water_detilazation_source_2: 8568128407277859430
+      water_detilazation_source_20: 5206292593102996033
+      water_detilazation_source_21: 526195368150295697
+      water_detilazation_source_22: 19919250048591646
+      water_detilazation_source_23: 441535094362397600
+      water_detilazation_source_24: -3943469214509559796
+      water_detilazation_source_25: -2471009499081823483
+      water_detilazation_source_26: -5570737274338347925
+      water_detilazation_source_27: -8260047640836609210
+      water_detilazation_source_28: 2041253726067206693
+      water_detilazation_source_29: 2959576806767604219
+      water_detilazation_source_3: 8740248649419171254
+      water_detilazation_source_30: -5588881563159757660
+      water_detilazation_source_31: 1364675886162965477
+      water_detilazation_source_32: 9101475402478060595
+      water_detilazation_source_33: 8220034348455719708
+      water_detilazation_source_34: -3147239508778124202
+      water_detilazation_source_35: -6447235011638767570
+      water_detilazation_source_36: -7722445943972533850
+      water_detilazation_source_37: 1067801009896713682
+      water_detilazation_source_38: -7774569139697840315
+      water_detilazation_source_39: 3192797328510627644
+      water_detilazation_source_4: -6436530481723052504
+      water_detilazation_source_40: 7966911037171645526
+      water_detilazation_source_41: -5710188888945293999
+      water_detilazation_source_42: -3754601755079031820
+      water_detilazation_source_43: -8128991260640419537
+      water_detilazation_source_44: 715360521012271051
+      water_detilazation_source_45: -3856104949943072688
+      water_detilazation_source_46: -1634639730742637495
+      water_detilazation_source_47: -4734312599328959029
+      water_detilazation_source_48: -3425618998316026728
+      water_detilazation_source_49: 3641937642368866068
+      water_detilazation_source_5: -6910377898357902878
+      water_detilazation_source_50: 4378200072296116096
+      water_detilazation_source_51: -1884111881455926377
+      water_detilazation_source_52: -5882688596155400764
+      water_detilazation_source_53: 4330926551176432872
+      water_detilazation_source_54: -6076199045746612075
+      water_detilazation_source_55: 1306131058746312174
+      water_detilazation_source_56: -74881059608527661
+      water_detilazation_source_57: 5626903216374116855
+      water_detilazation_source_58: 5956857531469709823
+      water_detilazation_source_59: 8660591051474633716
+      water_detilazation_source_6: 1134717912781962482
+      water_detilazation_source_60: -7367043493400227950
+      water_detilazation_source_61: -3643173442778036182
+      water_detilazation_source_62: -6760315307596964424
+      water_detilazation_source_63: 5016630455439980858
+      water_detilazation_source_64: -7389221801463331264
+      water_detilazation_source_65: -4902465636502574204
+      water_detilazation_source_66: -1500276614031691976
+      water_detilazation_source_67: 5694362300759972933
+      water_detilazation_source_68: 5269637724973307418
+      water_detilazation_source_69: -6207680567784534209
+      water_detilazation_source_7: -6909371176536650327
+      water_detilazation_source_70: -710938009298290437
+      water_detilazation_source_71: 2209842639115738737
+      water_detilazation_source_72: -7854073386338880988
+      water_detilazation_source_73: 1968182010822510061
+      water_detilazation_source_74: 6043692274666255976
+      water_detilazation_source_75: 3188494565024774758
+      water_detilazation_source_76: 7975221747043908945
+      water_detilazation_source_77: 7983531631808673923
+      water_detilazation_source_78: 8799964448949349282
+      water_detilazation_source_79: -46897807183888487
+      water_detilazation_source_8: 5176721891864404994
+      water_detilazation_source_80: -5086621470727697822
+      water_detilazation_source_81: 7622656479004217011
+      water_detilazation_source_82: 6979395817562889711
+      water_detilazation_source_83: -8761411445799749510
+      water_detilazation_source_84: -5604782083346350378
+      water_detilazation_source_85: -876170373673787701
+      water_detilazation_source_86: -5627852635490329249
+      water_detilazation_source_87: 2048974354307436277
+      water_detilazation_source_88: -3824862219583378156
+      water_detilazation_source_89: 1324500681737039032
+      water_detilazation_source_9: 6859610652534240024
+      water_detilazation_source_90: -6796022546900856510
+      water_detilazation_source_91: 5022603448839261924
+      water_detilazation_source_92: -7544180238971730200
+      water_detilazation_source_93: 5802839325132788118
+      water_detilazation_source_94: -2885546281596981208
+      water_detilazation_source_95: 1222174885427378987
+      water_detilazation_source_96: -7624315560148823773
+      water_detilazation_source_97: 5211019876571255018
+      water_detilazation_source_98: -6510114753579933055
+      water_detilazation_source_99: 8350985035224778551
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

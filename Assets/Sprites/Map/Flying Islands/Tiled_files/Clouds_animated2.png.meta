@@ -147,6 +147,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -559,7 +585,25 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Clouds_animated2_0: -950546465228365875
+      Clouds_animated2_1: 3832557790716030860
+      Clouds_animated2_10: -6265521365422970934
+      Clouds_animated2_11: 8102072883080169174
+      Clouds_animated2_12: -4727398563281929819
+      Clouds_animated2_13: 4234828914889886468
+      Clouds_animated2_14: -6080122023674757752
+      Clouds_animated2_15: -6341550915036965946
+      Clouds_animated2_16: -491865693092060105
+      Clouds_animated2_17: -7170656222373792905
+      Clouds_animated2_2: -6779872981945474176
+      Clouds_animated2_3: 3640635418352650620
+      Clouds_animated2_4: 3626949361114195043
+      Clouds_animated2_5: -3187519472890814795
+      Clouds_animated2_6: -2756096027162980276
+      Clouds_animated2_7: -304836361187042890
+      Clouds_animated2_8: 8171943856239930453
+      Clouds_animated2_9: 2567238343175883257
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

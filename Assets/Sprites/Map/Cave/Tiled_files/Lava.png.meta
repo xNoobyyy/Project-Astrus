@@ -357,6 +357,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -2309,7 +2335,95 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Lava_0: -8890641348306671835
+      Lava_1: -5019001754007818968
+      Lava_10: -3383141145072359188
+      Lava_11: -2415454120820810850
+      Lava_12: 952959412584738551
+      Lava_13: 4213045651352210588
+      Lava_14: 4116518465287326428
+      Lava_15: -5948470912372053080
+      Lava_16: 5407603699134393157
+      Lava_17: 6102944148913008810
+      Lava_18: -3886045064900161345
+      Lava_19: -3768715930727610960
+      Lava_2: -5565025032182250017
+      Lava_20: 6009868530938108355
+      Lava_21: -5638131002303448600
+      Lava_22: 5552440494484252872
+      Lava_23: 320782293363073376
+      Lava_24: 7080845812073594346
+      Lava_25: -3357820856468230900
+      Lava_26: -365466059448378582
+      Lava_27: 3085220722158982291
+      Lava_28: -6339344685098231668
+      Lava_29: 1188517559287488251
+      Lava_3: -1197930168363157543
+      Lava_30: 5508105023055423922
+      Lava_31: -5904381681952366932
+      Lava_32: 908372289715723399
+      Lava_33: 1611171341143012065
+      Lava_34: -9119063636552594463
+      Lava_35: -4865649322436028907
+      Lava_36: 1774262066401283993
+      Lava_37: -3918340457890869131
+      Lava_38: 464321391641065429
+      Lava_39: -7804314053254262260
+      Lava_4: 7006918099690513589
+      Lava_40: -1243051622961960508
+      Lava_41: -2501722526195489984
+      Lava_42: -8279898416796097576
+      Lava_43: -8399392557587187517
+      Lava_44: 7638224216629809356
+      Lava_45: 5369137019305049756
+      Lava_46: -6167075692871476374
+      Lava_47: -1951343606133283520
+      Lava_48: -7634925158204522319
+      Lava_49: 6769401264441365866
+      Lava_5: -8476408854768340881
+      Lava_50: -7411366289648616977
+      Lava_51: 5258346181250727337
+      Lava_52: -5796744182206787438
+      Lava_53: 777695251483160078
+      Lava_54: -2996202097616207797
+      Lava_55: 4463111648289601112
+      Lava_56: -1644473967539393988
+      Lava_57: 8417362872268016737
+      Lava_58: -6668853178549169680
+      Lava_59: -4911900810724654736
+      Lava_6: -7859199937093875466
+      Lava_60: 3718593587676394745
+      Lava_61: 207988478338434337
+      Lava_62: -4329191823843085731
+      Lava_63: 2897814118811884339
+      Lava_64: 6945860964961685968
+      Lava_65: -5644897914437196868
+      Lava_66: -2352708356848394454
+      Lava_67: 202225688217023231
+      Lava_68: 7755831773510432958
+      Lava_69: -7410970988568917083
+      Lava_7: 94629639362385232
+      Lava_70: 5734568827715883316
+      Lava_71: -6648146693102883809
+      Lava_72: 8584179496201094257
+      Lava_73: -4738479104940044186
+      Lava_74: 4657758514177674351
+      Lava_75: 236594330412360112
+      Lava_76: -6559932465173490653
+      Lava_77: 7987830334525814230
+      Lava_78: -3594262804876069262
+      Lava_79: -210270680016087972
+      Lava_8: 5416189132888459678
+      Lava_80: 4853861582617690914
+      Lava_81: -7795964401655613066
+      Lava_82: 6970220326336636472
+      Lava_83: -1780411659383920292
+      Lava_84: -6080775290228221322
+      Lava_85: 2326152140488974365
+      Lava_86: -5728537736360232860
+      Lava_87: 4055383784030634974
+      Lava_9: -7423571036505750184
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

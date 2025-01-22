@@ -213,6 +213,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1109,7 +1135,47 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Objects_trees_0: -8067814312331974187
+      Objects_trees_1: 8189339863864695974
+      Objects_trees_10: -5297197787452589766
+      Objects_trees_11: -47324511011395216
+      Objects_trees_12: 4051077847281793014
+      Objects_trees_13: -7512972235518947428
+      Objects_trees_14: -8840699332321690011
+      Objects_trees_15: 1878911650174393443
+      Objects_trees_16: -7041251263845457944
+      Objects_trees_17: 2608900417355572856
+      Objects_trees_18: -5824177364313629252
+      Objects_trees_19: 3379398867878988739
+      Objects_trees_2: -4729922299297548783
+      Objects_trees_20: 4519830248182588597
+      Objects_trees_21: 6073728406133674377
+      Objects_trees_22: 8054699458862025225
+      Objects_trees_23: 5920563028188173240
+      Objects_trees_24: 9203253793294924476
+      Objects_trees_25: 7167399938379693823
+      Objects_trees_26: 8716380456453880688
+      Objects_trees_27: 8980597162439538629
+      Objects_trees_28: 2866546381495218243
+      Objects_trees_29: 7320252601404808173
+      Objects_trees_3: 8302877324534119158
+      Objects_trees_30: -8278219696300787780
+      Objects_trees_31: 6692724360390164060
+      Objects_trees_32: 4346684095294509146
+      Objects_trees_33: 3306678225773718714
+      Objects_trees_34: -4478653501432613718
+      Objects_trees_35: -4398984230039672189
+      Objects_trees_36: 3788601037225060106
+      Objects_trees_37: 2423205624415572161
+      Objects_trees_38: 1793795691616564813
+      Objects_trees_39: 5724154480745235660
+      Objects_trees_4: 7457095350638291289
+      Objects_trees_5: 3992657101421874283
+      Objects_trees_6: -2032699618258905247
+      Objects_trees_7: 8710453546764872773
+      Objects_trees_8: 7683014766532923945
+      Objects_trees_9: -4262195029005317974
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

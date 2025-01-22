@@ -330,6 +330,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -2084,7 +2110,86 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ground_grass_swamp_0: -4517497720132799634
+      Ground_grass_swamp_1: 3611266171105893956
+      Ground_grass_swamp_10: -1473167455990993924
+      Ground_grass_swamp_11: 6446919773503514306
+      Ground_grass_swamp_12: -8373490094408955016
+      Ground_grass_swamp_13: 3224292091228788468
+      Ground_grass_swamp_14: 343791928411518227
+      Ground_grass_swamp_15: -1205828065770388343
+      Ground_grass_swamp_16: 6668026357908795428
+      Ground_grass_swamp_17: 1542499724557454945
+      Ground_grass_swamp_18: 2408209039866837870
+      Ground_grass_swamp_19: -2813695728367200047
+      Ground_grass_swamp_2: -606544968935884102
+      Ground_grass_swamp_20: -5063681772318720593
+      Ground_grass_swamp_21: -2442461085081466970
+      Ground_grass_swamp_22: 7874781966431616592
+      Ground_grass_swamp_23: 2620611356242138082
+      Ground_grass_swamp_24: 3456954084183649944
+      Ground_grass_swamp_25: -4927496344997151304
+      Ground_grass_swamp_26: 2772555878474808268
+      Ground_grass_swamp_27: -8130039920260182427
+      Ground_grass_swamp_28: -6828921312329742839
+      Ground_grass_swamp_29: 7951184464866645014
+      Ground_grass_swamp_3: -5652832092548178363
+      Ground_grass_swamp_30: -6309672569448917534
+      Ground_grass_swamp_31: 1446171422465536277
+      Ground_grass_swamp_32: -2938193387633838121
+      Ground_grass_swamp_33: 6562322160411056793
+      Ground_grass_swamp_34: -3040846336281338800
+      Ground_grass_swamp_35: -4049666752000165615
+      Ground_grass_swamp_36: -870029944669664355
+      Ground_grass_swamp_37: -6035381289015876072
+      Ground_grass_swamp_38: 57887481671265295
+      Ground_grass_swamp_39: 6075715581575697099
+      Ground_grass_swamp_4: 5854178142991109900
+      Ground_grass_swamp_40: -8000389738604124203
+      Ground_grass_swamp_41: -352678014162252529
+      Ground_grass_swamp_42: -4917702872941829003
+      Ground_grass_swamp_43: 8404649874099272021
+      Ground_grass_swamp_44: -2619364545128953536
+      Ground_grass_swamp_45: -2369749759119322063
+      Ground_grass_swamp_46: -6904647823389814653
+      Ground_grass_swamp_47: -2359071469969086348
+      Ground_grass_swamp_48: 8210066944643364377
+      Ground_grass_swamp_49: 8105029366626689827
+      Ground_grass_swamp_5: 3696114477202042123
+      Ground_grass_swamp_50: -4070114112998913148
+      Ground_grass_swamp_51: -2964360242597161568
+      Ground_grass_swamp_52: -1932075121322314149
+      Ground_grass_swamp_53: -3259199289313029699
+      Ground_grass_swamp_54: -4242424661555202872
+      Ground_grass_swamp_55: 1730435756563723519
+      Ground_grass_swamp_56: -4189689929598072056
+      Ground_grass_swamp_57: -6390911801748133133
+      Ground_grass_swamp_58: -5731328294687375273
+      Ground_grass_swamp_59: 7211823159631209692
+      Ground_grass_swamp_6: 3029514925659799001
+      Ground_grass_swamp_60: -212036699451789844
+      Ground_grass_swamp_61: -2261961597827941558
+      Ground_grass_swamp_62: -639305442664968472
+      Ground_grass_swamp_63: 5696619454042076527
+      Ground_grass_swamp_64: 1389430578544190107
+      Ground_grass_swamp_65: 6482019491146634932
+      Ground_grass_swamp_66: -2093279536063100622
+      Ground_grass_swamp_67: 1330516364470070527
+      Ground_grass_swamp_68: 5727550054629121029
+      Ground_grass_swamp_69: -571571397922331962
+      Ground_grass_swamp_7: 5199290111441147629
+      Ground_grass_swamp_70: -7726878367238903943
+      Ground_grass_swamp_71: 1089461635186844301
+      Ground_grass_swamp_72: -3628994456205631507
+      Ground_grass_swamp_73: 8776823728017056169
+      Ground_grass_swamp_74: -7639113665262739106
+      Ground_grass_swamp_75: -3087112380811356124
+      Ground_grass_swamp_76: -7335538655469966108
+      Ground_grass_swamp_77: -7823117978611889597
+      Ground_grass_swamp_78: -6963025220207592341
+      Ground_grass_swamp_8: -4902188759432052563
+      Ground_grass_swamp_9: -1901240030500131812
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

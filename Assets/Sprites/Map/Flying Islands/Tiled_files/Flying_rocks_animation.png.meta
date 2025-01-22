@@ -327,6 +327,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -2059,7 +2085,85 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Flying_rocks_animation_0: 1969401149191449924
+      Flying_rocks_animation_1: 8512406140349081415
+      Flying_rocks_animation_10: -2827377431203485979
+      Flying_rocks_animation_11: -7239538973560207960
+      Flying_rocks_animation_12: -2909955041098642980
+      Flying_rocks_animation_13: -2160568436664543556
+      Flying_rocks_animation_14: 7555551397331139145
+      Flying_rocks_animation_15: -4673354782120686805
+      Flying_rocks_animation_16: -6073805217037467213
+      Flying_rocks_animation_17: 9213523109425871995
+      Flying_rocks_animation_18: -2568951722301696572
+      Flying_rocks_animation_19: -2702830866166248148
+      Flying_rocks_animation_2: -4332892571206501165
+      Flying_rocks_animation_20: -4744178634926784737
+      Flying_rocks_animation_21: -4151899004177584125
+      Flying_rocks_animation_22: -8024218057924331830
+      Flying_rocks_animation_23: -212433170860086463
+      Flying_rocks_animation_24: -97171588997974942
+      Flying_rocks_animation_25: 1772393987263659026
+      Flying_rocks_animation_26: -1071333923444368051
+      Flying_rocks_animation_27: -4303457527134394909
+      Flying_rocks_animation_28: 8241315612012404962
+      Flying_rocks_animation_29: 6690683503581998602
+      Flying_rocks_animation_3: 2314753654445961555
+      Flying_rocks_animation_30: 1270736485875934048
+      Flying_rocks_animation_31: -8204585359176560346
+      Flying_rocks_animation_32: 7676150237481463548
+      Flying_rocks_animation_33: 3644014763848179512
+      Flying_rocks_animation_34: -132316124221930311
+      Flying_rocks_animation_35: 4505829295677612247
+      Flying_rocks_animation_36: 6303063122612475974
+      Flying_rocks_animation_37: -2689592943346201675
+      Flying_rocks_animation_38: -2876402871332423740
+      Flying_rocks_animation_39: -2184026190303741567
+      Flying_rocks_animation_4: 9161682592529442281
+      Flying_rocks_animation_40: 3925193591682792371
+      Flying_rocks_animation_41: -8515847960953923435
+      Flying_rocks_animation_42: 6806952793313142762
+      Flying_rocks_animation_43: -3594141176288569588
+      Flying_rocks_animation_44: -316772372720337329
+      Flying_rocks_animation_45: 888753357388468739
+      Flying_rocks_animation_46: 2269660037327803439
+      Flying_rocks_animation_47: 3292804081849515551
+      Flying_rocks_animation_48: -5825951480035793490
+      Flying_rocks_animation_49: -5412248699790171408
+      Flying_rocks_animation_5: -9129905993005868946
+      Flying_rocks_animation_50: 1770264405378895635
+      Flying_rocks_animation_51: 460841168507098952
+      Flying_rocks_animation_52: 550352388786028164
+      Flying_rocks_animation_53: 408598749556315132
+      Flying_rocks_animation_54: 4767565990845944766
+      Flying_rocks_animation_55: -8409412452738206362
+      Flying_rocks_animation_56: 843894033227835816
+      Flying_rocks_animation_57: 3813475238259887274
+      Flying_rocks_animation_58: 5163674069290782640
+      Flying_rocks_animation_59: -2641028057510089509
+      Flying_rocks_animation_6: -8907465090809307468
+      Flying_rocks_animation_60: 4525631313164054891
+      Flying_rocks_animation_61: 8048645421423934029
+      Flying_rocks_animation_62: -8008090477621830814
+      Flying_rocks_animation_63: -4897922803855471090
+      Flying_rocks_animation_64: 4628579607074977849
+      Flying_rocks_animation_65: -6024517835098863564
+      Flying_rocks_animation_66: 7433551765201141673
+      Flying_rocks_animation_67: 4987186878381336378
+      Flying_rocks_animation_68: -2487522826672845787
+      Flying_rocks_animation_69: 5087093695360583839
+      Flying_rocks_animation_7: 1629973543260280410
+      Flying_rocks_animation_70: -4297815026415125572
+      Flying_rocks_animation_71: 3179190693832512360
+      Flying_rocks_animation_72: -1761791495898300813
+      Flying_rocks_animation_73: -5679435587076511005
+      Flying_rocks_animation_74: -5362732802517701916
+      Flying_rocks_animation_75: -5291227711295483617
+      Flying_rocks_animation_76: -2878989400592059259
+      Flying_rocks_animation_77: -4183947289238470319
+      Flying_rocks_animation_8: -3816145522596369485
+      Flying_rocks_animation_9: 2594923104842854619
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

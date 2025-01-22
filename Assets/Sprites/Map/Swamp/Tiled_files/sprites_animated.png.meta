@@ -450,6 +450,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -3084,7 +3110,126 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sprites_animated_0: -6287531858642422678
+      sprites_animated_1: -4181087654775376119
+      sprites_animated_10: 816425148035443971
+      sprites_animated_100: 8480709715667044134
+      sprites_animated_101: 671796308550071161
+      sprites_animated_102: -8138041731927741130
+      sprites_animated_103: -8686162467618463498
+      sprites_animated_104: 3920627378908606078
+      sprites_animated_105: 8983495561658267288
+      sprites_animated_106: -5028668046225391983
+      sprites_animated_107: -7791003712742707340
+      sprites_animated_108: 4951187111091113317
+      sprites_animated_109: -6173895652276324665
+      sprites_animated_11: -3095853857934794179
+      sprites_animated_110: -2487627799809581415
+      sprites_animated_111: 4194395751782216893
+      sprites_animated_112: -5224880291177059816
+      sprites_animated_113: 3229127193131106340
+      sprites_animated_114: -1073245650538017376
+      sprites_animated_115: 4455379175515835784
+      sprites_animated_116: 5958697494336090949
+      sprites_animated_117: -8213939344703004505
+      sprites_animated_118: 5984429775677208420
+      sprites_animated_12: -2002642360600886641
+      sprites_animated_13: -2238558110486994788
+      sprites_animated_14: 7906286365855630474
+      sprites_animated_15: -8339223656838123004
+      sprites_animated_16: 3953796136712893153
+      sprites_animated_17: -981339180297938201
+      sprites_animated_18: 378084637935130609
+      sprites_animated_19: 927526006684280057
+      sprites_animated_2: -3322854839585634620
+      sprites_animated_20: 4956948878823639513
+      sprites_animated_21: -298286386034443791
+      sprites_animated_22: -142563159673495923
+      sprites_animated_23: 6175096429273446279
+      sprites_animated_24: 1181320047341117261
+      sprites_animated_25: -6594847367780573472
+      sprites_animated_26: -2322340359454937343
+      sprites_animated_27: 1656805633522118138
+      sprites_animated_28: -8622041964100380376
+      sprites_animated_29: 3629602544660023494
+      sprites_animated_3: 1965955362494581929
+      sprites_animated_30: -908740929693425874
+      sprites_animated_31: 4977952890260205541
+      sprites_animated_32: -658021829022971827
+      sprites_animated_33: 1327532204947661886
+      sprites_animated_34: -3874547321651770580
+      sprites_animated_35: -6972568923982183425
+      sprites_animated_36: -4226908567333514794
+      sprites_animated_37: 3792387340897570548
+      sprites_animated_38: 2546762818546162080
+      sprites_animated_39: -5798607710437070902
+      sprites_animated_4: 3200016275969247141
+      sprites_animated_40: -5945274580965497538
+      sprites_animated_41: 4877945996679906589
+      sprites_animated_42: 3693447164214624657
+      sprites_animated_43: 4546976073719215025
+      sprites_animated_44: 8099513340548277935
+      sprites_animated_45: 9168363901540849618
+      sprites_animated_46: -5763867183745111969
+      sprites_animated_47: -7423119375858494916
+      sprites_animated_48: 5862864403464298356
+      sprites_animated_49: 4598612633999692703
+      sprites_animated_5: -6417200915388794480
+      sprites_animated_50: -616379148603104590
+      sprites_animated_51: -8872404181109704778
+      sprites_animated_52: 5309087422446767608
+      sprites_animated_53: 5120896491547561102
+      sprites_animated_54: 4062131280615649908
+      sprites_animated_55: -2906706820439969154
+      sprites_animated_56: -6131058544479895303
+      sprites_animated_57: 7654114667693830158
+      sprites_animated_58: -6921396026336588707
+      sprites_animated_59: -1772921494517675803
+      sprites_animated_6: -5424561038433651555
+      sprites_animated_60: -5729740826101599041
+      sprites_animated_61: 159252860172498212
+      sprites_animated_62: -6309030890793810472
+      sprites_animated_63: 244741698701259671
+      sprites_animated_64: 6465317134033534496
+      sprites_animated_65: -4508364029714107613
+      sprites_animated_66: -1341426123912261697
+      sprites_animated_67: 4361751444274460720
+      sprites_animated_68: -2154978830380174369
+      sprites_animated_69: -6867403399003940514
+      sprites_animated_7: -7478360885977123648
+      sprites_animated_70: 6657855736261510454
+      sprites_animated_71: -723408914548010612
+      sprites_animated_72: -2004186250869255584
+      sprites_animated_73: -8602297621516452089
+      sprites_animated_74: 3542109371197236888
+      sprites_animated_75: -6714155674294083941
+      sprites_animated_76: -6669937017568944498
+      sprites_animated_77: -6567519663849905173
+      sprites_animated_78: 8953898861314070093
+      sprites_animated_79: 8263331524069464070
+      sprites_animated_8: 1349846071068835020
+      sprites_animated_80: 415937293109565903
+      sprites_animated_81: -4272099783301786706
+      sprites_animated_82: 2035740091721339150
+      sprites_animated_83: 5927299508420705584
+      sprites_animated_84: 187681316869319552
+      sprites_animated_85: -6804239977080709909
+      sprites_animated_86: 8031295777438728461
+      sprites_animated_87: 946477058273319160
+      sprites_animated_88: -5517460979968593194
+      sprites_animated_89: -5089391206908293667
+      sprites_animated_9: 1367359726671209448
+      sprites_animated_90: 539645558266750050
+      sprites_animated_91: -8668276547420756114
+      sprites_animated_92: 2921407288062196120
+      sprites_animated_93: 2076882156029057494
+      sprites_animated_94: 6213143989828109007
+      sprites_animated_95: -1324133743725139860
+      sprites_animated_96: 7736197205390998198
+      sprites_animated_97: -3411996929724654418
+      sprites_animated_98: -5261829386629582337
+      sprites_animated_99: 2727128465447460022
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

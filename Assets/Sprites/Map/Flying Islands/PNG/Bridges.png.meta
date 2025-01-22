@@ -132,6 +132,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -434,7 +460,20 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bridges_0: 4419207245272849179
+      Bridges_1: -978938595932761890
+      Bridges_10: -3602347933649339817
+      Bridges_11: 3761576167961936120
+      Bridges_12: 8102311876266904689
+      Bridges_2: 4619552979010320299
+      Bridges_3: -7964094763856153742
+      Bridges_4: -5928713052716369325
+      Bridges_5: -2458347662786323051
+      Bridges_6: 502732440738137211
+      Bridges_7: -4276752969576645033
+      Bridges_8: 5169223617025914343
+      Bridges_9: -4847967973376863162
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

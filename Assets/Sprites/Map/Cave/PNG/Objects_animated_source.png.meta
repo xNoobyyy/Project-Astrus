@@ -327,6 +327,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -2059,7 +2085,85 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Objects_animated_source_0: -6735323840726805222
+      Objects_animated_source_1: -5027684019422271764
+      Objects_animated_source_10: 482948989585727067
+      Objects_animated_source_11: -5384955809916690349
+      Objects_animated_source_12: -2647648768531152685
+      Objects_animated_source_13: -5828822538436169080
+      Objects_animated_source_14: -1137370419984902413
+      Objects_animated_source_15: 2135212514004705595
+      Objects_animated_source_16: -2296963525671679987
+      Objects_animated_source_17: -5265962716320811202
+      Objects_animated_source_18: 5499997867843901281
+      Objects_animated_source_19: -6063724114672791846
+      Objects_animated_source_2: -1263470296682158029
+      Objects_animated_source_20: -5784529133494723581
+      Objects_animated_source_21: 8312495406290130173
+      Objects_animated_source_22: 1672345443869602919
+      Objects_animated_source_23: -4936774242917959317
+      Objects_animated_source_24: -8270633715507443437
+      Objects_animated_source_25: -7455128127917476875
+      Objects_animated_source_26: -8271511066194095471
+      Objects_animated_source_27: 8197407653319797690
+      Objects_animated_source_28: 5550169255962472267
+      Objects_animated_source_29: 4569009635627239745
+      Objects_animated_source_3: 8998119506551250981
+      Objects_animated_source_30: -4423150681313093842
+      Objects_animated_source_31: -5536639257634989447
+      Objects_animated_source_32: 1144027450627077460
+      Objects_animated_source_33: 8954458848118013988
+      Objects_animated_source_34: 6309350027263955674
+      Objects_animated_source_35: -1267555958834081900
+      Objects_animated_source_36: -5672094685774562790
+      Objects_animated_source_37: -4706688245058948699
+      Objects_animated_source_38: -8338614485292592855
+      Objects_animated_source_39: -3037071076344656983
+      Objects_animated_source_4: -8923042197783472755
+      Objects_animated_source_40: 701959662071765577
+      Objects_animated_source_41: 2038766733930935060
+      Objects_animated_source_42: 1455213173481217734
+      Objects_animated_source_43: 9159615637352066078
+      Objects_animated_source_44: -3072445773967286579
+      Objects_animated_source_45: 6546153818260191469
+      Objects_animated_source_46: -1334782632518528891
+      Objects_animated_source_47: 1682040482277907475
+      Objects_animated_source_48: -5098168520012860338
+      Objects_animated_source_49: 5463144693999944535
+      Objects_animated_source_5: -4175697582668575330
+      Objects_animated_source_50: -4405617942220639417
+      Objects_animated_source_51: -7653805343814204567
+      Objects_animated_source_52: 5253167851607091111
+      Objects_animated_source_53: -7002235052485058016
+      Objects_animated_source_54: -8641569995760930540
+      Objects_animated_source_55: -5585917355954566164
+      Objects_animated_source_56: 8464635854326145715
+      Objects_animated_source_57: 3432144579697777330
+      Objects_animated_source_58: 3822042493155504258
+      Objects_animated_source_59: 3694393088489033408
+      Objects_animated_source_6: 5534719540104649044
+      Objects_animated_source_60: -2125684647128302602
+      Objects_animated_source_61: -7592652371138366054
+      Objects_animated_source_62: -1811155719711125064
+      Objects_animated_source_63: 9195177441061437643
+      Objects_animated_source_64: -2193150481712478451
+      Objects_animated_source_65: -2389520096546219877
+      Objects_animated_source_66: -7539723154432072848
+      Objects_animated_source_67: 4146244790197869998
+      Objects_animated_source_68: -8440763237384605919
+      Objects_animated_source_69: 417143734440962797
+      Objects_animated_source_7: 9056224944025007118
+      Objects_animated_source_70: 3756975975559924952
+      Objects_animated_source_71: 6060014977975742060
+      Objects_animated_source_72: 3396840725788740656
+      Objects_animated_source_73: 8882898839190388916
+      Objects_animated_source_74: 6791977124661165525
+      Objects_animated_source_75: 266464389822440146
+      Objects_animated_source_76: -9150004014222324971
+      Objects_animated_source_77: -3183680449516415145
+      Objects_animated_source_8: 3774686359992509159
+      Objects_animated_source_9: -839180552468932684
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -498,6 +498,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -3484,7 +3510,142 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      lava_detilazation_source_0: 8970312921609033857
+      lava_detilazation_source_1: -648071639001757099
+      lava_detilazation_source_10: 3170523315085216834
+      lava_detilazation_source_100: -8287389947341568573
+      lava_detilazation_source_101: -6955379450832411475
+      lava_detilazation_source_102: 1240044241912482246
+      lava_detilazation_source_103: -1340919782814178158
+      lava_detilazation_source_104: -6842832185962777758
+      lava_detilazation_source_105: -6272650844604794058
+      lava_detilazation_source_106: -8119323728201054927
+      lava_detilazation_source_107: 5675657207021258566
+      lava_detilazation_source_108: -5439611669180886996
+      lava_detilazation_source_109: -6287047994812417223
+      lava_detilazation_source_11: 474324065784182018
+      lava_detilazation_source_110: -3707388416131726953
+      lava_detilazation_source_111: 3471456425058272099
+      lava_detilazation_source_112: 4420673208674626597
+      lava_detilazation_source_113: -3654482259494386525
+      lava_detilazation_source_114: -5848089612730147028
+      lava_detilazation_source_115: 8264784042683461004
+      lava_detilazation_source_116: 5252816662366964090
+      lava_detilazation_source_117: -7445938285279840907
+      lava_detilazation_source_118: 8032228421953364338
+      lava_detilazation_source_119: -361827864294582112
+      lava_detilazation_source_12: 5593445977648656232
+      lava_detilazation_source_120: 684000252035885102
+      lava_detilazation_source_121: -8036617993254745806
+      lava_detilazation_source_122: 3935592323080482354
+      lava_detilazation_source_123: -5928787586210242915
+      lava_detilazation_source_124: 8128703537302986756
+      lava_detilazation_source_125: -4789490643046639762
+      lava_detilazation_source_126: -8760137192857620678
+      lava_detilazation_source_127: 1576043425257657134
+      lava_detilazation_source_128: -434592512848827602
+      lava_detilazation_source_129: 4773124157019934972
+      lava_detilazation_source_13: 5744644799956589688
+      lava_detilazation_source_130: -8330956492202527642
+      lava_detilazation_source_131: 3180388249634348029
+      lava_detilazation_source_132: 6302517332805908003
+      lava_detilazation_source_133: -6573115984476306105
+      lava_detilazation_source_134: -1835447070368613958
+      lava_detilazation_source_14: -420779032167983631
+      lava_detilazation_source_15: 567994799529737877
+      lava_detilazation_source_16: -2571475275220729747
+      lava_detilazation_source_17: -5392041467256379120
+      lava_detilazation_source_18: -203819466931544721
+      lava_detilazation_source_19: -8450736535445827138
+      lava_detilazation_source_2: 238990625860421763
+      lava_detilazation_source_20: -2106916735158151372
+      lava_detilazation_source_21: 7969613815489204118
+      lava_detilazation_source_22: -811978281913351122
+      lava_detilazation_source_23: 5460594037476153395
+      lava_detilazation_source_24: 6727900141369966405
+      lava_detilazation_source_25: -5520769500701359061
+      lava_detilazation_source_26: -704138520222263742
+      lava_detilazation_source_27: -8461266252197554534
+      lava_detilazation_source_28: 7681013725085158950
+      lava_detilazation_source_29: 3477098747054517661
+      lava_detilazation_source_3: 6166153341310765464
+      lava_detilazation_source_30: 6075102197375477638
+      lava_detilazation_source_31: -6333607744218199675
+      lava_detilazation_source_32: -7319836914492988676
+      lava_detilazation_source_33: 2506634637821576190
+      lava_detilazation_source_34: -240752172919814573
+      lava_detilazation_source_35: 3368506645386942235
+      lava_detilazation_source_36: -8289420390161411878
+      lava_detilazation_source_37: -4018240887002981692
+      lava_detilazation_source_38: -2331362557458253215
+      lava_detilazation_source_39: 8548340730271805508
+      lava_detilazation_source_4: -7664989358785948316
+      lava_detilazation_source_40: -450856741949393186
+      lava_detilazation_source_41: 2895890495276042242
+      lava_detilazation_source_42: -7706888235477699221
+      lava_detilazation_source_43: -3924655250229389613
+      lava_detilazation_source_44: 3831994439813058425
+      lava_detilazation_source_45: -578148876011820010
+      lava_detilazation_source_46: 191422179144291239
+      lava_detilazation_source_47: -6400887232254880845
+      lava_detilazation_source_48: -6670488365613246999
+      lava_detilazation_source_49: -5581050644304682447
+      lava_detilazation_source_5: -5317250867288583819
+      lava_detilazation_source_50: 5409527688596935620
+      lava_detilazation_source_51: -3569237859035474990
+      lava_detilazation_source_52: 3886892471652325474
+      lava_detilazation_source_53: -8357242869705973124
+      lava_detilazation_source_54: -4284253549711238204
+      lava_detilazation_source_55: 1077893298540539364
+      lava_detilazation_source_56: -7220802573834064910
+      lava_detilazation_source_57: 2072278855714559795
+      lava_detilazation_source_58: -7636754151721822720
+      lava_detilazation_source_59: 1333770368422391833
+      lava_detilazation_source_6: -4340982350598173549
+      lava_detilazation_source_60: 6885456048349518291
+      lava_detilazation_source_61: -7022524799571701416
+      lava_detilazation_source_62: 2977378444562354031
+      lava_detilazation_source_63: 8589194719421208453
+      lava_detilazation_source_64: -9111086925255542315
+      lava_detilazation_source_65: -2845188028280850440
+      lava_detilazation_source_66: 7345384528688868086
+      lava_detilazation_source_67: 2111474456620531049
+      lava_detilazation_source_68: 2931890733398163012
+      lava_detilazation_source_69: -6039533471555041062
+      lava_detilazation_source_7: -5552941533708285168
+      lava_detilazation_source_70: 3220049663862601734
+      lava_detilazation_source_71: -2117266628330700382
+      lava_detilazation_source_72: -5392283912477823325
+      lava_detilazation_source_73: -1616492023632459333
+      lava_detilazation_source_74: -7697720627733655354
+      lava_detilazation_source_75: -7727777359592644225
+      lava_detilazation_source_76: -142461927860955721
+      lava_detilazation_source_77: -2659818955296318795
+      lava_detilazation_source_78: -2637352637970274223
+      lava_detilazation_source_79: 7966477811908159801
+      lava_detilazation_source_8: -4927633090299390847
+      lava_detilazation_source_80: -7475862328268127794
+      lava_detilazation_source_81: 7597402573238560160
+      lava_detilazation_source_82: -2946248808668374127
+      lava_detilazation_source_83: 6053492549982018160
+      lava_detilazation_source_84: 2732840661715324011
+      lava_detilazation_source_85: 7810584740651878763
+      lava_detilazation_source_86: 3995217601698720690
+      lava_detilazation_source_87: 8229031337588438401
+      lava_detilazation_source_88: 3250300241918682254
+      lava_detilazation_source_89: -2025945482163851261
+      lava_detilazation_source_9: 8233558826626257871
+      lava_detilazation_source_90: 6984284002896799710
+      lava_detilazation_source_91: 729328746267285064
+      lava_detilazation_source_92: -4418628216420564154
+      lava_detilazation_source_93: -2781926317372920546
+      lava_detilazation_source_94: 8504118202518194172
+      lava_detilazation_source_95: 56056974060266348
+      lava_detilazation_source_96: -3716502268068735465
+      lava_detilazation_source_97: -2800412373764282095
+      lava_detilazation_source_98: 7613373360740577241
+      lava_detilazation_source_99: 4625253173845106726
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

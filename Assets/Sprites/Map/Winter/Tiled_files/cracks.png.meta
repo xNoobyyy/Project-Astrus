@@ -282,6 +282,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1684,7 +1710,70 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cracks_0: 7380851143563150560
+      cracks_1: -4868287940151652474
+      cracks_10: 1644767920879648383
+      cracks_11: 433995377576482810
+      cracks_12: 3506197359337018849
+      cracks_13: 5242083568115829731
+      cracks_14: 4070226804906341389
+      cracks_15: -5703630370627710483
+      cracks_16: -6334720626543337094
+      cracks_17: 6703980091443595450
+      cracks_18: 7856220953375582595
+      cracks_19: 4828617324267651957
+      cracks_2: 8910196972657642581
+      cracks_20: 1415545196020621886
+      cracks_21: 494408676630078721
+      cracks_22: -4810117709355926345
+      cracks_23: -316505657493465113
+      cracks_24: -9038587570819491760
+      cracks_25: 8040454397186156797
+      cracks_26: -3238767094665020258
+      cracks_27: -5947914443835637757
+      cracks_28: 8221141553668358562
+      cracks_29: 7239421559282087021
+      cracks_3: 1285999970871983747
+      cracks_30: -2501943031144550968
+      cracks_31: 5598048267389096624
+      cracks_32: -7674780660552157723
+      cracks_33: -322612156193416598
+      cracks_34: 1284434728480345325
+      cracks_35: -5372520042126227841
+      cracks_36: -9002178772285574379
+      cracks_37: 4159006418511243939
+      cracks_38: 3605780850193678771
+      cracks_39: -5091645041314123834
+      cracks_4: 9101828007864236131
+      cracks_40: -4398231217375948596
+      cracks_41: 6024612940047172439
+      cracks_42: -3073716821326366253
+      cracks_43: 5693367258618041527
+      cracks_44: -6006636632602241653
+      cracks_45: 8358114200412671820
+      cracks_46: -8707684933593822281
+      cracks_47: -6592713876901347194
+      cracks_48: -7953553229413903691
+      cracks_49: -1095859532063038882
+      cracks_5: 7218266407290644795
+      cracks_50: -226337354723391875
+      cracks_51: 2314159845314995504
+      cracks_52: -1889075303612909981
+      cracks_53: -2107414181864841536
+      cracks_54: -2591022177624564505
+      cracks_55: -6128005244257404022
+      cracks_56: -1319785189335902348
+      cracks_57: 8159534167335519956
+      cracks_58: 7864479211605699202
+      cracks_59: 817849200412448695
+      cracks_6: -4429156828140438888
+      cracks_60: -1198400221328132835
+      cracks_61: 7571681117732330140
+      cracks_62: -4689145901713126890
+      cracks_7: -6565762692195060584
+      cracks_8: -6445589298773917783
+      cracks_9: -6216003884416593311
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

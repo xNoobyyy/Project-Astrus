@@ -165,6 +165,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -709,7 +735,31 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Flying_flowers_0: 1068290144419311173
+      Flying_flowers_1: 4975920863890923580
+      Flying_flowers_10: 911054721586290210
+      Flying_flowers_11: -8475851203427823667
+      Flying_flowers_12: -3633847550028319342
+      Flying_flowers_13: -1772415512316092741
+      Flying_flowers_14: -959521446058252619
+      Flying_flowers_15: -703862302500114228
+      Flying_flowers_16: -1659332220235277275
+      Flying_flowers_17: 8311864292627474480
+      Flying_flowers_18: -5731246652240390275
+      Flying_flowers_19: 4475014708481342223
+      Flying_flowers_2: -7351869681778686738
+      Flying_flowers_20: 7309307732280387484
+      Flying_flowers_21: -6852400423160335195
+      Flying_flowers_22: 4737405247838565330
+      Flying_flowers_23: -5756413012153370123
+      Flying_flowers_3: 6760270590374104491
+      Flying_flowers_4: 1059660513246417009
+      Flying_flowers_5: -3497050945175063886
+      Flying_flowers_6: 5640502707848621074
+      Flying_flowers_7: 2755371798482687038
+      Flying_flowers_8: -2188663510796384961
+      Flying_flowers_9: 1526029488373823071
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

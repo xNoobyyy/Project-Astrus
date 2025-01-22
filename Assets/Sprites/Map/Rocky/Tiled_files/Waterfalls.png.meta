@@ -255,6 +255,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1459,7 +1485,61 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Waterfalls_0: 1733622090170919743
+      Waterfalls_1: 64175532622781547
+      Waterfalls_10: 3024964066132437992
+      Waterfalls_11: 5633386832720528525
+      Waterfalls_12: -2852995525321628452
+      Waterfalls_13: -260175344931982989
+      Waterfalls_14: 2341469061652054997
+      Waterfalls_15: 7148762600986083267
+      Waterfalls_16: -4331681791918459861
+      Waterfalls_17: -7778550858712450777
+      Waterfalls_18: 8063707361270452229
+      Waterfalls_19: 2147034821222867816
+      Waterfalls_2: 976746543926383769
+      Waterfalls_20: 284460183553735707
+      Waterfalls_21: 8238865608264830125
+      Waterfalls_22: 5888057386031987039
+      Waterfalls_23: 5577629700412553981
+      Waterfalls_24: -9112125764419674961
+      Waterfalls_25: 578958914635457153
+      Waterfalls_26: 8701829505167881218
+      Waterfalls_27: -3214069021318095179
+      Waterfalls_28: -3593422123080055538
+      Waterfalls_29: -979463489608686965
+      Waterfalls_3: -6275705036050363631
+      Waterfalls_30: 1312331650333991856
+      Waterfalls_31: -4542925862562313599
+      Waterfalls_32: 340827100085323893
+      Waterfalls_33: 532036010576079662
+      Waterfalls_34: -1817754821428243661
+      Waterfalls_35: -6044640273833100611
+      Waterfalls_36: -5348731787112927118
+      Waterfalls_37: -411090114833712327
+      Waterfalls_38: -4834971833986145903
+      Waterfalls_39: 8479020612062535992
+      Waterfalls_4: 2219273457481372511
+      Waterfalls_40: -2618223284813060256
+      Waterfalls_41: -4622298951975313731
+      Waterfalls_42: -5760836654084489449
+      Waterfalls_43: -1922365332789504998
+      Waterfalls_44: 4949192231511543675
+      Waterfalls_45: -8060193593606019505
+      Waterfalls_46: 3955838432445340323
+      Waterfalls_47: 3570954387846024565
+      Waterfalls_48: -3768078254162701870
+      Waterfalls_49: 8441256400876018666
+      Waterfalls_5: -4196185644114106866
+      Waterfalls_50: -6979759212481939517
+      Waterfalls_51: -7224111987100056490
+      Waterfalls_52: 7178812612165005853
+      Waterfalls_53: -7112087710328512156
+      Waterfalls_6: 4605552427721359350
+      Waterfalls_7: 2710463730793234809
+      Waterfalls_8: 864670414834394814
+      Waterfalls_9: -8969172339752201206
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

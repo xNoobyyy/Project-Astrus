@@ -384,6 +384,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -2534,7 +2560,104 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sand_ground_0: 5893583750440211955
+      Sand_ground_1: 3586061381542112165
+      Sand_ground_10: 7316758993171690285
+      Sand_ground_11: -3122314433123328908
+      Sand_ground_12: -2834077721581632477
+      Sand_ground_13: 4563714485088405264
+      Sand_ground_14: 838017468366406358
+      Sand_ground_15: 3916196919480644402
+      Sand_ground_16: 5042440729251268970
+      Sand_ground_17: 5271411057783954365
+      Sand_ground_18: -7752752719173877366
+      Sand_ground_19: -3747256135424989298
+      Sand_ground_2: -8729692238724337460
+      Sand_ground_20: 3389711170815755989
+      Sand_ground_21: -1771298666123581018
+      Sand_ground_22: -3066738144292508797
+      Sand_ground_23: -539714425087529295
+      Sand_ground_24: -6674482176715974564
+      Sand_ground_25: -2900495587927727214
+      Sand_ground_26: 6073933496084546517
+      Sand_ground_27: 8539843255529264214
+      Sand_ground_28: 1786584596376692176
+      Sand_ground_29: -6906456293193039920
+      Sand_ground_3: 2250742732681340927
+      Sand_ground_30: 6936980719822022761
+      Sand_ground_31: -7660409978357737930
+      Sand_ground_32: 3736811983585624443
+      Sand_ground_33: 6414477272394281682
+      Sand_ground_34: 1487874131375243441
+      Sand_ground_35: 3578627188361442961
+      Sand_ground_36: 6062828247186158819
+      Sand_ground_37: 9204409035387815897
+      Sand_ground_38: -2655967387314795774
+      Sand_ground_39: 5723383891113475809
+      Sand_ground_4: -1955529168291141317
+      Sand_ground_40: -8818643645487214540
+      Sand_ground_41: -2913656062458107279
+      Sand_ground_42: 104073805472148248
+      Sand_ground_43: 2943595566148365464
+      Sand_ground_44: -2747202735362495350
+      Sand_ground_45: 2125570921445401779
+      Sand_ground_46: 5804956431167730061
+      Sand_ground_47: 5886135962079318027
+      Sand_ground_48: -4739894729695692452
+      Sand_ground_49: 285854808861281084
+      Sand_ground_5: -1601965698003656387
+      Sand_ground_50: -4882078431139382414
+      Sand_ground_51: -1028148452687006749
+      Sand_ground_52: 9046544186614035571
+      Sand_ground_53: -4398991211389694208
+      Sand_ground_54: -1844579437965039298
+      Sand_ground_55: -3605407291562244050
+      Sand_ground_56: -5353780782616020662
+      Sand_ground_57: 6954261241405851916
+      Sand_ground_58: 8622411942387464566
+      Sand_ground_59: -7074085866723668693
+      Sand_ground_6: 8534792587899119485
+      Sand_ground_60: -803723507938757561
+      Sand_ground_61: 2454026175640765793
+      Sand_ground_62: 2808171850914276546
+      Sand_ground_63: 2067932672746911148
+      Sand_ground_64: 837933491887638905
+      Sand_ground_65: -7106403356722099519
+      Sand_ground_66: -4926592584615581994
+      Sand_ground_67: -4732279222119882292
+      Sand_ground_68: -8900596850736757239
+      Sand_ground_69: 7983935916679095889
+      Sand_ground_7: 1246908895866836376
+      Sand_ground_70: -5069801812545722512
+      Sand_ground_71: 5943835520354917347
+      Sand_ground_72: 4992964776280391666
+      Sand_ground_73: 1281660113272229141
+      Sand_ground_74: 7728677684175327337
+      Sand_ground_75: -1960599585129558644
+      Sand_ground_76: 5432056979219410692
+      Sand_ground_77: 1215066678491413180
+      Sand_ground_78: -1902282108101513750
+      Sand_ground_79: 611010467111602380
+      Sand_ground_8: -7163872668576959716
+      Sand_ground_80: -2391417101194295918
+      Sand_ground_81: -6960192122596798860
+      Sand_ground_82: 9056232023272479931
+      Sand_ground_83: -2424224774311481034
+      Sand_ground_84: -7749561247145909570
+      Sand_ground_85: 3785696808419715658
+      Sand_ground_86: 2790816538528947918
+      Sand_ground_87: 3319901849799218071
+      Sand_ground_88: 5359594393821627495
+      Sand_ground_89: -346265013313494356
+      Sand_ground_9: 1616943540331674240
+      Sand_ground_90: 1913776501816796383
+      Sand_ground_91: -876417394899682129
+      Sand_ground_92: -395914803730479479
+      Sand_ground_93: 3792751718357253580
+      Sand_ground_94: -3788278369207421678
+      Sand_ground_95: -106065779124161712
+      Sand_ground_96: -4001216006237373320
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
