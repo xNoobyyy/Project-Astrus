@@ -24,6 +24,7 @@ namespace Animals {
 
         // References
         private Animator animator;
+        private Rigidbody2D rb;
 
         // Internal coroutines
         private Coroutine idleCoroutine;
@@ -36,6 +37,7 @@ namespace Animals {
         private void Awake() {
             Debug.Log("Animal Awake: Initializing...");
             animator = GetComponent<Animator>();
+            rb = GetComponent<Rigidbody2D>();
             Health = maxHealth;
         }
 
@@ -127,6 +129,20 @@ namespace Animals {
             if (Input.GetKeyDown(KeyCode.F)) {
                 SetTarget(player);
             }
+        }
+
+        public void TakeDamage(float damage, Vector2 from) {
+            //Health -= damage;
+            Debug.Log($"Took {damage} damage. Health: {Health}");
+
+
+            // Knockback
+            var direction = (transform.position - (Vector3)from).normalized;
+            rb.AddForce(direction * 5f, ForceMode2D.Impulse);
+
+            /*if (Health <= 0) {
+                Die();
+            }*/
         }
 
         private IEnumerator ChaseLoop() {

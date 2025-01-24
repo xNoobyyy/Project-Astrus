@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Animals;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -29,8 +30,9 @@ namespace Player {
             if (ReferenceEquals(closestTarget, null)) return;
 
             var target = closestTarget.transform;
+            var animal = target.GetComponent<Animal>();
 
-            // var direction = (target.position - transform.position).normalized;
+            animal.TakeDamage(1, transform.position);
 
             animator.SetBool(Attacking, true);
         }
