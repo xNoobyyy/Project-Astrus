@@ -34,9 +34,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
-    m_ConditionEvent: vertical_move
-    m_EventTreshold: -0.01
+  - m_ConditionMode: 6
+    m_ConditionEvent: direction
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2012899602525773874}
   m_Solo: 0
@@ -112,9 +112,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
-    m_ConditionEvent: vertical_move
-    m_EventTreshold: -0.01
+  - m_ConditionMode: 6
+    m_ConditionEvent: direction
+    m_EventTreshold: 3
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -261944784082630676}
   m_Solo: 0
@@ -137,15 +137,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
-    m_ConditionEvent: horizontal_move
-    m_EventTreshold: -0.01
-  - m_ConditionMode: 4
-    m_ConditionEvent: vertical_move
-    m_EventTreshold: 0.01
-  - m_ConditionMode: 3
-    m_ConditionEvent: vertical_move
-    m_EventTreshold: -0.01
+  - m_ConditionMode: 6
+    m_ConditionEvent: direction
+    m_EventTreshold: 4
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1802487767434426744}
   m_Solo: 0
@@ -168,15 +162,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
-    m_ConditionEvent: horizontal_move
-    m_EventTreshold: 0.01
-  - m_ConditionMode: 4
-    m_ConditionEvent: vertical_move
-    m_EventTreshold: 0.01
-  - m_ConditionMode: 3
-    m_ConditionEvent: vertical_move
-    m_EventTreshold: -0.01
+  - m_ConditionMode: 6
+    m_ConditionEvent: direction
+    m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5068028259395362163}
   m_Solo: 0
@@ -226,9 +214,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
-    m_ConditionEvent: horizontal_move
-    m_EventTreshold: -0.01
+  - m_ConditionMode: 6
+    m_ConditionEvent: direction
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4406377437349020177}
   m_Solo: 0
@@ -251,9 +239,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
-    m_ConditionEvent: vertical_move
-    m_EventTreshold: 0.01
+  - m_ConditionMode: 6
+    m_ConditionEvent: direction
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8744283637668377808}
   m_Solo: 0
@@ -304,14 +292,8 @@ AnimatorController:
   m_Name: Quokka
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: horizontal_move
-    m_Type: 1
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: vertical_move
-    m_Type: 1
+  - m_Name: direction
+    m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -363,9 +345,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
-    m_ConditionEvent: vertical_move
-    m_EventTreshold: 0.01
+  - m_ConditionMode: 6
+    m_ConditionEvent: direction
+    m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6909499437962666442}
   m_Solo: 0
@@ -388,9 +370,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
-    m_ConditionEvent: horizontal_move
-    m_EventTreshold: 0.01
+  - m_ConditionMode: 6
+    m_ConditionEvent: direction
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8393290214540499353}
   m_Solo: 0
@@ -448,8 +430,8 @@ AnimatorStateMachine:
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -180, y: -20, z: 0}
-  m_EntryPosition: {x: 650, y: 130, z: 0}
-  m_ExitPosition: {x: 800, y: 120, z: 0}
+  m_EntryPosition: {x: 700, y: 140, z: 0}
+  m_ExitPosition: {x: 800, y: -60, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 2012899602525773874}
 --- !u!1102 &6909499437962666442

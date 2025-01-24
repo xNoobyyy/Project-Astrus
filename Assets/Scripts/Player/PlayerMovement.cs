@@ -1,3 +1,5 @@
+using System;
+using Animals;
 using UnityEngine;
 
 namespace Player {
@@ -29,6 +31,16 @@ namespace Player {
 
         private void FixedUpdate() {
             rb.linearVelocity = movement * speed;
+        }
+
+        private void OnTriggerEnter(Collider other) {
+            if (!other.CompareTag("Enemy")) return;
+
+            var animal = other.GetComponent<Animal>();
+
+            if (animal != null) {
+                animal.SetTarget(transform);
+            }
         }
     }
 }
