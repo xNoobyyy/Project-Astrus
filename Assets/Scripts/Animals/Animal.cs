@@ -7,7 +7,6 @@ namespace Pathfinding {
     public class Animal : MonoBehaviour {
         public float Health { get; private set; }
 
-        public float Health { get; private se
         private AStar aStar;
 
         public float maxHealth;
