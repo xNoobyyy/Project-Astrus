@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Pathfinding;
 using UnityEngine;
 
 namespace Animals {
@@ -87,9 +86,9 @@ namespace Animals {
         /// <summary>
         /// Checks if a grid cell is walkable (no obstacles).
         /// </summary>
-        private static bool IsWalkable(Vector2Int position) {
+        private bool IsWalkable(Vector2Int position) {
             var colliders = Physics2D.OverlapBoxAll(position, new Vector2(1, 1), 0f);
-            return colliders.All(collider => !collider.CompareTag("Obstacle"));
+            return colliders.All(collider => !collider.CompareTag("Obstacle")) && animal.area.OverlapPoint(position);
         }
 
         /// <summary>
@@ -131,7 +130,7 @@ namespace Animals {
         /// <summary>
         /// Performs a simple Bresenham-like check for obstacles between two points.
         /// </summary>
-        private static bool HasLineOfSight(Vector2Int start, Vector2Int end) {
+        private bool HasLineOfSight(Vector2Int start, Vector2Int end) {
             var x0 = start.x;
             var y0 = start.y;
             var x1 = end.x;

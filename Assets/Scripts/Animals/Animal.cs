@@ -1,74 +1,71 @@
 ﻿using System;
 using System.Collections;
-using Animals;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-namespace Pathfinding {
+namespace Animals {
+    [RequireComponent(typeof(Animator))]
     public class Animal : MonoBehaviour {
+        private static readonly int HorizontalMove = Animator.StringToHash("horizontal_move");
+        private static readonly int VerticalMove = Animator.StringToHash("vertical_move");
+
         public float Health { get; private set; }
 
         private AStar aStar;
 
         public float maxHealth;
         public float speed;
+        public PolygonCollider2D area;
 
         private Vector2 movingTo;
         private Coroutine moveCoroutine;
 
         private Coroutine idleCoroutine;
 
+        private Animator animator;
+
         private void Awake() {
-            Debug.Log($"[Animal] Awake: Initializing AStar for {gameObject.name}");
             aStar = new AStar(this);
+
+            animator = GetComponent<Animator>();
         }
 
         private void Start() {
-            Debug.Log($"[Animal] Start: Initiating idle state for {gameObject.name}");
             StartIdle();
         }
 
         public void StartIdle() {
-            Debug.Log($"[Animal] StartIdle: Attempting to start idle for {gameObject.name}");
-
-            if (idleCoroutine != null) {
-                Debug.Log($"[Animal] StartIdle: Idle coroutine already running. Skipping.");
-                return;
-            }
+            if (idleCoroutine != null) return;
 
             if (moveCoroutine != null) {
-                Debug.Log($"[Animal] StartIdle: Stopping existing move coroutine");
                 StopCoroutine(moveCoroutine);
                 moveCoroutine = null;
             }
 
-            float idleTime = UnityEngine.Random.Range(1f, 10f);
-            Debug.Log($"[Animal] StartIdle: Idle time set to {idleTime} seconds");
+            var idleTime = Random.Range(3f, 10f);
+
+            animator.SetFloat(HorizontalMove, 0);
+            animator.SetFloat(VerticalMove, 0);
 
             idleCoroutine = StartCoroutine(Idle(idleTime, () => {
-                Debug.Log($"[Animal] Idle completed. Setting new random target for {gameObject.name}");
                 idleCoroutine = null;
                 SetTarget(new Vector2(transform.position.x, transform.position.y) +
-                          new Vector2(UnityEngine.Random.Range(-10, 10), UnityEngine.Random.Range(-10, 10)));
+                          new Vector2(Random.Range(-5, 5), Random.Range(-5, 5)));
             }));
         }
 
         public void SetTarget(Vector2 target) {
-            Debug.Log($"[Animal] SetTarget: Setting new target {target} for {gameObject.name}");
-
             if (idleCoroutine != null) {
-                Debug.Log("[Animal] SetTarget: Stopping idle coroutine");
                 StopCoroutine(idleCoroutine);
                 idleCoroutine = null;
             }
 
             if (moveCoroutine != null) {
-                Debug.Log("[Animal] SetTarget: Stopping existing move coroutine");
                 StopCoroutine(moveCoroutine);
                 moveCoroutine = null;
             }
 
             moveCoroutine = StartCoroutine(MoveTo(target, () => {
-                Debug.Log($"[Animal] Movement to {target} completed for {gameObject.name}");
                 moveCoroutine = null;
 
                 StartIdle();
@@ -76,10 +73,7 @@ namespace Pathfinding {
         }
 
         public void StopMoving() {
-            Debug.Log($"[Animal] StopMoving: Stopping movement for {gameObject.name}");
-
             if (moveCoroutine != null) {
-                Debug.Log("[Animal] StopMoving: Stopping move coroutine");
                 StopCoroutine(moveCoroutine);
                 moveCoroutine = null;
             }
@@ -88,48 +82,74 @@ namespace Pathfinding {
         }
 
         private IEnumerator MoveTo(Vector2 target, Action onComplete = null) {
-            Debug.Log($"[Animal] MoveTo: Starting path to {target} for {gameObject.name}");
-
+            target = ClosestPointInArea(target);
             movingTo = target;
 
             var path = aStar.FindPath(transform.position, target);
 
             if (path == null) {
-                Debug.LogWarning($"[Animal] MoveTo: No path found to {target} for {gameObject.name}");
                 onComplete?.Invoke();
                 yield break;
             }
 
-            Debug.Log($"[Animal] MoveTo: Path found with {path.Count} nodes");
-
             foreach (var node in path) {
-                Debug.Log($"[Animal] MoveTo: Moving towards node {node}");
-
-                while (Vector2.Distance(transform.position, node) > 0.1f) {
-                    Debug.Log(
-                        $"[Animal] MoveTo: Moving towards node {node} from {transform.position} with distance {Vector2.Distance(transform.position, node)} and maxDistanceDelta {speed * Time.fixedDeltaTime}");
+                while (Vector2.Distance(transform.position, node) > 0.01f) {
+                    var originalPosition = transform.position;
 
                     transform.position = Vector2.MoveTowards(transform.position, node,
                         speed * Time.fixedDeltaTime);
 
-                    Debug.Log(
-                        $"[Animal] MoveTo: Current position {transform.position}, Distance to node: {Vector2.Distance(transform.position, node)}");
+                    var moved = new Vector2(transform.position.x - originalPosition.x,
+                        transform.position.y - originalPosition.y);
+
+                    moved.Normalize();
+
+                    animator.SetFloat(HorizontalMove, moved.x);
+                    animator.SetFloat(VerticalMove, moved.y);
 
                     yield return new WaitForFixedUpdate();
                 }
             }
 
-            Debug.Log($"[Animal] MoveTo: Reached final destination {target} for {gameObject.name}");
+            animator.SetFloat(HorizontalMove, 0);
+            animator.SetFloat(VerticalMove, 0);
+
             onComplete?.Invoke();
         }
 
         private static IEnumerator Idle(float time, Action onComplete = null) {
-            Debug.Log($"[Animal] Idle: Starting idle for {time} seconds");
-
             yield return new WaitForSeconds(time);
-
-            Debug.Log("[Animal] Idle: Idle time completed");
             onComplete?.Invoke();
+        }
+
+        private static Vector2 ProjectPointOnLineSegment(Vector2 a, Vector2 b, Vector2 p) {
+            var ab = b - a;
+            var t = Mathf.Clamp01(Vector2.Dot(p - a, ab) / ab.sqrMagnitude);
+            return a + t * ab;
+        }
+
+        private Vector2 ClosestPointInArea(Vector2 position) {
+            if (area.OverlapPoint(position)) return position;
+
+            var closest = position;
+            var closestDistance = float.MaxValue;
+
+            // Check each segment of the polygon
+            for (var i = 0; i < area.points.Length; i++) {
+                Vector2 pointA = area.transform.TransformPoint(area.points[i]);
+                Vector2 pointB = area.transform.TransformPoint(
+                    area.points[(i + 1) % area.points.Length]
+                );
+
+                var projected = ProjectPointOnLineSegment(pointA, pointB, position);
+                var distance = Vector2.Distance(position, projected);
+
+                if (!(distance < closestDistance)) continue;
+                closest = projected;
+                closestDistance = distance;
+            }
+
+            return closest;
         }
     }
 }
