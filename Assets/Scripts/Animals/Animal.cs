@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -138,7 +139,9 @@ namespace Animals {
 
             // Knockback
             var direction = (transform.position - (Vector3)from).normalized;
-            rb.AddForce(direction * 5f, ForceMode2D.Impulse);
+            var force = direction * 5f;
+            rb.AddForce(force, ForceMode2D.Impulse);
+            Debug.Log($"Knocked back with force {force}");
 
             /*if (Health <= 0) {
                 Die();
@@ -156,15 +159,9 @@ namespace Animals {
                     yield break;
                 }
 
-                yield return new WaitForFixedUpdate();
+                var v = chaseTarget.position - transform.position;
 
-                transform.position = Vector2.MoveTowards(transform.position,
-                    chaseTarget.position,
-                    speed * Time.fixedDeltaTime);
-
-                var moved = chaseTarget.position - transform.position;
-
-                var angle = -Vector2.SignedAngle(Vector2.up, moved);
+                var angle = -Vector2.SignedAngle(Vector2.up, v);
                 if (angle < 0) angle += 360f;
 
                 int direction;
@@ -175,7 +172,14 @@ namespace Animals {
 
                 animator.SetInteger(Direction, direction);
 
+                var newPosition = Vector2.MoveTowards(transform.position,
+                    chaseTarget.position,
+                    speed * Time.fixedDeltaTime);
+                //rb.MovePosition(newPosition);
+                transform.position = newPosition;
+
                 Debug.Log($"Chasing target. Position: {transform.position}");
+                yield return new WaitForFixedUpdate();
             }
 
             StopChasing();
@@ -185,28 +189,29 @@ namespace Animals {
             Debug.Log($"Wandering to: {wanderPoint}");
             wanderPoint = ClosestPointInArea(wanderPoint);
 
-            var v = (wanderPoint - (Vector2)transform.position).normalized;
-
-            var angle = -Vector2.SignedAngle(Vector2.up, v);
-            if (angle < 0) angle += 360f;
-
-            int direction;
-            if (angle is >= 315f or < 45f) direction = 1; // North
-            else if (angle < 135f) direction = 2; // East
-            else if (angle < 225f) direction = 3; // South
-            else direction = 4; // West
-
-            animator.SetInteger(Direction, direction);
-
-            Debug.Log(
-                $"Wandering... Current Position: {transform.position} with angle {angle} and movement vector {v}");
-
             while (Vector2.Distance(transform.position, wanderPoint) > 0.01f) {
                 yield return new WaitForFixedUpdate();
 
-                transform.position = Vector2.MoveTowards(transform.position,
+                var v = (wanderPoint - (Vector2)transform.position).normalized;
+
+                var angle = -Vector2.SignedAngle(Vector2.up, v);
+                if (angle < 0) angle += 360f;
+
+                int direction;
+                if (angle is >= 315f or < 45f) direction = 1; // North
+                else if (angle < 135f) direction = 2; // East
+                else if (angle < 225f) direction = 3; // South
+                else direction = 4; // West
+
+                animator.SetInteger(Direction, direction);
+                Debug.Log(
+                    $"Wandering... Current Position: {transform.position} with angle {angle} and movement vector {v}");
+
+                var newPosition = Vector2.MoveTowards(transform.position,
                     wanderPoint,
                     speed * Time.fixedDeltaTime);
+                //rb.MovePosition(newPosition);
+                transform.position = newPosition;
 
                 if (!isChasing) continue;
                 Debug.Log("Interrupted by chase. Stopping wander.");
@@ -243,9 +248,9 @@ namespace Animals {
 
         private bool HasLineOfSight(Vector2 start, Vector2 end) {
             Debug.Log($"Checking LOS from {start} to {end}");
-            var hit = Physics2D.Raycast(start, (end - start).normalized, Vector2.Distance(start, end));
+            var hits = Physics2D.RaycastAll(start, (end - start).normalized, Vector2.Distance(start, end), ~0);
 
-            if (hit.collider != null && hit.collider.gameObject.CompareTag("Obstacle")) {
+            if (hits.Any(hit => hit.collider.gameObject.CompareTag("Obstacle"))) {
                 Debug.Log("LOS blocked by obstacle.");
                 return false;
             }

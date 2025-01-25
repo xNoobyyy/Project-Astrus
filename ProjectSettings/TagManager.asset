@@ -22,7 +22,7 @@ TagManager:
   - DroppedItem
   - 
   - 
-  - 
+  - Animal
   - 
   - 
   - 
@@ -44,9 +44,6 @@ TagManager:
   - name: Map
     uniqueID: 2200304549
     locked: 0
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Water
     uniqueID: 1325692629
     locked: 0
@@ -56,14 +53,17 @@ TagManager:
   - name: Ground-Top
     uniqueID: 3382092563
     locked: 0
-  - name: WalkInFront
-    uniqueID: 92557143
-    locked: 0
   - name: Collision
     uniqueID: 370624321
     locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
   - name: Player
     uniqueID: 2816191967
+    locked: 0
+  - name: WalkInFront
+    uniqueID: 92557143
     locked: 0
   - name: WalkBehind
     uniqueID: 3912204131

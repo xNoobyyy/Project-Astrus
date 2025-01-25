@@ -13,12 +13,14 @@ namespace Player {
 
         private Animator animator;
 
+        private bool isAttacking;
+
         private void Awake() {
             animator = GetComponent<Animator>();
         }
 
         private void Update() {
-            if (!Input.GetMouseButtonDown(0)) return;
+            if (!Input.GetMouseButtonDown(0) || isAttacking) return;
 
             var targets = Physics2D.OverlapCircleAll(transform.position, range)
                 .Where(target => target.CompareTag("Enemy") || target.CompareTag("Animal"));
@@ -35,10 +37,12 @@ namespace Player {
             animal.TakeDamage(1, transform.position);
 
             animator.SetBool(Attacking, true);
+            isAttacking = true;
         }
 
         private void AttackFinished() {
             animator.SetBool(Attacking, false);
+            isAttacking = false;
         }
     }
 }
