@@ -8,6 +8,7 @@ public class LogicScript : MonoBehaviour
     public QuestScreenScript questScreen;
     public InventoryScreen inventoryScreen;
     public GameObject background;
+    public Watch watch;
     public RectTransform inventoryScreenVisu;
     public RectTransform questScreenVisu;
     private Vector2 QuestPosition;
@@ -30,6 +31,14 @@ public class LogicScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && InventoryOpen) {
             CloseInventoryScreen();
         }
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            OpenWatch();
+        }
+    }
+
+    public void OpenWatch() {
+        watch.open();
     }
 
     public void AddQuestToQuestScreen(string quest) {
