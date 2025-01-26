@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -21,7 +22,7 @@ namespace Animals {
         public float Health { get; private set; }
 
         // Home/wandering logic
-        private Vector2 homePosition;
+        private Vector2Int homePosition;
 
         // References
         private Animator animator;
@@ -35,6 +36,16 @@ namespace Animals {
         private Transform chaseTarget;
         private bool isChasing;
 
+        // Current wander point for visualization
+        private Vector2? currentWanderPoint;
+
+        private Vector2Int[] wanderPoints;
+
+        // LOS visualization
+        private Vector2? lastLosStart;
+        private Vector2? lastLosEnd;
+        private bool lastLosClear;
+
         private void Awake() {
             Debug.Log("Animal Awake: Initializing...");
             animator = GetComponent<Animator>();
@@ -44,7 +55,8 @@ namespace Animals {
 
         private void Start() {
             Debug.Log("Animal Start: Setting home position and starting idle mode.");
-            homePosition = transform.position;
+            homePosition = Vector2Int.RoundToInt(transform.position);
+            wanderPoints = GetRandomLosPointsFromHome();
             StartIdle();
         }
 
@@ -89,7 +101,7 @@ namespace Animals {
 
             animator.SetInteger(Direction, 0);
 
-            var idleTime = Random.Range(3f, 10f);
+            var idleTime = Random.Range(2f, 10f);
             Debug.Log($"Idling for {idleTime} seconds.");
             idleCoroutine = StartCoroutine(IdleThenWander(idleTime));
         }
@@ -116,11 +128,13 @@ namespace Animals {
 
             idleCoroutine = null;
 
-            var randomPoint = GetRandomLosPointFromHome();
+            var randomPoint = wanderPoints[Random.Range(0, wanderPoints.Length)];
+            currentWanderPoint = randomPoint; // For visualization
             Debug.Log($"Wandering to random point: {randomPoint}");
 
             moveCoroutine = StartCoroutine(WanderTo(randomPoint, () => {
                 Debug.Log("Wander complete.");
+                currentWanderPoint = null; // Clear visualization
                 moveCoroutine = null;
                 StartIdle();
             }));
@@ -135,7 +149,6 @@ namespace Animals {
         public void TakeDamage(float damage, Vector2 from) {
             //Health -= damage;
             Debug.Log($"Took {damage} damage. Health: {Health}");
-
 
             // Knockback
             var direction = (transform.position - (Vector3)from).normalized;
@@ -164,18 +177,13 @@ namespace Animals {
                 var angle = -Vector2.SignedAngle(Vector2.up, v);
                 if (angle < 0) angle += 360f;
 
-                int direction;
-                if (angle is >= 315f or < 45f) direction = 1; // North
-                else if (angle < 135f) direction = 2; // East
-                else if (angle < 225f) direction = 3; // South
-                else direction = 4; // West
+                var direction = angle switch { >= 315f or < 45f => 1, < 135f => 2, < 225f => 3, _ => 4 };
 
                 animator.SetInteger(Direction, direction);
 
                 var newPosition = Vector2.MoveTowards(transform.position,
                     chaseTarget.position,
                     speed * Time.fixedDeltaTime);
-                //rb.MovePosition(newPosition);
                 transform.position = newPosition;
 
                 Debug.Log($"Chasing target. Position: {transform.position}");
@@ -188,6 +196,7 @@ namespace Animals {
         private IEnumerator WanderTo(Vector2 wanderPoint, Action onComplete = null) {
             Debug.Log($"Wandering to: {wanderPoint}");
             wanderPoint = ClosestPointInArea(wanderPoint);
+            currentWanderPoint = wanderPoint; // For visualization
 
             while (Vector2.Distance(transform.position, wanderPoint) > 0.01f) {
                 yield return new WaitForFixedUpdate();
@@ -197,20 +206,13 @@ namespace Animals {
                 var angle = -Vector2.SignedAngle(Vector2.up, v);
                 if (angle < 0) angle += 360f;
 
-                int direction;
-                if (angle is >= 315f or < 45f) direction = 1; // North
-                else if (angle < 135f) direction = 2; // East
-                else if (angle < 225f) direction = 3; // South
-                else direction = 4; // West
+                var direction = angle switch { >= 315f or < 45f => 1, < 135f => 2, < 225f => 3, _ => 4 };
 
                 animator.SetInteger(Direction, direction);
-                Debug.Log(
-                    $"Wandering... Current Position: {transform.position} with angle {angle} and movement vector {v}");
 
                 var newPosition = Vector2.MoveTowards(transform.position,
                     wanderPoint,
                     speed * Time.fixedDeltaTime);
-                //rb.MovePosition(newPosition);
                 transform.position = newPosition;
 
                 if (!isChasing) continue;
@@ -222,38 +224,75 @@ namespace Animals {
             animator.SetInteger(Direction, 0);
 
             Debug.Log("Reached wander point.");
+            currentWanderPoint = null; // Clear visualization
             onComplete?.Invoke();
         }
 
-        private Vector2 GetRandomLosPointFromHome() {
+        private Vector2Int[] GetRandomLosPointsFromHome() {
             Debug.Log("Finding random LOS point from home.");
-            var randomPoint = homePosition;
+
+            var points = new List<Vector2Int>(10);
 
             for (var i = 0; i < 10; i++) {
-                var rx = Random.Range(-5f, 5f);
-                var ry = Random.Range(-5f, 5f);
-                var candidate = homePosition + new Vector2(rx, ry);
+                var n = 0;
+                while (true) {
+                    n++;
+                    if (n > 1000) {
+                        Debug.LogError("Failed to find LOS point. Aborting.");
+                        break;
+                    }
 
-                candidate = ClosestPointInArea(candidate);
+                    var rx = Random.Range(-5, 5);
+                    var ry = Random.Range(-5, 5);
+                    if (rx == 0 && ry == 0) continue;
 
-                if (HasLineOfSight(homePosition, candidate)) {
-                    randomPoint = candidate;
-                    Debug.Log($"Found LOS point: {randomPoint}");
+                    var candidate = homePosition + new Vector2Int(rx, ry);
+
+                    Debug.Log("Checking candidate: " + candidate);
+                    if (!IsPointInArea(candidate)) continue;
+                    Debug.Log("Candidate is in area.");
+                    if (!points.All(point => HasLineOfSight(candidate, point))) continue;
+                    Debug.Log("Candidate has LOS to all other points.");
+                    if (!HasLineOfSight(homePosition, candidate)) continue;
+                    Debug.Log("Candidate has LOS to home.");
+
+                    points.Add(candidate);
                     break;
                 }
             }
 
-            return randomPoint;
+            return points.ToArray();
         }
 
         private bool HasLineOfSight(Vector2 start, Vector2 end) {
             Debug.Log($"Checking LOS from {start} to {end}");
-            var hits = Physics2D.RaycastAll(start, (end - start).normalized, Vector2.Distance(start, end), ~0);
+            var direction = (end - start).normalized;
 
-            if (hits.Any(hit => hit.collider.gameObject.CompareTag("Obstacle"))) {
+            const float step = 0.5f;
+            var current = start;
+            var blocked = false;
+
+            while (Vector2.Distance(current, end) > step) {
+                current += direction * step;
+
+                if (!IsPointInArea(current)) {
+                    Debug.Log("LOS blocked by area.");
+                    blocked = true;
+                    break;
+                }
+
+                if (Physics2D.OverlapCircleAll(current, 0.5f).All(c => !c.CompareTag("Obstacle"))) continue;
                 Debug.Log("LOS blocked by obstacle.");
-                return false;
+                blocked = true;
+                break;
             }
+
+            // Store LOS data for visualization
+            lastLosStart = start;
+            lastLosEnd = end;
+            lastLosClear = !blocked;
+
+            if (blocked) return false;
 
             Debug.Log("LOS clear.");
             return true;
@@ -262,7 +301,7 @@ namespace Animals {
         private Vector2 ClosestPointInArea(Vector2 position) {
             Debug.Log($"Finding closest point in area to {position}");
 
-            if (area.OverlapPoint(position)) {
+            if (IsPointInArea(position)) {
                 Debug.Log("Point already in area.");
                 return position;
             }
@@ -276,20 +315,80 @@ namespace Animals {
                 var projected = ProjectPointOnLineSegment(pointA, pointB, position);
                 var distance = Vector2.Distance(position, projected);
 
-                if (distance < closestDistance) {
-                    closest = projected;
-                    closestDistance = distance;
-                }
+                if (!(distance < closestDistance)) continue;
+                closest = projected;
+                closestDistance = distance;
             }
 
             Debug.Log($"Closest point found: {closest}");
             return closest;
         }
 
+        private bool IsPointInArea(Vector2 point) {
+            return area.OverlapPoint(point);
+        }
+
         private static Vector2 ProjectPointOnLineSegment(Vector2 a, Vector2 b, Vector2 p) {
             var ab = b - a;
             var t = Mathf.Clamp01(Vector2.Dot(p - a, ab) / ab.sqrMagnitude);
             return a + t * ab;
+        }
+
+        // =============================================
+        // GIZMOS FOR DEBUGGING
+        // =============================================
+        private void OnDrawGizmos() {
+            // Only draw in editor
+            if (!Application.isPlaying) return;
+
+            // Draw Home Position
+            Gizmos.color = Color.green;
+            Gizmos.DrawSphere((Vector2)homePosition, 0.2f);
+
+            // Draw Lose Interest Range
+            Gizmos.color = new Color(0, 1, 0, 0.2f);
+            Gizmos.DrawWireSphere((Vector2)homePosition, loseInterestRange);
+
+            // Draw Current Chase Target
+            if (chaseTarget != null) {
+                Gizmos.color = Color.red;
+                Gizmos.DrawSphere(chaseTarget.position, 0.3f);
+                // Draw LOS line
+                if (lastLosStart.HasValue && lastLosEnd.HasValue) {
+                    Gizmos.color = lastLosClear ? Color.green : Color.red;
+                    Gizmos.DrawLine(lastLosStart.Value, lastLosEnd.Value);
+                }
+            }
+
+            // Draw Current Wander Point
+            if (currentWanderPoint.HasValue) {
+                Gizmos.color = Color.blue;
+                Gizmos.DrawSphere(currentWanderPoint.Value, 0.2f);
+            }
+
+            // Draw Area Polygon
+            if (area != null) {
+                Gizmos.color = Color.yellow;
+                var points = new Vector3[area.points.Length];
+                for (var i = 0; i < area.points.Length; i++) {
+                    points[i] = area.transform.TransformPoint(area.points[i]);
+                }
+
+                for (var i = 0; i < points.Length; i++) {
+                    var start = points[i];
+                    var end = points[(i + 1) % points.Length];
+                    Gizmos.DrawLine(start, end);
+                }
+            }
+
+            // Optionally, draw the current movement direction
+            if (isChasing && chaseTarget != null) {
+                Gizmos.color = Color.magenta;
+                Gizmos.DrawLine(transform.position, chaseTarget.position);
+            } else if (currentWanderPoint.HasValue) {
+                Gizmos.color = Color.cyan;
+                Gizmos.DrawLine(transform.position, currentWanderPoint.Value);
+            }
         }
     }
 }
