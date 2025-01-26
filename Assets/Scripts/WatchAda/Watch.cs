@@ -12,9 +12,11 @@ public class Watch : MonoBehaviour
     public GameObject inventoryIcon;
     public GameObject questsIcon;
     public GameObject logIcon;
+    public LogicScript logic;
     public Image WatchOff;
     private bool opening = false;
     private bool closing = false;
+    private bool opened = false;
     
     
     
@@ -58,6 +60,8 @@ public class Watch : MonoBehaviour
                 inventoryIcon.SetActive(true);
                 questsIcon.SetActive(true);
                 logIcon.SetActive(true);
+                opened = true;
+                logic.WatchOpen = true;
             }
         }
         if (closing) {
@@ -66,6 +70,8 @@ public class Watch : MonoBehaviour
                 
                 gameObject.SetActive(false);
                 closing = false;
+                opened = false;
+                logic.WatchOpen = false;
             }
         }
 
@@ -73,17 +79,30 @@ public class Watch : MonoBehaviour
 
 
     public void open() {
-        gameObject.SetActive(true);
-        opening = true;
+        
+        if (!closing) {
+            gameObject.SetActive(true);
+            opening = true;
+        }
     }
 
     public void close() {
-        watchOn.SetActive(false);
-        mapIcon.SetActive(false);
-        inventoryIcon.SetActive(false);
-        questsIcon.SetActive(false);
-        logIcon.SetActive(false);
-        closing = true;
+        if (!opening) {
+            watchOn.SetActive(false);
+            mapIcon.SetActive(false);
+            inventoryIcon.SetActive(false);
+            questsIcon.SetActive(false);
+            logIcon.SetActive(false);
+            closing = true;
+        }
+    }
+
+    public bool closed() {
+        if (!opened) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 

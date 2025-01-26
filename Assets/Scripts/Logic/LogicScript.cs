@@ -14,7 +14,7 @@ public class LogicScript : MonoBehaviour
     private Vector2 QuestPosition;
     private Vector2 QuestSize;
     private bool InventoryOpen = false;
-    private bool WatchOpen = false;
+    public bool WatchOpen = false;
     
     void Start() {
         inventoryScreen.Close();
@@ -39,17 +39,18 @@ public class LogicScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && WatchOpen)
         {
             CloseWatch();
+            
         }
     }
 
     public void OpenWatch() {
         watch.open();
-        WatchOpen = true;
+        //WatchOpen = true;
     }
     
     public void CloseWatch() {
         watch.close();
-        WatchOpen = false;
+        //WatchOpen = !watch.closed();
     }
 
     public void AddQuestToQuestScreen(string quest) {
