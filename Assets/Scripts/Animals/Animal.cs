@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Utils;
+using Utils.WhiteFlash;
 using Random = UnityEngine.Random;
 
 namespace Animals {
@@ -14,6 +16,7 @@ namespace Animals {
         // Public config
         public float maxHealth;
         public float speed;
+        public ParticleSystem damageParticles;
         public float loseInterestRange = 10f; // Distance at which we give up chasing
         public PolygonCollider2D area;
         public Transform player;
@@ -57,6 +60,7 @@ namespace Animals {
             Debug.Log("Animal Start: Setting home position and starting idle mode.");
             homePosition = Vector2Int.RoundToInt(transform.position);
             wanderPoints = GetRandomLosPointsFromHome();
+            damageParticles.Stop();
             StartIdle();
         }
 
@@ -152,9 +156,18 @@ namespace Animals {
 
             // Knockback
             var direction = (transform.position - (Vector3)from).normalized;
-            var force = direction * 5f;
+            var force = direction * 15f;
             rb.AddForce(force, ForceMode2D.Impulse);
+
             Debug.Log($"Knocked back with force {force}");
+
+            // Flash effect
+            GetComponent<SpriteFlashEffect>().StartWhiteFlash();
+
+            // Damage particles
+            var rotation = Quaternion.FromToRotation(Vector2.right, direction);
+            damageParticles.transform.rotation = rotation;
+            damageParticles.Play();
 
             /*if (Health <= 0) {
                 Die();

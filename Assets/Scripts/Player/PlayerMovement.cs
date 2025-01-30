@@ -1,6 +1,8 @@
 using System;
 using Animals;
+using Logic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Player {
     [RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
@@ -9,6 +11,8 @@ namespace Player {
         private static readonly int VerticalMove = Animator.StringToHash("vertical_move");
         private Rigidbody2D rb;
         private Animator animator;
+        private PlayerCombat playerCombat;
+        private EventManager eventManager;
 
         [SerializeField] private float speed = 1.5f;
 
@@ -17,6 +21,8 @@ namespace Player {
         private void Start() {
             rb = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
+            playerCombat = GetComponent<PlayerCombat>();
+            eventManager = FindFirstObjectByType<EventManager>();
         }
 
         private void Update() {
@@ -25,12 +31,20 @@ namespace Player {
 
             movement = movement.normalized;
 
+            if (playerCombat.IsAttacking) movement = Vector2.zero;
+
             animator.SetFloat(HorizontalMove, movement.x);
             animator.SetFloat(VerticalMove, movement.y);
         }
 
         private void FixedUpdate() {
-            rb.linearVelocity = movement * speed;
+            if (movement == Vector2.zero) return;
+
+            var from = transform.position;
+            var add = new Vector2(movement.x, movement.y) * (speed * Time.fixedDeltaTime);
+            transform.position += new Vector3(add.x, add.y, 0f);
+            var to = transform.position;
+            eventManager?.InvokePlayerMove(from, to);
         }
 
         private void OnTriggerEnter(Collider other) {

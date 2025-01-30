@@ -1,37 +1,37 @@
 fileFormatVersion: 2
-guid: 316cc1cac666a8f459811f677b3073e3
+guid: 1ac776332252752429093ffe94c650c5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2753755010964964961
-    second: player_sword_up_0
+      213: 1201308837337625682
+    second: player_sword_right_0
   - first:
-      213: -5621473692552360847
-    second: player_sword_up_1
+      213: 7333436425702102684
+    second: player_sword_right_1
   - first:
-      213: -5734690672213505738
-    second: player_sword_up_2
+      213: 765454828998301808
+    second: player_sword_right_2
   - first:
-      213: -67377034150039839
-    second: player_sword_up_3
+      213: -1606857429338202999
+    second: player_sword_right_3
   - first:
-      213: -1496431056069239243
-    second: player_sword_up_4
+      213: 3656407640515841634
+    second: player_sword_right_4
   - first:
-      213: -202551673055036410
-    second: player_sword_up_5
+      213: 623832217707082241
+    second: player_sword_right_5
   - first:
-      213: 2534951901711891345
-    second: player_sword_up_6
+      213: -6847024320818553232
+    second: player_sword_right_6
   - first:
-      213: -3653771998107612782
-    second: player_sword_up_7
+      213: 5488889475651961674
+    second: player_sword_right_7
   - first:
-      213: 177737564924736508
-    second: player_sword_up_8
+      213: 6913729341094628631
+    second: player_sword_right_8
   - first:
-      213: -8954877889536509406
-    second: player_sword_up_9
+      213: 5045492075444269080
+    second: player_sword_right_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -153,7 +153,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_sword_up_0
+      name: player_sword_right_0
       rect:
         serializedVersion: 2
         x: 0
@@ -166,16 +166,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: e8edd82b04e79c941bbbdcd8d88e2698
-      internalID: -718989554
+      spriteID: 254fb03d508eba010800000000000000
+      internalID: 1201308837337625682
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_sword_up_1
+      name: player_sword_right_1
       rect:
         serializedVersion: 2
         x: 512
@@ -188,16 +188,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 6258942987f8b3040b223c10e3e84841
-      internalID: -193047704
+      spriteID: c9652e0339995c560800000000000000
+      internalID: 7333436425702102684
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_sword_up_2
+      name: player_sword_right_2
       rect:
         serializedVersion: 2
         x: 1024
@@ -210,16 +210,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 9df52bc3bba50424ca3aae548a25ab1b
-      internalID: -481323350
+      spriteID: 0781d068c117f9a00800000000000000
+      internalID: 765454828998301808
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_sword_up_3
+      name: player_sword_right_3
       rect:
         serializedVersion: 2
         x: 1536
@@ -232,16 +232,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 596524995c0f2274196c4e0c5a2a61e6
-      internalID: 387683444
+      spriteID: 98c59977eab43b9e0800000000000000
+      internalID: -1606857429338202999
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_sword_up_4
+      name: player_sword_right_4
       rect:
         serializedVersion: 2
         x: 2048
@@ -254,16 +254,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 0a2866dff98a9b544b69833562992724
-      internalID: 1742435453
+      spriteID: 26e88f6606b2eb230800000000000000
+      internalID: 3656407640515841634
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_sword_up_5
+      name: player_sword_right_5
       rect:
         serializedVersion: 2
         x: 2560
@@ -276,16 +276,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 41f22d52d1f51a64ab2b803a48abf02b
-      internalID: -747243657
+      spriteID: 102ffd7c81c48a800800000000000000
+      internalID: 623832217707082241
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_sword_up_6
+      name: player_sword_right_6
       rect:
         serializedVersion: 2
         x: 3072
@@ -298,16 +298,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 39d1c29de64b0e941be7c25dd993fc5d
-      internalID: 238809337
+      spriteID: 07e562548ab7af0a0800000000000000
+      internalID: -6847024320818553232
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_sword_up_7
+      name: player_sword_right_7
       rect:
         serializedVersion: 2
         x: 3584
@@ -320,19 +320,19 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f9843b274c8693d4cbe1c997b487f7ae
-      internalID: 1686085792
+      spriteID: a438d9f85e37c2c40800000000000000
+      internalID: 5488889475651961674
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_sword_up_8
+      name: player_sword_right_8
       rect:
         serializedVersion: 2
-        x: 4099
+        x: 4096
         y: 0
         width: 512
         height: 512
@@ -342,16 +342,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 1ae3ecdc46ec36d4b8932111d3aac77a
-      internalID: -535510245
+      spriteID: 71d0429843082ff50800000000000000
+      internalID: 6913729341094628631
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_sword_up_9
+      name: player_sword_right_9
       rect:
         serializedVersion: 2
         x: 4608
@@ -364,10 +364,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 77e2f80f08b04fa448f072523bdb153a
-      internalID: 12660028
+      spriteID: 81077e97f40350640800000000000000
+      internalID: 5045492075444269080
       vertices: []
       indices: 
       edges: []
@@ -376,7 +376,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ff7b7e9c9feb604438f74b6a1467f13e
+    spriteID: dc63aefe04eb0aa4a9821f7536c89a26
     internalID: 0
     vertices: []
     indices: 
@@ -386,16 +386,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      player_sword_up_0: -718989554
-      player_sword_up_1: -193047704
-      player_sword_up_2: -481323350
-      player_sword_up_3: 387683444
-      player_sword_up_4: 1742435453
-      player_sword_up_5: -747243657
-      player_sword_up_6: 238809337
-      player_sword_up_7: 1686085792
-      player_sword_up_8: -535510245
-      player_sword_up_9: 12660028
+      player_sword_right_0: 1201308837337625682
+      player_sword_right_1: 7333436425702102684
+      player_sword_right_2: 765454828998301808
+      player_sword_right_3: -1606857429338202999
+      player_sword_right_4: 3656407640515841634
+      player_sword_right_5: 623832217707082241
+      player_sword_right_6: -6847024320818553232
+      player_sword_right_7: 5488889475651961674
+      player_sword_right_8: 6913729341094628631
+      player_sword_right_9: 5045492075444269080
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
