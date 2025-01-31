@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Player;
 using UnityEngine;
 
 namespace Logic {
     public class Pathfinding : MonoBehaviour {
-        public const int LOS_RADIUS = 8;
+        private const int LOS_RADIUS = 8;
 
         private Vector2Int playerPosition;
-        private Vector2Int[] tiles;
+        public Vector2Int[] Tiles { get; private set; }
 
         private void OnEnable() {
             EventManager.OnPlayerMove += OnPlayerMove;
@@ -23,7 +21,7 @@ namespace Logic {
             if (Vector2Int.RoundToInt(from) == Vector2Int.RoundToInt(to)) return;
 
             playerPosition = Vector2Int.RoundToInt(to);
-            tiles = GetLosTiles();
+            Tiles = GetLosTiles();
         }
 
         private Vector2Int[] GetLosTiles() {
@@ -74,10 +72,8 @@ namespace Logic {
             var y0 = start.y;
 
             while (true) {
-                // Add the primary tile
                 result.Add(new Vector2Int(x0, y0));
 
-                // Break when reaching the end point
                 if (x0 == end.x && y0 == end.y)
                     break;
 
