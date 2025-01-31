@@ -17,9 +17,10 @@ namespace Animals {
         public float maxHealth;
         public float speed;
         public ParticleSystem damageParticles;
+        public ParticleSystem deathParticles;
+        public GameObject angryTag;
         public float loseInterestRange = 10f; // Distance at which we give up chasing
         public PolygonCollider2D area;
-        public Transform player;
 
         // Public read-only property for health
         public float Health { get; private set; }
@@ -50,17 +51,16 @@ namespace Animals {
         private bool lastLosClear;
 
         private void Awake() {
-            Debug.Log("Animal Awake: Initializing...");
             animator = GetComponent<Animator>();
             rb = GetComponent<Rigidbody2D>();
             Health = maxHealth;
         }
 
         private void Start() {
-            Debug.Log("Animal Start: Setting home position and starting idle mode.");
             homePosition = Vector2Int.RoundToInt(transform.position);
             wanderPoints = GetRandomLosPointsFromHome();
             damageParticles.Stop();
+            deathParticles.Stop();
             StartIdle();
         }
 
@@ -69,12 +69,12 @@ namespace Animals {
         /// </summary>
         /// <param name="target">The transform to chase.</param>
         public void SetTarget(Transform target) {
-            Debug.Log($"SetTarget called with target: {target}");
             chaseTarget = target;
             isChasing = true;
 
             StopExistingCoroutines();
 
+            angryTag.SetActive(true);
             moveCoroutine = StartCoroutine(ChaseLoop());
         }
 
@@ -82,7 +82,6 @@ namespace Animals {
         /// Explicitly stop any chasing behavior.
         /// </summary>
         public void StopChasing() {
-            Debug.Log("StopChasing called.");
             isChasing = false;
             chaseTarget = null;
 
@@ -91,6 +90,7 @@ namespace Animals {
                 moveCoroutine = null;
             }
 
+            angryTag.SetActive(false);
             StartIdle();
         }
 
@@ -98,7 +98,6 @@ namespace Animals {
         /// Idle for a few seconds, then pick a random wander point.
         /// </summary>
         public void StartIdle() {
-            Debug.Log("StartIdle called.");
             if (idleCoroutine != null) return;
 
             StopExistingCoroutines();
@@ -106,7 +105,6 @@ namespace Animals {
             animator.SetInteger(Direction, 0);
 
             var idleTime = Random.Range(2f, 10f);
-            Debug.Log($"Idling for {idleTime} seconds.");
             idleCoroutine = StartCoroutine(IdleThenWander(idleTime));
         }
 
@@ -127,39 +125,28 @@ namespace Animals {
         // =============================================
 
         private IEnumerator IdleThenWander(float time) {
-            Debug.Log("IdleThenWander started.");
             yield return new WaitForSeconds(time);
 
             idleCoroutine = null;
 
             var randomPoint = wanderPoints[Random.Range(0, wanderPoints.Length)];
             currentWanderPoint = randomPoint; // For visualization
-            Debug.Log($"Wandering to random point: {randomPoint}");
 
             moveCoroutine = StartCoroutine(WanderTo(randomPoint, () => {
-                Debug.Log("Wander complete.");
                 currentWanderPoint = null; // Clear visualization
                 moveCoroutine = null;
                 StartIdle();
             }));
         }
 
-        private void Update() {
-            if (Input.GetKeyDown(KeyCode.F)) {
-                SetTarget(player);
-            }
-        }
-
-        public void TakeDamage(float damage, Vector2 from) {
-            //Health -= damage;
-            Debug.Log($"Took {damage} damage. Health: {Health}");
+        public void TakeDamage(float damage, Vector2 from, Transform source) {
+            SetTarget(source);
+            Health -= damage;
 
             // Knockback
             var direction = (transform.position - (Vector3)from).normalized;
             var force = direction * 15f;
             rb.AddForce(force, ForceMode2D.Impulse);
-
-            Debug.Log($"Knocked back with force {force}");
 
             // Flash effect
             GetComponent<SpriteFlashEffect>().StartWhiteFlash();
@@ -169,18 +156,21 @@ namespace Animals {
             damageParticles.transform.rotation = rotation;
             damageParticles.Play();
 
-            /*if (Health <= 0) {
+            if (Health <= 0) {
                 Die();
-            }*/
+            }
+        }
+
+        private void Die() {
+            deathParticles.Play();
+            Destroy(gameObject);
         }
 
         private IEnumerator ChaseLoop() {
-            Debug.Log("ChaseLoop started.");
             while (isChasing && chaseTarget != null) {
                 var dist = Vector2.Distance(transform.position, chaseTarget.position);
 
                 if (dist > loseInterestRange || !HasLineOfSight(transform.position, chaseTarget.position)) {
-                    Debug.Log("Lost line-of-sight or target out of range. Stopping chase.");
                     StopChasing();
                     yield break;
                 }
@@ -199,7 +189,6 @@ namespace Animals {
                     speed * Time.fixedDeltaTime);
                 transform.position = newPosition;
 
-                Debug.Log($"Chasing target. Position: {transform.position}");
                 yield return new WaitForFixedUpdate();
             }
 
@@ -207,7 +196,6 @@ namespace Animals {
         }
 
         private IEnumerator WanderTo(Vector2 wanderPoint, Action onComplete = null) {
-            Debug.Log($"Wandering to: {wanderPoint}");
             wanderPoint = ClosestPointInArea(wanderPoint);
             currentWanderPoint = wanderPoint; // For visualization
 
@@ -229,21 +217,17 @@ namespace Animals {
                 transform.position = newPosition;
 
                 if (!isChasing) continue;
-                Debug.Log("Interrupted by chase. Stopping wander.");
                 onComplete?.Invoke();
                 yield break;
             }
 
             animator.SetInteger(Direction, 0);
 
-            Debug.Log("Reached wander point.");
             currentWanderPoint = null; // Clear visualization
             onComplete?.Invoke();
         }
 
         private Vector2Int[] GetRandomLosPointsFromHome() {
-            Debug.Log("Finding random LOS point from home.");
-
             var points = new List<Vector2Int>(10);
 
             for (var i = 0; i < 10; i++) {
@@ -251,7 +235,6 @@ namespace Animals {
                 while (true) {
                     n++;
                     if (n > 1000) {
-                        Debug.LogError("Failed to find LOS point. Aborting.");
                         break;
                     }
 
@@ -261,13 +244,9 @@ namespace Animals {
 
                     var candidate = homePosition + new Vector2Int(rx, ry);
 
-                    Debug.Log("Checking candidate: " + candidate);
                     if (!IsPointInArea(candidate)) continue;
-                    Debug.Log("Candidate is in area.");
                     if (!points.All(point => HasLineOfSight(candidate, point))) continue;
-                    Debug.Log("Candidate has LOS to all other points.");
                     if (!HasLineOfSight(homePosition, candidate)) continue;
-                    Debug.Log("Candidate has LOS to home.");
 
                     points.Add(candidate);
                     break;
@@ -278,7 +257,6 @@ namespace Animals {
         }
 
         private bool HasLineOfSight(Vector2 start, Vector2 end) {
-            Debug.Log($"Checking LOS from {start} to {end}");
             var direction = (end - start).normalized;
 
             const float step = 0.5f;
@@ -289,13 +267,11 @@ namespace Animals {
                 current += direction * step;
 
                 if (!IsPointInArea(current)) {
-                    Debug.Log("LOS blocked by area.");
                     blocked = true;
                     break;
                 }
 
                 if (Physics2D.OverlapCircleAll(current, 0.5f).All(c => !c.CompareTag("Obstacle"))) continue;
-                Debug.Log("LOS blocked by obstacle.");
                 blocked = true;
                 break;
             }
@@ -307,15 +283,11 @@ namespace Animals {
 
             if (blocked) return false;
 
-            Debug.Log("LOS clear.");
             return true;
         }
 
         private Vector2 ClosestPointInArea(Vector2 position) {
-            Debug.Log($"Finding closest point in area to {position}");
-
             if (IsPointInArea(position)) {
-                Debug.Log("Point already in area.");
                 return position;
             }
 
@@ -333,7 +305,6 @@ namespace Animals {
                 closestDistance = distance;
             }
 
-            Debug.Log($"Closest point found: {closest}");
             return closest;
         }
 

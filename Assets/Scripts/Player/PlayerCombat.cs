@@ -56,7 +56,7 @@ namespace Player {
 
         private void Attack() {
             if (attacking == null) return;
-            attacking.TakeDamage(1, transform.position);
+            attacking.TakeDamage(1, transform.position, transform);
             var v = attacking.transform.position - transform.position;
             rb.AddForce(-v.normalized * 3f, ForceMode2D.Impulse);
         }
