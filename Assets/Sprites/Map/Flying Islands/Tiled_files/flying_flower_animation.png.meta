@@ -165,6 +165,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -709,7 +735,31 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      flying_flower_animation_0: 6592412208869423054
+      flying_flower_animation_1: 1153594511412683623
+      flying_flower_animation_10: 355335550166104027
+      flying_flower_animation_11: 7742961806273823377
+      flying_flower_animation_12: 549549690753684545
+      flying_flower_animation_13: 8133581032206487493
+      flying_flower_animation_14: -1510465319252003837
+      flying_flower_animation_15: 5646246510507815568
+      flying_flower_animation_16: 8946788076799554067
+      flying_flower_animation_17: 9019835620660647055
+      flying_flower_animation_18: -467983858937274924
+      flying_flower_animation_19: 8740111688318279392
+      flying_flower_animation_2: 3521701993684337376
+      flying_flower_animation_20: 6419199241164567143
+      flying_flower_animation_21: -92953978164812574
+      flying_flower_animation_22: 3847891406778928144
+      flying_flower_animation_23: -2900930829892278998
+      flying_flower_animation_3: -7315525559235573084
+      flying_flower_animation_4: 5956753969779822389
+      flying_flower_animation_5: -7981610188049447773
+      flying_flower_animation_6: 9156953719478736269
+      flying_flower_animation_7: 3503677439824367126
+      flying_flower_animation_8: -1610190069149086483
+      flying_flower_animation_9: -2848308224696597144
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

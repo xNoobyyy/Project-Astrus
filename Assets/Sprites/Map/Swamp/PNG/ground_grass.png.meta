@@ -198,6 +198,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -984,7 +1010,42 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ground_grass_0: 116947273475212686
+      ground_grass_1: 137937702681042353
+      ground_grass_10: 7284179432452570939
+      ground_grass_11: -8224663237989137108
+      ground_grass_12: -4020591431259407588
+      ground_grass_13: 6989508670182149607
+      ground_grass_14: 1635330669724964187
+      ground_grass_15: 2614070038614360367
+      ground_grass_16: 3460886492167564586
+      ground_grass_17: 7133483931668775307
+      ground_grass_18: -4135516492565690961
+      ground_grass_19: 4280743881737284724
+      ground_grass_2: -6111218970273361148
+      ground_grass_20: -6131211241487566245
+      ground_grass_21: 6342121494240928659
+      ground_grass_22: 944086929164019348
+      ground_grass_23: -3947371807034408316
+      ground_grass_24: -7671942338881777368
+      ground_grass_25: -6990906094821802048
+      ground_grass_26: 3286254520053553608
+      ground_grass_27: -5471358006952818811
+      ground_grass_28: -7168221331620731325
+      ground_grass_29: 5781634956409597844
+      ground_grass_3: 2566602637218860330
+      ground_grass_30: 8425877139274491456
+      ground_grass_31: 6605619837150806501
+      ground_grass_32: -1169610344459500410
+      ground_grass_33: -465676423210221490
+      ground_grass_34: 4366431566237768977
+      ground_grass_4: -7331318893563052070
+      ground_grass_5: -573489194015033818
+      ground_grass_6: -8085759215221438480
+      ground_grass_7: 8075071216703869841
+      ground_grass_8: 8233647756539614265
+      ground_grass_9: -8318210698828428084
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

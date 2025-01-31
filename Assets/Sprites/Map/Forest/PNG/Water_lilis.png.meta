@@ -264,6 +264,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1534,7 +1560,64 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Water_lilis_0: 5775003376408214934
+      Water_lilis_1: 5529444301077938841
+      Water_lilis_10: -3799719566806715879
+      Water_lilis_11: 5886157663159924200
+      Water_lilis_12: -6836810990388867569
+      Water_lilis_13: -7008177750482779430
+      Water_lilis_14: 2653551454072860042
+      Water_lilis_15: -4356187251053090126
+      Water_lilis_16: -2243707601701267411
+      Water_lilis_17: 6679780942383887058
+      Water_lilis_18: -6290476306510884044
+      Water_lilis_19: -6682856101260354461
+      Water_lilis_2: -4922478185592185385
+      Water_lilis_20: 5366334120385991784
+      Water_lilis_21: -5538772222488321567
+      Water_lilis_22: -7116467935898774189
+      Water_lilis_23: 3370050054215269409
+      Water_lilis_24: 2886130872442611576
+      Water_lilis_25: 1381070415828788254
+      Water_lilis_26: -7803885696649976859
+      Water_lilis_27: -1973033807997194210
+      Water_lilis_28: -3102254053945770102
+      Water_lilis_29: -833469759705636130
+      Water_lilis_3: 131921579086390553
+      Water_lilis_30: -6407217233243235427
+      Water_lilis_31: 6667279341531575458
+      Water_lilis_32: -3144524630053890384
+      Water_lilis_33: -595167305075055537
+      Water_lilis_34: 379226946179431895
+      Water_lilis_35: 400361914090668208
+      Water_lilis_36: 5284678272266682137
+      Water_lilis_37: -8096136829058364369
+      Water_lilis_38: -122280076260237654
+      Water_lilis_39: 8266219497638664135
+      Water_lilis_4: -7132922161712368775
+      Water_lilis_40: -7583510184963097690
+      Water_lilis_41: 3774675895757316817
+      Water_lilis_42: 8217415466626989001
+      Water_lilis_43: -8655395793600142400
+      Water_lilis_44: 4797435613424924093
+      Water_lilis_45: 3457139889953207129
+      Water_lilis_46: -3800595953940760884
+      Water_lilis_47: -8726792753918947012
+      Water_lilis_48: -9058432951669265564
+      Water_lilis_49: 8968385186448525498
+      Water_lilis_5: 7258598599072696701
+      Water_lilis_50: 4267226163799938720
+      Water_lilis_51: -8004988176820231171
+      Water_lilis_52: -3500679562879136614
+      Water_lilis_53: -3585478101800170921
+      Water_lilis_54: -2006084662593684821
+      Water_lilis_55: -1297912792277472073
+      Water_lilis_56: 1403036079480215503
+      Water_lilis_6: 2577764105824964284
+      Water_lilis_7: -1956411226547665677
+      Water_lilis_8: -4083104433198488650
+      Water_lilis_9: -4508175932960084482
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

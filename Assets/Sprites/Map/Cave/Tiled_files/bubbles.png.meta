@@ -258,6 +258,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1484,7 +1510,62 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bubbles_0: 1649192393020575799
+      bubbles_1: 436068532722222212
+      bubbles_10: 8947370730148713606
+      bubbles_11: -8148538525727755865
+      bubbles_12: 4816142233172191749
+      bubbles_13: 2974798776491532947
+      bubbles_14: -5231694829383732841
+      bubbles_15: 7106805704963272855
+      bubbles_16: -5135265226407809126
+      bubbles_17: 6838600375767471864
+      bubbles_18: 1036413325969116213
+      bubbles_19: -6849164051667792402
+      bubbles_2: 4446514367426954430
+      bubbles_20: 3423775154336031886
+      bubbles_21: -6765763093938485279
+      bubbles_22: 5655906654600369620
+      bubbles_23: -3621893922140962576
+      bubbles_24: 5144271041736283411
+      bubbles_25: -4159945613297747512
+      bubbles_26: -9173134397130361451
+      bubbles_27: -6256276430807642122
+      bubbles_28: -4472804042799145197
+      bubbles_29: 7580973617224487910
+      bubbles_3: 2895248461379961665
+      bubbles_30: -3122220833926461956
+      bubbles_31: -3485297971344284866
+      bubbles_32: -7509148193587489172
+      bubbles_33: 4226527863717609376
+      bubbles_34: 8522762959556418031
+      bubbles_35: 870880218593683532
+      bubbles_36: -2432303182477451292
+      bubbles_37: 7851758030674433565
+      bubbles_38: 2035338432140067715
+      bubbles_39: 2454053423969021042
+      bubbles_4: -1131802689570784725
+      bubbles_40: -5082956894786321319
+      bubbles_41: 2247450736222519815
+      bubbles_42: 5469732756594781864
+      bubbles_43: 2017182623331266168
+      bubbles_44: 5254591085949652638
+      bubbles_45: -7340197126684318402
+      bubbles_46: -8487727506897481404
+      bubbles_47: -8550451280599988349
+      bubbles_48: 2976480884943289579
+      bubbles_49: -3683353290100142623
+      bubbles_5: 8037479828641716995
+      bubbles_50: -5995132936320596471
+      bubbles_51: -8257739356708976381
+      bubbles_52: -5186169492330956036
+      bubbles_53: -4013773670188713368
+      bubbles_54: 1680606824269417857
+      bubbles_6: 2224701078577907114
+      bubbles_7: 3918516020189676775
+      bubbles_8: 2785091170336203222
+      bubbles_9: -6188755181354846438
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

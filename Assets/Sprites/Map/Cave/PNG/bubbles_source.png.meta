@@ -258,6 +258,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1484,7 +1510,62 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bubbles_source_0: 8584091451954171684
+      bubbles_source_1: 1096185837015657837
+      bubbles_source_10: 7255016028107820260
+      bubbles_source_11: 7950452046542999740
+      bubbles_source_12: -1848697402125137830
+      bubbles_source_13: 1500809961585846712
+      bubbles_source_14: 5833600557674462080
+      bubbles_source_15: -6914641733809473877
+      bubbles_source_16: -7608073995415070793
+      bubbles_source_17: 8124098494896224183
+      bubbles_source_18: 4335138636345968687
+      bubbles_source_19: 792455223602827353
+      bubbles_source_2: 5375404578862871551
+      bubbles_source_20: -7605529415246488801
+      bubbles_source_21: 2107094794287306922
+      bubbles_source_22: -2965662936849565088
+      bubbles_source_23: 3666296995356209332
+      bubbles_source_24: 6449149176177292121
+      bubbles_source_25: 2582934724953823772
+      bubbles_source_26: -8726183285659776057
+      bubbles_source_27: 8539713939293446724
+      bubbles_source_28: 5624970647724898508
+      bubbles_source_29: 2519199673039270415
+      bubbles_source_3: 7041244943447054584
+      bubbles_source_30: 9066564722345693079
+      bubbles_source_31: 4433769336636548163
+      bubbles_source_32: -730791825558324868
+      bubbles_source_33: -71364244198552878
+      bubbles_source_34: 2707604115403974126
+      bubbles_source_35: 1563862761042234902
+      bubbles_source_36: -3095465611122488576
+      bubbles_source_37: 3221082890337125520
+      bubbles_source_38: -7896372850700087659
+      bubbles_source_39: -8923690590554018740
+      bubbles_source_4: -932541463414075077
+      bubbles_source_40: 5256026262872608544
+      bubbles_source_41: 3173621814868381763
+      bubbles_source_42: 230049960656862448
+      bubbles_source_43: 3682279101065291908
+      bubbles_source_44: 5892541968961949739
+      bubbles_source_45: -6657808604514325592
+      bubbles_source_46: -4757754128892746351
+      bubbles_source_47: -138967327051588075
+      bubbles_source_48: -6737130091949036294
+      bubbles_source_49: -481267205654477244
+      bubbles_source_5: 2923123875845581879
+      bubbles_source_50: 2059442046206616328
+      bubbles_source_51: 2918277423860124986
+      bubbles_source_52: 4860136574309788062
+      bubbles_source_53: -2973813021320275526
+      bubbles_source_54: 4671068293909266362
+      bubbles_source_6: -1018501289109957467
+      bubbles_source_7: 409455949228659012
+      bubbles_source_8: -3815391439517374898
+      bubbles_source_9: 6160322068326473756
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

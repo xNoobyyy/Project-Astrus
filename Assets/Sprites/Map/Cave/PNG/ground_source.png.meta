@@ -402,6 +402,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -2684,7 +2710,110 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ground_source_0: 8783129484235432823
+      ground_source_1: 1915170045082025248
+      ground_source_10: -3201798128373518248
+      ground_source_100: 5077436332734582537
+      ground_source_101: -1686173062142959654
+      ground_source_102: -5113144450652638802
+      ground_source_11: -4353041912431312832
+      ground_source_12: 3932415920639799641
+      ground_source_13: 4921953266649894934
+      ground_source_14: 7347873256203594054
+      ground_source_15: 2054632127060379059
+      ground_source_16: 3466292138329234373
+      ground_source_17: 6099623393290415628
+      ground_source_18: -5370565216145241960
+      ground_source_19: -5209987583979196916
+      ground_source_2: 2917939378937313388
+      ground_source_20: 6421551602774773775
+      ground_source_21: -3067760285199682752
+      ground_source_22: -2861232611179163563
+      ground_source_23: 1642476856528283583
+      ground_source_24: -3893559145589513145
+      ground_source_25: 7915170352294139099
+      ground_source_26: 6513687095056780494
+      ground_source_27: -6438362016536865296
+      ground_source_28: 5218954208180410793
+      ground_source_29: 7210710813041884959
+      ground_source_3: -711981798955231919
+      ground_source_30: -782191940615736965
+      ground_source_31: -2829139509558613138
+      ground_source_32: 3506409121907527805
+      ground_source_33: 3007665120398408564
+      ground_source_34: -3065475394358346557
+      ground_source_35: -8565603482665708363
+      ground_source_36: -53351569596526400
+      ground_source_37: -843672012334234553
+      ground_source_38: 3885817881231554668
+      ground_source_39: -158568984395380609
+      ground_source_4: 1770691384689200709
+      ground_source_40: -8894804295064159847
+      ground_source_41: -3383619987012947121
+      ground_source_42: 5691788026669945972
+      ground_source_43: -2782534829576199514
+      ground_source_44: 7625416536726178822
+      ground_source_45: 4162880719503112759
+      ground_source_46: -7000234393711087872
+      ground_source_47: -8861458762959772892
+      ground_source_48: -5210782656990696291
+      ground_source_49: 2371329124220609644
+      ground_source_5: -2487683116371148080
+      ground_source_50: 4100453920397241140
+      ground_source_51: -2816682068477538322
+      ground_source_52: 2963047169104184588
+      ground_source_53: 4421894339721360579
+      ground_source_54: 2469435646501831321
+      ground_source_55: -169468657174837773
+      ground_source_56: -5436251626637389404
+      ground_source_57: 1170541619471747348
+      ground_source_58: 4510879845729501186
+      ground_source_59: -6297980348194110536
+      ground_source_6: -1526103820094080511
+      ground_source_60: 7275993557681484984
+      ground_source_61: 1065695599398457852
+      ground_source_62: 8316339288753303327
+      ground_source_63: -6985062146227931682
+      ground_source_64: 6211487271028543210
+      ground_source_65: -7117971690170293841
+      ground_source_66: -4251369276290397045
+      ground_source_67: -157389335623974182
+      ground_source_68: -4373821892222072401
+      ground_source_69: 7479640992065356922
+      ground_source_7: -14352504802530554
+      ground_source_70: 799903614908334070
+      ground_source_71: 3783601723510598231
+      ground_source_72: -7950194590432030148
+      ground_source_73: -7531904507164533400
+      ground_source_74: -179140537633349273
+      ground_source_75: -7056765023592886830
+      ground_source_76: -4691810734998362438
+      ground_source_77: -1232896506016035755
+      ground_source_78: 5953558247151834944
+      ground_source_79: -848696735107827163
+      ground_source_8: -1864206360133619057
+      ground_source_80: 7650161473487378311
+      ground_source_81: -4969447962029205127
+      ground_source_82: -7316305375909537278
+      ground_source_83: -7126158612477614862
+      ground_source_84: -6529075489025741323
+      ground_source_85: -1013212896767515165
+      ground_source_86: 6670147430936253177
+      ground_source_87: 2734910801210626560
+      ground_source_88: 1288147354365453042
+      ground_source_89: 8398717050672473839
+      ground_source_9: -3085483353368482425
+      ground_source_90: 5125567883590927634
+      ground_source_91: -7543527385059256287
+      ground_source_92: -5200625421954964594
+      ground_source_93: -7168402089094780405
+      ground_source_94: -712692900389506323
+      ground_source_95: -6635277357276519985
+      ground_source_96: -1509274227413312497
+      ground_source_97: 3319018003367156873
+      ground_source_98: 8044075143909636332
+      ground_source_99: 8810115736703510938
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

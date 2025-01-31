@@ -417,6 +417,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -2809,7 +2835,115 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Animated_objects3_0: 5536722210916856444
+      Animated_objects3_1: 4945056094826155336
+      Animated_objects3_10: 1170381014644933061
+      Animated_objects3_100: 3777498318672851440
+      Animated_objects3_101: -6898552474106307982
+      Animated_objects3_102: 6087454557020659822
+      Animated_objects3_103: 2130724768031622254
+      Animated_objects3_104: 3999595776425755090
+      Animated_objects3_105: -8834397675870478420
+      Animated_objects3_106: -2525462016112960933
+      Animated_objects3_107: 4454879090292426391
+      Animated_objects3_11: 5762660191768986874
+      Animated_objects3_12: -8633618418607271053
+      Animated_objects3_13: -2764704612724990345
+      Animated_objects3_14: -3854396155711539096
+      Animated_objects3_15: -6871042871971611995
+      Animated_objects3_16: 1939424606838152074
+      Animated_objects3_17: -7526486434816665125
+      Animated_objects3_18: 7594743084012776814
+      Animated_objects3_19: 7658863527519488618
+      Animated_objects3_2: 2010019646259228750
+      Animated_objects3_20: -3784827444480014205
+      Animated_objects3_21: -1119790511891135996
+      Animated_objects3_22: 2103771395008635332
+      Animated_objects3_23: -6680729166853608569
+      Animated_objects3_24: 4315330782875677106
+      Animated_objects3_25: 2998111737542731714
+      Animated_objects3_26: 3074575517521470462
+      Animated_objects3_27: 728923273275508820
+      Animated_objects3_28: -6024096208036703052
+      Animated_objects3_29: 840253656984636977
+      Animated_objects3_3: 7663013708884801125
+      Animated_objects3_30: 3685258975718300702
+      Animated_objects3_31: 7079363328893912380
+      Animated_objects3_32: 3033366368159062213
+      Animated_objects3_33: 1519833017286129098
+      Animated_objects3_34: 9036160276820901333
+      Animated_objects3_35: 5138876717339271006
+      Animated_objects3_36: -6386005548489976663
+      Animated_objects3_37: -7438398667269929647
+      Animated_objects3_38: -8775634805784730038
+      Animated_objects3_39: 1086758976290019790
+      Animated_objects3_4: 8724001810201706453
+      Animated_objects3_40: -3191273469674389426
+      Animated_objects3_41: -8869123806884038969
+      Animated_objects3_42: 9184972316559834290
+      Animated_objects3_43: 8187147040608631087
+      Animated_objects3_44: 6366669901419441909
+      Animated_objects3_45: 9092853678625468105
+      Animated_objects3_46: -8555873160367490131
+      Animated_objects3_47: 63168010198580154
+      Animated_objects3_48: -4890066732247992039
+      Animated_objects3_49: -3590129104174794419
+      Animated_objects3_5: -8859275439092129397
+      Animated_objects3_50: -9048050149857460456
+      Animated_objects3_51: 1854273628076091323
+      Animated_objects3_52: 8933860025338367153
+      Animated_objects3_53: 1185966486161047979
+      Animated_objects3_54: 1600979624481728445
+      Animated_objects3_55: 7472933787995381079
+      Animated_objects3_56: 7199225082721582221
+      Animated_objects3_57: -6200339518686286462
+      Animated_objects3_58: 6955889027739705642
+      Animated_objects3_59: -2524523245369369103
+      Animated_objects3_6: -7046076974614193463
+      Animated_objects3_60: 8158075280134763471
+      Animated_objects3_61: -5210228058641909172
+      Animated_objects3_62: -5948719787531191899
+      Animated_objects3_63: 489139871164100987
+      Animated_objects3_64: 1462154464505098749
+      Animated_objects3_65: -2830752714382315674
+      Animated_objects3_66: 2685573572142223651
+      Animated_objects3_67: -2007920755264820946
+      Animated_objects3_68: -1554006100257628750
+      Animated_objects3_69: -1921705272534697887
+      Animated_objects3_7: -1822075317766683823
+      Animated_objects3_70: -7941326194822947642
+      Animated_objects3_71: -4343083436534095569
+      Animated_objects3_72: 68039001707066286
+      Animated_objects3_73: -1625736089530437683
+      Animated_objects3_74: -4465693071887520898
+      Animated_objects3_75: 4614706727402319345
+      Animated_objects3_76: -7625278713229723570
+      Animated_objects3_77: -3069848827892801079
+      Animated_objects3_78: 8976561873282670093
+      Animated_objects3_79: -85200511565080267
+      Animated_objects3_8: 1116651447803182321
+      Animated_objects3_80: 3780317921490845133
+      Animated_objects3_81: 6987383381010014540
+      Animated_objects3_82: -7020318028947929587
+      Animated_objects3_83: -3172675351169886224
+      Animated_objects3_84: 9131951971642880183
+      Animated_objects3_85: 6448340255381194545
+      Animated_objects3_86: -6396353335206499349
+      Animated_objects3_87: 4354800571398502154
+      Animated_objects3_88: -561633600044299052
+      Animated_objects3_89: 3600193733073339754
+      Animated_objects3_9: 8954651184855645991
+      Animated_objects3_90: 3664332984187014946
+      Animated_objects3_91: -7185136957251482722
+      Animated_objects3_92: 5842612517218274724
+      Animated_objects3_93: -1135436503843203185
+      Animated_objects3_94: 7111294722423923205
+      Animated_objects3_95: 1473186546733982823
+      Animated_objects3_96: 2090588061245134914
+      Animated_objects3_97: 7945013422804599977
+      Animated_objects3_98: -4258456138838215826
+      Animated_objects3_99: -4259445232315577590
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -165,6 +165,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -709,7 +735,31 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ground_grass_shadow_gradients_0: 5950077825830590689
+      Ground_grass_shadow_gradients_1: -4413195221595820226
+      Ground_grass_shadow_gradients_10: -5374933617243837213
+      Ground_grass_shadow_gradients_11: -7930043866989111512
+      Ground_grass_shadow_gradients_12: -3582059650046805668
+      Ground_grass_shadow_gradients_13: -5179811451796601040
+      Ground_grass_shadow_gradients_14: -5982209333440726045
+      Ground_grass_shadow_gradients_15: -4053565779579686536
+      Ground_grass_shadow_gradients_16: 485659185838729637
+      Ground_grass_shadow_gradients_17: -4072500456127925423
+      Ground_grass_shadow_gradients_18: -1971549361587493930
+      Ground_grass_shadow_gradients_19: 7008680932739558116
+      Ground_grass_shadow_gradients_2: 6191505241494165983
+      Ground_grass_shadow_gradients_20: 330027876717721032
+      Ground_grass_shadow_gradients_21: -7967746255228496314
+      Ground_grass_shadow_gradients_22: 1623052134718180954
+      Ground_grass_shadow_gradients_23: 6202905832862604607
+      Ground_grass_shadow_gradients_3: -7600277296275048393
+      Ground_grass_shadow_gradients_4: 7970151673538997713
+      Ground_grass_shadow_gradients_5: -8116872340009886912
+      Ground_grass_shadow_gradients_6: -1645257768613405973
+      Ground_grass_shadow_gradients_7: -8839619201654517997
+      Ground_grass_shadow_gradients_8: 6367855398325634638
+      Ground_grass_shadow_gradients_9: -3987373529180206710
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

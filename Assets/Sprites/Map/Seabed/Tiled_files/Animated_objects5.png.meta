@@ -417,6 +417,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -2809,7 +2835,115 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Animated_objects5_0: -8873319940568027938
+      Animated_objects5_1: -3652836650361488881
+      Animated_objects5_10: -3736217465847989632
+      Animated_objects5_100: -7984463523238562764
+      Animated_objects5_101: 9015019176740087140
+      Animated_objects5_102: 1822462453575222887
+      Animated_objects5_103: 7343763309991530952
+      Animated_objects5_104: 7348673079199765018
+      Animated_objects5_105: 5276070030157938339
+      Animated_objects5_106: 6202052325038788478
+      Animated_objects5_107: -8177949795843614977
+      Animated_objects5_11: 886739655290265859
+      Animated_objects5_12: -1726128423830453627
+      Animated_objects5_13: 8544713523999994402
+      Animated_objects5_14: -6634881551776311371
+      Animated_objects5_15: -1061107075076096367
+      Animated_objects5_16: 2558655253437833310
+      Animated_objects5_17: 5713160342159482021
+      Animated_objects5_18: 4501672583553902220
+      Animated_objects5_19: -9207508024644646817
+      Animated_objects5_2: -7348164829398693257
+      Animated_objects5_20: -5440274093251508393
+      Animated_objects5_21: 6412651035573299525
+      Animated_objects5_22: -2984979930498501400
+      Animated_objects5_23: 8507765197701512856
+      Animated_objects5_24: -1013108623424049259
+      Animated_objects5_25: -484553390537691072
+      Animated_objects5_26: -1134875910695779758
+      Animated_objects5_27: 3234691946381215818
+      Animated_objects5_28: 9007760447795343369
+      Animated_objects5_29: -1983388352094055978
+      Animated_objects5_3: -8504442404376251798
+      Animated_objects5_30: 3090668922388546698
+      Animated_objects5_31: -8214995568563350206
+      Animated_objects5_32: -6028057662879017279
+      Animated_objects5_33: 6570375553516301023
+      Animated_objects5_34: 2238989851396188666
+      Animated_objects5_35: 2901794310421056567
+      Animated_objects5_36: -6351531799577122015
+      Animated_objects5_37: 4991779625098029876
+      Animated_objects5_38: -9205226851270897571
+      Animated_objects5_39: -1132339192069465658
+      Animated_objects5_4: 7015801663218196687
+      Animated_objects5_40: -7897479427454854242
+      Animated_objects5_41: 9187466468168678456
+      Animated_objects5_42: -3026168016841234798
+      Animated_objects5_43: -7029807873127630115
+      Animated_objects5_44: -8748672574055059338
+      Animated_objects5_45: -235764659153680449
+      Animated_objects5_46: -1939851766595121380
+      Animated_objects5_47: -635900667388245804
+      Animated_objects5_48: 3374091080320212945
+      Animated_objects5_49: -4280992905885590657
+      Animated_objects5_5: -1066840143560856357
+      Animated_objects5_50: 482867959816822171
+      Animated_objects5_51: 6865670753277890844
+      Animated_objects5_52: 7130580090248283752
+      Animated_objects5_53: -6488199684609995837
+      Animated_objects5_54: -6468815298715110277
+      Animated_objects5_55: -351747696079110357
+      Animated_objects5_56: -2579858650549908587
+      Animated_objects5_57: -2301420112343648163
+      Animated_objects5_58: 8717079832678262805
+      Animated_objects5_59: -5790442519003744371
+      Animated_objects5_6: -992396982301120992
+      Animated_objects5_60: -4835810558454750845
+      Animated_objects5_61: -6873996391942061460
+      Animated_objects5_62: 2687188990555575533
+      Animated_objects5_63: -3294080177851197162
+      Animated_objects5_64: -2352120157922885895
+      Animated_objects5_65: 1508141424672579280
+      Animated_objects5_66: 4115600126986372810
+      Animated_objects5_67: 119209858838131921
+      Animated_objects5_68: 8945366681700997083
+      Animated_objects5_69: -7820705205916766529
+      Animated_objects5_7: 3435527191310460698
+      Animated_objects5_70: 7364265010220780252
+      Animated_objects5_71: -3143881703294004352
+      Animated_objects5_72: -1600023782794707803
+      Animated_objects5_73: -2314995855233125610
+      Animated_objects5_74: 3339566106174172943
+      Animated_objects5_75: -7601288990615277451
+      Animated_objects5_76: -986951266503778675
+      Animated_objects5_77: -7119021420872666809
+      Animated_objects5_78: 7668974883098162620
+      Animated_objects5_79: -7084643068856178916
+      Animated_objects5_8: 2510712231564354024
+      Animated_objects5_80: 4060517814586652613
+      Animated_objects5_81: -498491198881688518
+      Animated_objects5_82: 8889587563919250777
+      Animated_objects5_83: -6141542510078387853
+      Animated_objects5_84: 2318371025065303814
+      Animated_objects5_85: -4659763449288400218
+      Animated_objects5_86: 4150772977887345653
+      Animated_objects5_87: 8639802438771200013
+      Animated_objects5_88: -1199522257123313987
+      Animated_objects5_89: -6953354142803926257
+      Animated_objects5_9: 3215128267960351909
+      Animated_objects5_90: -6827633594567862611
+      Animated_objects5_91: -3330674263509521171
+      Animated_objects5_92: -7147430562446886374
+      Animated_objects5_93: -3227564016229105556
+      Animated_objects5_94: 6563477839353457973
+      Animated_objects5_95: 6009854998218796550
+      Animated_objects5_96: -5297534098638628090
+      Animated_objects5_97: 6136242678069589293
+      Animated_objects5_98: -3671488242694740235
+      Animated_objects5_99: -406188853958214370
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

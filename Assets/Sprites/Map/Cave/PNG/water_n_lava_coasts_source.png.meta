@@ -123,6 +123,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -359,7 +385,17 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      water_n_lava_coasts_source_0: -6228961446483681505
+      water_n_lava_coasts_source_1: -2767176862919544456
+      water_n_lava_coasts_source_2: -2984915032806054339
+      water_n_lava_coasts_source_3: 7341500042091339881
+      water_n_lava_coasts_source_4: 6273550651112718324
+      water_n_lava_coasts_source_5: -3096041879144778807
+      water_n_lava_coasts_source_6: -2661931742596230988
+      water_n_lava_coasts_source_7: 7464774427789617856
+      water_n_lava_coasts_source_8: -5235018817130529240
+      water_n_lava_coasts_source_9: -7564425916873162871
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

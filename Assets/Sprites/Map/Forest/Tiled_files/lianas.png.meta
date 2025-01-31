@@ -186,6 +186,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -884,7 +910,38 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      lianas_0: 3053061046966664756
+      lianas_1: -4127271870140501825
+      lianas_10: -8683495259184395726
+      lianas_11: 8995314240635272553
+      lianas_12: -3879613413266757986
+      lianas_13: 4529202338183461267
+      lianas_14: -2894806769768320692
+      lianas_15: -7105086372962425378
+      lianas_16: -6836036924346902478
+      lianas_17: -9015431162111000419
+      lianas_18: -6999544988304624343
+      lianas_19: 6422534553759073557
+      lianas_2: -2582909788112694370
+      lianas_20: -6408321948413100703
+      lianas_21: -7192705815766157980
+      lianas_22: -6294138503103367277
+      lianas_23: 2397927794996055459
+      lianas_24: 7117105194527366897
+      lianas_25: 1513957815763954579
+      lianas_26: -1462961960734248589
+      lianas_27: -2027283609058404779
+      lianas_28: 906105652366448620
+      lianas_29: -658960915250411857
+      lianas_3: -7438966045485482630
+      lianas_30: -3045847383195475259
+      lianas_4: -4455617908084178652
+      lianas_5: -2783699530495180828
+      lianas_6: -234072453243992948
+      lianas_7: 5968074985939321407
+      lianas_8: 3029878990099726394
+      lianas_9: 5710685067537005102
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

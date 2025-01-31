@@ -189,6 +189,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -909,7 +935,39 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Clouds_0: 2669142961033076756
+      Clouds_1: -3967920315399815954
+      Clouds_10: -1217386202081140410
+      Clouds_11: -6320086053030305126
+      Clouds_12: 7197970857688359645
+      Clouds_13: 2604134867812441340
+      Clouds_14: 2698225869445024411
+      Clouds_15: 7771651157387608744
+      Clouds_16: -8140550628214435382
+      Clouds_17: -3240055116637182912
+      Clouds_18: -4182889659961899704
+      Clouds_19: -7411934077376954296
+      Clouds_2: -1749161583622989117
+      Clouds_20: -83995490278912833
+      Clouds_21: -1798200507912065999
+      Clouds_22: -633503913189222451
+      Clouds_23: 3915962740535397564
+      Clouds_24: 5795537248950041442
+      Clouds_25: -7414706995655608180
+      Clouds_26: -1852226077688492699
+      Clouds_27: 2791722637519862108
+      Clouds_28: 8025604373404026146
+      Clouds_29: -6226778418210144589
+      Clouds_3: -5240784962635489071
+      Clouds_30: 4547518362419148012
+      Clouds_31: -6358755481922487818
+      Clouds_4: 1327514091082312007
+      Clouds_5: 5063102313881138252
+      Clouds_6: 7433681639430268716
+      Clouds_7: -8284803859559965258
+      Clouds_8: -4712777430531239470
+      Clouds_9: -1450576290695077454
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -453,6 +453,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -3109,7 +3135,127 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spots_rock_0: -221096481369220988
+      spots_rock_1: -4575395600940550086
+      spots_rock_10: 8419636489681198125
+      spots_rock_100: -7173136719128816135
+      spots_rock_101: 819616759155380402
+      spots_rock_102: 8448040098823439143
+      spots_rock_103: -5878968078884298511
+      spots_rock_104: 7437157247072095312
+      spots_rock_105: 4675037209583327671
+      spots_rock_106: -6172936020164656305
+      spots_rock_107: -9013436099535228486
+      spots_rock_108: -3019409726695417956
+      spots_rock_109: -4447479719810466478
+      spots_rock_11: 6003212328292866765
+      spots_rock_110: -918011699745374858
+      spots_rock_111: -5262297427632177441
+      spots_rock_112: -1945822058163602306
+      spots_rock_113: -8265009713963613300
+      spots_rock_114: 6262764388661394562
+      spots_rock_115: 4731438631955980659
+      spots_rock_116: 2597023476407095547
+      spots_rock_117: -6315346452852061881
+      spots_rock_118: -4618237818206839050
+      spots_rock_119: -3216177858893761348
+      spots_rock_12: -8452070568247706487
+      spots_rock_13: 7142085355878601551
+      spots_rock_14: -5079730396409611554
+      spots_rock_15: -3794978347626105219
+      spots_rock_16: -1131991840251359672
+      spots_rock_17: -8438314927673021329
+      spots_rock_18: -2213525547932019481
+      spots_rock_19: -360814383690833124
+      spots_rock_2: 2904189298842521085
+      spots_rock_20: 6341577920374851959
+      spots_rock_21: 3368382096052126867
+      spots_rock_22: -700734882346037168
+      spots_rock_23: -482078309006644255
+      spots_rock_24: 7657784407448353964
+      spots_rock_25: -6599280718579170701
+      spots_rock_26: -6402913714202003831
+      spots_rock_27: 1294485410782264996
+      spots_rock_28: -5164007487564148006
+      spots_rock_29: -8080507359345569568
+      spots_rock_3: -4364153002108121601
+      spots_rock_30: -863483818191173662
+      spots_rock_31: -5834652570712768546
+      spots_rock_32: 4278411134894209382
+      spots_rock_33: 4925668775574269846
+      spots_rock_34: -2484677236964771722
+      spots_rock_35: -6557530966377142755
+      spots_rock_36: -1119412591071296779
+      spots_rock_37: 422674270980207389
+      spots_rock_38: 4866294985401198712
+      spots_rock_39: -8090364976492685633
+      spots_rock_4: -1808508532374978539
+      spots_rock_40: -250435068503175109
+      spots_rock_41: -3808241776984941522
+      spots_rock_42: 1237498239618396463
+      spots_rock_43: -869642246844246203
+      spots_rock_44: 6637467916436828081
+      spots_rock_45: -8502022285051960824
+      spots_rock_46: -4764097090233885692
+      spots_rock_47: -8235922721316675322
+      spots_rock_48: -4945281916284475864
+      spots_rock_49: -3448869227092296540
+      spots_rock_5: 2313937198627440284
+      spots_rock_50: -5982369854712100114
+      spots_rock_51: -7188600420228319676
+      spots_rock_52: -6517645058800628510
+      spots_rock_53: 82203418996111517
+      spots_rock_54: -7251816300553926243
+      spots_rock_55: 7149096951224072007
+      spots_rock_56: 8996812302694285506
+      spots_rock_57: -2897651065534423213
+      spots_rock_58: 6043751484159816210
+      spots_rock_59: 5019931519666781264
+      spots_rock_6: 4902416519280157781
+      spots_rock_60: 6227610659771655554
+      spots_rock_61: -1445008219345824457
+      spots_rock_62: 5940264503720665826
+      spots_rock_63: -480783601791264675
+      spots_rock_64: -5721441074015576451
+      spots_rock_65: -3192845585355825123
+      spots_rock_66: -2386557993061540657
+      spots_rock_67: 2062984206666273629
+      spots_rock_68: 8306993538145737612
+      spots_rock_69: 2391136236127304822
+      spots_rock_7: 2666228249902699300
+      spots_rock_70: 7124825203683735554
+      spots_rock_71: -7356668904355993218
+      spots_rock_72: -6680494795222566241
+      spots_rock_73: 5066767882336837616
+      spots_rock_74: -3514782085180344272
+      spots_rock_75: 753959334767708047
+      spots_rock_76: -6718048992789323700
+      spots_rock_77: -2765184398481912468
+      spots_rock_78: -1897124009513889557
+      spots_rock_79: 5496317870768703587
+      spots_rock_8: -7502601739202222025
+      spots_rock_80: 2665010491405257714
+      spots_rock_81: 9180215615567119537
+      spots_rock_82: -665532558846312812
+      spots_rock_83: -1131345849197383065
+      spots_rock_84: -5698127650899464543
+      spots_rock_85: 6314685113391038215
+      spots_rock_86: -8076706987619148941
+      spots_rock_87: -7957761901921624023
+      spots_rock_88: -1177374914664109626
+      spots_rock_89: -8691482716665522233
+      spots_rock_9: 2749919037559612422
+      spots_rock_90: 5806728585212415295
+      spots_rock_91: -943573218919420701
+      spots_rock_92: 6633205677218789326
+      spots_rock_93: 8368600636832063475
+      spots_rock_94: -2260880059585052906
+      spots_rock_95: 1443915611638028920
+      spots_rock_96: -5702286433684931005
+      spots_rock_97: -5717596878443934377
+      spots_rock_98: -8164316148361818481
+      spots_rock_99: 836103842263561475
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

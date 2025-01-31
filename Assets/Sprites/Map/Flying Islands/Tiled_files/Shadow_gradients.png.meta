@@ -237,6 +237,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1309,7 +1335,55 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Shadow_gradients_0: 1595577691698483857
+      Shadow_gradients_1: 3854419348344858541
+      Shadow_gradients_10: 2808359571889434803
+      Shadow_gradients_11: -1471989816217440165
+      Shadow_gradients_12: 4470456343237212082
+      Shadow_gradients_13: -5933355854148501875
+      Shadow_gradients_14: -6381924028609933621
+      Shadow_gradients_15: -7791979350334223927
+      Shadow_gradients_16: -7263756597310617524
+      Shadow_gradients_17: -1419074957871157597
+      Shadow_gradients_18: -9042037021327520061
+      Shadow_gradients_19: -994504187843911444
+      Shadow_gradients_2: 8000532689485353237
+      Shadow_gradients_20: -5926533587928225748
+      Shadow_gradients_21: 1043808778555184515
+      Shadow_gradients_22: -531357751378426113
+      Shadow_gradients_23: -2657291581313273092
+      Shadow_gradients_24: 8128826138930094847
+      Shadow_gradients_25: -1035687478878140779
+      Shadow_gradients_26: 9122532019020784934
+      Shadow_gradients_27: -5156599822552906203
+      Shadow_gradients_28: -5392362347618972686
+      Shadow_gradients_29: -4477138641313522913
+      Shadow_gradients_3: 741960057896398447
+      Shadow_gradients_30: -670723197721836818
+      Shadow_gradients_31: 7297446241035615529
+      Shadow_gradients_32: -7216597253009548456
+      Shadow_gradients_33: -5023751894221144549
+      Shadow_gradients_34: 6363890575141726256
+      Shadow_gradients_35: 8304130043533327533
+      Shadow_gradients_36: -854160370011792046
+      Shadow_gradients_37: 3573881996171273891
+      Shadow_gradients_38: -957045301599449495
+      Shadow_gradients_39: 8306756663007781341
+      Shadow_gradients_4: -7912782454497442100
+      Shadow_gradients_40: 6579356800615752708
+      Shadow_gradients_41: 2149828855972396203
+      Shadow_gradients_42: -8444034407076307790
+      Shadow_gradients_43: 4199316054776514276
+      Shadow_gradients_44: 7131673850100688362
+      Shadow_gradients_45: -4455728114261488279
+      Shadow_gradients_46: -9135263889916496084
+      Shadow_gradients_47: -4235823585253367247
+      Shadow_gradients_5: 2581960280068685021
+      Shadow_gradients_6: 8335527034766475410
+      Shadow_gradients_7: 342199015359785882
+      Shadow_gradients_8: 963842027824093147
+      Shadow_gradients_9: 9206459546638582041
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

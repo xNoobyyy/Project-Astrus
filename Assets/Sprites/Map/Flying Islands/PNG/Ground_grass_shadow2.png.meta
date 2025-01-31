@@ -135,6 +135,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -459,7 +485,21 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ground_grass_shadow2_0: 91076584533799197
+      Ground_grass_shadow2_1: 4739059875240668352
+      Ground_grass_shadow2_10: 5590180338616424985
+      Ground_grass_shadow2_11: -850547850904979862
+      Ground_grass_shadow2_12: 6953897013075718390
+      Ground_grass_shadow2_13: 6253988062485683330
+      Ground_grass_shadow2_2: -8051966481760269006
+      Ground_grass_shadow2_3: -3044645902757956490
+      Ground_grass_shadow2_4: -9171834744944132653
+      Ground_grass_shadow2_5: 1889715736685279735
+      Ground_grass_shadow2_6: -5665766545779561439
+      Ground_grass_shadow2_7: -2535981545163426939
+      Ground_grass_shadow2_8: 3588076659035002783
+      Ground_grass_shadow2_9: -4653458817988144085
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
