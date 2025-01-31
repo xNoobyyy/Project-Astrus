@@ -4,8 +4,7 @@ using UnityEngine.UIElements;
 using Image = UnityEngine.UIElements.Image;
 using System.Collections;
 
-public class Watch : MonoBehaviour
-{
+public class Watch : MonoBehaviour {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject watchbackground;
     public GameObject watchOn;
@@ -13,16 +12,19 @@ public class Watch : MonoBehaviour
     public GameObject inventoryIcon;
     public GameObject questsIcon;
     public GameObject logIcon;
+
+    public GameObject openedIcon;
+    public OpeningIcon openingIconSc;
+    public GameObject openingIcon;
+
     public LogicScript logic;
     public Image WatchOff;
     private bool opening = false;
     private bool closing = false;
     private bool opened = false;
-    
-    
-    
-    void Start()
-    {
+
+
+    void Start() {
         mapIcon.SetActive(false);
         inventoryIcon.SetActive(false);
         questsIcon.SetActive(false);
@@ -30,12 +32,12 @@ public class Watch : MonoBehaviour
         watchbackground.transform.localScale = new Vector3(0, 0, 1);
         gameObject.SetActive(false);
         watchOn.SetActive(false);
-        
+        openedIcon.SetActive(false);
+        openingIcon.SetActive(false);
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         if (opening) {
             watchbackground.transform.localScale = Vector2.Lerp(
                 watchbackground.transform.localScale,
@@ -44,13 +46,12 @@ public class Watch : MonoBehaviour
         }
 
         if (closing) {
-            
             watchbackground.transform.localScale = Vector2.Lerp(
                 watchbackground.transform.localScale,
                 new Vector2((0), (0)),
                 Time.deltaTime * 10);
         }
-        
+
         float tolerance = 0.01f; // Toleranzwert
 
         if (opening) {
@@ -63,25 +64,21 @@ public class Watch : MonoBehaviour
                 opened = true;
                 opening = false;
                 logic.WatchOpen = true;
-
             }
         }
+
         if (closing) {
-            
             if (Vector2.Distance(watchbackground.transform.localScale, new Vector2(0, 0)) < tolerance) {
-                
                 gameObject.SetActive(false);
                 closing = false;
                 opened = false;
                 logic.WatchOpen = false;
             }
         }
-
     }
 
 
     public void open() {
-        
         if (!closing) {
             gameObject.SetActive(true);
             opening = true;
@@ -106,13 +103,13 @@ public class Watch : MonoBehaviour
             return false;
         }
     }
-    
-    IEnumerator DelayInMilliseconds(int milliseconds)
-    {
-        
-        yield return new WaitForSeconds(milliseconds / 1000f);
 
-        
+    public void ReverseAnimation() {
+        openingIconSc.ReverseAnimation();
+    }
+
+    IEnumerator DelayInMilliseconds(int milliseconds) {
+        yield return new WaitForSeconds(milliseconds / 1000f);
     }
 
     IEnumerator OnOff() {
@@ -163,5 +160,3 @@ public class Watch : MonoBehaviour
         logic.WatchOpen = true;
     }
 }
-
-
