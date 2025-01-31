@@ -11,12 +11,18 @@ public class LogicScript : MonoBehaviour
     public Watch watch;
     public RectTransform inventoryScreenVisu;
     public RectTransform questScreenVisu;
+<<<<<<< HEAD
     public GameObject openingIcon;
+=======
+>>>>>>> d32adcb955bbc4b494285662a2e94ef745dd2462
     private Vector2 QuestPosition;
     private Vector2 QuestSize;
     private bool InventoryOpen = false;
     public bool WatchOpen = false;
+<<<<<<< HEAD
     public bool IconOpened = false;
+=======
+>>>>>>> d32adcb955bbc4b494285662a2e94ef745dd2462
     
     void Start() {
         inventoryScreen.Close();
@@ -38,15 +44,22 @@ public class LogicScript : MonoBehaviour
         {
             OpenWatch();
         }
+<<<<<<< HEAD
         if (Input.GetKeyDown(KeyCode.Escape) && WatchOpen && !IconOpened)
+=======
+        if (Input.GetKeyDown(KeyCode.Escape) && WatchOpen)
+>>>>>>> d32adcb955bbc4b494285662a2e94ef745dd2462
         {
             CloseWatch();
             
         }
+<<<<<<< HEAD
 
         if (Input.GetKeyDown(KeyCode.Escape) && IconOpened) {
             watch.ReverseAnimation();
         }
+=======
+>>>>>>> d32adcb955bbc4b494285662a2e94ef745dd2462
     }
 
     public void OpenWatch() {

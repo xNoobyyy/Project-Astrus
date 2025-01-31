@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //using UnityEngine;
 
 //public class QuestPanel : MonoBehaviour {
@@ -6,5 +7,15 @@
 
     // Update is called once per frame
 //}
+=======
+using UnityEngine;
+
+public class QuestPanel : MonoBehaviour {
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start() { }
+
+    // Update is called once per frame
+}
+>>>>>>> d32adcb955bbc4b494285662a2e94ef745dd2462
     
     

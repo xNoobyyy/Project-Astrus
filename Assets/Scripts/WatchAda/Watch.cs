@@ -13,10 +13,13 @@ public class Watch : MonoBehaviour
     public GameObject inventoryIcon;
     public GameObject questsIcon;
     public GameObject logIcon;
+<<<<<<< HEAD
     public GameObject openedIcon;
     public OpeningIcon openingIconSc;
     public GameObject openingIcon;
     
+=======
+>>>>>>> d32adcb955bbc4b494285662a2e94ef745dd2462
     public LogicScript logic;
     public Image WatchOff;
     private bool opening = false;
@@ -34,8 +37,12 @@ public class Watch : MonoBehaviour
         watchbackground.transform.localScale = new Vector3(0, 0, 1);
         gameObject.SetActive(false);
         watchOn.SetActive(false);
+<<<<<<< HEAD
         openedIcon.SetActive(false);
         openingIcon.SetActive(false);
+=======
+        
+>>>>>>> d32adcb955bbc4b494285662a2e94ef745dd2462
     }
 
     // Update is called once per frame
@@ -111,10 +118,13 @@ public class Watch : MonoBehaviour
             return false;
         }
     }
+<<<<<<< HEAD
 
     public void ReverseAnimation() {
         openingIconSc.ReverseAnimation();
     }
+=======
+>>>>>>> d32adcb955bbc4b494285662a2e94ef745dd2462
     
     IEnumerator DelayInMilliseconds(int milliseconds)
     {

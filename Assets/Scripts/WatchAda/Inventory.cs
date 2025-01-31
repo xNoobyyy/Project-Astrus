@@ -1,8 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+<<<<<<< HEAD
 public class Inventory : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler {
     public OpeningIcon openingIcon;
+=======
+public class Inventory : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+{
+    
+>>>>>>> d32adcb955bbc4b494285662a2e94ef745dd2462
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,8 +46,11 @@ public class Inventory : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         color.a = 0.5f;         
         image.color = color;
     }
+<<<<<<< HEAD
 
     public void OnPointerClick(PointerEventData eventData) {
         openingIcon.StartAnimation(new Vector2(128,128));
     }
+=======
+>>>>>>> d32adcb955bbc4b494285662a2e94ef745dd2462
 }

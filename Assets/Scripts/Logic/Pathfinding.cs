@@ -1,15 +1,27 @@
+<<<<<<< HEAD
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Player;
+=======
+﻿using System.Collections.Generic;
+using System.Linq;
+>>>>>>> d32adcb955bbc4b494285662a2e94ef745dd2462
 using UnityEngine;
 
 namespace Logic {
     public class Pathfinding : MonoBehaviour {
+<<<<<<< HEAD
         public const int LOS_RADIUS = 8;
 
         private Vector2Int playerPosition;
         private Vector2Int[] tiles;
+=======
+        private const int LOS_RADIUS = 8;
+
+        private Vector2Int playerPosition;
+        public Vector2Int[] Tiles { get; private set; }
+>>>>>>> d32adcb955bbc4b494285662a2e94ef745dd2462
 
         private void OnEnable() {
             EventManager.OnPlayerMove += OnPlayerMove;
@@ -23,7 +35,11 @@ namespace Logic {
             if (Vector2Int.RoundToInt(from) == Vector2Int.RoundToInt(to)) return;
 
             playerPosition = Vector2Int.RoundToInt(to);
+<<<<<<< HEAD
             tiles = GetLosTiles();
+=======
+            Tiles = GetLosTiles();
+>>>>>>> d32adcb955bbc4b494285662a2e94ef745dd2462
         }
 
         private Vector2Int[] GetLosTiles() {
@@ -74,10 +90,15 @@ namespace Logic {
             var y0 = start.y;
 
             while (true) {
+<<<<<<< HEAD
                 // Add the primary tile
                 result.Add(new Vector2Int(x0, y0));
 
                 // Break when reaching the end point
+=======
+                result.Add(new Vector2Int(x0, y0));
+
+>>>>>>> d32adcb955bbc4b494285662a2e94ef745dd2462
                 if (x0 == end.x && y0 == end.y)
                     break;
 
