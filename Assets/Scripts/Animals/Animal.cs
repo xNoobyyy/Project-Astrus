@@ -31,6 +31,7 @@ namespace Animals {
         // References
         private Animator animator;
         private Rigidbody2D rb;
+        private SpriteRenderer spriteRenderer;
 
         // Internal coroutines
         private Coroutine idleCoroutine;
@@ -50,9 +51,12 @@ namespace Animals {
         private Vector2? lastLosEnd;
         private bool lastLosClear;
 
+        public bool Dead { get; private set; }
+
         private void Awake() {
             animator = GetComponent<Animator>();
             rb = GetComponent<Rigidbody2D>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
             Health = maxHealth;
         }
 
@@ -163,6 +167,14 @@ namespace Animals {
 
         private void Die() {
             deathParticles.Play();
+            spriteRenderer.enabled = false;
+            angryTag.SetActive(false);
+            Dead = true;
+            StartCoroutine(DestroyGameObject());
+        }
+
+        private IEnumerator DestroyGameObject() {
+            yield return new WaitForSeconds(1f);
             Destroy(gameObject);
         }
 
