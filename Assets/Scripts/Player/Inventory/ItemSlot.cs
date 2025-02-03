@@ -65,7 +65,6 @@ namespace Player.Inventory {
         }
 
         public void OnEndDrag(PointerEventData eventData) {
-            Debug.Log("OnEndDrag");
             if (InventoryScreen.Instance.DraggingFrom == null) return;
 
             InventoryScreen.Instance.ResetDragging();
@@ -74,21 +73,16 @@ namespace Player.Inventory {
         public void OnDrag(PointerEventData eventData) { } // DO NOT DELETE
 
         public void OnDrop(PointerEventData eventData) {
-            Debug.Log("OnDrop");
             if (InventoryScreen.Instance.DraggingFrom == null) return;
-            Debug.Log("OnDrop 2");
 
             if (InventoryScreen.Instance.DraggingFrom == this) {
                 InventoryScreen.Instance.ResetDragging();
                 return;
             }
             
-            Debug.Log("OnDrop 3");
-
             if (InventoryScreen.Instance.DraggingFrom.Item is ResourceItem draggedResourceItem &&
                 Item is ResourceItem resourceItem && draggedResourceItem.GetType() == resourceItem.GetType() &&
                 resourceItem.Amount < resourceItem.MaxAmount) {
-                Debug.Log("OnDrop; ResourceItem");
                 var left = resourceItem.MaxAmount - resourceItem.Amount;
 
                 if (left >= draggedResourceItem.Amount) {
@@ -103,7 +97,6 @@ namespace Player.Inventory {
                     InventoryScreen.Instance.DraggingFrom.UpdateDisplay();
                 }
             } else {
-                Debug.Log("OnDrop; Item");
                 var currentItem = Item;
 
                 SetItem(InventoryScreen.Instance.DraggingFrom.Item);

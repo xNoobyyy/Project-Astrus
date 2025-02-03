@@ -22,7 +22,6 @@ namespace Animals {
         [SerializeField] protected float speed;
         [SerializeField] protected ParticleSystem damageParticles;
         [SerializeField] protected ParticleSystem deathParticles;
-        [SerializeField] protected GameObject angryTag;
         [SerializeField] protected PolygonCollider2D area;
 
         // Health and state
@@ -156,7 +155,6 @@ namespace Animals {
         // Processes common damage logic (subtract health, apply knockback, flash, damage particles).
         // Returns false if the creature dies.
         protected bool HandleDamage(Transform attacker, float damage) {
-            Debug.Log($"{gameObject.name} took {damage} damage from {attacker.name}");
             Health -= damage;
             var knockbackDir = ((Vector2)transform.position - (Vector2)attacker.position).normalized;
             rb.AddForce(knockbackDir * KNOCKBACK_FORCE, ForceMode2D.Impulse);
@@ -172,10 +170,9 @@ namespace Animals {
 
         public abstract void OnAttack(Transform attacker, float damage);
 
-        protected void Kill() {
+        protected virtual void Kill() {
             deathParticles.Play();
             spriteRenderer.enabled = false;
-            angryTag.SetActive(false);
             Health = 0;
             Dead = true;
             StartCoroutine(DestroyGameObject());

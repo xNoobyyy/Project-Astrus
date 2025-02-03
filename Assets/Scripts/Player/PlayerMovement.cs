@@ -21,7 +21,7 @@ namespace Player {
             animator = GetComponent<Animator>();
             playerCombat = GetComponent<PlayerCombat>();
 
-            EventManager.Instance.Trigger(new PlayerMoveEvent(transform.position, transform.position));
+            EventManager.Instance.Trigger(new PlayerMoveEvent(transform.position, transform.position, transform));
         }
 
         private void Update() {
@@ -43,7 +43,7 @@ namespace Player {
             var add = new Vector2(movement.x, movement.y) * (speed * Time.fixedDeltaTime);
             transform.position += new Vector3(add.x, add.y, 0f);
             var to = transform.position;
-            EventManager.Instance.Trigger(new PlayerMoveEvent(from, to));
+            EventManager.Instance.Trigger(new PlayerMoveEvent(from, to, transform));
         }
     }
 }

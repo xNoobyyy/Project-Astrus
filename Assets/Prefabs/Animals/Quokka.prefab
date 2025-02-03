@@ -114,7 +114,10 @@ MonoBehaviour:
   deathParticles: {fileID: 4904858497902227260}
   angryTag: {fileID: 2218605640389945448}
   area: {fileID: 0}
-  chaseDuration: 10
+  chaseDuration: 15
+  attackRange: 2
+  attackDamage: 10
+  attackCooldown: 1
 --- !u!114 &7307947283167862677
 MonoBehaviour:
   m_ObjectHideFlags: 0
