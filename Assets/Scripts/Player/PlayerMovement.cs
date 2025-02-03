@@ -1,6 +1,7 @@
 using System;
 using Animals;
 using Logic;
+using Logic.Events;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,20 +10,18 @@ namespace Player {
     public class PlayerMovement : MonoBehaviour {
         private static readonly int HorizontalMove = Animator.StringToHash("horizontal_move");
         private static readonly int VerticalMove = Animator.StringToHash("vertical_move");
-        private Rigidbody2D rb;
         private Animator animator;
         private PlayerCombat playerCombat;
-        private EventManager eventManager;
 
         [SerializeField] private float speed = 1.5f;
 
         private Vector2 movement;
 
         private void Start() {
-            rb = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
             playerCombat = GetComponent<PlayerCombat>();
-            eventManager = FindFirstObjectByType<EventManager>();
+
+            EventManager.Instance.Trigger(new PlayerMoveEvent(transform.position, transform.position));
         }
 
         private void Update() {
@@ -44,17 +43,7 @@ namespace Player {
             var add = new Vector2(movement.x, movement.y) * (speed * Time.fixedDeltaTime);
             transform.position += new Vector3(add.x, add.y, 0f);
             var to = transform.position;
-            eventManager?.InvokePlayerMove(from, to);
-        }
-
-        private void OnTriggerEnter(Collider other) {
-            if (!other.CompareTag("Enemy")) return;
-
-            var animal = other.GetComponent<Animal>();
-
-            if (animal != null) {
-                animal.SetTarget(transform);
-            }
+            EventManager.Instance.Trigger(new PlayerMoveEvent(from, to));
         }
     }
 }
