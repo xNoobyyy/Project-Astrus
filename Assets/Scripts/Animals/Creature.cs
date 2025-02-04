@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Logic;
+using Logic.Events;
 using UnityEngine.AI; // for Pathfinding etc.
 using Utils.WhiteFlash;
 using Random = UnityEngine.Random;
@@ -22,7 +23,8 @@ namespace Animals {
         [SerializeField] protected float speed;
         [SerializeField] protected ParticleSystem damageParticles;
         [SerializeField] protected ParticleSystem deathParticles;
-        [SerializeField] protected PolygonCollider2D area;
+
+        [NonSerialized] public PolygonCollider2D Area;
 
         // Health and state
         public float Health { get; protected set; }
@@ -121,14 +123,14 @@ namespace Animals {
 
         private Vector2[] GetRandomWanderPointsFromArea() {
             var points = new List<Vector2>();
-            var bounds = area.bounds;
+            var bounds = Area.bounds;
             var attempts = 0;
             while (points.Count < 10 && attempts < 100) {
                 var randomPoint = new Vector2(
                     Random.Range(bounds.min.x, bounds.max.x),
                     Random.Range(bounds.min.y, bounds.max.y)
                 );
-                if (area.OverlapPoint(randomPoint)) {
+                if (Area.OverlapPoint(randomPoint)) {
                     if (NavMesh.SamplePosition(randomPoint, out var hit, 1.0f, NavMesh.AllAreas)) {
                         points.Add(hit.position);
                     }
@@ -175,6 +177,7 @@ namespace Animals {
             spriteRenderer.enabled = false;
             Health = 0;
             Dead = true;
+            EventManager.Instance.Trigger(new CreatureDeathEvent(this));
             StartCoroutine(DestroyGameObject());
         }
     }
