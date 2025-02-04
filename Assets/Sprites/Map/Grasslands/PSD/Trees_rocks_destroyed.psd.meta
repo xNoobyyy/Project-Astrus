@@ -1,0 +1,1547 @@
+fileFormatVersion: 2
+guid: ec9695828ba4b9e41a13b19a3741c50f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7914472581915753401
+    second: Trees_rocks_destroyed_0
+  - first:
+      213: -6392885396752812920
+    second: Trees_rocks_destroyed_1
+  - first:
+      213: -7006146585888392871
+    second: Trees_rocks_destroyed_2
+  - first:
+      213: -4984191535186665545
+    second: Trees_rocks_destroyed_3
+  - first:
+      213: 572415448108974908
+    second: Trees_rocks_destroyed_4
+  - first:
+      213: 1857267990036754265
+    second: Trees_rocks_destroyed_5
+  - first:
+      213: -4496999330793434972
+    second: Trees_rocks_destroyed_6
+  - first:
+      213: -7891563831143441902
+    second: Trees_rocks_destroyed_7
+  - first:
+      213: 4643277363720472202
+    second: Trees_rocks_destroyed_8
+  - first:
+      213: -237436625259316778
+    second: Trees_rocks_destroyed_9
+  - first:
+      213: -7607633380906600420
+    second: Trees_rocks_destroyed_10
+  - first:
+      213: 3973506741132781103
+    second: Trees_rocks_destroyed_11
+  - first:
+      213: 1740611504111566162
+    second: Trees_rocks_destroyed_12
+  - first:
+      213: 9027794777237138114
+    second: Trees_rocks_destroyed_13
+  - first:
+      213: -4955238636687619388
+    second: Trees_rocks_destroyed_14
+  - first:
+      213: -6767414818299507686
+    second: Trees_rocks_destroyed_15
+  - first:
+      213: -8679359004019664352
+    second: Trees_rocks_destroyed_16
+  - first:
+      213: -1690900954655911537
+    second: Trees_rocks_destroyed_17
+  - first:
+      213: -1979444339942701011
+    second: Trees_rocks_destroyed_18
+  - first:
+      213: -7066280706079713664
+    second: Trees_rocks_destroyed_19
+  - first:
+      213: 6688035851455179185
+    second: Trees_rocks_destroyed_20
+  - first:
+      213: -225203342024997424
+    second: Trees_rocks_destroyed_21
+  - first:
+      213: 546032412130186936
+    second: Trees_rocks_destroyed_22
+  - first:
+      213: 9076223563856755886
+    second: Trees_rocks_destroyed_23
+  - first:
+      213: 6849571843174801894
+    second: Trees_rocks_destroyed_24
+  - first:
+      213: -3216939547697592453
+    second: Trees_rocks_destroyed_25
+  - first:
+      213: -769811607921591696
+    second: Trees_rocks_destroyed_26
+  - first:
+      213: 3819120146898483867
+    second: Trees_rocks_destroyed_27
+  - first:
+      213: 7288059304841062140
+    second: Trees_rocks_destroyed_28
+  - first:
+      213: -3805334788156131699
+    second: Trees_rocks_destroyed_29
+  - first:
+      213: 4669704488335784891
+    second: Trees_rocks_destroyed_30
+  - first:
+      213: 6777208105034949450
+    second: Trees_rocks_destroyed_31
+  - first:
+      213: -5962812870712490663
+    second: Trees_rocks_destroyed_32
+  - first:
+      213: -8508766876073634075
+    second: Trees_rocks_destroyed_33
+  - first:
+      213: -4904049667349609068
+    second: Trees_rocks_destroyed_34
+  - first:
+      213: 7238112601044895691
+    second: Trees_rocks_destroyed_35
+  - first:
+      213: -62475881242233022
+    second: Trees_rocks_destroyed_36
+  - first:
+      213: -7517813257941014284
+    second: Trees_rocks_destroyed_37
+  - first:
+      213: 3289150566566654812
+    second: Trees_rocks_destroyed_38
+  - first:
+      213: 5875835486983421020
+    second: Trees_rocks_destroyed_39
+  - first:
+      213: 5946378214684277663
+    second: Trees_rocks_destroyed_40
+  - first:
+      213: 1123306075102902006
+    second: Trees_rocks_destroyed_41
+  - first:
+      213: -8783839401871384483
+    second: Trees_rocks_destroyed_42
+  - first:
+      213: 2943957418913166952
+    second: Trees_rocks_destroyed_43
+  - first:
+      213: 8290737105003699872
+    second: Trees_rocks_destroyed_44
+  - first:
+      213: 6623418373957473184
+    second: Trees_rocks_destroyed_45
+  - first:
+      213: 600045840462884759
+    second: Trees_rocks_destroyed_46
+  - first:
+      213: 6358942828428518556
+    second: Trees_rocks_destroyed_47
+  - first:
+      213: -1689355667629570688
+    second: Trees_rocks_destroyed_48
+  - first:
+      213: -6841872841772790140
+    second: Trees_rocks_destroyed_49
+  - first:
+      213: -7511075779696638092
+    second: Trees_rocks_destroyed_50
+  - first:
+      213: -6867239204087958057
+    second: Trees_rocks_destroyed_51
+  - first:
+      213: -2514344631938639006
+    second: Trees_rocks_destroyed_52
+  - first:
+      213: -2362739867684675893
+    second: Trees_rocks_destroyed_53
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_0
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 563
+        width: 28
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bb38ad61ead5dd60800000000000000
+      internalID: 7914472581915753401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_1
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 563
+        width: 55
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88434c44a98e747a0800000000000000
+      internalID: -6392885396752812920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_2
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 560
+        width: 63
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9597ecfdcca25ce90800000000000000
+      internalID: -7006146585888392871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_3
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 565
+        width: 53
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bf90b4c43894dab0800000000000000
+      internalID: -4984191535186665545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_4
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 574
+        width: 41
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c334b7831d0a1f700800000000000000
+      internalID: 572415448108974908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_5
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 495
+        width: 45
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95f28de856756c910800000000000000
+      internalID: 1857267990036754265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_6
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 496
+        width: 32
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a053ec4fe27791c0800000000000000
+      internalID: -4496999330793434972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_7
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 519
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21adf52c1888b7290800000000000000
+      internalID: -7891563831143441902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_8
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 497
+        width: 49
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a86cb22492c307040800000000000000
+      internalID: 4643277363720472202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_9
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 510
+        width: 47
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d930c6b5a474bcf0800000000000000
+      internalID: -237436625259316778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_10
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 510
+        width: 40
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1878ad3fb14c6690800000000000000
+      internalID: -7607633380906600420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_11
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 505
+        width: 42
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f26e6d9145bb42730800000000000000
+      internalID: 3973506741132781103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_12
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 447
+        width: 33
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25d378ad0f4e72810800000000000000
+      internalID: 1740611504111566162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_13
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 449
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2caa852c48b294d70800000000000000
+      internalID: 9027794777237138114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_14
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 447
+        width: 31
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ca81f2c6b47b3bb0800000000000000
+      internalID: -4955238636687619388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_15
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 462
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1c0b8bf3105512a0800000000000000
+      internalID: -6767414818299507686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_16
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 448
+        width: 63
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02ad15798f8bc8780800000000000000
+      internalID: -8679359004019664352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_17
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 450
+        width: 50
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f819d5f5a86b888e0800000000000000
+      internalID: -1690900954655911537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_18
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 447
+        width: 49
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d28ce014cd99784e0800000000000000
+      internalID: -1979444339942701011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_19
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 383
+        width: 47
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0861ce6f2278fed90800000000000000
+      internalID: -7066280706079713664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_20
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 388
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b920131c2da0dc50800000000000000
+      internalID: 6688035851455179185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_21
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 383
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d58e5ce0caefdcf0800000000000000
+      internalID: -225203342024997424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_22
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 383
+        width: 33
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b69ed8f595e39700800000000000000
+      internalID: 546032412130186936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_23
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 383
+        width: 31
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eac36b15e3935fd70800000000000000
+      internalID: 9076223563856755886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_24
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 383
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e1a3fffc419e0f50800000000000000
+      internalID: 6849571843174801894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_25
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 388
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b77449386822b53d0800000000000000
+      internalID: -3216939547697592453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_26
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 385
+        width: 27
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07a7cd5db641155f0800000000000000
+      internalID: -769811607921591696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_27
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 387
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9afb6ef98d300530800000000000000
+      internalID: 3819120146898483867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_28
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 322
+        width: 50
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf6280fe253642560800000000000000
+      internalID: 7288059304841062140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_29
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 335
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d867484fb2cb03bc0800000000000000
+      internalID: -3805334788156131699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_30
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 351
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbb3d41bd7f1ec040800000000000000
+      internalID: 4669704488335784891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_31
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 324
+        width: 42
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a43a1854dda7d0e50800000000000000
+      internalID: 6777208105034949450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_32
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 339
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9550e035945df3da0800000000000000
+      internalID: -5962812870712490663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_33
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 351
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e6550b8b99cae980800000000000000
+      internalID: -8508766876073634075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_34
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 209
+        width: 102
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49501c07fc051fbb0800000000000000
+      internalID: -4904049667349609068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_35
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 227
+        width: 63
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc74f8dbf01f27460800000000000000
+      internalID: 7238112601044895691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_36
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 227
+        width: 62
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 247f68b548a022ff0800000000000000
+      internalID: -62475881242233022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_37
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 239
+        width: 44
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f824b84cac5ba790800000000000000
+      internalID: -7517813257941014284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_38
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 239
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c53fafc730965ad20800000000000000
+      internalID: 3289150566566654812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_39
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 95
+        width: 105
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5cf7407e392b8150800000000000000
+      internalID: 5875835486983421020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_40
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 113
+        width: 70
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9bb0622b77c58250800000000000000
+      internalID: 5946378214684277663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_41
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 113
+        width: 66
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f6fb8c7ce8c69f00800000000000000
+      internalID: 1123306075102902006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_42
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 127
+        width: 48
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d50606f4a98891680800000000000000
+      internalID: -8783839401871384483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_43
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 127
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 866f13cbca90bd820800000000000000
+      internalID: 2943957418913166952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_44
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 63
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ae55e5887d9e0370800000000000000
+      internalID: 8290737105003699872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_45
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 65
+        width: 32
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a3d7823beb1beb50800000000000000
+      internalID: 6623418373957473184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_46
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 79
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79fadb1438ac35800800000000000000
+      internalID: 600045840462884759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_47
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 18
+        width: 60
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c94ef73bfc08f3850800000000000000
+      internalID: 6358942828428518556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_48
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 18
+        width: 49
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08585ab88f33e88e0800000000000000
+      internalID: -1689355667629570688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_49
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 15
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48e8db376e8cc01a0800000000000000
+      internalID: -6841872841772790140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_50
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 17
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 477442eaf5c43c790800000000000000
+      internalID: -7511075779696638092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_51
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 32
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d573bcf35aa2b0a0800000000000000
+      internalID: -6867239204087958057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_52
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 16
+        width: 63
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26b136af0e04b1dd0800000000000000
+      internalID: -2514344631938639006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trees_rocks_destroyed_53
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 16
+        width: 55
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bce5002db9cd53fd0800000000000000
+      internalID: -2362739867684675893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Trees_rocks_destroyed_0: 7914472581915753401
+      Trees_rocks_destroyed_1: -6392885396752812920
+      Trees_rocks_destroyed_10: -7607633380906600420
+      Trees_rocks_destroyed_11: 3973506741132781103
+      Trees_rocks_destroyed_12: 1740611504111566162
+      Trees_rocks_destroyed_13: 9027794777237138114
+      Trees_rocks_destroyed_14: -4955238636687619388
+      Trees_rocks_destroyed_15: -6767414818299507686
+      Trees_rocks_destroyed_16: -8679359004019664352
+      Trees_rocks_destroyed_17: -1690900954655911537
+      Trees_rocks_destroyed_18: -1979444339942701011
+      Trees_rocks_destroyed_19: -7066280706079713664
+      Trees_rocks_destroyed_2: -7006146585888392871
+      Trees_rocks_destroyed_20: 6688035851455179185
+      Trees_rocks_destroyed_21: -225203342024997424
+      Trees_rocks_destroyed_22: 546032412130186936
+      Trees_rocks_destroyed_23: 9076223563856755886
+      Trees_rocks_destroyed_24: 6849571843174801894
+      Trees_rocks_destroyed_25: -3216939547697592453
+      Trees_rocks_destroyed_26: -769811607921591696
+      Trees_rocks_destroyed_27: 3819120146898483867
+      Trees_rocks_destroyed_28: 7288059304841062140
+      Trees_rocks_destroyed_29: -3805334788156131699
+      Trees_rocks_destroyed_3: -4984191535186665545
+      Trees_rocks_destroyed_30: 4669704488335784891
+      Trees_rocks_destroyed_31: 6777208105034949450
+      Trees_rocks_destroyed_32: -5962812870712490663
+      Trees_rocks_destroyed_33: -8508766876073634075
+      Trees_rocks_destroyed_34: -4904049667349609068
+      Trees_rocks_destroyed_35: 7238112601044895691
+      Trees_rocks_destroyed_36: -62475881242233022
+      Trees_rocks_destroyed_37: -7517813257941014284
+      Trees_rocks_destroyed_38: 3289150566566654812
+      Trees_rocks_destroyed_39: 5875835486983421020
+      Trees_rocks_destroyed_4: 572415448108974908
+      Trees_rocks_destroyed_40: 5946378214684277663
+      Trees_rocks_destroyed_41: 1123306075102902006
+      Trees_rocks_destroyed_42: -8783839401871384483
+      Trees_rocks_destroyed_43: 2943957418913166952
+      Trees_rocks_destroyed_44: 8290737105003699872
+      Trees_rocks_destroyed_45: 6623418373957473184
+      Trees_rocks_destroyed_46: 600045840462884759
+      Trees_rocks_destroyed_47: 6358942828428518556
+      Trees_rocks_destroyed_48: -1689355667629570688
+      Trees_rocks_destroyed_49: -6841872841772790140
+      Trees_rocks_destroyed_5: 1857267990036754265
+      Trees_rocks_destroyed_50: -7511075779696638092
+      Trees_rocks_destroyed_51: -6867239204087958057
+      Trees_rocks_destroyed_52: -2514344631938639006
+      Trees_rocks_destroyed_53: -2362739867684675893
+      Trees_rocks_destroyed_6: -4496999330793434972
+      Trees_rocks_destroyed_7: -7891563831143441902
+      Trees_rocks_destroyed_8: 4643277363720472202
+      Trees_rocks_destroyed_9: -237436625259316778
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
