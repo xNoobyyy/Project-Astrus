@@ -25,11 +25,13 @@ namespace Player {
         private void Update() {
             if (!Input.GetMouseButtonDown(0) || IsAttacking) return;
 
-            var mousePosition =
-                mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,
-                    mainCamera.nearClipPlane));
+            var zCoord = mainCamera.WorldToScreenPoint(transform.position).z;
+            var mousePosition = Input.mousePosition;
+            mousePosition.z = zCoord;
 
-            var v = (mousePosition - transform.position).normalized;
+            var pos = mainCamera.ScreenToWorldPoint(mousePosition);
+
+            var v = (pos - transform.position).normalized;
             attackDirection = v;
             var angle = -Vector2.SignedAngle(Vector2.up, v);
             if (angle < 0) angle += 360f;
