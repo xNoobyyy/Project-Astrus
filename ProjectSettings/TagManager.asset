@@ -7,6 +7,7 @@ TagManager:
   - Obstacle
   - Enemy
   - Animal
+  - Area
   layers:
   - Default
   - TransparentFX
