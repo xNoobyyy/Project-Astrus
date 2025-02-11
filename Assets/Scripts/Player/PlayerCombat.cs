@@ -22,6 +22,7 @@ namespace Player {
             rb = GetComponent<Rigidbody2D>();
         }
 
+        // TODO: Only when sword is equipped
         private void Update() {
             if (!Input.GetMouseButtonDown(0) || IsAttacking) return;
 
