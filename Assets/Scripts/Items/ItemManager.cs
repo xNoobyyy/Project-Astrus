@@ -5,6 +5,10 @@ namespace Items {
         [Header("Item Icons")] public Sprite ironPickaxeIcon;
         public Sprite ironIcon;
         public Sprite stoneIcon;
+        public AnimationClip glomtomIcon;
+        public AnimationClip extricIcon;
+        public AnimationClip domilitantIcon;
+        public AnimationClip AstrusIcon;
 
         [Header("Prefabs")] public GameObject droppedItemPrefab;
 

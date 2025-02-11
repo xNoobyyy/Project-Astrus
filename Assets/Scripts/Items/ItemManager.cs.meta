@@ -1,3 +1,19 @@
-﻿fileFormatVersion: 2
+fileFormatVersion: 2
 guid: 29e2da262f514920ac6b77061d868f52
-timeCreated: 1736843001
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - ironPickaxeIcon: {instanceID: 0}
+  - ironIcon: {instanceID: 0}
+  - stoneIcon: {instanceID: 0}
+  - glomtomIcon: {fileID: 7400000, guid: 75c9202988523b745b15d3978f0b4b1d, type: 2}
+  - extricIcon: {fileID: 7400000, guid: 6c528f791c2d5dc41adfad72efc4fd7f, type: 2}
+  - domilitantIcon: {fileID: 7400000, guid: 2c27b9054438e3b45910479002b1df30, type: 2}
+  - AstrusIcon: {fileID: 7400000, guid: 184fa81455207ca45bd4a9414835d926, type: 2}
+  - droppedItemPrefab: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
