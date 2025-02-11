@@ -7,6 +7,10 @@ public class TextDisplay : MonoBehaviour
     public GameObject textWindow;
     public Text displayText;
     public Button nextButton;
+    public Image leftImage;
+    public Sprite image0;
+    public Sprite image1;
+    public Sprite image2;
     private int recursionDepth = 0; // Hält die aktuelle Rekursionstiefe fest
     private const int maxRecursion = 3; // Maximale Anzahl an rekursiven Aufrufen
     private bool textComplete = false; // Überprüft, ob der Text vollständig angezeigt wurde
@@ -18,6 +22,15 @@ public class TextDisplay : MonoBehaviour
             if (isDialogueActive) return; // Blockiert mehrfachen Start durch K
             isDialogueActive = true; // Dialog wird gestartet
             textWindow.SetActive(true); // Fenster aktivieren
+        }
+
+        if (imageIndex.HasValue) {
+            switch (imageIndex.Value)
+            {
+                case 0: leftImage.sprite = image0; break;
+                case 1: leftImage.sprite = image1; break;
+                case 2: leftImage.sprite = image2; break;
+            }
         }
         StartCoroutine(TypeText(text)); // Text mit Animation anzeigen
     }
