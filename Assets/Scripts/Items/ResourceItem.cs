@@ -5,8 +5,7 @@ namespace Items {
         public int MaxAmount { get; private set; }
         public int Amount { get; private set; }
 
-        protected ResourceItem(string name, string description, Sprite icon, int amount = 1, int maxAmount = 100) : base(name,
-            description, icon) {
+        protected ResourceItem(string name, string description, Sprite icon, AnimationClip animator, int amount = 1, int maxAmount = 100) : base(name, description, icon, animator) {
             Amount = amount;
             MaxAmount = maxAmount;
         }
