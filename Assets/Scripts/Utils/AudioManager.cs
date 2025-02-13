@@ -34,6 +34,9 @@ namespace Utils {
                     checkMusicEndCoroutine = StartCoroutine(CheckMusicEnd());
                 });
             } else {
+                if (fadeOutCoroutine != null) StopCoroutine(fadeOutCoroutine);
+                if (checkMusicEndCoroutine != null) StopCoroutine(checkMusicEndCoroutine);
+
                 audioSource.clip = clip;
                 audioSource.volume = volume;
                 audioSource.Play();
