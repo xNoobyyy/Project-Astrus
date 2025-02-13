@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor.Animations;
+using UnityEngine;
 
 namespace Items {
 
@@ -7,9 +8,9 @@ namespace Items {
         public string Name { get; private set; }
         public string Description { get; private set; }
         public Sprite Icon { get; private set; }
-        public AnimationClip AnimatedIcon { get; private set; }
+        public AnimatorController AnimatedIcon { get; private set; }
 
-        protected Item(string name, string description, Sprite icon, AnimationClip animator) {
+        protected Item(string name, string description, Sprite icon, AnimatorController animator) {
             Name = name;
             Description = description;
             Icon = icon;

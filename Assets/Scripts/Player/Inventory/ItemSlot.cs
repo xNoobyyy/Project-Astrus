@@ -19,14 +19,21 @@ namespace Player.Inventory {
             Item = item;
 
             var itemRenderImageComponent = itemRenderer.GetComponent<Image>();
+            var itemRenderAnimatorComponent = itemRenderer.GetComponent<Animator>();
+            
 
             if (Item == null) {
                 itemRenderer.SetActive(false);
                 itemAmountRenderer.SetActive(false);
             } else {
+                
                 itemRenderer.SetActive(true);
-                itemRenderImageComponent.sprite = Item.Icon;
-                itemRenderImageComponent.preserveAspect = true;
+                if (itemRenderer.GetComponent<Animator>() == null) {
+                    itemRenderImageComponent.sprite = Item.Icon;
+                    itemRenderImageComponent.preserveAspect = true;
+                } else {
+                    itemRenderAnimatorComponent.runtimeAnimatorController = Item.AnimatedIcon;
+                }
 
                 if (Item is ResourceItem resourceItem) {
                     itemAmountRenderer.SetActive(true);

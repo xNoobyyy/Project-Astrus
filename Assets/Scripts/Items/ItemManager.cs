@@ -1,14 +1,15 @@
-﻿using UnityEngine;
+﻿using UnityEditor.Animations;
+using UnityEngine;
 
 namespace Items {
     public class ItemManager : MonoBehaviour {
         [Header("Item Icons")] public Sprite ironPickaxeIcon;
         public Sprite ironIcon;
         public Sprite stoneIcon;
-        public AnimationClip glomtomIcon;
-        public AnimationClip extricIcon;
-        public AnimationClip domilitantIcon;
-        public AnimationClip AstrusIcon;
+        public AnimatorController glomtomIcon;
+        public AnimatorController extricIcon;
+        public AnimatorController domilitantIcon;
+        public AnimatorController AstrusIcon;
 
         [Header("Prefabs")] public GameObject droppedItemPrefab;
 
