@@ -24,14 +24,23 @@ namespace Utils {
 
         public void PlayMusic(AudioClip clip, float volume = 0.1f, Action onMusicEnd = null) {
             if (audioSource.clip == clip) return;
-            StopMusic(onFinish: () => {
+            if (audioSource.isPlaying) {
+                StopMusic(onFinish: () => {
+                    audioSource.clip = clip;
+                    audioSource.volume = volume;
+                    audioSource.Play();
+
+                    onMusicEndCallback = onMusicEnd;
+                    checkMusicEndCoroutine = StartCoroutine(CheckMusicEnd());
+                });
+            } else {
                 audioSource.clip = clip;
                 audioSource.volume = volume;
                 audioSource.Play();
 
                 onMusicEndCallback = onMusicEnd;
                 checkMusicEndCoroutine = StartCoroutine(CheckMusicEnd());
-            });
+            }
         }
 
         private IEnumerator CheckMusicEnd() {
