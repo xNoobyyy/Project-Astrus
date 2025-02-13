@@ -10,6 +10,7 @@ namespace Utils {
         private AudioSource audioSource;
         private Action onMusicEndCallback;
         private Coroutine fadeOutCoroutine;
+        private Coroutine checkMusicEndCoroutine;
 
         private void Awake() {
             if (Instance == null) {
@@ -29,7 +30,7 @@ namespace Utils {
                 audioSource.Play();
 
                 onMusicEndCallback = onMusicEnd;
-                StartCoroutine(CheckMusicEnd());
+                checkMusicEndCoroutine = StartCoroutine(CheckMusicEnd());
             });
         }
 
@@ -41,13 +42,11 @@ namespace Utils {
         }
 
         public void StopMusic(Action onFinish = null) {
-            StopCoroutine(CheckMusicEnd());
+            StopCoroutine(checkMusicEndCoroutine);
             onMusicEndCallback = null;
 
             if (fadeOutCoroutine != null) StopCoroutine(fadeOutCoroutine);
             fadeOutCoroutine = StartCoroutine(FadeOut(onFinish: onFinish));
-
-            audioSource.Stop();
         }
 
         private IEnumerator FadeOut(float fadeDuration = 5.0f, Action onFinish = null) {
