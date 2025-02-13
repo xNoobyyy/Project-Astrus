@@ -31,6 +31,7 @@ namespace Utils {
         Grasslands,
         Plateau,
         City,
-        Starter
+        Starter,
+        Jungle,
     }
 }
