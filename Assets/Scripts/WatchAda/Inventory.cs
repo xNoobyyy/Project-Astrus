@@ -1,9 +1,11 @@
+using Player.Inventory;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class Inventory : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler {
     public OpeningIcon openingIcon;
+    public InventoryScreen inventoryScreen;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {

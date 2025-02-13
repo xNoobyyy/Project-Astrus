@@ -30,6 +30,7 @@ namespace Player.Inventory {
 
                 if (Item is ResourceItem resourceItem) {
                     itemAmountRenderer.SetActive(true);
+                    itemAmountText.outlineWidth = 0.2f;
                     itemAmountText.text = resourceItem.Amount.ToString();
                 } else {
                     itemAmountRenderer.SetActive(false);
