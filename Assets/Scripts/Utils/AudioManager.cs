@@ -42,7 +42,7 @@ namespace Utils {
         }
 
         public void StopMusic(Action onFinish = null) {
-            StopCoroutine(checkMusicEndCoroutine);
+            if (checkMusicEndCoroutine != null) StopCoroutine(checkMusicEndCoroutine);
             onMusicEndCallback = null;
 
             if (fadeOutCoroutine != null) StopCoroutine(fadeOutCoroutine);
