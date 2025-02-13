@@ -23,7 +23,6 @@ namespace Utils {
         }
 
         public void PlayMusic(AudioClip clip, float volume = 0.1f, Action onMusicEnd = null) {
-            if (audioSource.clip == clip) return;
             if (audioSource.isPlaying) {
                 StopMusic(onFinish: () => {
                     audioSource.clip = clip;
