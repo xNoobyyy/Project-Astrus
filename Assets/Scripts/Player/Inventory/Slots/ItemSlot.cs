@@ -2,6 +2,7 @@ using System;
 using Items;
 using Items.Items;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -32,7 +33,11 @@ namespace Player.Inventory {
                     itemRenderImageComponent.sprite = Item.Icon;
                     itemRenderImageComponent.preserveAspect = true;
                 } else {
+                    itemRenderImageComponent.sprite = Item.Icon;
+                    itemRenderImageComponent.preserveAspect = true;
                     itemRenderAnimatorComponent.runtimeAnimatorController = Item.AnimatedIcon;
+                    
+                    
                 }
 
                 if (Item is ResourceItem resourceItem) {
@@ -54,14 +59,27 @@ namespace Player.Inventory {
 
             switch (eventData.button) {
                 case PointerEventData.InputButton.Left:
-                    PlayerInventory.Instance.SetItem(
-                        Array.IndexOf(PlayerInventory.Instance.Slots, this),
-                        new IronPickaxe());
+                    if (itemRenderer.GetComponent<Animator>() == null) {
+                        PlayerInventory.Instance.SetItem(
+                            Array.IndexOf(PlayerInventory.Instance.Slots, this),
+                            new IronPickaxe());
+                    } else {
+                        PlayerInventory.Instance.SetItem(
+                            Array.IndexOf(PlayerInventory.Instance.Slots, this),
+                            new Astrus(1));
+                    }
+
                     break;
                 case PointerEventData.InputButton.Right:
-                    PlayerInventory.Instance.SetItem(
-                        Array.IndexOf(PlayerInventory.Instance.Slots, this),
-                        new Iron(19));
+                    if (itemRenderer.GetComponent<Animator>() == null) {
+                        PlayerInventory.Instance.SetItem(
+                            Array.IndexOf(PlayerInventory.Instance.Slots, this),
+                            new Iron(19));
+                    } else {
+                        PlayerInventory.Instance.SetItem(
+                            Array.IndexOf(PlayerInventory.Instance.Slots, this),
+                            new Glomtom(1));
+                    }
                     break;
             }
         }
