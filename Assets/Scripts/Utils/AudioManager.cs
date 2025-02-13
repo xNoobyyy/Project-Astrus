@@ -21,14 +21,16 @@ namespace Utils {
             audioSource = GetComponent<AudioSource>();
         }
 
-        public void PlayMusic(AudioClip clip, float volume = 1.0f, Action onMusicEnd = null) {
+        public void PlayMusic(AudioClip clip, float volume = 0.1f, Action onMusicEnd = null) {
             if (audioSource.clip == clip) return;
-            audioSource.clip = clip;
-            audioSource.volume = volume;
-            audioSource.Play();
+            StopMusic(onFinish: () => {
+                audioSource.clip = clip;
+                audioSource.volume = volume;
+                audioSource.Play();
 
-            onMusicEndCallback = onMusicEnd;
-            StartCoroutine(CheckMusicEnd());
+                onMusicEndCallback = onMusicEnd;
+                StartCoroutine(CheckMusicEnd());
+            });
         }
 
         private IEnumerator CheckMusicEnd() {
@@ -38,17 +40,17 @@ namespace Utils {
             onMusicEndCallback?.Invoke();
         }
 
-        public void StopMusic() {
+        public void StopMusic(Action onFinish = null) {
             StopCoroutine(CheckMusicEnd());
             onMusicEndCallback = null;
 
             if (fadeOutCoroutine != null) StopCoroutine(fadeOutCoroutine);
-            fadeOutCoroutine = StartCoroutine(FadeOut());
+            fadeOutCoroutine = StartCoroutine(FadeOut(onFinish: onFinish));
 
             audioSource.Stop();
         }
 
-        private IEnumerator FadeOut(float fadeDuration = 4.0f) {
+        private IEnumerator FadeOut(float fadeDuration = 5.0f, Action onFinish = null) {
             var startVolume = audioSource.volume;
 
             for (float t = 0; t < fadeDuration; t += Time.deltaTime) {
@@ -58,6 +60,7 @@ namespace Utils {
 
             audioSource.volume = 0;
             audioSource.Stop();
+            onFinish?.Invoke();
         }
 
         public void SetVolume(float volume) {
