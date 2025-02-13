@@ -6,6 +6,10 @@ namespace Items {
         [Header("Item Icons")] public Sprite ironPickaxeIcon;
         public Sprite ironIcon;
         public Sprite stoneIcon;
+        public Sprite glomtomIcon2;
+        public Sprite extricIcon2;
+        public Sprite domilitantIcon2;
+        public Sprite AstrusIcon2;
         public AnimatorController glomtomIcon;
         public AnimatorController extricIcon;
         public AnimatorController domilitantIcon;
