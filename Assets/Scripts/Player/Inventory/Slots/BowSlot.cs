@@ -33,7 +33,7 @@ namespace Player.Inventory {
 
             int index = Array.IndexOf(PlayerInventory.Instance.Slots, this);
             // Bei beiden Maustasten wird eine IronPickaxe eingefügt.
-            PlayerInventory.Instance.SetItem(index, new IronBow());
+            PlayerInventory.Instance.SetItem(index, new FireGlomtomBow());
         }
 
         /// <summary>
