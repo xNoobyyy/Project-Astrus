@@ -1,0 +1,81 @@
+{
+  "story_blocks": [
+    {
+      "id": 0,
+      "text": "Hallo [Spieler], ich bin Ada, deine intelligente Uhr. Du bist auf diesem unbekannten Planeten abgestürzt und jetzt ist dein Raumschiff komplett kaputt.",
+      "weiter" : true,
+      "start": true,
+      "person": 1
+    },
+    {
+      "id": 1,
+      "text": "Oh Gott, hoffentlich komme ich wieder schnell hier weg.",
+      "weiter": true,
+      "start": false,
+      "person": 0
+    },
+    {
+      "id": 2,
+      "text": "Keine Sorge. Ich werde dir bei allem helfen und zusammen reparieren wir das Raumschiff! Bewege dich mit [Tasten]. Öffne mit [Taste] mein Menü. Hier findest du dein Inventar, die Karte, ein Logbuch und Crafting-Rezepte. Auch werde ich dir Quests anzeigen, mit denen du die Insel erkunden kannst.",
+      "weiter": true,
+      "start": false,
+      "person": 1
+    },
+    {
+      "id": 3,
+      "text": "Verstanden!",
+      "weiter": true,
+      "start": false,
+      "person": 0
+    },
+    {
+      "id": 4,
+      "text": "Ich habe eine erste Quest für dich. Baue ein Boot, um von dieser Insel zum Festland zu gelangen. Schaue dafür in den Crafting-Rezepten nach und sammele geeignete Ressourcen.",
+      "weiter": false,
+      "start": false,
+      "person": 1
+    },
+    {
+      "id": 5,
+      "text": "Ich benötige zwei Sticks und vier Holz",
+      "weiter": true,
+      "start": true,
+      "person": 0
+    },
+    {
+      "id": 6,
+      "text": "Genau. Klicke [Maustaste] auf einen Baum. Dadurch erhältst du Holz und Sticks. Baue dir dann das Boot mit den benötigten Objekten.",
+      "weiter": false,
+      "start": false,
+      "person": 1
+    },
+    {
+      "id": 7,
+      "text": "Sehr gut. Durch das Klicken auf verschiedene Objekte kannst du diese abbauen und einsammeln. Lass uns nun zum Meer gehen und zum Festland übersetzen.",
+      "weiter": true,
+      "start": true,
+      "person" : 1
+    },
+    {
+      "id": 8,
+      "text": "Alles klar! Was sind das für Tiere hier?",
+      "weiter" : true,
+      "start": false,
+      "person": 0
+    },
+    {
+      "id": 9,
+      "text": "Oh, das sind Quokkas. Süß, oder? Hier gibt es unterschiedliche Tiere, die meisten sind aber relativ harmlos. Falls dich doch mal eins nervt, kannst du dieses auch mit [Maustaste] Klick angreifen. Manche lassen sich sogar auch streicheln. Das kannst du dann auf dem Festland mal ausprobieren",
+      "weiter": false,
+      "start": false,
+      "person": 1
+    },
+    {
+      "id": 10,
+      "text": "Platziere das Boot aus deinem Inventar mit [Taste/Mausklick]. Steige nun mit [Taste] ein und bewege dich mit [Tasten]. Deine erste Quest ist geschafft. Herzlichen Glückwunsch und gute Fahrt!",
+      "weiter": false,
+      "start": true,
+      "person": 1
+    }
+  ]
+}
