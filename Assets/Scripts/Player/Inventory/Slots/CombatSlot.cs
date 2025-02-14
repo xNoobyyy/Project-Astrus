@@ -33,7 +33,7 @@ namespace Player.Inventory {
 
             int index = Array.IndexOf(PlayerInventory.Instance.Slots, this);
             // Bei beiden Maustasten wird eine IronPickaxe eingefügt.
-            PlayerInventory.Instance.SetItem(index, new IronPickaxe());
+            PlayerInventory.Instance.SetItem(index, new IronSword());
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace Player.Inventory {
             if (InventoryScreen.Instance.DraggingFrom == null) return;
 
             // Prüfe, ob das gezogene Item ein PickaxeItem ist.
-            if (!(InventoryScreen.Instance.DraggingFrom.Item is PickaxeItem)) {
+            if (!(InventoryScreen.Instance.DraggingFrom.Item is CombatItem)) {
                 // Nicht akzeptiert: Setze den Drag-Vorgang zurück.
                 InventoryScreen.Instance.ResetDragging();
                 return;
