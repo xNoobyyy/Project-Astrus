@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using UnityEditor.Animations;
+using UnityEngine;
 
 namespace Items {
     public abstract class CombatItem : Item {
         public int Damage { get; private set; }
 
-        protected CombatItem(string name, string description, Sprite icon, int damage) : base(name, description, icon) {
+        protected CombatItem(string name, string description, Sprite icon, AnimatorController animator, int damage) : base(name, description, icon, animator) {
             Damage = damage;
         }
 

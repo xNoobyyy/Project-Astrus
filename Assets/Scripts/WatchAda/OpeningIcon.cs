@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using Player.Inventory;
 
 public class OpeningIcon : MonoBehaviour
 {
     public RectTransform animatedImage;
     public LogicScript logic;
     public GameObject openedIcon;
+    public GameObject inventoryScreen;
     private bool moving = false;
     private bool resizing = false;
     private bool reversing = false;
@@ -64,6 +66,9 @@ public class OpeningIcon : MonoBehaviour
                 animationActive = false;
                 logic.IconOpened = true;
                 openedIcon.SetActive(true);
+                if (startPosition == new Vector2(128, 128)) {
+                    inventoryScreen.SetActive(true);
+                }
             }
         }
 
@@ -97,6 +102,7 @@ public class OpeningIcon : MonoBehaviour
     {
         if (!animationActive)
         {
+            inventoryScreen.SetActive(false);
             openedIcon.SetActive(false);
             reversing = true;
             animationActive = true;
