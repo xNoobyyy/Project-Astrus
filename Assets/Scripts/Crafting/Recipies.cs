@@ -3,7 +3,7 @@ using System.Linq;
 using Items;
 using UnityEngine;
 
-public class Recipies : MonoBehaviour {
+public class Recipies  {
     public Item Item1;
     public Item Item2;
     public Item Item3;
@@ -15,7 +15,7 @@ public class Recipies : MonoBehaviour {
     public Item CraftedItem;
     public int CraftedAmount;
     
-    // Konstruktor: Hier werden nullable ints als Parameter erwartet
+    // Konstruktor
     public Recipies(Item item1, Item item2, Item item3, Item item4,
                     int? numberOfItem1, int? numberOfItem2, int? numberOfItem3, int? numberOfItem4,
                     Item craftedItem, int craftedAmount) {
@@ -29,16 +29,20 @@ public class Recipies : MonoBehaviour {
         this.NumberOfItem4 = numberOfItem4;
         this.CraftedItem = craftedItem;
         this.CraftedAmount = craftedAmount;
+        Debug.Log("Recipy erstellen");
     }
 
     /// <summary>
     /// Prüft, ob die (Item, Anzahl)-Paare des Rezepts exakt mit den (Item, Anzahl)-Paaren aus den Slots übereinstimmen.
-    /// Dabei werden null-Werte (sowohl für Items als auch für Zahlen) korrekt berücksichtigt.
-    /// Die Reihenfolge der Paare spielt dabei keine Rolle.
+    /// Dabei wird nicht die Referenz, sondern die exakte Klasse der Items verglichen.
+    /// Null-Werte werden dabei korrekt berücksichtigt.
+    /// Die Reihenfolge der Paare spielt keine Rolle.
     /// </summary>
     public bool checkRecipy(
         Item ItemInSlot1, Item ItemInSlot2, Item ItemInSlot3, Item ItemInSlot4,
         int? NumberInSlot1, int? NumberInSlot2, int? NumberInSlot3, int? NumberInSlot4) {
+        
+        
         
         // Erstelle Listen der (Item, Anzahl)-Paare für Rezept und Slots
         var recipePairs = new List<(Item item, int? count)> {
@@ -55,12 +59,24 @@ public class Recipies : MonoBehaviour {
             (ItemInSlot4, NumberInSlot4)
         };
         
+        Debug.Log(NumberInSlot1 + "," + NumberInSlot2 + "," + NumberInSlot3 + "," + NumberInSlot4 + "und" + NumberOfItem1 + "," + NumberOfItem2+ ","  + NumberOfItem3 + "," + NumberOfItem4);
+        
         // Für jedes Rezept-Paar wird in den Slot-Paaren ein passender Eintrag gesucht.
         foreach (var recipePair in recipePairs) {
             bool foundMatch = false;
             for (int i = 0; i < slotPairs.Count; i++) {
-                // object.Equals ist null-sicher: Vergleicht sowohl Items als auch die Mengen (nullable ints)
-                if (object.Equals(slotPairs[i].item, recipePair.item) && object.Equals(slotPairs[i].count, recipePair.count)) {
+                // Prüfe Items anhand ihres Typs (null-sicher):
+                bool itemsMatch;
+                if (recipePair.item == null && slotPairs[i].item == null) {
+                    itemsMatch = true;
+                } else if (recipePair.item != null && slotPairs[i].item != null) {
+                    itemsMatch = recipePair.item.GetType() == slotPairs[i].item.GetType();
+                } else {
+                    itemsMatch = false;
+                }
+                
+                // Vergleiche zusätzlich die Mengen (nullable int, null-sicher)
+                if (itemsMatch && object.Equals(slotPairs[i].count, recipePair.count)) {
                     foundMatch = true;
                     // Entferne den gefundenen Eintrag, um Mehrfachzuordnungen zu vermeiden
                     slotPairs.RemoveAt(i);
@@ -71,7 +87,7 @@ public class Recipies : MonoBehaviour {
                 return false;
             }
         }
-        
+        Debug.Log("bedingung erfüllt");
         return true;
     }
 }
