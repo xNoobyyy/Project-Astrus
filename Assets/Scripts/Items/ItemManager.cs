@@ -29,6 +29,10 @@ namespace Items {
         public AnimatorController extricIcon;
         public AnimatorController domilitantIcon;
         public AnimatorController AstrusIcon;
+        public AnimatorController SwordAni;
+        public AnimatorController AxeAni;
+        public AnimatorController BowAni;
+        public AnimatorController BowAni2;
 
         [Header("Prefabs")] public GameObject droppedItemPrefab;
 
