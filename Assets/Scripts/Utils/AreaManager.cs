@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 namespace Utils {
     public class AreaManager : MonoBehaviour {
@@ -7,7 +8,7 @@ namespace Utils {
 
         public Volume popVolume;
         public Volume swampVolume;
-        public Canvas fogCanvas;
+        public Image fogImage;
         public Volume jungleVolume;
         public Volume cityVolume;
         
