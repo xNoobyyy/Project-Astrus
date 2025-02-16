@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Items {
     public abstract class ResourceItem : Item {
         public int MaxAmount { get; private set; }
-        public int Amount { get; private set; }
+        public int Amount { get;  set; }
 
         protected ResourceItem(string name, string description, Sprite icon, AnimatorController animator, int amount = 1, int maxAmount = 100) : base(name, description, icon, animator) {
             Amount = amount;

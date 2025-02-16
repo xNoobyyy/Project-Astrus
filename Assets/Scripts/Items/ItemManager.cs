@@ -7,6 +7,7 @@ namespace Items {
         public Sprite rockPickaxeIcon;
         public Sprite ironIcon;
         public Sprite stoneIcon;
+        public Sprite stickIcon;
         public Sprite glomtomIcon2;
         public Sprite extricIcon2;
         public Sprite domilitantIcon2;
@@ -25,10 +26,15 @@ namespace Items {
         public Sprite Amour1Icon;
         public Sprite Amour2Icon;
         
+        
         public AnimatorController glomtomIcon;
         public AnimatorController extricIcon;
         public AnimatorController domilitantIcon;
         public AnimatorController AstrusIcon;
+        public AnimatorController SwordAni;
+        public AnimatorController AxeAni;
+        public AnimatorController BowAni;
+        public AnimatorController BowAni2;
 
         [Header("Prefabs")] public GameObject droppedItemPrefab;
 

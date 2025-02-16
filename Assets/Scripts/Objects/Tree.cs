@@ -7,19 +7,22 @@ using UnityEngine;
 namespace Objects {
     [RequireComponent(typeof(SpriteRenderer), typeof(Collider2D))]
     public class Tree : MonoBehaviour {
+        private static readonly int Destroyed = Animator.StringToHash("Destroyed");
+
         [SerializeField] private Sprite full;
         [SerializeField] private Sprite destroyed;
         [SerializeField] private PolygonCollider2D trigger;
 
         private SpriteRenderer spriteRenderer;
         private Camera mainCamera;
-
+        private Animator animator;
 
         public bool IsDestroyed { get; private set; }
 
         private void Awake() {
             spriteRenderer = GetComponent<SpriteRenderer>();
             mainCamera = Camera.main;
+            animator = GetComponent<Animator>();
         }
 
         // TODO: Only when axe is equipped
@@ -50,7 +53,11 @@ namespace Objects {
 
         public void Destroy() {
             IsDestroyed = true;
-            spriteRenderer.sprite = destroyed;
+            if (animator != null) {
+                animator.SetTrigger(Destroyed);
+            } else {
+                spriteRenderer.sprite = destroyed;
+            }
         }
 
         private void OnValidate() {

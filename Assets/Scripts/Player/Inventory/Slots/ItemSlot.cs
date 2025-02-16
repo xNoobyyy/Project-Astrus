@@ -24,6 +24,9 @@ namespace Player.Inventory {
             
 
             if (Item == null) {
+                if (Item is ResourceItem resourceItem) {
+                    resourceItem.Amount = 0;
+                }
                 itemRenderer.SetActive(false);
                 itemAmountRenderer.SetActive(false);
             } else {
@@ -62,11 +65,11 @@ namespace Player.Inventory {
                     if (itemRenderer.GetComponent<Animator>() == null) {
                         PlayerInventory.Instance.SetItem(
                             Array.IndexOf(PlayerInventory.Instance.Slots, this),
-                            new IronPickaxe());
+                            new Stick(1));
                     } else {
                         PlayerInventory.Instance.SetItem(
                             Array.IndexOf(PlayerInventory.Instance.Slots, this),
-                            new Astrus(1));
+                            new Stick(1));
                     }
 
                     break;
@@ -74,11 +77,11 @@ namespace Player.Inventory {
                     if (itemRenderer.GetComponent<Animator>() == null) {
                         PlayerInventory.Instance.SetItem(
                             Array.IndexOf(PlayerInventory.Instance.Slots, this),
-                            new Iron(19));
+                            new Iron(1));
                     } else {
                         PlayerInventory.Instance.SetItem(
                             Array.IndexOf(PlayerInventory.Instance.Slots, this),
-                            new Glomtom(1));
+                            new Iron(1));
                     }
                     break;
             }
@@ -130,6 +133,28 @@ namespace Player.Inventory {
             }
 
             InventoryScreen.Instance.ResetDragging();
+        }
+
+        public void clearSlot() {
+            if (Item is ResourceItem resourceItem) {
+                resourceItem.Amount = 0;
+            }
+            Item = null;
+            var itemRenderImageComponent = itemRenderer.GetComponent<Image>();
+            var itemRenderAnimatorComponent = itemRenderer.GetComponent<Animator>();
+
+            itemRenderImageComponent = null;
+            itemRenderAnimatorComponent = null;
+            
+            itemRenderer.SetActive(false);
+            itemAmountRenderer.SetActive(false);
+        }
+
+        public void fillSlot(Item item) {
+            Item = item;
+            PlayerInventory.Instance.SetItem(
+                Array.IndexOf(PlayerInventory.Instance.Slots, this),
+                item);
         }
     }
 }
