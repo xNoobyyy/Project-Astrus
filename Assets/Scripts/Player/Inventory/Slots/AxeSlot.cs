@@ -9,16 +9,20 @@ using UnityEngine.UI;
 
 namespace Player.Inventory {
     public class AxeSlot : ItemSlot, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler {
+
         /// <summary>
         /// Setzt das Item in diesem Slot. Akzeptiert nur null oder Items vom Typ PickaxeItem.
         /// Wird ein anderes Item übergeben, wird es ignoriert.
         /// </summary>
         /// <param name="item">Das zu setzende Item</param>
+        public GameObject panel;
         public new void SetItem(Item item) {
             // Falls das Item nicht null ist und kein PickaxeItem, wird es abgelehnt.
             if (item != null && !(item is AxeItem)) {
+                panel.SetActive(true);
                 return;
             }
+            panel.SetActive(false);
             // Aufruf der Basisimplementierung für die visuelle Darstellung.
             base.SetItem(item);
         }
@@ -50,7 +54,11 @@ namespace Player.Inventory {
         /// </summary>
         /// <param name="eventData">Informationen zum End-Drag-Event</param>
         public new void OnEndDrag(PointerEventData eventData) {
-            if (InventoryScreen.Instance.DraggingFrom == null) return;
+            if (InventoryScreen.Instance.DraggingFrom == null) {
+                panel.SetActive(true);
+                return;
+            }
+
             InventoryScreen.Instance.ResetDragging();
         }
 

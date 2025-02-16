@@ -7,6 +7,7 @@ namespace Items {
         public Sprite rockPickaxeIcon;
         public Sprite ironIcon;
         public Sprite stoneIcon;
+        public Sprite stickIcon;
         public Sprite glomtomIcon2;
         public Sprite extricIcon2;
         public Sprite domilitantIcon2;
@@ -24,6 +25,7 @@ namespace Items {
         public Sprite Axe2Icon;
         public Sprite Amour1Icon;
         public Sprite Amour2Icon;
+        
         
         public AnimatorController glomtomIcon;
         public AnimatorController extricIcon;

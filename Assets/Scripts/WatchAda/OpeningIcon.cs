@@ -9,6 +9,7 @@ public class OpeningIcon : MonoBehaviour
     public LogicScript logic;
     public GameObject openedIcon;
     public GameObject inventoryScreen;
+    public GameObject questScreen;
     private bool moving = false;
     private bool resizing = false;
     private bool reversing = false;
@@ -69,6 +70,10 @@ public class OpeningIcon : MonoBehaviour
                 if (startPosition == new Vector2(128, 128)) {
                     inventoryScreen.SetActive(true);
                 }
+
+                if (startPosition == new Vector2(-128, -128)) {
+                    questScreen.SetActive(true);
+                }
             }
         }
 
@@ -103,6 +108,7 @@ public class OpeningIcon : MonoBehaviour
         if (!animationActive)
         {
             inventoryScreen.SetActive(false);
+            questScreen.SetActive(false);
             openedIcon.SetActive(false);
             reversing = true;
             animationActive = true;

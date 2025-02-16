@@ -76,6 +76,90 @@
       "weiter": false,
       "start": true,
       "person": 1
+    },{
+      "id": 11,
+      "text": "Mhm, komisch. Hier liegen viele verschiedene Objekte herum. Ich dachte, hier leben nur Tiere… sei auf jeden Fall vorsichtig, wenn du das Festland weiter erkundest!",
+      "weiter": false,
+      "start":true,
+      "person": 1
+    },{
+      "id": 12,
+      "text":"[Spieler], ich habe eine neue Quest für dich! Wir wissen nicht, wer auf diesem Planeten wohnt und wie gefährlich potentielle Bewohner sind. Finde Ressourcen und crafte aus diesen Werkzeuge oder Waffen. Eisen und Stein findest du bei den Grasslands.",
+      "weiter": false,
+      "start": true,
+      "person":1
+    },{
+      "id": 13,
+      "text":"Sehr gut. Crafte nun Werkzeuge und ein Schwert, um dich verteidigen zu können. Eine Spitzhacke könnte bestimmt noch nützlich werden.",
+      "weiter": false,
+      "start": true,
+      "person": 1
+    },{
+      "id": 14,
+      "text": "Erkunde nun diesen Planeten weiter, jetzt kannst du dich ja auch verteidigen. Viel Spaß!",
+      "weiter": false,
+      "start": true,
+      "person": 1
+    },{
+      "id": 15,
+      "text": "Wow, du hast das Plateau gefunden. Keine Ahnung, was uns dort erwartet, aber leider können wir es noch nicht erreichen. Es liegt zu hoch!",
+      "weiter": false,
+      "start": true,
+      "person": 1
+    },{
+      "id": 16,
+      "text":"Ahhhhh, irgendetwas Gruseliges bewegt sich hier. Ich habe Angst!" ,
+      "weiter": true,
+      "start": true ,
+      "person": 0
+    },{
+      "id": 17,
+      "text": "Keine Sorge, du kannst dich ja mit deinem Schwert verteidigen. Am besten verfolgen wir die Gestalt vorsichtig und finden mehr über sie heraus.",
+      "weiter": true,
+      "start": false,
+      "person": 1
+    },{
+      "id": 18,
+      "text": "Okay, los geht’s.",
+      "weiter": true,
+      "start": false,
+      "person": 0
+    },{
+      "id": 19,
+      "text":"Pass auf dich auf und halte immer genug Abstand." ,
+      "weiter": false,
+      "start": true,
+      "person": 1
+    },{
+      "id": 20,
+      "text":"Cool, hier gibt es ja sogar einen Jungle. Achtung, die Gestalt wird langsamer!" ,
+      "weiter": true ,
+      "start": true,
+      "person": 1
+    },{
+      "id": 21,
+      "text": "Oh Gott, es ist ein Zombie!",
+      "weiter": true,
+      "start": false,
+      "person": 0
+    },{
+      "id": 22,
+      "text": "Du schaffst das. Benutze dein Schwert und verteidige dich!",
+      "weiter": false,
+      "start": false,
+      "person": 1
+    },{
+      "id": 23,
+      "text": "Renne jetzt schnell weg, um dich vor den Zombies zu schützen." ,
+      "weiter": false ,
+      "start": true ,
+      "person": 1
+    },{
+      "id": 24,
+      "text": "Achtung [Spieler], hinter dem Wasserfall dort hinten befindet sich eine versteckte Höhle. Dort können wir uns vor den Zombies verstecken. Beeil dich!" ,
+      "weiter": false,
+      "start": false,
+      "person": 1
     }
   ]
 }
