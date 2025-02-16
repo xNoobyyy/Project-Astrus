@@ -39,7 +39,7 @@ namespace TextDisplay
         public void Start() {
             storyManager.LoadStory();
             storyBlocks = storyManager.storyBlocks;
-            SpecificStoryDialogue(0);
+            //SpecificStoryDialogue(0);
         }
 
         public void ShowText(string text, int? imageIndex = null)
