@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Numerics;
 using Player;
 
 
@@ -17,6 +18,10 @@ namespace TextDisplay
         public Sprite image0;
         public Sprite image1;
         public Sprite image2;
+        public Image sprechblase;
+        public Sprite sprechblase0;
+        public Sprite sprechblase1;
+        public RectTransform textPosition;
         private bool textComplete = false; // Überprüft, ob der Text vollständig angezeigt wurde
         private bool isDialogueActive = false; // Flag, um zu verhindern, dass K während eines laufenden Dialogs funktioniert
         public int storyID = 0;
@@ -41,6 +46,9 @@ namespace TextDisplay
 
             if (imageIndex.HasValue) { 
                 if (imageIndex.Value == 0) {
+                    sprechblase.sprite = sprechblase0;
+                    sprechblase.rectTransform.anchoredPosition = new UnityEngine.Vector2(32, 0);
+                    textPosition.anchoredPosition = new UnityEngine.Vector2(-10, 0); 
                     if (int.Parse(storyBlocks[(storyID+1).ToString()].person) == 1) {
                         leftImage.sprite = image1;
                     }else if (int.Parse(storyBlocks[(storyID + 1).ToString()].person) == 2) {
@@ -50,8 +58,14 @@ namespace TextDisplay
                     }
                 }else if (imageIndex.Value == 1) {
                     leftImage.sprite = image1;
+                    sprechblase.sprite = sprechblase1;
+                    sprechblase.rectTransform.anchoredPosition = new UnityEngine.Vector2(-16, 0);
+                    textPosition.anchoredPosition = new UnityEngine.Vector2(30, 0); 
                 }else if (imageIndex.Value == 2) {
                     leftImage.sprite = image2;
+                    sprechblase.sprite = sprechblase1;
+                    sprechblase.rectTransform.anchoredPosition = new UnityEngine.Vector2(-16, 0);
+                    textPosition.anchoredPosition = new UnityEngine.Vector2(30, 0); 
                 } else {
                     Debug.Log("bildanzeigefehler2");
                 }
