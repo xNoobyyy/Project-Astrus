@@ -29,7 +29,7 @@ public class Recipies  {
         this.NumberOfItem4 = numberOfItem4;
         this.CraftedItem = craftedItem;
         this.CraftedAmount = craftedAmount;
-        Debug.Log("Recipy erstellen");
+        
     }
 
     /// <summary>
@@ -59,7 +59,7 @@ public class Recipies  {
             (ItemInSlot4, NumberInSlot4)
         };
         
-        Debug.Log(NumberInSlot1 + "," + NumberInSlot2 + "," + NumberInSlot3 + "," + NumberInSlot4 + "und" + NumberOfItem1 + "," + NumberOfItem2+ ","  + NumberOfItem3 + "," + NumberOfItem4);
+        //Debug.Log(NumberInSlot1 + "," + NumberInSlot2 + "," + NumberInSlot3 + "," + NumberInSlot4 + "und" + NumberOfItem1 + "," + NumberOfItem2+ ","  + NumberOfItem3 + "," + NumberOfItem4);
         
         // Für jedes Rezept-Paar wird in den Slot-Paaren ein passender Eintrag gesucht.
         foreach (var recipePair in recipePairs) {
@@ -87,7 +87,7 @@ public class Recipies  {
                 return false;
             }
         }
-        Debug.Log("bedingung erfüllt");
+        
         return true;
     }
 }
