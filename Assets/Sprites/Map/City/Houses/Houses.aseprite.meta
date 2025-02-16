@@ -125,7 +125,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Houses
     originalName: 
-    pivot: {x: 0.57253885, y: -0.37743732}
+    pivot: {x: 0.8153846, y: -0.39099857}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -133,8 +133,8 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 772
-      height: 718
+      width: 1170
+      height: 711
     spriteID: 1abf47589de51a64ab9dd992b87226ce
     spriteBone: []
     spriteOutline: []
@@ -158,9 +158,9 @@ ScriptedImporter:
       additiveSortOrder: 0
       cellRect:
         x: 70
-        y: 271
-        width: 772
-        height: 718
+        y: 278
+        width: 1170
+        height: 711
       spriteId: 1abf47589de51a64ab9dd992b87226ce
     linkedCells: []
     parentIndex: -1
@@ -180,5 +180,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 1024, y: 1024}
-  previousTextureSize: {x: 1024, y: 1024}
+  canvasSize: {x: 2048, y: 1024}
+  previousTextureSize: {x: 2048, y: 1024}

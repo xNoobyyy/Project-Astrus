@@ -216,6 +216,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Houses_4
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 637
+        width: 278
+        height: 352
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 588e80b964c49be4eb26e0c360676985
+      internalID: 1657762983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Houses_5
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 637
+        width: 278
+        height: 351
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28f691d1b63ab764eb52df508bbdbffe
+      internalID: 917333535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -234,6 +278,8 @@ TextureImporter:
       Houses_1: 8879565848803906064
       Houses_2: -2078944131
       Houses_3: -1666519662
+      Houses_4: 1657762983
+      Houses_5: 917333535
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
