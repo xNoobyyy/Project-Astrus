@@ -2,7 +2,7 @@
   "story_blocks": [
     {
       "id": 0,
-      "text": "Hallo [Spieler], ich bin Ada, deine intelligente Uhr. Du bist auf diesem unbekannten Planeten abgestürzt und jetzt ist dein Raumschiff komplett kaputt.",
+      "text": "Hallo {playerName}, ich bin Ada, deine intelligente Uhr. Du bist auf diesem unbekannten Planeten abgestürzt und jetzt ist dein Raumschiff komplett kaputt.",
       "weiter" : true,
       "start": true,
       "person": 1
@@ -16,7 +16,7 @@
     },
     {
       "id": 2,
-      "text": "Keine Sorge. Ich werde dir bei allem helfen und zusammen reparieren wir das Raumschiff! Bewege dich mit [Tasten]. Öffne mit [Taste] mein Menü. Hier findest du dein Inventar, die Karte, ein Logbuch und Crafting-Rezepte. Auch werde ich dir Quests anzeigen, mit denen du die Insel erkunden kannst.",
+      "text": "Keine Sorge. Ich werde dir bei allem helfen und zusammen reparieren wir das Raumschiff! Bewege dich mit 'w' 'a' 's' 'd' oder den Pfeiltasten. Öffne mit 'y' mein Menü. Hier findest du dein Inventar, die Karte, ein Logbuch und Crafting-Rezepte. Auch werde ich dir Quests anzeigen, mit denen du die Insel erkunden kannst.",
       "weiter": true,
       "start": false,
       "person": 1
@@ -37,14 +37,14 @@
     },
     {
       "id": 5,
-      "text": "Ich benötige zwei Sticks und vier Holz",
+      "text": "Ich benötige zwei Sticks und vier Holz.",
       "weiter": true,
       "start": true,
       "person": 0
     },
     {
       "id": 6,
-      "text": "Genau. Klicke [Maustaste] auf einen Baum. Dadurch erhältst du Holz und Sticks. Baue dir dann das Boot mit den benötigten Objekten.",
+      "text": "Genau! Klicke auf einen Baum. Dadurch erhältst du Holz und Sticks. Baue dir dann das Boot mit den benötigten Objekten.",
       "weiter": false,
       "start": false,
       "person": 1
@@ -65,14 +65,14 @@
     },
     {
       "id": 9,
-      "text": "Oh, das sind Quokkas. Süß, oder? Hier gibt es unterschiedliche Tiere, die meisten sind aber relativ harmlos. Falls dich doch mal eins nervt, kannst du dieses auch mit [Maustaste] Klick angreifen. Manche lassen sich sogar auch streicheln. Das kannst du dann auf dem Festland mal ausprobieren",
+      "text": "Oh, das sind Quokkas. Süß, oder? Hier gibt es unterschiedliche Tiere, die meisten sind aber relativ harmlos. Falls dich doch mal eins nervt, kannst du dieses auch mit einem Klick angreifen. Manche lassen sich sogar auch streicheln. Das kannst du dann auf dem Festland mal ausprobieren",
       "weiter": false,
       "start": false,
       "person": 1
     },
     {
       "id": 10,
-      "text": "Platziere das Boot aus deinem Inventar mit [Taste/Mausklick]. Steige nun mit [Taste] ein und bewege dich mit [Tasten]. Deine erste Quest ist geschafft. Herzlichen Glückwunsch und gute Fahrt!",
+      "text": "Ziehe das Boot aus deinem Inventar. Steige nun mit ? ein und bewege dich mit ?. Deine erste Quest ist geschafft. Herzlichen Glückwunsch und gute Fahrt!",
       "weiter": false,
       "start": true,
       "person": 1
@@ -84,7 +84,7 @@
       "person": 1
     },{
       "id": 12,
-      "text":"[Spieler], ich habe eine neue Quest für dich! Wir wissen nicht, wer auf diesem Planeten wohnt und wie gefährlich potentielle Bewohner sind. Finde Ressourcen und crafte aus diesen Werkzeuge oder Waffen. Eisen und Stein findest du bei den Grasslands.",
+      "text":"{playerName}, ich habe eine neue Quest für dich! Wir wissen nicht, wer auf diesem Planeten wohnt und wie gefährlich potentielle Bewohner sind. Finde Ressourcen und crafte aus diesen Werkzeuge oder Waffen. Eisen und Stein findest du bei den Grasslands.",
       "weiter": false,
       "start": true,
       "person":1
@@ -108,7 +108,7 @@
       "person": 1
     },{
       "id": 16,
-      "text":"Ahhhhh, irgendetwas Gruseliges bewegt sich hier. Ich habe Angst!" ,
+      "text":"[Ahhhhh, irgendetwas Gruseliges bewegt sich hier. Ich habe Angst!] [Irgendetwas hat sich hier gerade bewegt. Was soll ich machen?]" ,
       "weiter": true,
       "start": true ,
       "person": 0
@@ -156,9 +156,9 @@
       "person": 1
     },{
       "id": 24,
-      "text": "Achtung [Spieler], hinter dem Wasserfall dort hinten befindet sich eine versteckte Höhle. Dort können wir uns vor den Zombies verstecken. Beeil dich!" ,
+      "text": "Achtung {playerName}, hinter dem Wasserfall dort hinten befindet sich eine versteckte Höhle. Dort können wir uns vor den Zombies verstecken. Beeil dich!" ,
       "weiter": false,
-      "start": false,
+      "start": true,
       "person": 1
     }
   ]
