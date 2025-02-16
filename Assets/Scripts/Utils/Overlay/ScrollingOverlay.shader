@@ -3,8 +3,6 @@ Shader "Custom/ScrollingOverlay"
     Properties
     {
         _MainTex ("Sprite Texture", 2D) = "white" {}
-        _ScrollSpeed ("Scroll Speed", Vector) = (0.1, 0.1, 0, 0)
-        _Scale ("World Scale", Float) = 1.0 // (Unused here, but available for further world-space UV scaling)
     }
     SubShader
     {
@@ -69,10 +67,10 @@ Shader "Custom/ScrollingOverlay"
 
                 // Multiply the camera's world position by your tuned constants,
                 // then scale by the resolution factor.
-                float2 cameraOffset = _WorldSpaceCameraPos.xy * float2(0.04, 0.07) * resFactor;
+                float2 cameraOffset = _WorldSpaceCameraPos.xy * float2(0.029, 0.05) * resFactor;
 
                 // Use the standard UV from the canvas, add time-based scrolling and the resolution-adapted camera offset.
-                float2 scrolledUV = frac(IN.uv + _ScrollSpeed * _Time.x + cameraOffset);
+                float2 scrolledUV = frac(IN.uv + 0.2 * _Time.x + cameraOffset);
 
                 half4 texColor = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, scrolledUV) * 0.1;
                 return texColor * IN.color;
