@@ -18,7 +18,7 @@ public class MapManager : MonoBehaviour
     public Transform player;
 
     // Unlocked wird ein Bereich um den Spieler herum freigeschaltet (Anzahl der Zellen als Radius)
-    public int unlockRadius = 1;
+    public int unlockRadius = 100;
 
     // Cover-Größe in Pixeln (wird dynamisch aus der Containergröße berechnet)
     private float coverWidth;
@@ -49,8 +49,10 @@ public class MapManager : MonoBehaviour
         {
             // Hier nehmen wir an, dass die Weltkoordinaten des Spielers direkt auf das Grid abgebildet werden.
             // Eventuell musst du einen Offset bzw. eine Skalierung berücksichtigen, falls dein Level nicht bei (0,0) beginnt.
-            int gridX = Mathf.FloorToInt(player.position.x / coverWidth);
-            int gridY = Mathf.FloorToInt(player.position.y / coverHeight);
+            int gridX = Mathf.FloorToInt((player.position.x - 290) / 35 / coverWidth);
+            int gridY = Mathf.FloorToInt((player.position.y - 35) / 35 / coverHeight);
+            
+            Debug.Log(gridX + "," + gridY);
 
             // Markiere die Zelle, in der sich der Spieler befindet, sowie angrenzende Zellen im unlockRadius
             for (int i = gridX - unlockRadius; i <= gridX + unlockRadius; i++)
@@ -105,6 +107,7 @@ public class MapManager : MonoBehaviour
             {
                 if (!visited[i, j])
                 {
+                    //Debug.Log("false");
                     Vector2 squareCenter = new Vector2(i * coverWidth + coverWidth / 2f, j * coverHeight + coverHeight / 2f);
                     if (Vector2.Distance(squareCenter, gridCenter) <= radius) {
 
@@ -118,9 +121,9 @@ public class MapManager : MonoBehaviour
 
                         // Hole den RectTransform und passe Position und Größe an
                         RectTransform rt = newCover.GetComponent<RectTransform>();
-                        rt.anchoredPosition = new Vector2(i * coverWidth - 410 + (coverWidth / 2),
-                            j * coverHeight - 410 + (coverHeight / 2));
-                        rt.sizeDelta = new Vector2(coverWidth, coverHeight);
+                        rt.anchoredPosition = new Vector2(i * 0.9f * coverWidth -20.75f + 2.5f,
+                            j * 0.9f * coverHeight - 20.275f + 0.725f * 2 + 0.15f);
+                        rt.sizeDelta = new Vector2(coverWidth * 0.9f, coverHeight * 0.9f);
 
                         // Konfiguriere den Image-Komponenten
                         Image img = newCover.GetComponent<Image>();
@@ -129,7 +132,7 @@ public class MapManager : MonoBehaviour
                             img.sprite = coverSprite;
                         }
                     }
-                }
+                }//else { Debug.Log("true"); }
             }
         }
     }
