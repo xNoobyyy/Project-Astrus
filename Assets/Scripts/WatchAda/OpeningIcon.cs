@@ -10,6 +10,7 @@ public class OpeningIcon : MonoBehaviour
     public GameObject openedIcon;
     public GameObject inventoryScreen;
     public GameObject questScreen;
+    public GameObject mapScreen;
     private bool moving = false;
     private bool resizing = false;
     private bool reversing = false;
@@ -73,6 +74,10 @@ public class OpeningIcon : MonoBehaviour
 
                 if (startPosition == new Vector2(-128, -128)) {
                     questScreen.SetActive(true);
+                }
+                
+                if (startPosition == new Vector2(-128, 128)) {
+                    mapScreen.SetActive(true);
                 }
             }
         }
