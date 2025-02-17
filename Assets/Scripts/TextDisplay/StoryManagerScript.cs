@@ -1,9 +1,11 @@
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 public class StoryManager : MonoBehaviour
 {
     private StoryData storyData;
     public Dictionary<string, StoryBlock> storyBlocks;
+    public static string playerName = "Spieler";
     
     void Start() {
         LoadStory();
@@ -39,15 +41,17 @@ public class StoryManager : MonoBehaviour
             return "";
         }
         StoryBlock block = storyBlocks[blockId];
+        block.text = ReplaceVariables(block.text);
+        
         Debug.Log(block.text);
         return block.text;
         
     }
+    string ReplaceVariables(string text)
+    {
+        return text.Replace("{playerName}", playerName);
+    }
+    
 }
 
-/* Ausstehend:
- * STory-Blöcke bekommen eine ID von 0 bis irgendwo im Bereich 100
- * Aktuelle ID wird als Stand irgendwo gespeichert
- * Storyblöcke bekommen boolean Wert ob Ende oder nicht
- * Nächster Storyblock wird auf Enter angezeigt, indem eine Methode aufgerufen wird, bei der StoryID übergeben wird
- */
+

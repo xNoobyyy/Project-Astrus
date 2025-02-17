@@ -1036,7 +1036,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -1050,7 +1050,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -1074,7 +1074,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -1128,12 +1128,12 @@ TextureImporter:
       name: spots_0
       rect:
         serializedVersion: 2
-        x: 237
-        y: 310
-        width: 6
-        height: 6
+        x: 238
+        y: 311
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1150,12 +1150,12 @@ TextureImporter:
       name: spots_1
       rect:
         serializedVersion: 2
-        x: 268
-        y: 309
-        width: 8
-        height: 7
+        x: 269
+        y: 310
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1172,12 +1172,12 @@ TextureImporter:
       name: spots_2
       rect:
         serializedVersion: 2
-        x: 300
-        y: 314
-        width: 8
-        height: 6
+        x: 301
+        y: 315
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1194,12 +1194,12 @@ TextureImporter:
       name: spots_3
       rect:
         serializedVersion: 2
-        x: 10
-        y: 298
-        width: 10
-        height: 11
+        x: 11
+        y: 299
+        width: 8
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1216,12 +1216,12 @@ TextureImporter:
       name: spots_4
       rect:
         serializedVersion: 2
-        x: 43
-        y: 300
-        width: 9
-        height: 9
+        x: 44
+        y: 301
+        width: 7
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1238,12 +1238,12 @@ TextureImporter:
       name: spots_5
       rect:
         serializedVersion: 2
-        x: 73
-        y: 302
-        width: 8
-        height: 8
+        x: 74
+        y: 303
+        width: 6
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1260,12 +1260,12 @@ TextureImporter:
       name: spots_6
       rect:
         serializedVersion: 2
-        x: 81
-        y: 301
-        width: 6
+        x: 108
+        y: 303
+        width: 7
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1282,12 +1282,12 @@ TextureImporter:
       name: spots_7
       rect:
         serializedVersion: 2
-        x: 107
-        y: 302
-        width: 9
-        height: 9
+        x: 169
+        y: 295
+        width: 16
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1304,12 +1304,12 @@ TextureImporter:
       name: spots_8
       rect:
         serializedVersion: 2
-        x: 138
-        y: 300
-        width: 10
-        height: 8
+        x: 181
+        y: 306
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1326,12 +1326,12 @@ TextureImporter:
       name: spots_9
       rect:
         serializedVersion: 2
-        x: 168
-        y: 294
-        width: 16
-        height: 17
+        x: 296
+        y: 304
+        width: 8
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1348,12 +1348,12 @@ TextureImporter:
       name: spots_10
       rect:
         serializedVersion: 2
-        x: 180
-        y: 305
-        width: 6
-        height: 6
+        x: 308
+        y: 308
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1370,12 +1370,12 @@ TextureImporter:
       name: spots_11
       rect:
         serializedVersion: 2
-        x: 204
-        y: 300
-        width: 8
-        height: 7
+        x: 328
+        y: 308
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1392,12 +1392,12 @@ TextureImporter:
       name: spots_12
       rect:
         serializedVersion: 2
-        x: 295
-        y: 303
-        width: 10
-        height: 9
+        x: 77
+        y: 298
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1414,12 +1414,12 @@ TextureImporter:
       name: spots_13
       rect:
         serializedVersion: 2
-        x: 307
-        y: 307
-        width: 6
-        height: 6
+        x: 82
+        y: 302
+        width: 4
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1436,12 +1436,12 @@ TextureImporter:
       name: spots_14
       rect:
         serializedVersion: 2
-        x: 327
-        y: 307
+        x: 106
+        y: 298
         width: 6
-        height: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1458,12 +1458,12 @@ TextureImporter:
       name: spots_15
       rect:
         serializedVersion: 2
-        x: 76
-        y: 297
-        width: 6
-        height: 6
+        x: 113
+        y: 299
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1480,12 +1480,12 @@ TextureImporter:
       name: spots_16
       rect:
         serializedVersion: 2
-        x: 105
-        y: 297
+        x: 139
+        y: 301
         width: 8
-        height: 7
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1502,12 +1502,12 @@ TextureImporter:
       name: spots_17
       rect:
         serializedVersion: 2
-        x: 112
-        y: 298
+        x: 205
+        y: 301
         width: 6
-        height: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1524,12 +1524,12 @@ TextureImporter:
       name: spots_18
       rect:
         serializedVersion: 2
-        x: 235
-        y: 294
-        width: 9
-        height: 9
+        x: 236
+        y: 295
+        width: 7
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1546,12 +1546,12 @@ TextureImporter:
       name: spots_19
       rect:
         serializedVersion: 2
-        x: 263
-        y: 287
+        x: 264
+        y: 288
         width: 16
-        height: 17
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1568,12 +1568,12 @@ TextureImporter:
       name: spots_20
       rect:
         serializedVersion: 2
-        x: 275
-        y: 298
-        width: 6
-        height: 6
+        x: 276
+        y: 299
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1590,12 +1590,12 @@ TextureImporter:
       name: spots_21
       rect:
         serializedVersion: 2
-        x: 300
-        y: 292
-        width: 10
+        x: 298
+        y: 291
+        width: 11
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1612,12 +1612,12 @@ TextureImporter:
       name: spots_22
       rect:
         serializedVersion: 2
-        x: 320
-        y: 298
-        width: 7
-        height: 6
+        x: 321
+        y: 299
+        width: 5
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1634,12 +1634,12 @@ TextureImporter:
       name: spots_23
       rect:
         serializedVersion: 2
-        x: 331
-        y: 296
-        width: 5
-        height: 6
+        x: 332
+        y: 297
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1656,12 +1656,12 @@ TextureImporter:
       name: spots_24
       rect:
         serializedVersion: 2
-        x: 233
-        y: 289
-        width: 8
-        height: 7
+        x: 234
+        y: 290
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1678,12 +1678,12 @@ TextureImporter:
       name: spots_25
       rect:
         serializedVersion: 2
-        x: 240
-        y: 290
-        width: 6
-        height: 6
+        x: 241
+        y: 291
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1700,12 +1700,12 @@ TextureImporter:
       name: spots_26
       rect:
         serializedVersion: 2
-        x: 297
-        y: 290
-        width: 6
-        height: 6
+        x: 298
+        y: 291
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1722,12 +1722,12 @@ TextureImporter:
       name: spots_27
       rect:
         serializedVersion: 2
-        x: 9
-        y: 267
-        width: 11
-        height: 13
+        x: 10
+        y: 268
+        width: 9
+        height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1744,12 +1744,12 @@ TextureImporter:
       name: spots_28
       rect:
         serializedVersion: 2
-        x: 43
-        y: 267
-        width: 12
-        height: 12
+        x: 77
+        y: 274
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1766,12 +1766,12 @@ TextureImporter:
       name: spots_29
       rect:
         serializedVersion: 2
-        x: 76
-        y: 273
-        width: 7
-        height: 7
+        x: 138
+        y: 275
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1788,12 +1788,12 @@ TextureImporter:
       name: spots_30
       rect:
         serializedVersion: 2
-        x: 107
-        y: 267
-        width: 14
-        height: 11
+        x: 233
+        y: 279
+        width: 6
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1810,12 +1810,12 @@ TextureImporter:
       name: spots_31
       rect:
         serializedVersion: 2
-        x: 137
-        y: 274
-        width: 6
-        height: 6
+        x: 241
+        y: 278
+        width: 4
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1832,12 +1832,12 @@ TextureImporter:
       name: spots_32
       rect:
         serializedVersion: 2
-        x: 201
-        y: 269
-        width: 9
-        height: 9
+        x: 268
+        y: 277
+        width: 8
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1854,12 +1854,12 @@ TextureImporter:
       name: spots_33
       rect:
         serializedVersion: 2
-        x: 232
-        y: 278
-        width: 8
-        height: 8
+        x: 300
+        y: 277
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1876,12 +1876,12 @@ TextureImporter:
       name: spots_34
       rect:
         serializedVersion: 2
-        x: 235
-        y: 273
-        width: 6
-        height: 6
+        x: 44
+        y: 268
+        width: 10
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1898,12 +1898,12 @@ TextureImporter:
       name: spots_35
       rect:
         serializedVersion: 2
-        x: 240
-        y: 277
-        width: 6
-        height: 7
+        x: 83
+        y: 269
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1920,12 +1920,12 @@ TextureImporter:
       name: spots_36
       rect:
         serializedVersion: 2
-        x: 267
-        y: 276
-        width: 10
-        height: 8
+        x: 108
+        y: 268
+        width: 12
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1942,12 +1942,12 @@ TextureImporter:
       name: spots_37
       rect:
         serializedVersion: 2
-        x: 299
-        y: 276
-        width: 8
-        height: 7
+        x: 146
+        y: 270
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1964,12 +1964,12 @@ TextureImporter:
       name: spots_38
       rect:
         serializedVersion: 2
-        x: 17
-        y: 264
+        x: 170
+        y: 269
         width: 6
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1986,12 +1986,12 @@ TextureImporter:
       name: spots_39
       rect:
         serializedVersion: 2
-        x: 73
-        y: 264
-        width: 8
+        x: 202
+        y: 270
+        width: 7
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2008,12 +2008,12 @@ TextureImporter:
       name: spots_40
       rect:
         serializedVersion: 2
-        x: 82
-        y: 268
-        width: 7
-        height: 7
+        x: 236
+        y: 274
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2030,12 +2030,12 @@ TextureImporter:
       name: spots_41
       rect:
         serializedVersion: 2
-        x: 138
+        x: 326
         y: 266
-        width: 6
-        height: 6
+        width: 8
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2052,12 +2052,12 @@ TextureImporter:
       name: spots_42
       rect:
         serializedVersion: 2
-        x: 145
-        y: 269
-        width: 7
-        height: 7
+        x: 18
+        y: 265
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2074,12 +2074,12 @@ TextureImporter:
       name: spots_43
       rect:
         serializedVersion: 2
-        x: 169
-        y: 268
-        width: 8
-        height: 8
+        x: 74
+        y: 265
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2096,12 +2096,12 @@ TextureImporter:
       name: spots_44
       rect:
         serializedVersion: 2
-        x: 177
+        x: 139
         y: 267
-        width: 6
-        height: 7
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2118,12 +2118,12 @@ TextureImporter:
       name: spots_45
       rect:
         serializedVersion: 2
-        x: 208
-        y: 266
-        width: 6
-        height: 6
+        x: 178
+        y: 268
+        width: 4
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2140,12 +2140,12 @@ TextureImporter:
       name: spots_46
       rect:
         serializedVersion: 2
-        x: 235
-        y: 261
-        width: 9
-        height: 9
+        x: 209
+        y: 267
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2162,12 +2162,12 @@ TextureImporter:
       name: spots_47
       rect:
         serializedVersion: 2
-        x: 265
-        y: 263
+        x: 236
+        y: 262
         width: 7
-        height: 6
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2184,12 +2184,12 @@ TextureImporter:
       name: spots_48
       rect:
         serializedVersion: 2
-        x: 325
-        y: 265
-        width: 10
-        height: 11
+        x: 266
+        y: 264
+        width: 5
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2206,12 +2206,12 @@ TextureImporter:
       name: spots_49
       rect:
         serializedVersion: 2
-        x: 242
-        y: 258
-        width: 6
-        height: 6
+        x: 243
+        y: 259
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2228,12 +2228,12 @@ TextureImporter:
       name: spots_50
       rect:
         serializedVersion: 2
-        x: 272
-        y: 259
-        width: 6
-        height: 6
+        x: 273
+        y: 260
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2250,12 +2250,12 @@ TextureImporter:
       name: spots_51
       rect:
         serializedVersion: 2
-        x: 298
-        y: 259
-        width: 9
-        height: 9
+        x: 299
+        y: 260
+        width: 7
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2272,12 +2272,12 @@ TextureImporter:
       name: spots_52
       rect:
         serializedVersion: 2
-        x: 1
-        y: 243
-        width: 11
-        height: 13
+        x: 2
+        y: 244
+        width: 9
+        height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2294,12 +2294,12 @@ TextureImporter:
       name: spots_53
       rect:
         serializedVersion: 2
-        x: 18
-        y: 242
-        width: 12
-        height: 12
+        x: 19
+        y: 243
+        width: 10
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2316,12 +2316,12 @@ TextureImporter:
       name: spots_54
       rect:
         serializedVersion: 2
-        x: 36
-        y: 249
-        width: 7
-        height: 7
+        x: 37
+        y: 250
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2338,12 +2338,12 @@ TextureImporter:
       name: spots_55
       rect:
         serializedVersion: 2
-        x: 42
-        y: 244
-        width: 7
-        height: 7
+        x: 50
+        y: 243
+        width: 12
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2360,12 +2360,12 @@ TextureImporter:
       name: spots_56
       rect:
         serializedVersion: 2
-        x: 49
-        y: 242
-        width: 14
-        height: 11
+        x: 66
+        y: 251
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2382,12 +2382,12 @@ TextureImporter:
       name: spots_57
       rect:
         serializedVersion: 2
-        x: 65
-        y: 250
-        width: 6
-        height: 6
+        x: 74
+        y: 246
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2404,12 +2404,12 @@ TextureImporter:
       name: spots_58
       rect:
         serializedVersion: 2
-        x: 73
+        x: 82
         y: 245
-        width: 7
-        height: 7
+        width: 6
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2426,12 +2426,12 @@ TextureImporter:
       name: spots_59
       rect:
         serializedVersion: 2
-        x: 81
-        y: 244
-        width: 8
-        height: 8
+        x: 98
+        y: 246
+        width: 7
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2448,12 +2448,12 @@ TextureImporter:
       name: spots_60
       rect:
         serializedVersion: 2
-        x: 89
-        y: 243
-        width: 6
-        height: 7
+        x: 115
+        y: 248
+        width: 5
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2470,12 +2470,12 @@ TextureImporter:
       name: spots_61
       rect:
         serializedVersion: 2
-        x: 97
-        y: 245
-        width: 9
+        x: 132
+        y: 244
+        width: 8
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2492,12 +2492,12 @@ TextureImporter:
       name: spots_62
       rect:
         serializedVersion: 2
-        x: 114
+        x: 146
         y: 247
-        width: 7
+        width: 6
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2514,12 +2514,12 @@ TextureImporter:
       name: spots_63
       rect:
         serializedVersion: 2
-        x: 131
-        y: 243
-        width: 10
-        height: 11
+        x: 154
+        y: 246
+        width: 4
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2536,12 +2536,12 @@ TextureImporter:
       name: spots_64
       rect:
         serializedVersion: 2
-        x: 145
-        y: 246
+        x: 163
+        y: 245
         width: 8
-        height: 8
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2558,12 +2558,12 @@ TextureImporter:
       name: spots_65
       rect:
         serializedVersion: 2
-        x: 153
-        y: 245
+        x: 213
+        y: 251
         width: 6
-        height: 7
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2580,12 +2580,12 @@ TextureImporter:
       name: spots_66
       rect:
         serializedVersion: 2
-        x: 162
-        y: 244
-        width: 10
-        height: 8
+        x: 298
+        y: 246
+        width: 6
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2602,12 +2602,12 @@ TextureImporter:
       name: spots_67
       rect:
         serializedVersion: 2
-        x: 180
-        y: 244
-        width: 8
-        height: 7
+        x: 34
+        y: 241
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2624,12 +2624,12 @@ TextureImporter:
       name: spots_68
       rect:
         serializedVersion: 2
-        x: 197
+        x: 43
         y: 245
-        width: 6
-        height: 6
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2646,12 +2646,12 @@ TextureImporter:
       name: spots_69
       rect:
         serializedVersion: 2
-        x: 212
-        y: 250
-        width: 8
-        height: 7
+        x: 67
+        y: 243
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2668,12 +2668,12 @@ TextureImporter:
       name: spots_70
       rect:
         serializedVersion: 2
-        x: 268
-        y: 243
-        width: 8
-        height: 7
+        x: 90
+        y: 244
+        width: 4
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2690,12 +2690,12 @@ TextureImporter:
       name: spots_71
       rect:
         serializedVersion: 2
-        x: 297
-        y: 245
-        width: 8
-        height: 8
+        x: 105
+        y: 243
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2712,12 +2712,12 @@ TextureImporter:
       name: spots_72
       rect:
         serializedVersion: 2
-        x: 305
+        x: 122
         y: 244
-        width: 6
-        height: 7
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2734,12 +2734,12 @@ TextureImporter:
       name: spots_73
       rect:
         serializedVersion: 2
-        x: 9
-        y: 240
-        width: 6
-        height: 6
+        x: 149
+        y: 242
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2756,12 +2756,12 @@ TextureImporter:
       name: spots_74
       rect:
         serializedVersion: 2
-        x: 33
-        y: 240
-        width: 8
-        height: 7
+        x: 181
+        y: 245
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2778,12 +2778,12 @@ TextureImporter:
       name: spots_75
       rect:
         serializedVersion: 2
-        x: 66
-        y: 242
-        width: 6
-        height: 6
+        x: 198
+        y: 246
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2800,12 +2800,12 @@ TextureImporter:
       name: spots_76
       rect:
         serializedVersion: 2
-        x: 104
-        y: 242
-        width: 6
-        height: 6
+        x: 208
+        y: 240
+        width: 8
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2822,12 +2822,12 @@ TextureImporter:
       name: spots_77
       rect:
         serializedVersion: 2
-        x: 121
-        y: 243
-        width: 6
-        height: 6
+        x: 220
+        y: 244
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2844,12 +2844,12 @@ TextureImporter:
       name: spots_78
       rect:
         serializedVersion: 2
-        x: 148
-        y: 241
+        x: 269
+        y: 244
         width: 6
-        height: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2866,12 +2866,12 @@ TextureImporter:
       name: spots_79
       rect:
         serializedVersion: 2
-        x: 207
-        y: 239
-        width: 10
-        height: 9
+        x: 306
+        y: 245
+        width: 4
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2888,12 +2888,12 @@ TextureImporter:
       name: spots_80
       rect:
         serializedVersion: 2
-        x: 219
-        y: 243
-        width: 6
-        height: 6
+        x: 10
+        y: 241
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2910,12 +2910,12 @@ TextureImporter:
       name: spots_81
       rect:
         serializedVersion: 2
-        x: 237
-        y: 237
-        width: 6
-        height: 6
+        x: 238
+        y: 238
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2932,12 +2932,12 @@ TextureImporter:
       name: spots_82
       rect:
         serializedVersion: 2
-        x: 321
-        y: 235
-        width: 14
-        height: 11
+        x: 276
+        y: 237
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2954,12 +2954,12 @@ TextureImporter:
       name: spots_83
       rect:
         serializedVersion: 2
-        x: 131
-        y: 227
+        x: 322
+        y: 236
         width: 9
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2976,12 +2976,12 @@ TextureImporter:
       name: spots_84
       rect:
         serializedVersion: 2
-        x: 148
-        y: 230
-        width: 9
-        height: 9
+        x: 147
+        y: 226
+        width: 11
+        height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2998,12 +2998,12 @@ TextureImporter:
       name: spots_85
       rect:
         serializedVersion: 2
-        x: 159
-        y: 223
+        x: 160
+        y: 224
         width: 16
-        height: 17
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3020,12 +3020,12 @@ TextureImporter:
       name: spots_86
       rect:
         serializedVersion: 2
-        x: 171
-        y: 234
+        x: 79
+        y: 217
         width: 6
-        height: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3042,12 +3042,12 @@ TextureImporter:
       name: spots_87
       rect:
         serializedVersion: 2
-        x: 180
-        y: 228
-        width: 10
+        x: 178
+        y: 227
+        width: 11
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3064,12 +3064,12 @@ TextureImporter:
       name: spots_88
       rect:
         serializedVersion: 2
-        x: 197
-        y: 229
-        width: 8
-        height: 7
+        x: 215
+        y: 236
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3086,12 +3086,12 @@ TextureImporter:
       name: spots_89
       rect:
         serializedVersion: 2
-        x: 214
-        y: 235
-        width: 6
-        height: 6
+        x: 264
+        y: 233
+        width: 8
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3108,12 +3108,12 @@ TextureImporter:
       name: spots_90
       rect:
         serializedVersion: 2
-        x: 263
-        y: 232
-        width: 10
-        height: 9
+        x: 298
+        y: 235
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3130,12 +3130,12 @@ TextureImporter:
       name: spots_91
       rect:
         serializedVersion: 2
-        x: 275
-        y: 236
+        x: 3
+        y: 227
         width: 6
-        height: 6
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3152,12 +3152,12 @@ TextureImporter:
       name: spots_92
       rect:
         serializedVersion: 2
-        x: 297
-        y: 234
-        width: 6
-        height: 6
+        x: 10
+        y: 221
+        width: 12
+        height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3174,12 +3174,12 @@ TextureImporter:
       name: spots_93
       rect:
         serializedVersion: 2
-        x: 305
-        y: 229
-        width: 7
-        height: 7
+        x: 23
+        y: 223
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3196,12 +3196,12 @@ TextureImporter:
       name: spots_94
       rect:
         serializedVersion: 2
-        x: 2
-        y: 226
-        width: 8
-        height: 6
+        x: 35
+        y: 220
+        width: 16
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3218,12 +3218,12 @@ TextureImporter:
       name: spots_95
       rect:
         serializedVersion: 2
-        x: 9
-        y: 220
-        width: 14
-        height: 13
+        x: 82
+        y: 223
+        width: 7
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3240,12 +3240,12 @@ TextureImporter:
       name: spots_96
       rect:
         serializedVersion: 2
-        x: 22
-        y: 222
-        width: 10
-        height: 10
+        x: 68
+        y: 221
+        width: 12
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3262,12 +3262,12 @@ TextureImporter:
       name: spots_97
       rect:
         serializedVersion: 2
-        x: 34
-        y: 219
-        width: 18
-        height: 12
+        x: 49
+        y: 216
+        width: 13
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3284,12 +3284,12 @@ TextureImporter:
       name: spots_98
       rect:
         serializedVersion: 2
-        x: 52
-        y: 223
-        width: 9
-        height: 8
+        x: 132
+        y: 228
+        width: 7
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3306,12 +3306,12 @@ TextureImporter:
       name: spots_99
       rect:
         serializedVersion: 2
-        x: 67
-        y: 220
-        width: 14
-        height: 11
+        x: 53
+        y: 224
+        width: 7
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3325,59 +3325,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spots_100
-      rect:
-        serializedVersion: 2
-        x: 81
-        y: 222
-        width: 9
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fa2d31719490d6f10800000000000000
-      internalID: 2264476397161665199
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spots_101
-      rect:
-        serializedVersion: 2
-        x: 102
-        y: 220
-        width: 12
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a917149b783b78d10800000000000000
-      internalID: 2127866744465879450
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: spots_102
       rect:
         serializedVersion: 2
-        x: 111
-        y: 224
-        width: 7
-        height: 7
+        x: 198
+        y: 230
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3394,12 +3350,12 @@ TextureImporter:
       name: spots_103
       rect:
         serializedVersion: 2
-        x: 146
-        y: 225
-        width: 8
-        height: 7
+        x: 208
+        y: 227
+        width: 5
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3416,12 +3372,12 @@ TextureImporter:
       name: spots_104
       rect:
         serializedVersion: 2
-        x: 153
-        y: 226
-        width: 6
-        height: 6
+        x: 299
+        y: 227
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3438,12 +3394,12 @@ TextureImporter:
       name: spots_105
       rect:
         serializedVersion: 2
-        x: 177
-        y: 226
-        width: 6
-        height: 6
+        x: 306
+        y: 230
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3457,37 +3413,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spots_106
-      rect:
-        serializedVersion: 2
-        x: 207
-        y: 226
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 656898c41ccb25f70800000000000000
-      internalID: 9174602929305912918
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: spots_107
       rect:
         serializedVersion: 2
-        x: 218
-        y: 224
-        width: 6
-        height: 6
+        x: 103
+        y: 219
+        width: 17
+        height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3504,12 +3438,12 @@ TextureImporter:
       name: spots_108
       rect:
         serializedVersion: 2
-        x: 298
-        y: 226
-        width: 6
-        height: 6
+        x: 219
+        y: 225
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3526,12 +3460,12 @@ TextureImporter:
       name: spots_109
       rect:
         serializedVersion: 2
-        x: 4
-        y: 215
-        width: 10
-        height: 8
+        x: 5
+        y: 216
+        width: 8
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3548,12 +3482,12 @@ TextureImporter:
       name: spots_110
       rect:
         serializedVersion: 2
-        x: 21
-        y: 216
-        width: 7
-        height: 6
+        x: 22
+        y: 217
+        width: 5
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3567,125 +3501,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spots_111
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 215
-        width: 15
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c344356de99e5e310800000000000000
-      internalID: 1433808924797256764
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spots_112
-      rect:
-        serializedVersion: 2
-        x: 78
-        y: 216
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 140a4f24937b8d2e0800000000000000
-      internalID: -2100727769603989439
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spots_113
-      rect:
-        serializedVersion: 2
-        x: 113
-        y: 218
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3487b45c86b01a3c0800000000000000
-      internalID: -4350183220448626621
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spots_114
-      rect:
-        serializedVersion: 2
-        x: 132
-        y: 212
-        width: 10
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 201bd0e4e2239ed60800000000000000
-      internalID: 7919916594167132418
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spots_115
-      rect:
-        serializedVersion: 2
-        x: 148
-        y: 214
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8ec9805c9311e2170800000000000000
-      internalID: 8155474915031031016
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: spots_116
       rect:
         serializedVersion: 2
-        x: 161
-        y: 212
-        width: 9
-        height: 9
+        x: 162
+        y: 213
+        width: 7
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3702,12 +3526,12 @@ TextureImporter:
       name: spots_117
       rect:
         serializedVersion: 2
-        x: 180
-        y: 211
-        width: 11
-        height: 10
+        x: 181
+        y: 212
+        width: 9
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3724,12 +3548,12 @@ TextureImporter:
       name: spots_118
       rect:
         serializedVersion: 2
-        x: 199
-        y: 212
-        width: 14
-        height: 11
+        x: 200
+        y: 213
+        width: 12
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3746,12 +3570,12 @@ TextureImporter:
       name: spots_119
       rect:
         serializedVersion: 2
-        x: 215
-        y: 215
-        width: 7
-        height: 7
+        x: 216
+        y: 216
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3768,12 +3592,12 @@ TextureImporter:
       name: spots_120
       rect:
         serializedVersion: 2
-        x: 298
-        y: 210
-        width: 12
-        height: 12
+        x: 299
+        y: 211
+        width: 10
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3790,12 +3614,12 @@ TextureImporter:
       name: spots_121
       rect:
         serializedVersion: 2
-        x: 9
-        y: 196
-        width: 14
-        height: 13
+        x: 130
+        y: 194
+        width: 29
+        height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3809,37 +3633,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spots_122
-      rect:
-        serializedVersion: 2
-        x: 129
-        y: 201
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f6eb99a329ae7f520800000000000000
-      internalID: 2735913212420144751
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: spots_123
       rect:
         serializedVersion: 2
-        x: 135
-        y: 200
-        width: 16
-        height: 15
+        x: 166
+        y: 197
+        width: 19
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3856,12 +3658,12 @@ TextureImporter:
       name: spots_124
       rect:
         serializedVersion: 2
-        x: 150
-        y: 203
-        width: 10
-        height: 10
+        x: 193
+        y: 195
+        width: 19
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3878,12 +3680,12 @@ TextureImporter:
       name: spots_125
       rect:
         serializedVersion: 2
-        x: 165
-        y: 196
-        width: 21
-        height: 18
+        x: 237
+        y: 204
+        width: 8
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3900,12 +3702,12 @@ TextureImporter:
       name: spots_126
       rect:
         serializedVersion: 2
-        x: 192
-        y: 194
-        width: 21
-        height: 17
+        x: 270
+        y: 205
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3922,12 +3724,12 @@ TextureImporter:
       name: spots_127
       rect:
         serializedVersion: 2
-        x: 214
-        y: 201
-        width: 9
-        height: 9
+        x: 325
+        y: 210
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3944,12 +3746,12 @@ TextureImporter:
       name: spots_128
       rect:
         serializedVersion: 2
-        x: 236
-        y: 203
-        width: 10
-        height: 11
+        x: 331
+        y: 205
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3966,12 +3768,12 @@ TextureImporter:
       name: spots_129
       rect:
         serializedVersion: 2
-        x: 269
-        y: 204
-        width: 8
-        height: 7
+        x: 3
+        y: 203
+        width: 6
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3988,12 +3790,12 @@ TextureImporter:
       name: spots_130
       rect:
         serializedVersion: 2
-        x: 324
-        y: 209
-        width: 7
-        height: 7
+        x: 10
+        y: 197
+        width: 12
+        height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4010,12 +3812,12 @@ TextureImporter:
       name: spots_131
       rect:
         serializedVersion: 2
-        x: 330
-        y: 204
-        width: 6
-        height: 7
+        x: 23
+        y: 199
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4032,12 +3834,12 @@ TextureImporter:
       name: spots_132
       rect:
         serializedVersion: 2
-        x: 2
-        y: 202
-        width: 8
-        height: 6
+        x: 35
+        y: 197
+        width: 16
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4054,12 +3856,12 @@ TextureImporter:
       name: spots_133
       rect:
         serializedVersion: 2
-        x: 22
-        y: 198
-        width: 10
-        height: 10
+        x: 53
+        y: 201
+        width: 7
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4076,12 +3878,12 @@ TextureImporter:
       name: spots_134
       rect:
         serializedVersion: 2
-        x: 34
-        y: 196
-        width: 18
-        height: 12
+        x: 68
+        y: 197
+        width: 12
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4098,12 +3900,12 @@ TextureImporter:
       name: spots_135
       rect:
         serializedVersion: 2
-        x: 52
-        y: 200
-        width: 9
-        height: 8
+        x: 82
+        y: 199
+        width: 7
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4120,12 +3922,12 @@ TextureImporter:
       name: spots_136
       rect:
         serializedVersion: 2
-        x: 67
+        x: 103
         y: 196
-        width: 14
-        height: 11
+        width: 10
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4142,12 +3944,12 @@ TextureImporter:
       name: spots_137
       rect:
         serializedVersion: 2
-        x: 81
-        y: 198
-        width: 9
-        height: 8
+        x: 112
+        y: 200
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4161,59 +3963,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spots_138
-      rect:
-        serializedVersion: 2
-        x: 102
-        y: 195
-        width: 12
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e2e56923bffd05c10800000000000000
-      internalID: 2040376901177335342
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spots_139
-      rect:
-        serializedVersion: 2
-        x: 111
-        y: 199
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9a24c7f06aacc8720800000000000000
-      internalID: 2849875478791865001
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: spots_140
       rect:
         serializedVersion: 2
-        x: 133
-        y: 193
-        width: 11
-        height: 9
+        x: 215
+        y: 202
+        width: 7
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4230,12 +3988,12 @@ TextureImporter:
       name: spots_141
       rect:
         serializedVersion: 2
-        x: 149
-        y: 198
-        width: 7
-        height: 6
+        x: 234
+        y: 202
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4252,12 +4010,12 @@ TextureImporter:
       name: spots_142
       rect:
         serializedVersion: 2
-        x: 228
-        y: 188
-        width: 11
-        height: 19
+        x: 298
+        y: 196
+        width: 9
+        height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4274,12 +4032,12 @@ TextureImporter:
       name: spots_143
       rect:
         serializedVersion: 2
-        x: 297
-        y: 195
-        width: 11
-        height: 13
+        x: 322
+        y: 201
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4296,12 +4054,12 @@ TextureImporter:
       name: spots_144
       rect:
         serializedVersion: 2
-        x: 321
-        y: 200
+        x: 5
+        y: 192
         width: 8
-        height: 7
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4318,12 +4076,12 @@ TextureImporter:
       name: spots_145
       rect:
         serializedVersion: 2
-        x: 4
-        y: 191
-        width: 10
-        height: 8
+        x: 22
+        y: 193
+        width: 5
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4340,12 +4098,12 @@ TextureImporter:
       name: spots_146
       rect:
         serializedVersion: 2
-        x: 21
-        y: 192
-        width: 7
-        height: 6
+        x: 49
+        y: 193
+        width: 13
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4362,12 +4120,12 @@ TextureImporter:
       name: spots_147
       rect:
         serializedVersion: 2
-        x: 48
-        y: 192
-        width: 15
-        height: 9
+        x: 79
+        y: 193
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4384,12 +4142,12 @@ TextureImporter:
       name: spots_148
       rect:
         serializedVersion: 2
-        x: 78
-        y: 192
-        width: 8
-        height: 7
+        x: 114
+        y: 194
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4403,59 +4161,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spots_149
-      rect:
-        serializedVersion: 2
-        x: 113
-        y: 193
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 357feb39cd7ee4560800000000000000
-      internalID: 7300026980571739987
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spots_150
-      rect:
-        serializedVersion: 2
-        x: 145
-        y: 194
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 597f76a499827ac10800000000000000
-      internalID: 2064663593016096661
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: spots_151
       rect:
         serializedVersion: 2
-        x: 305
-        y: 192
-        width: 6
-        height: 6
+        x: 306
+        y: 193
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4473,11 +4187,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 175
-        width: 11
-        height: 16
+        y: 187
+        width: 3
+        height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4494,12 +4208,12 @@ TextureImporter:
       name: spots_153
       rect:
         serializedVersion: 2
-        x: 11
-        y: 180
-        width: 6
-        height: 7
+        x: 12
+        y: 181
+        width: 4
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4516,12 +4230,12 @@ TextureImporter:
       name: spots_154
       rect:
         serializedVersion: 2
-        x: 18
-        y: 178
-        width: 14
-        height: 11
+        x: 19
+        y: 179
+        width: 12
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4538,12 +4252,12 @@ TextureImporter:
       name: spots_155
       rect:
         serializedVersion: 2
-        x: 32
-        y: 182
-        width: 11
-        height: 9
+        x: 33
+        y: 183
+        width: 9
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4560,12 +4274,12 @@ TextureImporter:
       name: spots_156
       rect:
         serializedVersion: 2
-        x: 42
-        y: 179
-        width: 7
-        height: 7
+        x: 43
+        y: 180
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4582,12 +4296,12 @@ TextureImporter:
       name: spots_157
       rect:
         serializedVersion: 2
-        x: 49
-        y: 184
-        width: 6
-        height: 6
+        x: 50
+        y: 185
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4604,12 +4318,12 @@ TextureImporter:
       name: spots_158
       rect:
         serializedVersion: 2
-        x: 57
-        y: 179
-        width: 7
-        height: 7
+        x: 58
+        y: 180
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4626,12 +4340,12 @@ TextureImporter:
       name: spots_159
       rect:
         serializedVersion: 2
-        x: 66
-        y: 161
-        width: 28
-        height: 31
+        x: 67
+        y: 162
+        width: 26
+        height: 29
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4648,12 +4362,12 @@ TextureImporter:
       name: spots_160
       rect:
         serializedVersion: 2
-        x: 33
-        y: 161
-        width: 29
-        height: 21
+        x: 34
+        y: 176
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4670,12 +4384,12 @@ TextureImporter:
       name: spots_161
       rect:
         serializedVersion: 2
-        x: 50
-        y: 176
-        width: 6
-        height: 6
+        x: 51
+        y: 177
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4692,12 +4406,12 @@ TextureImporter:
       name: spots_162
       rect:
         serializedVersion: 2
-        x: 74
-        y: 174
-        width: 6
-        height: 6
+        x: 75
+        y: 175
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4714,12 +4428,12 @@ TextureImporter:
       name: spots_163
       rect:
         serializedVersion: 2
-        x: 1
-        y: 161
-        width: 11
-        height: 12
+        x: 2
+        y: 165
+        width: 9
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4736,12 +4450,12 @@ TextureImporter:
       name: spots_164
       rect:
         serializedVersion: 2
-        x: 18
-        y: 168
-        width: 7
-        height: 6
+        x: 19
+        y: 169
+        width: 5
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4758,12 +4472,12 @@ TextureImporter:
       name: spots_165
       rect:
         serializedVersion: 2
-        x: 19
-        y: 162
-        width: 12
-        height: 8
+        x: 20
+        y: 163
+        width: 3
+        height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4780,12 +4494,12 @@ TextureImporter:
       name: spots_166
       rect:
         serializedVersion: 2
-        x: 10
-        y: 161
-        width: 6
-        height: 6
+        x: 11
+        y: 162
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4802,12 +4516,12 @@ TextureImporter:
       name: spots_167
       rect:
         serializedVersion: 2
-        x: 300
-        y: 154
-        width: 8
-        height: 7
+        x: 238
+        y: 151
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4824,12 +4538,12 @@ TextureImporter:
       name: spots_168
       rect:
         serializedVersion: 2
-        x: 73
-        y: 142
-        width: 8
-        height: 8
+        x: 269
+        y: 150
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4846,12 +4560,12 @@ TextureImporter:
       name: spots_169
       rect:
         serializedVersion: 2
-        x: 107
-        y: 142
-        width: 9
-        height: 9
+        x: 301
+        y: 155
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4868,12 +4582,12 @@ TextureImporter:
       name: spots_170
       rect:
         serializedVersion: 2
-        x: 168
-        y: 134
-        width: 16
-        height: 17
+        x: 11
+        y: 139
+        width: 8
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4890,12 +4604,12 @@ TextureImporter:
       name: spots_171
       rect:
         serializedVersion: 2
-        x: 180
-        y: 145
-        width: 6
-        height: 6
+        x: 44
+        y: 141
+        width: 7
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4912,12 +4626,12 @@ TextureImporter:
       name: spots_172
       rect:
         serializedVersion: 2
-        x: 237
-        y: 150
+        x: 74
+        y: 143
         width: 6
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4934,12 +4648,12 @@ TextureImporter:
       name: spots_173
       rect:
         serializedVersion: 2
-        x: 268
-        y: 149
-        width: 8
+        x: 108
+        y: 143
+        width: 7
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4956,12 +4670,12 @@ TextureImporter:
       name: spots_174
       rect:
         serializedVersion: 2
-        x: 295
-        y: 143
-        width: 10
-        height: 9
+        x: 169
+        y: 135
+        width: 14
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4978,12 +4692,12 @@ TextureImporter:
       name: spots_175
       rect:
         serializedVersion: 2
-        x: 307
-        y: 147
-        width: 6
-        height: 6
+        x: 181
+        y: 146
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5000,12 +4714,12 @@ TextureImporter:
       name: spots_176
       rect:
         serializedVersion: 2
-        x: 327
-        y: 147
-        width: 6
-        height: 6
+        x: 296
+        y: 144
+        width: 8
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5022,12 +4736,12 @@ TextureImporter:
       name: spots_177
       rect:
         serializedVersion: 2
-        x: 10
-        y: 138
-        width: 10
-        height: 11
+        x: 308
+        y: 148
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5044,12 +4758,12 @@ TextureImporter:
       name: spots_178
       rect:
         serializedVersion: 2
-        x: 43
-        y: 140
-        width: 9
-        height: 9
+        x: 328
+        y: 148
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5066,12 +4780,12 @@ TextureImporter:
       name: spots_179
       rect:
         serializedVersion: 2
-        x: 76
-        y: 137
-        width: 6
-        height: 6
+        x: 77
+        y: 138
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5088,12 +4802,12 @@ TextureImporter:
       name: spots_180
       rect:
         serializedVersion: 2
-        x: 81
-        y: 141
-        width: 6
-        height: 7
+        x: 82
+        y: 142
+        width: 4
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5110,12 +4824,12 @@ TextureImporter:
       name: spots_181
       rect:
         serializedVersion: 2
-        x: 105
-        y: 137
-        width: 8
-        height: 7
+        x: 106
+        y: 138
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5132,12 +4846,12 @@ TextureImporter:
       name: spots_182
       rect:
         serializedVersion: 2
-        x: 112
-        y: 138
-        width: 6
-        height: 6
+        x: 113
+        y: 139
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5154,12 +4868,12 @@ TextureImporter:
       name: spots_183
       rect:
         serializedVersion: 2
-        x: 138
-        y: 140
-        width: 10
-        height: 8
+        x: 139
+        y: 141
+        width: 8
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5176,12 +4890,12 @@ TextureImporter:
       name: spots_184
       rect:
         serializedVersion: 2
-        x: 204
-        y: 140
-        width: 8
-        height: 7
+        x: 205
+        y: 141
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5198,12 +4912,12 @@ TextureImporter:
       name: spots_185
       rect:
         serializedVersion: 2
-        x: 235
-        y: 134
-        width: 9
-        height: 9
+        x: 236
+        y: 135
+        width: 7
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5220,12 +4934,12 @@ TextureImporter:
       name: spots_186
       rect:
         serializedVersion: 2
-        x: 263
-        y: 127
-        width: 16
-        height: 17
+        x: 264
+        y: 128
+        width: 14
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5242,12 +4956,12 @@ TextureImporter:
       name: spots_187
       rect:
         serializedVersion: 2
-        x: 275
-        y: 138
-        width: 6
-        height: 6
+        x: 276
+        y: 139
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5264,12 +4978,12 @@ TextureImporter:
       name: spots_188
       rect:
         serializedVersion: 2
-        x: 300
-        y: 132
-        width: 10
-        height: 11
+        x: 301
+        y: 133
+        width: 8
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5286,12 +5000,12 @@ TextureImporter:
       name: spots_189
       rect:
         serializedVersion: 2
-        x: 320
-        y: 138
-        width: 7
-        height: 6
+        x: 321
+        y: 139
+        width: 5
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5308,12 +5022,12 @@ TextureImporter:
       name: spots_190
       rect:
         serializedVersion: 2
-        x: 331
-        y: 136
-        width: 5
-        height: 6
+        x: 332
+        y: 137
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5330,12 +5044,12 @@ TextureImporter:
       name: spots_191
       rect:
         serializedVersion: 2
-        x: 233
-        y: 129
-        width: 8
-        height: 7
+        x: 234
+        y: 130
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5352,12 +5066,12 @@ TextureImporter:
       name: spots_192
       rect:
         serializedVersion: 2
-        x: 240
-        y: 130
-        width: 6
-        height: 6
+        x: 241
+        y: 131
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5374,12 +5088,12 @@ TextureImporter:
       name: spots_193
       rect:
         serializedVersion: 2
-        x: 297
-        y: 130
-        width: 6
-        height: 6
+        x: 298
+        y: 131
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5396,12 +5110,12 @@ TextureImporter:
       name: spots_194
       rect:
         serializedVersion: 2
-        x: 9
-        y: 107
-        width: 11
-        height: 13
+        x: 10
+        y: 108
+        width: 9
+        height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5418,12 +5132,12 @@ TextureImporter:
       name: spots_195
       rect:
         serializedVersion: 2
-        x: 43
-        y: 107
-        width: 12
-        height: 12
+        x: 77
+        y: 114
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5440,12 +5154,12 @@ TextureImporter:
       name: spots_196
       rect:
         serializedVersion: 2
-        x: 76
-        y: 113
-        width: 7
-        height: 7
+        x: 138
+        y: 115
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5462,12 +5176,12 @@ TextureImporter:
       name: spots_197
       rect:
         serializedVersion: 2
-        x: 107
-        y: 107
-        width: 14
-        height: 11
+        x: 233
+        y: 119
+        width: 6
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5484,12 +5198,12 @@ TextureImporter:
       name: spots_198
       rect:
         serializedVersion: 2
-        x: 137
-        y: 114
-        width: 6
-        height: 6
+        x: 241
+        y: 118
+        width: 4
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5506,12 +5220,12 @@ TextureImporter:
       name: spots_199
       rect:
         serializedVersion: 2
-        x: 201
-        y: 109
-        width: 9
-        height: 9
+        x: 268
+        y: 117
+        width: 8
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5528,12 +5242,12 @@ TextureImporter:
       name: spots_200
       rect:
         serializedVersion: 2
-        x: 232
-        y: 118
-        width: 8
-        height: 8
+        x: 300
+        y: 117
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5550,12 +5264,12 @@ TextureImporter:
       name: spots_201
       rect:
         serializedVersion: 2
-        x: 235
-        y: 113
-        width: 6
-        height: 6
+        x: 44
+        y: 108
+        width: 10
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5572,12 +5286,12 @@ TextureImporter:
       name: spots_202
       rect:
         serializedVersion: 2
-        x: 240
-        y: 117
-        width: 6
-        height: 7
+        x: 83
+        y: 109
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5594,12 +5308,12 @@ TextureImporter:
       name: spots_203
       rect:
         serializedVersion: 2
-        x: 267
-        y: 116
-        width: 10
-        height: 8
+        x: 108
+        y: 108
+        width: 12
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5616,12 +5330,12 @@ TextureImporter:
       name: spots_204
       rect:
         serializedVersion: 2
-        x: 299
-        y: 116
-        width: 8
-        height: 7
+        x: 146
+        y: 110
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5638,12 +5352,12 @@ TextureImporter:
       name: spots_205
       rect:
         serializedVersion: 2
-        x: 17
-        y: 104
+        x: 170
+        y: 109
         width: 6
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5660,12 +5374,12 @@ TextureImporter:
       name: spots_206
       rect:
         serializedVersion: 2
-        x: 73
-        y: 104
-        width: 8
+        x: 202
+        y: 110
+        width: 7
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5682,12 +5396,12 @@ TextureImporter:
       name: spots_207
       rect:
         serializedVersion: 2
-        x: 82
-        y: 108
-        width: 7
-        height: 7
+        x: 236
+        y: 114
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5704,12 +5418,12 @@ TextureImporter:
       name: spots_208
       rect:
         serializedVersion: 2
-        x: 138
+        x: 326
         y: 106
-        width: 6
-        height: 6
+        width: 8
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5726,12 +5440,12 @@ TextureImporter:
       name: spots_209
       rect:
         serializedVersion: 2
-        x: 145
-        y: 109
-        width: 7
-        height: 7
+        x: 18
+        y: 105
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5748,12 +5462,12 @@ TextureImporter:
       name: spots_210
       rect:
         serializedVersion: 2
-        x: 169
-        y: 108
-        width: 8
-        height: 8
+        x: 74
+        y: 105
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5770,12 +5484,12 @@ TextureImporter:
       name: spots_211
       rect:
         serializedVersion: 2
-        x: 177
+        x: 139
         y: 107
-        width: 6
-        height: 7
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5792,12 +5506,12 @@ TextureImporter:
       name: spots_212
       rect:
         serializedVersion: 2
-        x: 208
-        y: 106
-        width: 6
-        height: 6
+        x: 178
+        y: 108
+        width: 4
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5814,12 +5528,12 @@ TextureImporter:
       name: spots_213
       rect:
         serializedVersion: 2
-        x: 235
-        y: 101
-        width: 9
-        height: 9
+        x: 209
+        y: 107
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5836,12 +5550,12 @@ TextureImporter:
       name: spots_214
       rect:
         serializedVersion: 2
-        x: 265
-        y: 103
+        x: 236
+        y: 102
         width: 7
-        height: 6
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5858,12 +5572,12 @@ TextureImporter:
       name: spots_215
       rect:
         serializedVersion: 2
-        x: 325
-        y: 105
-        width: 10
-        height: 11
+        x: 266
+        y: 104
+        width: 5
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5880,12 +5594,12 @@ TextureImporter:
       name: spots_216
       rect:
         serializedVersion: 2
-        x: 242
-        y: 98
-        width: 6
-        height: 6
+        x: 243
+        y: 99
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5902,12 +5616,12 @@ TextureImporter:
       name: spots_217
       rect:
         serializedVersion: 2
-        x: 272
-        y: 99
-        width: 6
-        height: 6
+        x: 273
+        y: 100
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5924,12 +5638,12 @@ TextureImporter:
       name: spots_218
       rect:
         serializedVersion: 2
-        x: 298
-        y: 99
-        width: 9
-        height: 9
+        x: 299
+        y: 100
+        width: 7
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5946,12 +5660,12 @@ TextureImporter:
       name: spots_219
       rect:
         serializedVersion: 2
-        x: 1
-        y: 83
-        width: 11
-        height: 13
+        x: 2
+        y: 84
+        width: 9
+        height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5968,12 +5682,12 @@ TextureImporter:
       name: spots_220
       rect:
         serializedVersion: 2
-        x: 18
-        y: 82
-        width: 12
-        height: 12
+        x: 19
+        y: 83
+        width: 10
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5990,12 +5704,12 @@ TextureImporter:
       name: spots_221
       rect:
         serializedVersion: 2
-        x: 36
-        y: 89
-        width: 7
-        height: 7
+        x: 37
+        y: 90
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6012,12 +5726,12 @@ TextureImporter:
       name: spots_222
       rect:
         serializedVersion: 2
-        x: 42
-        y: 84
-        width: 7
-        height: 7
+        x: 50
+        y: 83
+        width: 12
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6034,12 +5748,12 @@ TextureImporter:
       name: spots_223
       rect:
         serializedVersion: 2
-        x: 49
-        y: 82
-        width: 14
-        height: 11
+        x: 66
+        y: 91
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6056,12 +5770,12 @@ TextureImporter:
       name: spots_224
       rect:
         serializedVersion: 2
-        x: 65
-        y: 90
-        width: 6
-        height: 6
+        x: 74
+        y: 86
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6078,12 +5792,12 @@ TextureImporter:
       name: spots_225
       rect:
         serializedVersion: 2
-        x: 73
+        x: 82
         y: 85
-        width: 7
-        height: 7
+        width: 6
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6100,12 +5814,12 @@ TextureImporter:
       name: spots_226
       rect:
         serializedVersion: 2
-        x: 81
-        y: 84
-        width: 8
-        height: 8
+        x: 98
+        y: 86
+        width: 7
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6122,12 +5836,12 @@ TextureImporter:
       name: spots_227
       rect:
         serializedVersion: 2
-        x: 89
-        y: 83
-        width: 6
-        height: 7
+        x: 115
+        y: 88
+        width: 5
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6144,12 +5858,12 @@ TextureImporter:
       name: spots_228
       rect:
         serializedVersion: 2
-        x: 97
-        y: 85
-        width: 9
+        x: 132
+        y: 84
+        width: 8
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6166,12 +5880,12 @@ TextureImporter:
       name: spots_229
       rect:
         serializedVersion: 2
-        x: 114
+        x: 146
         y: 87
-        width: 7
+        width: 6
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6188,12 +5902,12 @@ TextureImporter:
       name: spots_230
       rect:
         serializedVersion: 2
-        x: 131
-        y: 83
-        width: 10
-        height: 11
+        x: 154
+        y: 86
+        width: 4
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6210,12 +5924,12 @@ TextureImporter:
       name: spots_231
       rect:
         serializedVersion: 2
-        x: 145
-        y: 86
+        x: 163
+        y: 85
         width: 8
-        height: 8
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6232,12 +5946,12 @@ TextureImporter:
       name: spots_232
       rect:
         serializedVersion: 2
-        x: 153
-        y: 85
+        x: 213
+        y: 91
         width: 6
-        height: 7
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6254,12 +5968,12 @@ TextureImporter:
       name: spots_233
       rect:
         serializedVersion: 2
-        x: 162
-        y: 84
-        width: 10
-        height: 8
+        x: 298
+        y: 86
+        width: 6
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6276,12 +5990,12 @@ TextureImporter:
       name: spots_234
       rect:
         serializedVersion: 2
-        x: 180
-        y: 84
-        width: 8
-        height: 7
+        x: 34
+        y: 81
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6298,12 +6012,12 @@ TextureImporter:
       name: spots_235
       rect:
         serializedVersion: 2
-        x: 197
+        x: 43
         y: 85
-        width: 6
-        height: 6
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6320,12 +6034,12 @@ TextureImporter:
       name: spots_236
       rect:
         serializedVersion: 2
-        x: 212
-        y: 90
-        width: 8
-        height: 7
+        x: 67
+        y: 83
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6342,12 +6056,12 @@ TextureImporter:
       name: spots_237
       rect:
         serializedVersion: 2
-        x: 268
-        y: 83
-        width: 8
-        height: 7
+        x: 90
+        y: 84
+        width: 4
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6364,12 +6078,12 @@ TextureImporter:
       name: spots_238
       rect:
         serializedVersion: 2
-        x: 297
-        y: 85
-        width: 8
-        height: 8
+        x: 105
+        y: 83
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6386,12 +6100,12 @@ TextureImporter:
       name: spots_239
       rect:
         serializedVersion: 2
-        x: 305
+        x: 122
         y: 84
-        width: 6
-        height: 7
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6408,12 +6122,12 @@ TextureImporter:
       name: spots_240
       rect:
         serializedVersion: 2
-        x: 9
-        y: 80
-        width: 6
-        height: 6
+        x: 149
+        y: 82
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6430,12 +6144,12 @@ TextureImporter:
       name: spots_241
       rect:
         serializedVersion: 2
-        x: 33
-        y: 80
-        width: 8
-        height: 7
+        x: 181
+        y: 85
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6452,12 +6166,12 @@ TextureImporter:
       name: spots_242
       rect:
         serializedVersion: 2
-        x: 66
-        y: 82
-        width: 6
-        height: 6
+        x: 198
+        y: 86
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6474,12 +6188,12 @@ TextureImporter:
       name: spots_243
       rect:
         serializedVersion: 2
-        x: 104
-        y: 82
-        width: 6
-        height: 6
+        x: 208
+        y: 80
+        width: 8
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6496,12 +6210,12 @@ TextureImporter:
       name: spots_244
       rect:
         serializedVersion: 2
-        x: 121
-        y: 83
-        width: 6
-        height: 6
+        x: 220
+        y: 84
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6518,12 +6232,12 @@ TextureImporter:
       name: spots_245
       rect:
         serializedVersion: 2
-        x: 148
-        y: 81
+        x: 269
+        y: 84
         width: 6
-        height: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6540,12 +6254,12 @@ TextureImporter:
       name: spots_246
       rect:
         serializedVersion: 2
-        x: 207
-        y: 79
-        width: 10
-        height: 9
+        x: 306
+        y: 85
+        width: 4
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6562,12 +6276,12 @@ TextureImporter:
       name: spots_247
       rect:
         serializedVersion: 2
-        x: 219
-        y: 83
-        width: 6
-        height: 6
+        x: 10
+        y: 81
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6584,12 +6298,12 @@ TextureImporter:
       name: spots_248
       rect:
         serializedVersion: 2
-        x: 237
-        y: 77
-        width: 6
-        height: 6
+        x: 238
+        y: 78
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6606,12 +6320,12 @@ TextureImporter:
       name: spots_249
       rect:
         serializedVersion: 2
-        x: 321
-        y: 75
-        width: 14
-        height: 11
+        x: 276
+        y: 77
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6628,12 +6342,12 @@ TextureImporter:
       name: spots_250
       rect:
         serializedVersion: 2
-        x: 131
-        y: 67
-        width: 9
+        x: 322
+        y: 76
+        width: 12
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6650,12 +6364,12 @@ TextureImporter:
       name: spots_251
       rect:
         serializedVersion: 2
-        x: 148
-        y: 70
-        width: 9
-        height: 9
+        x: 149
+        y: 71
+        width: 7
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6672,12 +6386,12 @@ TextureImporter:
       name: spots_252
       rect:
         serializedVersion: 2
-        x: 159
-        y: 63
-        width: 16
-        height: 17
+        x: 160
+        y: 64
+        width: 14
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6694,12 +6408,12 @@ TextureImporter:
       name: spots_253
       rect:
         serializedVersion: 2
-        x: 171
-        y: 74
-        width: 6
-        height: 6
+        x: 172
+        y: 75
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6716,12 +6430,12 @@ TextureImporter:
       name: spots_254
       rect:
         serializedVersion: 2
-        x: 180
-        y: 68
-        width: 10
-        height: 11
+        x: 181
+        y: 69
+        width: 8
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6738,12 +6452,12 @@ TextureImporter:
       name: spots_255
       rect:
         serializedVersion: 2
-        x: 197
-        y: 69
-        width: 8
-        height: 7
+        x: 215
+        y: 76
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6760,12 +6474,12 @@ TextureImporter:
       name: spots_256
       rect:
         serializedVersion: 2
-        x: 214
-        y: 75
-        width: 6
-        height: 6
+        x: 264
+        y: 73
+        width: 8
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6782,12 +6496,12 @@ TextureImporter:
       name: spots_257
       rect:
         serializedVersion: 2
-        x: 263
-        y: 72
-        width: 10
-        height: 9
+        x: 298
+        y: 75
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6804,12 +6518,12 @@ TextureImporter:
       name: spots_258
       rect:
         serializedVersion: 2
-        x: 275
-        y: 76
+        x: 3
+        y: 67
         width: 6
-        height: 6
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6826,12 +6540,12 @@ TextureImporter:
       name: spots_259
       rect:
         serializedVersion: 2
-        x: 297
-        y: 74
-        width: 6
-        height: 6
+        x: 10
+        y: 61
+        width: 12
+        height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6848,12 +6562,12 @@ TextureImporter:
       name: spots_260
       rect:
         serializedVersion: 2
-        x: 305
-        y: 69
-        width: 7
-        height: 7
+        x: 23
+        y: 63
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6870,12 +6584,12 @@ TextureImporter:
       name: spots_261
       rect:
         serializedVersion: 2
-        x: 2
-        y: 66
-        width: 8
-        height: 6
+        x: 35
+        y: 60
+        width: 16
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6892,12 +6606,12 @@ TextureImporter:
       name: spots_262
       rect:
         serializedVersion: 2
-        x: 9
-        y: 60
-        width: 14
-        height: 13
+        x: 53
+        y: 64
+        width: 7
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6914,12 +6628,12 @@ TextureImporter:
       name: spots_263
       rect:
         serializedVersion: 2
-        x: 22
-        y: 62
-        width: 10
-        height: 10
+        x: 68
+        y: 61
+        width: 12
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6936,12 +6650,12 @@ TextureImporter:
       name: spots_264
       rect:
         serializedVersion: 2
-        x: 34
-        y: 59
-        width: 18
-        height: 12
+        x: 112
+        y: 65
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6958,12 +6672,12 @@ TextureImporter:
       name: spots_265
       rect:
         serializedVersion: 2
-        x: 52
-        y: 63
-        width: 9
-        height: 8
+        x: 132
+        y: 68
+        width: 7
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -6980,12 +6694,12 @@ TextureImporter:
       name: spots_266
       rect:
         serializedVersion: 2
-        x: 67
-        y: 60
-        width: 14
-        height: 11
+        x: 147
+        y: 66
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7002,12 +6716,12 @@ TextureImporter:
       name: spots_267
       rect:
         serializedVersion: 2
-        x: 81
-        y: 62
-        width: 9
-        height: 8
+        x: 154
+        y: 67
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7024,12 +6738,12 @@ TextureImporter:
       name: spots_268
       rect:
         serializedVersion: 2
-        x: 102
-        y: 60
-        width: 12
-        height: 10
+        x: 178
+        y: 67
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7046,12 +6760,12 @@ TextureImporter:
       name: spots_269
       rect:
         serializedVersion: 2
-        x: 111
-        y: 64
-        width: 7
-        height: 7
+        x: 198
+        y: 70
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7068,12 +6782,12 @@ TextureImporter:
       name: spots_270
       rect:
         serializedVersion: 2
-        x: 146
-        y: 65
-        width: 8
-        height: 7
+        x: 208
+        y: 67
+        width: 5
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7090,12 +6804,12 @@ TextureImporter:
       name: spots_271
       rect:
         serializedVersion: 2
-        x: 153
-        y: 66
-        width: 6
-        height: 6
+        x: 299
+        y: 67
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7112,12 +6826,12 @@ TextureImporter:
       name: spots_272
       rect:
         serializedVersion: 2
-        x: 177
-        y: 66
-        width: 6
-        height: 6
+        x: 306
+        y: 70
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7134,12 +6848,12 @@ TextureImporter:
       name: spots_273
       rect:
         serializedVersion: 2
-        x: 207
-        y: 66
+        x: 82
+        y: 63
         width: 7
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7156,12 +6870,12 @@ TextureImporter:
       name: spots_274
       rect:
         serializedVersion: 2
-        x: 218
-        y: 64
-        width: 6
-        height: 6
+        x: 103
+        y: 61
+        width: 10
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7178,12 +6892,12 @@ TextureImporter:
       name: spots_275
       rect:
         serializedVersion: 2
-        x: 298
-        y: 66
-        width: 6
-        height: 6
+        x: 219
+        y: 65
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7200,12 +6914,12 @@ TextureImporter:
       name: spots_276
       rect:
         serializedVersion: 2
-        x: 4
-        y: 55
-        width: 10
-        height: 8
+        x: 5
+        y: 56
+        width: 8
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7222,12 +6936,12 @@ TextureImporter:
       name: spots_277
       rect:
         serializedVersion: 2
-        x: 21
-        y: 56
-        width: 7
-        height: 6
+        x: 22
+        y: 57
+        width: 5
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7244,12 +6958,12 @@ TextureImporter:
       name: spots_278
       rect:
         serializedVersion: 2
-        x: 48
-        y: 55
-        width: 15
-        height: 9
+        x: 49
+        y: 56
+        width: 13
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7266,12 +6980,12 @@ TextureImporter:
       name: spots_279
       rect:
         serializedVersion: 2
-        x: 78
-        y: 56
-        width: 8
-        height: 7
+        x: 79
+        y: 57
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7288,12 +7002,12 @@ TextureImporter:
       name: spots_280
       rect:
         serializedVersion: 2
-        x: 113
-        y: 58
-        width: 8
-        height: 7
+        x: 114
+        y: 59
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7310,12 +7024,12 @@ TextureImporter:
       name: spots_281
       rect:
         serializedVersion: 2
-        x: 132
-        y: 52
-        width: 10
-        height: 9
+        x: 133
+        y: 53
+        width: 8
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7332,12 +7046,12 @@ TextureImporter:
       name: spots_282
       rect:
         serializedVersion: 2
-        x: 148
-        y: 54
-        width: 8
-        height: 7
+        x: 149
+        y: 55
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7354,12 +7068,12 @@ TextureImporter:
       name: spots_283
       rect:
         serializedVersion: 2
-        x: 161
-        y: 52
-        width: 9
-        height: 9
+        x: 162
+        y: 53
+        width: 7
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7376,12 +7090,12 @@ TextureImporter:
       name: spots_284
       rect:
         serializedVersion: 2
-        x: 180
-        y: 51
-        width: 11
-        height: 10
+        x: 181
+        y: 52
+        width: 9
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7398,12 +7112,12 @@ TextureImporter:
       name: spots_285
       rect:
         serializedVersion: 2
-        x: 199
-        y: 52
-        width: 14
-        height: 11
+        x: 200
+        y: 53
+        width: 12
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7420,12 +7134,12 @@ TextureImporter:
       name: spots_286
       rect:
         serializedVersion: 2
-        x: 215
-        y: 55
-        width: 7
-        height: 7
+        x: 216
+        y: 56
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7442,12 +7156,12 @@ TextureImporter:
       name: spots_287
       rect:
         serializedVersion: 2
-        x: 298
-        y: 50
-        width: 12
-        height: 12
+        x: 299
+        y: 51
+        width: 10
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7464,12 +7178,12 @@ TextureImporter:
       name: spots_288
       rect:
         serializedVersion: 2
-        x: 9
-        y: 36
+        x: 136
+        y: 41
         width: 14
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7486,12 +7200,12 @@ TextureImporter:
       name: spots_289
       rect:
         serializedVersion: 2
-        x: 129
-        y: 41
-        width: 7
+        x: 151
+        y: 44
+        width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7508,12 +7222,12 @@ TextureImporter:
       name: spots_290
       rect:
         serializedVersion: 2
-        x: 135
-        y: 40
-        width: 16
-        height: 15
+        x: 166
+        y: 37
+        width: 19
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7530,12 +7244,12 @@ TextureImporter:
       name: spots_291
       rect:
         serializedVersion: 2
-        x: 150
-        y: 43
-        width: 10
-        height: 10
+        x: 193
+        y: 35
+        width: 19
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7552,12 +7266,12 @@ TextureImporter:
       name: spots_292
       rect:
         serializedVersion: 2
-        x: 165
-        y: 36
-        width: 21
-        height: 18
+        x: 237
+        y: 44
+        width: 8
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7574,12 +7288,12 @@ TextureImporter:
       name: spots_293
       rect:
         serializedVersion: 2
-        x: 192
-        y: 34
-        width: 21
-        height: 17
+        x: 270
+        y: 45
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7596,12 +7310,12 @@ TextureImporter:
       name: spots_294
       rect:
         serializedVersion: 2
-        x: 214
-        y: 41
-        width: 9
-        height: 9
+        x: 325
+        y: 50
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7618,12 +7332,12 @@ TextureImporter:
       name: spots_295
       rect:
         serializedVersion: 2
-        x: 236
-        y: 43
-        width: 10
-        height: 11
+        x: 331
+        y: 45
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7640,12 +7354,12 @@ TextureImporter:
       name: spots_296
       rect:
         serializedVersion: 2
-        x: 269
-        y: 44
-        width: 8
-        height: 7
+        x: 3
+        y: 43
+        width: 6
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7662,12 +7376,12 @@ TextureImporter:
       name: spots_297
       rect:
         serializedVersion: 2
-        x: 324
-        y: 49
-        width: 7
-        height: 7
+        x: 10
+        y: 37
+        width: 12
+        height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7684,12 +7398,12 @@ TextureImporter:
       name: spots_298
       rect:
         serializedVersion: 2
-        x: 330
-        y: 44
-        width: 6
-        height: 7
+        x: 23
+        y: 39
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7706,12 +7420,12 @@ TextureImporter:
       name: spots_299
       rect:
         serializedVersion: 2
-        x: 2
-        y: 42
-        width: 8
-        height: 6
+        x: 35
+        y: 37
+        width: 16
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7728,12 +7442,12 @@ TextureImporter:
       name: spots_300
       rect:
         serializedVersion: 2
-        x: 22
-        y: 38
-        width: 10
-        height: 10
+        x: 53
+        y: 41
+        width: 7
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7750,12 +7464,12 @@ TextureImporter:
       name: spots_301
       rect:
         serializedVersion: 2
-        x: 34
-        y: 36
-        width: 18
-        height: 12
+        x: 68
+        y: 37
+        width: 12
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7772,12 +7486,12 @@ TextureImporter:
       name: spots_302
       rect:
         serializedVersion: 2
-        x: 52
-        y: 40
-        width: 9
-        height: 8
+        x: 82
+        y: 39
+        width: 7
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7794,12 +7508,12 @@ TextureImporter:
       name: spots_303
       rect:
         serializedVersion: 2
-        x: 67
+        x: 103
         y: 36
-        width: 14
-        height: 11
+        width: 10
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7816,12 +7530,12 @@ TextureImporter:
       name: spots_304
       rect:
         serializedVersion: 2
-        x: 81
-        y: 38
-        width: 9
-        height: 8
+        x: 112
+        y: 40
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7838,12 +7552,12 @@ TextureImporter:
       name: spots_305
       rect:
         serializedVersion: 2
-        x: 102
-        y: 35
-        width: 12
-        height: 10
+        x: 130
+        y: 42
+        width: 5
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7860,12 +7574,12 @@ TextureImporter:
       name: spots_306
       rect:
         serializedVersion: 2
-        x: 111
+        x: 150
         y: 39
-        width: 7
-        height: 7
+        width: 5
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7882,12 +7596,12 @@ TextureImporter:
       name: spots_307
       rect:
         serializedVersion: 2
-        x: 133
-        y: 33
-        width: 11
-        height: 9
+        x: 215
+        y: 42
+        width: 7
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7904,12 +7618,12 @@ TextureImporter:
       name: spots_308
       rect:
         serializedVersion: 2
-        x: 149
-        y: 38
-        width: 7
-        height: 6
+        x: 229
+        y: 29
+        width: 9
+        height: 17
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7926,12 +7640,12 @@ TextureImporter:
       name: spots_309
       rect:
         serializedVersion: 2
-        x: 228
-        y: 28
-        width: 11
-        height: 19
+        x: 298
+        y: 36
+        width: 9
+        height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7948,12 +7662,12 @@ TextureImporter:
       name: spots_310
       rect:
         serializedVersion: 2
-        x: 297
-        y: 35
-        width: 11
-        height: 13
+        x: 322
+        y: 41
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7970,12 +7684,12 @@ TextureImporter:
       name: spots_311
       rect:
         serializedVersion: 2
-        x: 321
-        y: 40
+        x: 5
+        y: 32
         width: 8
-        height: 7
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -7992,12 +7706,12 @@ TextureImporter:
       name: spots_312
       rect:
         serializedVersion: 2
-        x: 4
-        y: 31
-        width: 10
-        height: 8
+        x: 22
+        y: 33
+        width: 5
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -8014,12 +7728,12 @@ TextureImporter:
       name: spots_313
       rect:
         serializedVersion: 2
-        x: 21
-        y: 32
-        width: 7
-        height: 6
+        x: 49
+        y: 33
+        width: 13
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -8036,12 +7750,12 @@ TextureImporter:
       name: spots_314
       rect:
         serializedVersion: 2
-        x: 48
-        y: 32
-        width: 15
-        height: 9
+        x: 79
+        y: 33
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -8058,12 +7772,12 @@ TextureImporter:
       name: spots_315
       rect:
         serializedVersion: 2
-        x: 78
-        y: 32
-        width: 8
-        height: 7
+        x: 114
+        y: 34
+        width: 6
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -8080,12 +7794,12 @@ TextureImporter:
       name: spots_316
       rect:
         serializedVersion: 2
-        x: 113
-        y: 33
-        width: 8
+        x: 134
+        y: 34
+        width: 9
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -8102,12 +7816,12 @@ TextureImporter:
       name: spots_317
       rect:
         serializedVersion: 2
-        x: 145
-        y: 34
-        width: 6
-        height: 6
+        x: 146
+        y: 35
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -8124,12 +7838,12 @@ TextureImporter:
       name: spots_318
       rect:
         serializedVersion: 2
-        x: 305
-        y: 32
-        width: 6
-        height: 6
+        x: 306
+        y: 33
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -8147,11 +7861,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 15
-        width: 11
-        height: 16
+        y: 16
+        width: 10
+        height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -8168,12 +7882,12 @@ TextureImporter:
       name: spots_320
       rect:
         serializedVersion: 2
-        x: 11
-        y: 20
-        width: 6
-        height: 7
+        x: 12
+        y: 21
+        width: 4
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -8190,12 +7904,12 @@ TextureImporter:
       name: spots_321
       rect:
         serializedVersion: 2
-        x: 18
-        y: 18
-        width: 14
-        height: 11
+        x: 19
+        y: 19
+        width: 12
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -8212,12 +7926,12 @@ TextureImporter:
       name: spots_322
       rect:
         serializedVersion: 2
-        x: 32
-        y: 22
-        width: 11
-        height: 9
+        x: 33
+        y: 23
+        width: 9
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -8234,12 +7948,12 @@ TextureImporter:
       name: spots_323
       rect:
         serializedVersion: 2
-        x: 42
-        y: 19
-        width: 7
-        height: 7
+        x: 43
+        y: 20
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -8256,12 +7970,12 @@ TextureImporter:
       name: spots_324
       rect:
         serializedVersion: 2
-        x: 49
-        y: 24
-        width: 6
-        height: 6
+        x: 50
+        y: 25
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -8278,12 +7992,12 @@ TextureImporter:
       name: spots_325
       rect:
         serializedVersion: 2
-        x: 57
-        y: 19
-        width: 7
-        height: 7
+        x: 58
+        y: 20
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -8300,12 +8014,12 @@ TextureImporter:
       name: spots_326
       rect:
         serializedVersion: 2
-        x: 66
-        y: 1
-        width: 28
-        height: 31
+        x: 67
+        y: 2
+        width: 26
+        height: 29
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -8322,12 +8036,12 @@ TextureImporter:
       name: spots_327
       rect:
         serializedVersion: 2
-        x: 33
-        y: 1
-        width: 29
-        height: 21
+        x: 34
+        y: 2
+        width: 27
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -8344,12 +8058,12 @@ TextureImporter:
       name: spots_328
       rect:
         serializedVersion: 2
-        x: 50
-        y: 16
-        width: 6
-        height: 6
+        x: 51
+        y: 17
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -8366,12 +8080,12 @@ TextureImporter:
       name: spots_329
       rect:
         serializedVersion: 2
-        x: 74
-        y: 14
-        width: 6
-        height: 6
+        x: 75
+        y: 15
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -8388,12 +8102,12 @@ TextureImporter:
       name: spots_330
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 11
-        height: 12
+        x: 2
+        y: 2
+        width: 9
+        height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -8410,12 +8124,12 @@ TextureImporter:
       name: spots_331
       rect:
         serializedVersion: 2
-        x: 18
-        y: 8
-        width: 7
-        height: 6
+        x: 19
+        y: 9
+        width: 5
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -8432,12 +8146,12 @@ TextureImporter:
       name: spots_332
       rect:
         serializedVersion: 2
-        x: 19
-        y: 2
-        width: 12
-        height: 8
+        x: 20
+        y: 3
+        width: 10
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -8454,12 +8168,12 @@ TextureImporter:
       name: spots_333
       rect:
         serializedVersion: 2
-        x: 10
-        y: 1
-        width: 6
-        height: 6
+        x: 11
+        y: 2
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -8472,11 +8186,231 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: spots_100
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 170
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc4568098537ae24ebeecf4c0ab83067
+      internalID: 2264476397161665199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spots_101
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 167
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2051a50edcefcb4b82c4e036def8e09
+      internalID: 2127866744465879450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spots_106
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 163
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fa83e4b2480a814ebae517909602970
+      internalID: 9174602929305912918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spots_111
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 162
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 686182f70fb81474a97e49467378e75c
+      internalID: 1433808924797256764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spots_112
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 165
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c1b95a390daf4c4ab1161831fcf4796
+      internalID: -2100727769603989439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spots_113
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 162
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2a091f0066ed5a4eb38c3e6857e1907
+      internalID: -4350183220448626621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spots_114
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 182
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fc29b71a4f541d46a94e255cf1eee77
+      internalID: 7919916594167132418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spots_115
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 176
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fefd74d10a1e06048a6c00172f20862f
+      internalID: 8155474915031031016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spots_122
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 189
+        width: 1
+        height: 1
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7fa9754d92c45d4bb146fcf60e3c9ed
+      internalID: 2735913212420144751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spots_138
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 241
+        width: 3
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bdb574af1f55784caa237ba61b91924
+      internalID: 2040376901177335342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 76bf9591dde7f5145a64e93cd3f4f61c
     internalID: 0
     vertices: []
     indices: 
