@@ -6,7 +6,9 @@ public class MapManager : MonoBehaviour
     // Aufteilung der Karte in ein Grid
     public int gridWidth = 200;
     public int gridHeight = 200;
-    private bool[,] visited;
+    public bool[,] visited;
+
+    public MapLogic mapManager;
 
     // Optional: Sprite für das Cover (Nebel), im Inspector zuweisen
     public Sprite coverSprite;
@@ -31,26 +33,29 @@ public class MapManager : MonoBehaviour
         coverHeight = mapContainer.rect.height / gridHeight;
 
         // Initialisiere das visited-Array
-        visited = new bool[gridWidth, gridHeight];
-        for (int i = 0; i < gridWidth; i++)
-        {
-            for (int j = 0; j < gridHeight; j++)
-            {
-                visited[i, j] = false;
-            }
-        }
+        //visited = new bool[gridWidth, gridHeight];
+        //for (int i = 0; i < gridWidth; i++)
+        //{
+         //   for (int j = 0; j < gridHeight; j++)
+         //   {
+         //       visited[i, j] = false;
+         //   }
+        //}
         UpdateMapDisplay();
     }
 
-    void Update()
+    void OnEnable() {
+        UpdateMapDisplay();
+    }
+    public void Updated()
     {
         // Wenn ein Spieler zugewiesen ist, berechne seine Position im Grid
         if (player != null)
         {
             // Hier nehmen wir an, dass die Weltkoordinaten des Spielers direkt auf das Grid abgebildet werden.
             // Eventuell musst du einen Offset bzw. eine Skalierung berücksichtigen, falls dein Level nicht bei (0,0) beginnt.
-            int gridX = Mathf.FloorToInt((player.position.x - 290) / 35 / coverWidth);
-            int gridY = Mathf.FloorToInt((player.position.y - 35) / 35 / coverHeight);
+            int gridX = Mathf.FloorToInt((40 * (player.position.x + 290)) / 680 );
+            int gridY = Mathf.FloorToInt((40 * (player.position.y + 35)) / 680 );
             
             Debug.Log(gridX + "," + gridY);
 
@@ -80,9 +85,10 @@ public class MapManager : MonoBehaviour
             UpdateMapDisplay();
         }
     }
+    
 
     // Aktualisiert die Map-Darstellung: Für alle unbesuchten Bereiche wird ein Cover (Nebel) angezeigt.
-    void UpdateMapDisplay()
+    public void UpdateMapDisplay()
     {
         // Entferne alle bisherigen Cover aus dem mapContainer, um Duplikate zu vermeiden
         foreach (Transform child in mapContainer)
@@ -105,9 +111,9 @@ public class MapManager : MonoBehaviour
         {
             for (int j = 0; j < gridHeight; j++)
             {
-                if (!visited[i, j])
+                if (!mapManager.visited[i, j])
                 {
-                    //Debug.Log("false");
+                    Debug.Log("false");
                     Vector2 squareCenter = new Vector2(i * coverWidth + coverWidth / 2f, j * coverHeight + coverHeight / 2f);
                     if (Vector2.Distance(squareCenter, gridCenter) <= radius) {
 

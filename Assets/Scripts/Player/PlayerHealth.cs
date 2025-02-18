@@ -58,6 +58,19 @@ public class PlayerHealth : MonoBehaviour {
         }
     }
 
+    public void Heal(int amount) {
+        // Heilung anwenden
+        currentHealth += amount;
+        
+        // Gesundheit darf nicht über maxHealth steigen
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        
+        // Lebensbalken aktualisieren
+        if (healthSlider != null) {
+            healthSlider.value = currentHealth;
+        }
+    }
+
     private void Respawn() {
         if (plateau) {
             transform.position = respawnPointPlateau.position;
