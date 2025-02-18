@@ -11,6 +11,7 @@ public class OpeningIcon : MonoBehaviour
     public GameObject inventoryScreen;
     public GameObject questScreen;
     public GameObject mapScreen;
+    public MapManager mapManager;
     private bool moving = false;
     private bool resizing = false;
     private bool reversing = false;
