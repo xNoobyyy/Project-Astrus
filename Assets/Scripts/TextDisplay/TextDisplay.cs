@@ -14,7 +14,6 @@ namespace TextDisplay
         public Text displayText;
         public Button nextButton;
         public Image leftImage;
-        public Sprite image0;
         public Sprite image1;
         public Sprite image2;
         public Image sprechblase;
@@ -39,9 +38,8 @@ namespace TextDisplay
         public void Start() {
             storyManager.LoadStory();
             storyBlocks = storyManager.storyBlocks;
-            //SpecificStoryDialogue(0);
+            SpecificStoryDialogue(0);
         }
-
         public void ShowText(string text, int? imageIndex = null)
         {
             if (start) {
@@ -94,9 +92,9 @@ namespace TextDisplay
             }
             textComplete = true;
             storyID++;
+            Debug.Log("hilfe");
             nextButton.gameObject.SetActive(true); // Next-Button anzeigen
         }
-        // Methode wird beim Klicken des Next-Buttons aufgerufen
         public void OnNextButton(int c = 0)
         {
             optionsPanel.SetActive(false);
@@ -118,8 +116,7 @@ namespace TextDisplay
                 }
                 ShowText(storyManager.ShowStoryBlock(storyID.ToString()),int.Parse(storyBlocks[storyID.ToString()].person));
             }
-            else
-            {
+            else{
                 ShowText(storyManager.ShowStoryBlock(storyID.ToString()),int.Parse(storyBlocks[storyID.ToString()].person));
             }
         }
@@ -131,7 +128,7 @@ namespace TextDisplay
         }
         
         private void Update() {
-            if (Input.GetKeyDown(KeyCode.Return) && isDialogueActive) {
+            if (Input.GetKeyDown(KeyCode.Return) && isDialogueActive && textComplete) {
                 OnNextButton();
             }
         }
@@ -160,8 +157,7 @@ namespace TextDisplay
             List<string> choices = new List<string>();
             MatchCollection matches = Regex.Matches(text, @"\[(.*?)\]");
 
-            foreach (Match match in matches)
-            {
+            foreach (Match match in matches){
                 choices.Add(match.Groups[1].Value);
             }
             return choices;
@@ -174,10 +170,6 @@ namespace TextDisplay
             option2Button.gameObject.SetActive(true);
             option1Text.text = choices[0];
             option2Text.text = choices[1];
-            //option1Button.onClick.RemoveAllListeners();  
-           // option1Button.onClick.AddListener(() => OnNextButton(1));
-            //option2Button.onClick.RemoveAllListeners(); 
-            //option2Button.onClick.AddListener(() => OnNextButton(1));
         }
     }
 }

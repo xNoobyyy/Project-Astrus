@@ -17,7 +17,6 @@ public class StoryManager : MonoBehaviour
                 Debug.LogError("FEHLER: Die JSON-Datei konnte nicht geladen werden!");
                 return;
             }
-    
             // JSON in Story-Struktur umwandeln
             storyData = JsonUtility.FromJson<StoryData>(jsonFile.text);
     
@@ -26,7 +25,6 @@ public class StoryManager : MonoBehaviour
                 Debug.LogError("FEHLER");
                 return;
             }
-    
             // Dictionary für schnelleren Zugriff erstellen
             storyBlocks = new Dictionary<string, StoryBlock>();
             foreach (var block in storyData.story_blocks)
@@ -42,10 +40,7 @@ public class StoryManager : MonoBehaviour
         }
         StoryBlock block = storyBlocks[blockId];
         block.text = ReplaceVariables(block.text);
-        
-        Debug.Log(block.text);
         return block.text;
-        
     }
     string ReplaceVariables(string text)
     {

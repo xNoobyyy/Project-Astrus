@@ -160,6 +160,510 @@
       "weiter": false,
       "start": true,
       "person": 1
+    }, 
+    { 
+      "id": 25,
+      "text": "Oh, hier ist es aber sehr dunkel! Am besten craftest du dir erstmal eine Fackel. Rufe dafür das passende Rezept auf.",
+      "weiter": false,
+      "start": true,
+      "person": 1
+    },
+    { 
+      "id": 26,
+      "text": "Kohle müsstest du hier in der Höhle finden. Baue es mit deiner Spitzhacke ab und crafte die Fackel.",
+      "weiter": false,
+      "start": true,
+      "person": 1
+    },
+    { 
+      "id": 27,
+      "text": "Huch, da hinten ist ein anderes Licht. Ist da jemand?",
+      "weiter": true,
+      "start": true,
+      "person": 0
+    },
+    { 
+      "id": 28,
+      "text": "Hallo Fremder, erschrecke dich bitte nicht. Mein Name ist Dr. Storm. Versteckst du dich auch vor den Zombies?",
+      "weiter": true,
+      "start": false,
+      "person": 2
+    },
+    {
+      "id": 29,
+      "text": "Ja, was… was machen Sie hier? Ich dachte hier leben keine Menschen…",
+      "weiter": true,
+      "start": false,
+      "person": 0
+    },
+    {
+      "id": 30,
+      "text": "Überraschung! Ich bin hier auch der einzige Mensch hihi… obwohl jetzt sind wir ja zu zweit.",
+      "weiter": true,
+      "start": false,
+      "person": 2
+    },
+    {
+      "id": 31,
+      "text": "Ähhh...",
+      "weiter": true,
+      "start": false,
+      "person": 0
+    },
+    {
+      "id": 32,
+      "text": "Wie heißt du Fremder?",
+      "weiter": true,
+      "start": false,
+      "person": 2
+    },
+    {
+      "id": 33,
+      "text": "Ich bin +Spieler+. Mein Raumschiff ist abgestürzt und ich muss es schnell reparieren.",
+      "weiter": true,
+      "start": false,
+      "person": 0
+    },
+    {
+      "id": 34,
+      "text": "Oh je, oh je. Na, hoffentlich kommst du hier schnell wieder weg.",
+      "weiter": true,
+      "start": false,
+      "person": 2
+    },
+    {
+      "id": 35,
+      "text": "Das hoffe ich auch.",
+      "weiter": true,
+      "start": false,
+      "person": 0
+    },
+    {
+      "id": 36,
+      "text": "Die Zombies nerven ganz schön, oder? Ich war gerade im Sumpf und dann haben sie mich hier hergejagt.",
+      "weiter": true,
+      "start": false,
+      "person": 2
+    },
+    {
+      "id": 37,
+      "text": "Es gibt hier einen Sumpf?",
+      "weiter": true,
+      "start": false,
+      "person": 0
+    },
+    {
+      "id": 38,
+      "text": "Genau, hier gibt es ALLES! Allerdings ist der Sumpf sehr gefährlich und verseucht. Gehe da lieber nicht hin, außer du hast mit dem Leben abgeschlossen hihi.",
+      "weiter": true,
+      "start": false,
+      "person": 2
+    },
+    {
+      "id": 39,
+      "text": "Äh.",
+      "weiter": true,
+      "start": false,
+      "person": 0
+    },
+    {
+      "id": 40,
+      "text": "Hier gibt es auch irgend so eine alte Farm mit so komischen Rezepten und so… leider keine Kuchenrezepte.",
+      "weiter": true,
+      "start": false,
+      "person": 2
+    },
+    {
+      "id": 41,
+      "text": "Eine alte Farm mit Rezepten?",
+      "weiter": true,
+      "start": false,
+      "person": 0
+    },
+    {
+      "id": 42,
+      "text": "Jupp. Da hinten auf einem Plateau.",
+      "weiter": true,
+      "start": false,
+      "person": 2
+    },
+    {
+      "id": 43,
+      "text": "Klingt spannend, aber wie soll ich dort hochkommen?",
+      "weiter": true,
+      "start": false,
+      "person": 0
+    },
+    {
+      "id": 44,
+      "text": "Benutze doch eine Liane. Früher bin ich damit überall hochgeklettert, aber jetzt… meine Rückenschmerzen halten mich davon ab.",
+      "weiter": true,
+      "start": false,
+      "person": 2
+    },
+    {
+      "id": 45,
+      "text": "Danke für Ihre Hilfe, ich mache mich dann mal auf den Weg.",
+      "weiter": true,
+      "start": false,
+      "person": 0
+    },
+    {
+      "id": 46,
+      "text": "Ich muss auch los… Melde dich, falls du doch ein Brownie-Rezept in der Farm findest, hihi.",
+      "weiter": false,
+      "start": false,
+      "person": 2
+    },
+    { 
+      "id": 47,
+      "text": "Was ein interessantes Gespräch! Guck mal +Spieler+, dort hinten glitzert etwas.",
+      "weiter": false,
+      "start": true,
+      "person": 1
+    },
+    { 
+      "id": 48,
+      "text": "Oh, das ist Glomtom. Eins der seltenen Erze hier. Öffne meine Rezepte und crafte neue Werkzeuge.",
+      "weiter": false,
+      "start": true,
+      "person": 1
+    },
+    {
+      "id": 49,
+      "text": "Sehr gut. Jetzt können wir uns richtig verteidigen! Verlasse die Höhle wieder und gehe Richtung Plateau.",
+      "weiter": true,
+      "start": true,
+      "person": 1
+    },
+    {
+      "id": 50,
+      "text": "Los geht’s!",
+      "weiter": false,
+      "start": false,
+      "person": 0
+    },
+    { 
+      "id": 51,
+      "text": "Zombies sind wasserscheu. Laufe über die Seerosen und rette dich schnell über den Fluss!",
+      "weiter": false,
+      "start": true,
+      "person": 1
+    },
+    { 
+      "id": 52,
+      "text": "Ich sehe jetzt das Plateau.",
+      "weiter": true,
+      "start": true,
+      "person": 0
+    },
+    {
+      "id": 53,
+      "text": "Sehr gut. Baue jetzt bei einem Jungle-Baum eine Liane ab.",
+      "weiter": false,
+      "start": false,
+      "person": 1
+    },
+    {
+      "id": 54,
+      "text": "Klettere jetzt das Plateau hoch.",
+      "weiter": false,
+      "start": true,
+      "person": 1
+    },
+    { 
+      "id": 55,
+      "text": "Erkunde alte Farm und finde Rezepte.",
+      "weiter": false,
+      "start": true,
+      "person": 1
+    },
+    { 
+      "id": 56,
+      "text": "Oh, wie interessant. Öffne die Truhe mit +Mausklick+.",
+      "weiter": false,
+      "start": true,
+      "person": 1
+    },
+    { 
+      "id": 57,
+      "text": "Cool, ein Zombieschatz! Vielleicht ist das Astrus.",
+      "weiter": true,
+      "start": true,
+      "person": 1
+    },
+    {
+      "id": 58,
+      "text": "Was ist das neben der Truhe? Vielleicht kannst du ja draufklicken.",
+      "weiter": false,
+      "start": false,
+      "person": 1
+    },
+    { 
+      "id": 59,
+      "text": "Aus einem Erz namens Extric können wir eine Rüstung craften. Vielleicht können wir damit den Sumpf betreten.",
+      "weiter": false,
+      "start": true,
+      "person": 1
+    },
+    { 
+      "id": 60,
+      "text": "Was eine schöne Rüstung. Hast du noch genug Waffen? Falls nicht, crafte dir lieber noch ein neues Schwert oder einen Bogen. Wenn du fertig bist, können wir sofort zum Sumpf gehen.",
+      "weiter": false,
+      "start": true,
+      "person": 1
+    },
+    { 
+      "id": 61,
+      "text": "Probiere mal den Schlamm zu betreten. Und halte ein paar Waffen bereit, falls wir auf Zombies treffen!",
+      "weiter": false,
+      "start": true,
+      "person": 1
+    },
+    { 
+      "id": 62,
+      "text": "Ich kann den Sumpf wirklich betreten!",
+      "weiter": true,
+      "start": true,
+      "person": 0
+    },
+    {
+      "id": 63,
+      "text": "Super, folge dem Weg auf der Schatzkarte. Mal gucken, was der Zombieschatz wirklich ist.",
+      "weiter": false,
+      "start": false,
+      "person": 1
+    },
+    { 
+      "id": 64,
+      "text": "Du musst sie besiegen. Du schaffst das!",
+      "weiter": false,
+      "start": true,
+      "person": 1
+    },
+    { 
+      "id": 65,
+      "text": "Wow, ein weiteres seltenes Erz. Es heißt Domilitant. Nehme so viel mit, wie du kannst. Ich glaube, wir brauchen das noch, um Astrus zu finden.",
+      "weiter": true,
+      "start": true,
+      "person": 1
+    },
+    {
+      "id": 66,
+      "text": "Da liegt noch mehr in der Truhe.",
+      "weiter": true,
+      "start": false,
+      "person": 0
+    },
+    {
+      "id": 67,
+      "text": "Stimmt. Ein Tagebuch. Vielleicht enthält es nützliche Hinweise.",
+      "weiter": false,
+      "start": false,
+      "person": 1
+    },
+    { 
+      "id": 68,
+      "text": "Wir können Astrus in der Stadt finden!",
+      "weiter": true,
+      "start": true,
+      "person": 0
+    },
+    {
+      "id": 69,
+      "text": "Zum Glück, dann kommen wir bald hier weg! Gehe zurück zum Plateau. Vielleicht findet sich dort ein passendes Rezept mit Domilitant.",
+      "weiter": false,
+      "start": false,
+      "person": 1
+    },
+    { 
+      "id": 70,
+      "text": "Sehr gut. Wir können aus Domilitant einen Unsichtbarkeitstrank brauen. Das könnte nütlich werden.",
+      "weiter": true,
+      "start": true,
+      "person": 1
+    },
+    {
+      "id": 71,
+      "text": "Stimmt. Ich habe auch alle benötigten Ressourcen schon hier bei der Hütte.",
+      "weiter": true,
+      "start": false,
+      "person": 0
+    },
+    {
+      "id": 72,
+      "text": "Los gehts. Viel Spaß beim Brauen!",
+      "weiter": false,
+      "start": false,
+      "person": 1
+    },
+    { 
+      "id": 73,
+      "text": "Mit dem Trank können wir ungehindert die Stadt betreten. Wenn wir unsichtbar sind, werden uns die Zombies nicht angreifen.",
+      "weiter": true,
+      "start": true,
+      "person": 1
+    },
+    {
+      "id": 74,
+      "text": "Eine gute Idee. Los gehts zur Stadt, damit wir endlich hier wegkommen.",
+      "weiter": true,
+      "start": false,
+      "person":0
+    },
+    {
+      "id": 75,
+      "text": "Ja. Wir holen uns endlich Astrus! Crafte genug Waffen und eine gute Rüstung. Dann kann es losgehen",
+      "weiter": false,
+      "start": false,
+      "person": 1
+    },
+    { 
+      "id": 76,
+      "text": "Trinke jetzt den Trank, damit die Zombies dich nicht angreifen. Passe aber auf, falls die Zombies gegen dich stoßen. Ich glaube, dadurch könnte die Wirkung aufhören.",
+      "weiter": true,
+      "start": true,
+      "person": 1
+    },
+    {
+      "id": 77,
+      "text": "Okay, ich passe auf.",
+      "weiter": true,
+      "start": false,
+      "person": 0
+    },
+    {
+      "id": 78,
+      "text": "Viel Glück. Ich glaube an dich {Spieler}",
+      "weiter": false,
+      "start": false,
+      "person": 1
+    },
+    { 
+      "id": 79,
+      "text": "Oh Gott. Ada, was soll ich tun? Hier sind so viele Zombies!",
+      "weiter": true,
+      "start": true,
+      "person": 0
+    },
+    {
+      "id": 80,
+      "text": "Am Ende des Weges ist ein altes Labor. Vielleicht kannst du dich dort vor den Zombies verstecken.",
+      "weiter": false,
+      "start": false,
+      "person": 1
+    },
+    { 
+      "id": 81,
+      "text": "Zum Glück hat das funktioniert!",
+      "weiter": true,
+      "start": true,
+      "person": 0
+    },
+    {
+      "id": 82,
+      "text": "Guck dich mal um, vielleicht finden wir hier Hinweise auf Astrus oder die Zombies.",
+      "weiter": false,
+      "start": false,
+      "person": 1
+    },
+    {
+      "id": 83,
+      "text": "Oh Gott, der Boss-Zombie überwacht mich.",
+      "weiter": true,
+      "start": true,
+      "person": 0
+    },
+    {
+      "id": 84,
+      "text": "Du musst gegen ihn kämpfen {Spieler}. Er kontrolliert alle Zombies und Astrus. Du schaffst das!",
+      "weiter": false,
+      "start": false,
+      "person": 1
+    },
+    {
+      "id": 85,
+      "text": "Dr. Storm?! Sie kontrollieren hier alles???",
+      "weiter": true,
+      "start": true,
+      "person": 0
+    },
+    {
+      "id": 86,
+      "text": "Korrekt. Seit Jahren gehört und gehorcht mir hier ALLES! Und du kleine Bestie musstest hier alles kaputtmachen!",
+      "weiter": true,
+      "start": false,
+      "person": 2
+    },
+    {
+      "id": 87,
+      "text": "Wieso haben Sie mich angegriffen? Ich wollte doch einfach nur hier weg.",
+      "weiter": true,
+      "start": false,
+      "person": 0
+    },
+    {
+      "id": 88,
+    "text": "Weil du meine seltenen Erze, mein Astrus klauen wolltest. Das hat NOCH NIE jemand gewagt!",
+      "weiter": false,
+      "start": false,
+      "person": 2
+    },
+    { 
+      "id": 89,
+      "text": "OH Gott...Ist das Astrus?",
+      "weiter": true,
+      "start": true,
+      "person": 0
+    },
+    {
+      "id": 90,
+      "text": "Ja. Dr. Storm hatte es die ganze Zeit und hat damit die Zombies kontrolliert. Endlich können wir hier weg!",
+      "weiter": true,
+      "start": false,
+      "person": 1
+    },
+    {
+      "id": 91,
+      "text": "Die Zombies... sie greifen mich nicht mehr an.",
+      "weiter": true,
+      "start": false,
+      "person": 0
+    },
+    {
+      "id": 92,
+      "text": "Ohne Dr. Storm sind sie friedlich. Zum Glück. Du hast sie befreit.",
+      "weiter": true,
+      "start": false,
+      "person": 1
+    },
+    {
+      "id": 93,
+      "text": "Die Zombies sind befreit und ich habe Astrus. Endlich kann ich das Raumschiff reparieren!",
+      "weiter": true,
+      "start": false,
+      "person": 0
+    },
+    {
+      "id": 94,
+      "text": "Du hast es wirklich geschafft. Ab gehts zurück zum Raumschiff und dann können wir hier endlich weg!",
+      "weiter": false,
+      "start": false,
+      "person": 1
+    },
+    { 
+      "id": 95,
+      "text": "Klicke auf das Raumschiff, um es zu reparieren.",
+      "weiter": false,
+      "start": true,
+      "person": 1
+    },
+    { 
+      "id": 96,
+      "text": "Ich bin so stolz auf dich {Spieler}! Guten Heimflug.",
+      "weiter": false,
+      "start": true,
+      "person": 1
     }
   ]
 }
