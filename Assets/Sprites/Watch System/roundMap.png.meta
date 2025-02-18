@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -103,12 +103,12 @@ TextureImporter:
       name: roundMap_0
       rect:
         serializedVersion: 2
-        x: 80
-        y: 174
-        width: 1796
-        height: 1798
+        x: 0
+        y: 75
+        width: 1975
+        height: 2002
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 351ac23eaaa43514a982b5ef6502839e
     internalID: 0
     vertices: []
     indices: 
@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      roundMap_0: -888266581704067926
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

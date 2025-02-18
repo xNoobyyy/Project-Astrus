@@ -29,7 +29,7 @@ public class MapLogic : MonoBehaviour {
             // Hier nehmen wir an, dass die Weltkoordinaten des Spielers direkt auf das Grid abgebildet werden.
             // Eventuell musst du einen Offset bzw. eine Skalierung berücksichtigen, falls dein Level nicht bei (0,0) beginnt.
             int gridX = Mathf.FloorToInt((40 * (player.position.x + 290)) / 680 );
-            int gridY = Mathf.FloorToInt((40 * (player.position.y + 35)) / 680 );
+            int gridY = Mathf.FloorToInt((40 * (player.position.y + 35 + 166)) / 680 );
             
             //Debug.Log(gridX + "," + gridY);
 
