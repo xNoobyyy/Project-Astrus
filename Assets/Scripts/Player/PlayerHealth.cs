@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Logic.Events;
@@ -7,14 +6,15 @@ using UnityEngine.UI;
 using Utils.WhiteFlash;
 
 public class PlayerHealth : MonoBehaviour {
-    public int maxHealth = 100; 
-    public int currentHealth; 
-    public Slider healthSlider; 
-    public Transform respawnPointStrand; 
-    public Transform respawnPointPlateau; 
+    public int maxHealth = 100;
+    public int currentHealth;
+    public Slider healthSlider;
+    public Transform respawnPointStrand;
+    public Transform respawnPointPlateau;
     private Rigidbody2D rb;
     bool plateau = false;
     private Coroutine regenCoroutine;
+
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
     }
@@ -37,7 +37,7 @@ public class PlayerHealth : MonoBehaviour {
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.L)) {
-            TakeDamage(20); 
+            TakeDamage(20);
         }
     }
 
@@ -54,9 +54,11 @@ public class PlayerHealth : MonoBehaviour {
         if (healthSlider != null) {
             healthSlider.value = currentHealth;
         }
+
         if (regenCoroutine != null) {
             StopCoroutine(regenCoroutine);
         }
+
         regenCoroutine = StartCoroutine(StartRegeneration());
         if (currentHealth <= 0) {
             Respawn();
@@ -64,13 +66,10 @@ public class PlayerHealth : MonoBehaviour {
     }
 
     public void Heal(int amount) {
-        // Heilung anwenden
         currentHealth += amount;
-        
-        // Gesundheit darf nicht über maxHealth steigen
+
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        
-        // Lebensbalken aktualisieren
+
         if (healthSlider != null) {
             healthSlider.value = currentHealth;
         }
@@ -79,24 +78,25 @@ public class PlayerHealth : MonoBehaviour {
     private void Respawn() {
         if (plateau) {
             transform.position = respawnPointPlateau.position;
-        } else{
+        } else {
             transform.position = respawnPointStrand.position;
         }
+
         currentHealth = maxHealth;
         if (healthSlider != null) {
             healthSlider.value = currentHealth;
         }
     }
-    private IEnumerator StartRegeneration()
-    {
+
+    private IEnumerator StartRegeneration() {
         yield return new WaitForSeconds(20);
-        while (currentHealth < maxHealth)
-        {
+        while (currentHealth < maxHealth) {
             currentHealth++;
             currentHealth = Mathf.Min(currentHealth, maxHealth);
             healthSlider.value = currentHealth;
-            yield return new WaitForSeconds(1f); 
+            yield return new WaitForSeconds(1f);
         }
-        regenCoroutine = null; 
+
+        regenCoroutine = null;
     }
 }
