@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using Logic.Events;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +14,7 @@ public class PlayerHealth : MonoBehaviour {
     public Transform respawnPointPlateau; 
     private Rigidbody2D rb;
     bool plateau = false;
+    private Coroutine regenCoroutine;
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
     }
@@ -48,11 +51,13 @@ public class PlayerHealth : MonoBehaviour {
     public void TakeDamage(int damage) {
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-
         if (healthSlider != null) {
             healthSlider.value = currentHealth;
         }
-
+        if (regenCoroutine != null) {
+            StopCoroutine(regenCoroutine);
+        }
+        regenCoroutine = StartCoroutine(StartRegeneration());
         if (currentHealth <= 0) {
             Respawn();
         }
@@ -81,5 +86,17 @@ public class PlayerHealth : MonoBehaviour {
         if (healthSlider != null) {
             healthSlider.value = currentHealth;
         }
+    }
+    private IEnumerator StartRegeneration()
+    {
+        yield return new WaitForSeconds(20);
+        while (currentHealth < maxHealth)
+        {
+            currentHealth++;
+            currentHealth = Mathf.Min(currentHealth, maxHealth);
+            healthSlider.value = currentHealth;
+            yield return new WaitForSeconds(1f); 
+        }
+        regenCoroutine = null; 
     }
 }
