@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
-
-
 namespace TextDisplay
 {
     public class TextDisplay : MonoBehaviour
@@ -32,16 +30,20 @@ namespace TextDisplay
         public bool weiter;
         public bool start;
         public Dictionary<string, StoryBlock> storyBlocks;
+        public Coroutine coroutine;
+        public String x;
         
         // Methode zum Anzeigen des Fensters mit Text 
 
         public void Start() {
+            Time.timeScale = 1f;
             storyManager.LoadStory();
             storyBlocks = storyManager.storyBlocks;
             SpecificStoryDialogue(0);
         }
         public void ShowText(string text, int? imageIndex = null)
         {
+            x = text;
             if (start) {
                 isDialogueActive = true; // Dialog wird gestartet
                 textWindow.SetActive(true); // Fenster aktivieren
@@ -75,7 +77,11 @@ namespace TextDisplay
             }
             List<string> choices = ExtractChoices(text);
             if (choices.Count == 0) {
-                StartCoroutine(TypeText(text)); // Text mit Animation anzeigen
+                if (coroutine != null) {
+                    StopCoroutine(coroutine);
+                    coroutine = null;
+                }
+                coroutine = StartCoroutine(TypeText(text)); // Text mit Animation anzeigen
             } else {
                 ShowChoices(choices);
             }
@@ -87,13 +93,13 @@ namespace TextDisplay
             textComplete = false;
             foreach (char c in text)
             {
-                displayText.text += c; // Buchstabe für Buchstabe hinzufügen
+                displayText.text += c; // Buchstabe für Buchstabe hinzufüg
                 yield return new WaitForSeconds(0.01f); // Kurze Verzögerung
             }
             textComplete = true;
             storyID++;
-            Debug.Log("hilfe");
             nextButton.gameObject.SetActive(true); // Next-Button anzeigen
+            coroutine = null;
         }
         public void OnNextButton(int c = 0)
         {
@@ -120,16 +126,24 @@ namespace TextDisplay
                 ShowText(storyManager.ShowStoryBlock(storyID.ToString()),int.Parse(storyBlocks[storyID.ToString()].person));
             }
         }
-        
         private void CloseWindow()
         {
             textWindow.SetActive(false);
             isDialogueActive = false; 
         }
-        
         private void Update() {
             if (Input.GetKeyDown(KeyCode.Return) && isDialogueActive && textComplete) {
                 OnNextButton();
+            } else if (Input.GetKeyDown(KeyCode.Return) && isDialogueActive && !textComplete) {
+                if(coroutine != null) {
+                    StopCoroutine(coroutine);
+                    coroutine = null;
+                }
+                displayText.text = "";
+                displayText.text = x;
+                textComplete = true;
+                storyID++;
+                nextButton.gameObject.SetActive(true);
             }
         }
 

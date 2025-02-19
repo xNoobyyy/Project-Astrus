@@ -43,7 +43,7 @@ namespace Utils {
             FadeVolumeTo(AreaManager.Instance.cityVolume, 0f, FadeDuration);
         }
 
-        private static IEnumerator FadeVolume(Volume volume, float targetWeight, float duration) {
+        private IEnumerator FadeVolume(Volume volume, float targetWeight, float duration) {
             var startWeight = volume.weight;
             var elapsed = 0f;
             while (elapsed < duration) {
@@ -53,6 +53,7 @@ namespace Utils {
             }
 
             volume.weight = targetWeight;
+            volumeFadeCoroutines.Remove(volume);
         }
 
         private void FadeVolumeTo(Volume volume, float targetWeight, float duration) {
@@ -64,7 +65,7 @@ namespace Utils {
             volumeFadeCoroutines[volume] = newCoroutine;
         }
 
-        private static IEnumerator FadeImage(Image image, float targetAlpha, float duration) {
+        private IEnumerator FadeImage(Image image, float targetAlpha, float duration) {
             var startAlpha = image.color.a;
             var elapsed = 0f;
             while (elapsed < duration) {
@@ -75,6 +76,7 @@ namespace Utils {
             }
 
             image.color = new Color(image.color.r, image.color.g, image.color.b, targetAlpha);
+            imageFadeCoroutine = null;
         }
 
         private void FadeImageTo(Image image, float targetAlpha, float duration) {
