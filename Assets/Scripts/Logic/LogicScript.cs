@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 public class LogicScript : MonoBehaviour {
+    public AccessableInventoryManager accessableInventoryManager;
     public QuestScreenScript questScreen;
     public InventoryScreen inventoryScreen;
     public GameObject background;
@@ -53,6 +54,7 @@ public class LogicScript : MonoBehaviour {
     public void CloseWatch() {
         watch.close();
         //WatchOpen = !watch.closed();
+        accessableInventoryManager.UpdateSlots();
     }
 
     public void AddQuestToQuestScreen(string quest) {
