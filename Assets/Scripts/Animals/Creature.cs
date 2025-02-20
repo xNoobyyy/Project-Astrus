@@ -17,6 +17,7 @@ namespace Animals {
     public abstract class CreatureBase : MonoBehaviour, IAttackable {
         // Animation parameter hash
         private static readonly int Direction = Animator.StringToHash("direction");
+        protected static readonly int Running = Animator.StringToHash("running");
 
         // Common configuration fields
         [SerializeField] protected float maxHealth;
@@ -34,7 +35,7 @@ namespace Animals {
         private const float KNOCKBACK_FORCE = 15f;
 
         // References
-        private Animator animator;
+        protected Animator animator;
         private Rigidbody2D rb;
         private SpriteRenderer spriteRenderer;
 
@@ -77,7 +78,7 @@ namespace Animals {
         protected void StartIdle() {
             if (idleCoroutine != null) return;
             StopExistingCoroutines();
-            animator.SetInteger(Direction, 0);
+            animator.SetBool(Running, false);
             var idleTime = Random.Range(IdleMin, IdleMax);
             idleCoroutine = StartCoroutine(IdleThenWander(idleTime));
         }
@@ -105,6 +106,7 @@ namespace Animals {
         }
 
         protected IEnumerator WanderTo(Vector2 destination, Action onComplete = null) {
+            animator.SetBool(Running, true);
             agent.SetDestination(destination);
             while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance) {
                 if (agent.velocity.sqrMagnitude > 0.01f)
@@ -112,7 +114,7 @@ namespace Animals {
                 yield return null;
             }
 
-            animator.SetInteger(Direction, 0);
+            animator.SetBool(Running, false);
             onComplete?.Invoke();
         }
 

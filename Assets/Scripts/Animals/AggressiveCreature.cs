@@ -29,6 +29,7 @@ namespace Animals {
 
                 isChasing = false;
                 chaseTarget = null;
+                animator.SetBool(Running, false);
                 StartIdle();
             } else {
                 if (!IsLos(e.Transform.position)) return;
@@ -36,6 +37,7 @@ namespace Animals {
                 chaseTarget = e.Transform;
                 isChasing = true;
                 StopExistingCoroutines();
+                animator.SetBool(Running, true);
             }
         }
 

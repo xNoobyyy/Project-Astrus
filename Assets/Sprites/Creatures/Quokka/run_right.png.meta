@@ -1,52 +1,49 @@
 fileFormatVersion: 2
-guid: 7a1e8c156406a3246a7dfed85823f469
+guid: 7c347ceced6afb647a4afe5fe015fdcf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -639016909152822417
-    second: idle_up_0
+      213: -5048119997888784150
+    second: run_right_0
   - first:
-      213: -7660712862888677055
-    second: idle_up_1
+      213: 1501806831170361822
+    second: run_right_1
   - first:
-      213: -2801625992821860700
-    second: idle_up_2
+      213: 7040184271975629172
+    second: run_right_2
   - first:
-      213: -7262585456254638847
-    second: idle_up_3
+      213: -7604150851027835787
+    second: run_right_3
   - first:
-      213: -1862283806931543833
-    second: idle_up_4
+      213: -7224934428991300267
+    second: run_right_4
   - first:
-      213: 8023497310580783721
-    second: idle_up_5
+      213: -7815436938264237959
+    second: run_right_5
   - first:
-      213: -1666585021586401484
-    second: idle_up_6
+      213: -8388138545713766448
+    second: run_right_6
   - first:
-      213: 3678552267812631876
-    second: idle_up_7
+      213: 5040382853412268526
+    second: run_right_7
   - first:
-      213: -2981743305693656665
-    second: idle_up_8
+      213: 8865766306752657319
+    second: run_right_8
   - first:
-      213: -1345158140628582911
-    second: idle_up_9
+      213: -4198564953111056024
+    second: run_right_9
   - first:
-      213: 2267750740368982791
-    second: idle_up_10
+      213: -8593954223729004980
+    second: run_right_10
   - first:
-      213: 2077969045910530515
-    second: idle_up_11
+      213: -8142841906700233970
+    second: run_right_11
   - first:
-      213: 1901533746269356687
-    second: idle_up_12
+      213: 2078500278477635093
+    second: run_right_12
   - first:
-      213: -8113018813564552403
-    second: idle_up_13
-  - first:
-      213: 3971829819633826045
-    second: idle_up_14
+      213: -6500567071779069593
+    second: run_right_13
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -93,7 +90,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -168,7 +165,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: idle_up_0
+      name: run_right_0
       rect:
         serializedVersion: 2
         x: 0
@@ -183,14 +180,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f6b5a7cb181c127f0800000000000000
-      internalID: -639016909152822417
+      spriteID: ae81b46ab9971f9b0800000000000000
+      internalID: -5048119997888784150
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_up_1
+      name: run_right_1
       rect:
         serializedVersion: 2
         x: 32
@@ -205,14 +202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 14131494d3eafa590800000000000000
-      internalID: -7660712862888677055
+      spriteID: ed91a252b5d77d410800000000000000
+      internalID: 1501806831170361822
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_up_2
+      name: run_right_2
       rect:
         serializedVersion: 2
         x: 64
@@ -227,14 +224,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4a61a50d000ae19d0800000000000000
-      internalID: -2801625992821860700
+      spriteID: 471466c7b42c3b160800000000000000
+      internalID: 7040184271975629172
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_up_3
+      name: run_right_3
       rect:
         serializedVersion: 2
         x: 96
@@ -249,14 +246,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1052601a10d163b90800000000000000
-      internalID: -7262585456254638847
+      spriteID: 574600ae611a87690800000000000000
+      internalID: -7604150851027835787
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_up_4
+      name: run_right_4
       rect:
         serializedVersion: 2
         x: 128
@@ -271,14 +268,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7e812e09eb6d726e0800000000000000
-      internalID: -1862283806931543833
+      spriteID: 55ddb7a8a60ebbb90800000000000000
+      internalID: -7224934428991300267
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_up_5
+      name: run_right_5
       rect:
         serializedVersion: 2
         x: 160
@@ -293,14 +290,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 96a387d2b40395f60800000000000000
-      internalID: 8023497310580783721
+      spriteID: 9782b4a338df98390800000000000000
+      internalID: -7815436938264237959
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_up_6
+      name: run_right_6
       rect:
         serializedVersion: 2
         x: 192
@@ -315,14 +312,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4371b58b0c91fd8e0800000000000000
-      internalID: -1666585021586401484
+      spriteID: 0df18f75f68579b80800000000000000
+      internalID: -8388138545713766448
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_up_7
+      name: run_right_7
       rect:
         serializedVersion: 2
         x: 224
@@ -337,14 +334,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 445fdaa3cc7dc0330800000000000000
-      internalID: 3678552267812631876
+      spriteID: ee9ab95008903f540800000000000000
+      internalID: 5040382853412268526
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_up_8
+      name: run_right_8
       rect:
         serializedVersion: 2
         x: 256
@@ -359,14 +356,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7a90bbce248be96d0800000000000000
-      internalID: -2981743305693656665
+      spriteID: 7a77e9fab77890b70800000000000000
+      internalID: 8865766306752657319
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_up_9
+      name: run_right_9
       rect:
         serializedVersion: 2
         x: 288
@@ -381,14 +378,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 10ebb1d4cc9055de0800000000000000
-      internalID: -1345158140628582911
+      spriteID: 861396b8b63bbb5c0800000000000000
+      internalID: -4198564953111056024
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_up_10
+      name: run_right_10
       rect:
         serializedVersion: 2
         x: 320
@@ -403,14 +400,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 70382d6884ba87f10800000000000000
-      internalID: 2267750740368982791
+      spriteID: c4e2aae8a242cb880800000000000000
+      internalID: -8593954223729004980
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_up_11
+      name: run_right_11
       rect:
         serializedVersion: 2
         x: 352
@@ -425,14 +422,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3d921c376dd66dc10800000000000000
-      internalID: 2077969045910530515
+      spriteID: e03d7f0bd60defe80800000000000000
+      internalID: -8142841906700233970
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_up_12
+      name: run_right_12
       rect:
         serializedVersion: 2
         x: 384
@@ -447,14 +444,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f828dc21eda936a10800000000000000
-      internalID: 1901533746269356687
+      spriteID: 51eb53cadf058dc10800000000000000
+      internalID: 2078500278477635093
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_up_13
+      name: run_right_13
       rect:
         serializedVersion: 2
         x: 416
@@ -469,30 +466,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d2b7c69af54c86f80800000000000000
-      internalID: -8113018813564552403
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: idle_up_14
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: df8f3936d26ce1730800000000000000
-      internalID: 3971829819633826045
+      spriteID: 761e10090b859c5a0800000000000000
+      internalID: -6500567071779069593
       vertices: []
       indices: 
       edges: []
@@ -501,7 +476,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f091c8466f60d2640ba65f67f0a067bb
+    spriteID: 9f46913c082a2db47a34cf73b21cd997
     internalID: 0
     vertices: []
     indices: 
@@ -511,21 +486,20 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      idle_up_0: -639016909152822417
-      idle_up_1: -7660712862888677055
-      idle_up_10: 2267750740368982791
-      idle_up_11: 2077969045910530515
-      idle_up_12: 1901533746269356687
-      idle_up_13: -8113018813564552403
-      idle_up_14: 3971829819633826045
-      idle_up_2: -2801625992821860700
-      idle_up_3: -7262585456254638847
-      idle_up_4: -1862283806931543833
-      idle_up_5: 8023497310580783721
-      idle_up_6: -1666585021586401484
-      idle_up_7: 3678552267812631876
-      idle_up_8: -2981743305693656665
-      idle_up_9: -1345158140628582911
+      run_right_0: -5048119997888784150
+      run_right_1: 1501806831170361822
+      run_right_10: -8593954223729004980
+      run_right_11: -8142841906700233970
+      run_right_12: 2078500278477635093
+      run_right_13: -6500567071779069593
+      run_right_2: 7040184271975629172
+      run_right_3: -7604150851027835787
+      run_right_4: -7224934428991300267
+      run_right_5: -7815436938264237959
+      run_right_6: -8388138545713766448
+      run_right_7: 5040382853412268526
+      run_right_8: 8865766306752657319
+      run_right_9: -4198564953111056024
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

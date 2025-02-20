@@ -33,6 +33,7 @@ namespace Animals {
         }
 
         private IEnumerator ChaseLoop() {
+            animator.SetBool(Running, true);
             while (isChasing && chaseTarget != null && elapsedChaseTime < chaseDuration) {
                 agent.SetDestination(chaseTarget.position);
 
@@ -51,6 +52,7 @@ namespace Animals {
                 elapsedChaseTime += Time.deltaTime;
             }
 
+            animator.SetBool(Running, false);
             isChasing = false;
             chaseTarget = null;
             angryTag.SetActive(false);

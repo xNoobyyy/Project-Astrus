@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 97ba80a9ce52c4546a483d29188057c0
+guid: 7191cafc6d8a8d344b9b2c56f6905563
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9082789242079819192
-    second: angry_0
+      213: 1826435285958538685
+    second: idle_right_0
   - first:
-      213: 389261486681303486
-    second: angry_1
+      213: 6179533113006291798
+    second: idle_right_1
   - first:
-      213: -8610559014388677992
-    second: angry_2
+      213: 9140360626043412854
+    second: idle_right_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,12 +52,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.5, y: -0.5}
-  spritePixelsToUnits: 100
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -132,67 +132,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: angry_0
+      name: idle_right_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 14
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 84ac7189e4373f180800000000000000
-      internalID: -9082789242079819192
+      spriteID: db53cc8373dc85910800000000000000
+      internalID: 1826435285958538685
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angry_1
+      name: idle_right_1
       rect:
         serializedVersion: 2
-        x: 7
-        y: 6
-        width: 15
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eb9216e724fe66500800000000000000
-      internalID: 389261486681303486
+      spriteID: 65bf08e20ac12c550800000000000000
+      internalID: 6179533113006291798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: angry_2
+      name: idle_right_2
       rect:
         serializedVersion: 2
-        x: 17
-        y: 13
-        width: 9
-        height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 89243d57236218880800000000000000
-      internalID: -8610559014388677992
+      spriteID: 671e84acf8519de70800000000000000
+      internalID: 9140360626043412854
       vertices: []
       indices: 
       edges: []
@@ -201,8 +201,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: b556e8ccb593e974b88aa85c34c3d5d5
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -211,9 +211,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      angry_0: -9082789242079819192
-      angry_1: 389261486681303486
-      angry_2: -8610559014388677992
+      idle_right_0: 1826435285958538685
+      idle_right_1: 6179533113006291798
+      idle_right_2: 9140360626043412854
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
