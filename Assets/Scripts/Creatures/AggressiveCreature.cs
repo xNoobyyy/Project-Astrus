@@ -57,7 +57,7 @@ namespace Creatures {
             if (agent.velocity.sqrMagnitude > 0.01f) SetAnimationDirection(agent.velocity.normalized);
 
             if (Vector3.Distance(transform.position, chaseTarget.position) < attackRange) {
-                if (timeSinceLastAttack > attackCooldown) {
+                if (timeSinceLastAttack > attackCooldown && !TextDisplay.TextDisplay.Instance.isDialogueActive) {
                     timeSinceLastAttack = 0;
                     EventManager.Instance.Trigger(new PlayerDamageEvent(attackDamage, transform));
                 } else {

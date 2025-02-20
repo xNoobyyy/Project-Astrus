@@ -24,7 +24,7 @@ namespace Player {
 
         // TODO: Only when sword is equipped
         private void Update() {
-            if (!Input.GetMouseButtonDown(0) || IsAttacking) return;
+            if (!Input.GetMouseButtonDown(0) || IsAttacking || TextDisplay.TextDisplay.Instance.isDialogueActive) return;
 
             var zCoord = mainCamera.WorldToScreenPoint(transform.position).z;
             var mousePosition = Input.mousePosition;
