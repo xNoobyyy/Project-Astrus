@@ -8,6 +8,17 @@ namespace Items {
         public Sprite ironIcon;
         public Sprite stoneIcon;
         public Sprite stickIcon;
+        public Sprite holzIcon;
+        public Sprite bootIcon;
+        public Sprite coalIcon;
+        public Sprite fireStoneIcon;
+        public Sprite fireplaceIcon;
+        public Sprite fireIcon;
+        public Sprite torch;
+        public Sprite bottleOfWaterIcon;
+        public Sprite invisiblePotionIcon;
+        public Sprite lianaIcon;
+        public Sprite specialFlower;
         public Sprite glomtomIcon2;
         public Sprite extricIcon2;
         public Sprite domilitantIcon2;
