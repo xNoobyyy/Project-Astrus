@@ -2,14 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
-using Logic;
 using Logic.Events;
-using UnityEngine.AI; // for Pathfinding etc.
+using UnityEngine;
+using UnityEngine.AI;
 using Utils.WhiteFlash;
+// for Pathfinding etc.
 using Random = UnityEngine.Random;
 
-namespace Animals {
+namespace Creatures {
     public interface IAttackable {
         void OnAttack(Transform attacker, float damage);
     }
@@ -182,5 +182,9 @@ namespace Animals {
             EventManager.Instance.Trigger(new CreatureDeathEvent(this));
             StartCoroutine(DestroyGameObject());
         }
+
+        protected bool IsLos(Vector2 v) => Vector2.Distance(v, transform.position) < 20f && Physics2D.RaycastAll(
+            transform.position, v - (Vector2)transform.position,
+            Vector2.Distance(transform.position, v)).All(c => !c.transform.CompareTag("Obstacle"));
     }
 }

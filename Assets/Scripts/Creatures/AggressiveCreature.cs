@@ -1,9 +1,7 @@
-﻿using System;
-using System.Linq;
-using Logic.Events;
+﻿using Logic.Events;
 using UnityEngine;
 
-namespace Animals {
+namespace Creatures {
     public class AggressiveCreature : CreatureBase {
         private Transform chaseTarget;
         private bool isChasing;
@@ -30,6 +28,7 @@ namespace Animals {
                 isChasing = false;
                 chaseTarget = null;
                 animator.SetBool(Running, false);
+                agent.ResetPath();
                 StartIdle();
             } else {
                 if (!IsLos(e.Transform.position)) return;
@@ -57,7 +56,7 @@ namespace Animals {
             if (agent.velocity.sqrMagnitude > 0.01f) SetAnimationDirection(agent.velocity.normalized);
 
             if (Vector3.Distance(transform.position, chaseTarget.position) < attackRange) {
-                if (timeSinceLastAttack > attackCooldown) {
+                if (timeSinceLastAttack > attackCooldown && !TextDisplay.TextDisplay.Instance.isDialogueActive) {
                     timeSinceLastAttack = 0;
                     EventManager.Instance.Trigger(new PlayerDamageEvent(attackDamage, transform));
                 } else {
@@ -65,8 +64,5 @@ namespace Animals {
                 }
             }
         }
-
-        private bool IsLos(Vector2 v) => Physics2D.RaycastAll(transform.position, v - (Vector2)transform.position,
-            Vector2.Distance(transform.position, v)).All(c => !c.transform.CompareTag("Obstacle"));
     }
 }

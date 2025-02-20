@@ -8,6 +8,8 @@ namespace TextDisplay
 {
     public class TextDisplay : MonoBehaviour
     {   
+        public static TextDisplay Instance { get; private set; }
+        
         public GameObject textWindow;
         public Text displayText;
         public Button nextButton;
@@ -24,7 +26,7 @@ namespace TextDisplay
         public Button option2Button;
         public RectTransform textPosition;
         private bool textComplete = false; // Überprüft, ob der Text vollständig angezeigt wurde
-        private bool isDialogueActive = false; // Flag, um zu verhindern, dass K während eines laufenden Dialogs funktioniert
+        public bool isDialogueActive = false; // Flag, um zu verhindern, dass K während eines laufenden Dialogs funktioniert
         public int storyID = 0;
         public StoryManager storyManager;
         public bool weiter;
@@ -32,7 +34,15 @@ namespace TextDisplay
         public Dictionary<string, StoryBlock> storyBlocks;
         public Coroutine coroutine;
         public String x;
-        
+
+        private void Awake() {
+            if (Instance == null) {
+                Instance = this;
+            } else {
+                Destroy(gameObject);
+            }
+        }
+
         // Methode zum Anzeigen des Fensters mit Text 
 
         public void Start() {

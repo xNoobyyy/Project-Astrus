@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Obstacle
   - Enemy
-  - Animal
   - Area
   layers:
   - Default
@@ -23,7 +22,7 @@ TagManager:
   - DroppedItem
   - 
   - 
-  - Animal
+  - Creature
   - 
   - 
   - 

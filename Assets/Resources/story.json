@@ -205,7 +205,7 @@
     },
     {
       "id": 31,
-      "text": "Ähhh...",
+      "text": "[Ähhh...][Okay...]",
       "weiter": true,
       "start": false,
       "person": 0
@@ -261,7 +261,7 @@
     },
     {
       "id": 39,
-      "text": "Äh.",
+      "text": "[Äh.][Nein, habe ich eigentlich nicht.]",
       "weiter": true,
       "start": false,
       "person": 0
@@ -352,7 +352,7 @@
     },
     { 
       "id": 52,
-      "text": "Ich sehe jetzt das Plateau.",
+      "text": "[Ich sehe jetzt das Plateau.][Juhu, ich bin da!]",
       "weiter": true,
       "start": true,
       "person": 0
@@ -583,7 +583,7 @@
     },
     {
       "id": 85,
-      "text": "Dr. Storm?! Sie kontrollieren hier alles???",
+      "text": "[Dr. Storm?! Sie kontrollieren hier alles???[Oh mein Gott, Dr.Storm??!!",
       "weiter": true,
       "start": true,
       "person": 0

@@ -1,5 +1,4 @@
 using System;
-using Animals;
 using Logic;
 using Logic.Events;
 using UnityEngine;

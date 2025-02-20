@@ -2,13 +2,14 @@
 using Logic.Events;
 using UnityEngine;
 
-namespace Animals {
+namespace Creatures {
     public class ReactiveCreature : CreatureBase {
         [SerializeField] protected GameObject angryTag;
         [SerializeField] private float chaseDuration = 10f;
         [SerializeField] private float attackRange = 1f;
         [SerializeField] private int attackDamage = 5;
         [SerializeField] private float attackCooldown = 1f;
+        [SerializeField] private float followDistance = 20f;
         private float timeSinceLastAttack;
 
         private Transform chaseTarget;
@@ -34,13 +35,14 @@ namespace Animals {
 
         private IEnumerator ChaseLoop() {
             animator.SetBool(Running, true);
-            while (isChasing && chaseTarget != null && elapsedChaseTime < chaseDuration) {
+            while (isChasing && chaseTarget != null && elapsedChaseTime < chaseDuration &&
+                   Vector2.Distance(transform.position, chaseTarget.position) < followDistance) {
                 agent.SetDestination(chaseTarget.position);
 
                 if (agent.velocity.sqrMagnitude > 0.01f) SetAnimationDirection(agent.velocity.normalized);
 
                 if (Vector3.Distance(transform.position, chaseTarget.position) < attackRange) {
-                    if (timeSinceLastAttack > attackCooldown) {
+                    if (timeSinceLastAttack > attackCooldown && !TextDisplay.TextDisplay.Instance.isDialogueActive) {
                         timeSinceLastAttack = 0;
                         EventManager.Instance.Trigger(new PlayerDamageEvent(attackDamage, transform));
                     } else {
@@ -56,6 +58,7 @@ namespace Animals {
             isChasing = false;
             chaseTarget = null;
             angryTag.SetActive(false);
+            agent.ResetPath();
             StartIdle();
         }
     }
