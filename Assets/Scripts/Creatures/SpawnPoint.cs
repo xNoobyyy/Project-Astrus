@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Animals {
+namespace Creatures {
     public class SpawnPoint : MonoBehaviour {
         [SerializeField] private CreatureBase prefab;
 

@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
-using Logic;
 using Logic.Events;
-using UnityEngine.AI; // for Pathfinding etc.
+using UnityEngine;
+using UnityEngine.AI;
 using Utils.WhiteFlash;
+// for Pathfinding etc.
 using Random = UnityEngine.Random;
 
-namespace Animals {
+namespace Creatures {
     public interface IAttackable {
         void OnAttack(Transform attacker, float damage);
     }

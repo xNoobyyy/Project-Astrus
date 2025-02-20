@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-namespace Animals {
+namespace Creatures {
     public class FriendlyCreature : CreatureBase {
         [SerializeField] private float runAwayDistance = 5f;
 

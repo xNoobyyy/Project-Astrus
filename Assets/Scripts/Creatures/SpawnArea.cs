@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Animals {
+namespace Creatures {
     [RequireComponent(typeof(PolygonCollider2D))]
     public class SpawnArea : MonoBehaviour {
         private List<SpawnPoint> spawnPoints = new();

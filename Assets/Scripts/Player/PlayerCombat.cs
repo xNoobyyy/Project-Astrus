@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using Animals;
+using Creatures;
 
 namespace Player {
     [RequireComponent(typeof(Animator))]

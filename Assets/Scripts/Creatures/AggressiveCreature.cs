@@ -1,9 +1,8 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Logic.Events;
 using UnityEngine;
 
-namespace Animals {
+namespace Creatures {
     public class AggressiveCreature : CreatureBase {
         private Transform chaseTarget;
         private bool isChasing;
@@ -30,6 +29,7 @@ namespace Animals {
                 isChasing = false;
                 chaseTarget = null;
                 animator.SetBool(Running, false);
+                agent.ResetPath();
                 StartIdle();
             } else {
                 if (!IsLos(e.Transform.position)) return;
@@ -66,7 +66,8 @@ namespace Animals {
             }
         }
 
-        private bool IsLos(Vector2 v) => Physics2D.RaycastAll(transform.position, v - (Vector2)transform.position,
+        private bool IsLos(Vector2 v) => Vector2.Distance(v, transform.position) < 20f && Physics2D.RaycastAll(
+            transform.position, v - (Vector2)transform.position,
             Vector2.Distance(transform.position, v)).All(c => !c.transform.CompareTag("Obstacle"));
     }
 }

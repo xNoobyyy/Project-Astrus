@@ -2,7 +2,7 @@
 using Logic.Events;
 using UnityEngine;
 
-namespace Animals {
+namespace Creatures {
     public class ReactiveCreature : CreatureBase {
         [SerializeField] protected GameObject angryTag;
         [SerializeField] private float chaseDuration = 10f;
@@ -56,6 +56,7 @@ namespace Animals {
             isChasing = false;
             chaseTarget = null;
             angryTag.SetActive(false);
+            agent.ResetPath();
             StartIdle();
         }
     }
