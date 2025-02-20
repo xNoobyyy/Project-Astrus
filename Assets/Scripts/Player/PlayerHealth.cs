@@ -76,6 +76,8 @@ public class PlayerHealth : MonoBehaviour {
     }
 
     private void Respawn() {
+        var diedAt = transform.position;
+
         if (plateau) {
             transform.position = respawnPointPlateau.position;
         } else {
@@ -86,6 +88,8 @@ public class PlayerHealth : MonoBehaviour {
         if (healthSlider != null) {
             healthSlider.value = currentHealth;
         }
+
+        EventManager.Instance.Trigger(new PlayerMoveEvent(diedAt, transform.position, transform));
     }
 
     private IEnumerator StartRegeneration() {

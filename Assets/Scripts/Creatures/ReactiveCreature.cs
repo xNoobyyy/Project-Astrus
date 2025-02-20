@@ -9,6 +9,7 @@ namespace Creatures {
         [SerializeField] private float attackRange = 1f;
         [SerializeField] private int attackDamage = 5;
         [SerializeField] private float attackCooldown = 1f;
+        [SerializeField] private float followDistance = 20f;
         private float timeSinceLastAttack;
 
         private Transform chaseTarget;
@@ -34,7 +35,8 @@ namespace Creatures {
 
         private IEnumerator ChaseLoop() {
             animator.SetBool(Running, true);
-            while (isChasing && chaseTarget != null && elapsedChaseTime < chaseDuration) {
+            while (isChasing && chaseTarget != null && elapsedChaseTime < chaseDuration &&
+                   Vector2.Distance(transform.position, chaseTarget.position) < followDistance) {
                 agent.SetDestination(chaseTarget.position);
 
                 if (agent.velocity.sqrMagnitude > 0.01f) SetAnimationDirection(agent.velocity.normalized);

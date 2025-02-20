@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Logic.Events;
+﻿using Logic.Events;
 using UnityEngine;
 
 namespace Creatures {
@@ -65,9 +64,5 @@ namespace Creatures {
                 }
             }
         }
-
-        private bool IsLos(Vector2 v) => Vector2.Distance(v, transform.position) < 20f && Physics2D.RaycastAll(
-            transform.position, v - (Vector2)transform.position,
-            Vector2.Distance(transform.position, v)).All(c => !c.transform.CompareTag("Obstacle"));
     }
 }

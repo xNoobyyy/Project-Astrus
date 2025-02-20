@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Logic.Events;
 using UnityEngine;
 using UnityEngine.AI;
@@ -181,5 +182,9 @@ namespace Creatures {
             EventManager.Instance.Trigger(new CreatureDeathEvent(this));
             StartCoroutine(DestroyGameObject());
         }
+
+        protected bool IsLos(Vector2 v) => Vector2.Distance(v, transform.position) < 20f && Physics2D.RaycastAll(
+            transform.position, v - (Vector2)transform.position,
+            Vector2.Distance(transform.position, v)).All(c => !c.transform.CompareTag("Obstacle"));
     }
 }
