@@ -8,6 +8,7 @@ public class LogicScript : MonoBehaviour {
     public static LogicScript Instance { get; private set; }
     
     public AccessableInventoryManager accessableInventoryManager;
+    public AccessableInventoryManager accessableInventoryManager2;
     public QuestScreenScript questScreen;
     public InventoryScreen inventoryScreen;
     public GameObject background;
@@ -66,6 +67,9 @@ public class LogicScript : MonoBehaviour {
         watch.close();
         //WatchOpen = !watch.closed();
         accessableInventoryManager.UpdateSlots();
+        accessableInventoryManager2.UpdateSlots();
+        accessableInventoryManager.UpdateSlots();
+        accessableInventoryManager2.UpdateSlots();
     }
 
     public void AddQuestToQuestScreen(string quest) {
