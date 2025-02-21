@@ -1,9 +1,12 @@
+using System;
 using Player.Inventory;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class LogicScript : MonoBehaviour {
+    public static LogicScript Instance { get; private set; }
+    
     public AccessableInventoryManager accessableInventoryManager;
     public QuestScreenScript questScreen;
     public InventoryScreen inventoryScreen;
@@ -17,6 +20,14 @@ public class LogicScript : MonoBehaviour {
     private bool InventoryOpen = false;
     public bool WatchOpen = false;
     public bool IconOpened = false;
+
+    private void Awake() {
+        if (Instance == null) {
+            Instance = this;
+        } else {
+            Destroy(gameObject);
+        }
+    }
 
     void Start() {
         inventoryScreen.Close();
