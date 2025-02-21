@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using Creatures;
+using Items;
+using Player.Inventory;
 
 namespace Player {
     [RequireComponent(typeof(Animator))]
@@ -22,9 +24,10 @@ namespace Player {
             rb = GetComponent<Rigidbody2D>();
         }
 
-        // TODO: Only when sword is equipped
         private void Update() {
-            if (!Input.GetMouseButtonDown(0) || IsAttacking || TextDisplay.TextDisplay.Instance.isDialogueActive) return;
+            if (LogicScript.Instance.accessableInventoryManager.CurrentSlot.Item is not CombatItem) return;
+            if (!Input.GetMouseButtonDown(0) || IsAttacking ||
+                TextDisplay.TextDisplay.Instance.isDialogueActive) return;
 
             var zCoord = mainCamera.WorldToScreenPoint(transform.position).z;
             var mousePosition = Input.mousePosition;

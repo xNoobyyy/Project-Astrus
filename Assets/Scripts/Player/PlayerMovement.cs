@@ -7,6 +7,8 @@ using UnityEngine.Events;
 namespace Player {
     [RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
     public class PlayerMovement : MonoBehaviour {
+        public static PlayerMovement Instance { get; private set; }
+
         private static readonly int HorizontalMove = Animator.StringToHash("horizontal_move");
         private static readonly int VerticalMove = Animator.StringToHash("vertical_move");
         private Animator animator;
@@ -15,6 +17,14 @@ namespace Player {
         [SerializeField] private float speed = 1.5f;
 
         private Vector2 movement;
+
+        private void Awake() {
+            if (Instance == null) {
+                Instance = this;
+            } else {
+                Destroy(gameObject);
+            }
+        }
 
         private void Start() {
             animator = GetComponent<Animator>();

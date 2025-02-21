@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,6 +36,7 @@ namespace Player.Inventory
 
         public bool requireShift;
         private int currentIndex = 0; // Index des aktuell aktiven (Haupt-)Slots
+        public AccessableSlot CurrentSlot => slots[currentIndex];
 
         void Start()
         {
