@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,8 @@ namespace Player.Inventory
 
     public class AccessableInventoryManager : MonoBehaviour
     {
+        public static AccessableInventoryManager Instance { get; private set; }
+        
         [Header("Slot Referenzen (genau 5 AccessableSlot Objekte zuweisen)")]
         public AccessableSlot[] slots; // Das Array MUSS exakt 5 Elemente enthalten
         public ItemSlot[] invenSlots;
@@ -33,6 +36,16 @@ namespace Player.Inventory
         public float animationSpeed = 10f;  // Je höher der Wert, desto schneller die Animation
 
         private int currentIndex = 0; // Index des aktuell aktiven (Haupt-)Slots
+        public AccessableSlot CurrentSlot => slots[currentIndex];
+
+        void Awake()
+        {
+            if (Instance == null) {
+                Instance = this;
+            } else {
+                Destroy(gameObject);
+            }
+        }
 
         void Start()
         {
