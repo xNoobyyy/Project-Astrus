@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 namespace Player.Inventory
 {
+    
     /*
     Anleitung zur Einrichtung:
     1. Erstelle ein leeres GameObject in deiner Szene (z.B. "InventoryManager") und hänge dieses Script daran.
@@ -32,6 +33,7 @@ namespace Player.Inventory
         [Header("Animationseinstellungen")]
         public float animationSpeed = 10f;  // Je höher der Wert, desto schneller die Animation
 
+        public bool requireShift;
         private int currentIndex = 0; // Index des aktuell aktiven (Haupt-)Slots
 
         void Start()
@@ -49,11 +51,13 @@ namespace Player.Inventory
         {
             // Überprüfe den Mausradinput zum Rotieren
             float scroll = Input.GetAxis("Mouse ScrollWheel");
-            if (scroll > 0f)
+            bool shift = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+            Debug.Log(shift);
+            if ((scroll > 0f && !requireShift && !shift) || (scroll > 0f && shift && requireShift)  )
             {
                 RotateForward();
             }
-            else if (scroll < 0f)
+            else if ( (scroll < 0f && !requireShift && !shift) || (scroll < 0f && shift && requireShift) )
             {
                 RotateBackward();
             }
