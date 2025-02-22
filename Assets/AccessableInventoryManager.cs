@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 namespace Player.Inventory
 {
+    
     /*
     Anleitung zur Einrichtung:
     1. Erstelle ein leeres GameObject in deiner Szene (z.B. "InventoryManager") und hänge dieses Script daran.
@@ -33,6 +34,7 @@ namespace Player.Inventory
         [Header("Animationseinstellungen")]
         public float animationSpeed = 10f;  // Je höher der Wert, desto schneller die Animation
 
+        public bool requireShift;
         private int currentIndex = 0; // Index des aktuell aktiven (Haupt-)Slots
         public AccessableSlot CurrentSlot => slots[currentIndex];
 
@@ -51,22 +53,28 @@ namespace Player.Inventory
         {
             // Überprüfe den Mausradinput zum Rotieren
             float scroll = Input.GetAxis("Mouse ScrollWheel");
-            if (scroll > 0f)
+            bool shift = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+            
+            if ((scroll > 0f && !requireShift && !shift) || (scroll > 0f && shift && requireShift)  )
             {
                 RotateForward();
             }
-            else if (scroll < 0f)
+            else if ( (scroll < 0f && !requireShift && !shift) || (scroll < 0f && shift && requireShift) )
             {
                 RotateBackward();
             }
 
             // Berechne Indizes der sichtbaren Slots (vorher und nächst)
+            int prePreviousIndex = (currentIndex - 2 + slots.Length) % slots.Length;
             int previousIndex = (currentIndex - 1 + slots.Length) % slots.Length;
             int nextIndex = (currentIndex + 1) % slots.Length;
+            int nextNextIndex = (currentIndex + 2) % slots.Length;
 
             // Animiert die Position und Skalierung der drei aktiven Slots mittels Lerp
+            AnimateSlot(slots[prePreviousIndex], previousSlotPosition - new Vector2(0,50), new Vector2(0,0));
+            AnimateSlot(slots[previousIndex], previousSlotPosition,secondarySlotScale);
             AnimateSlot(slots[currentIndex], mainSlotPosition, mainSlotScale);
-            AnimateSlot(slots[previousIndex], previousSlotPosition, secondarySlotScale);
+            AnimateSlot(slots[nextNextIndex], nextSlotPosition + new Vector2(0,50), new Vector2(0,0));
             AnimateSlot(slots[nextIndex], nextSlotPosition, secondarySlotScale);
         }
 
@@ -92,7 +100,7 @@ namespace Player.Inventory
 
             for (int i = 0; i < slots.Length; i++)
             {
-                slots[i].gameObject.SetActive(i == previousIndex || i == currentIndex || i == nextIndex);
+                slots[i].gameObject.SetActive(true);
             }
         }
 
@@ -110,6 +118,12 @@ namespace Player.Inventory
         public void UpdateSlots() {
             int i = 0;
             foreach (AccessableSlot slot in slots) {
+                if (requireShift) {
+                    Debug.Log(slot.name);
+                    Debug.Log(invenSlots[i].name);
+                    Debug.Log(invenSlots[i].Item);
+                }
+
                 slot.SetItem(invenSlots[i].Item);
                 i++;
             }
