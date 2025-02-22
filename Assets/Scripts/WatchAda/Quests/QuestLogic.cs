@@ -275,8 +275,8 @@ public class QuestLogic : MonoBehaviour {
         sideText.text = "";
         foreach (Quest quest in questGroups[activeGroup].subQuests)
         {
-            sideText.text += "\n\n" + quest.title + " - " + quest.description + " (" +
-                              quest.currentProgress.ToString() + "/" + quest.requiredProgress.ToString() + ")";
+            sideText.text += quest.title + " - " + quest.description + " (" +
+                              quest.currentProgress.ToString() + "/" + quest.requiredProgress.ToString() + ")" + "\n\n" ;
         }
     }
 }

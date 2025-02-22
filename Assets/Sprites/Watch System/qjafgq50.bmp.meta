@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 257a0ae3126dacd458bc02375aff04c5
+guid: 26c0628ed03b4074eb1adaa9477c9e7c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7509860518518112746
-    second: torch_0
+      213: 3543859781251718481
+    second: qjafgq50_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: torch_0
+      name: qjafgq50_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 0
-        width: 16
-        height: 32
+        x: 15
+        y: 15
+        width: 226
+        height: 226
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ae1c0074a52683860800000000000000
-      internalID: 7509860518518112746
+      spriteID: 15d5d43e1b15e2130800000000000000
+      internalID: 3543859781251718481
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      torch_0: 7509860518518112746
+      qjafgq50_0: 3543859781251718481
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
