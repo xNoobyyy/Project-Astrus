@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 32999c76686b1a24b8b693a594f164bf
+guid: 46a27c1fa331101449e036f645e7f29a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3007571991109907203
-    second: Untitled_Artwork_4_0
+      213: 8303883723458673611
+    second: Untitled_Artwork_2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,9 +75,9 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
+    textureCompression: 0
+    compressionQuality: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
@@ -87,7 +87,7 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 12
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Untitled_Artwork_4_0
+      name: Untitled_Artwork_2_0
       rect:
         serializedVersion: 2
-        x: 6
+        x: 0
         y: 0
-        width: 19
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 30335868aca0db920800000000000000
-      internalID: 3007571991109907203
+      spriteID: bcbf6e820425d3370800000000000000
+      internalID: 8303883723458673611
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: bb7b29c070607e54eb76c7955313ec6b
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Untitled_Artwork_4_0: 3007571991109907203
+      Untitled_Artwork_2_0: 8303883723458673611
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
