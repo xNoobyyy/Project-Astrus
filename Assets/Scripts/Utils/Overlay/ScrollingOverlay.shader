@@ -58,19 +58,8 @@ Shader "Custom/ScrollingOverlay"
 
             half4 frag(Varyings IN) : SV_Target
             {
-                // Define a base resolution (Full HD: 1920x1080) that your current offset factors were tuned for.
-                float2 baseRes = float2(1920.0, 1080.0);
-                // _ScreenParams.xy contains the current screen width and height in pixels.
-                float2 currentRes = _ScreenParams.xy;
-                // Compute a scaling factor to adjust the offset for any resolution.
-                float2 resFactor = currentRes / baseRes;
-
-                // Multiply the camera's world position by your tuned constants,
-                // then scale by the resolution factor.
-                float2 cameraOffset = _WorldSpaceCameraPos.xy * float2(0.029, 0.05) * resFactor;
-
                 // Use the standard UV from the canvas, add time-based scrolling and the resolution-adapted camera offset.
-                float2 scrolledUV = frac(IN.uv + 0.2 * _Time.x + cameraOffset);
+                float2 scrolledUV = frac((IN.uv * 75) + 0.2 * _Time.x);
 
                 half4 texColor = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, scrolledUV) * 0.1;
                 return texColor * IN.color;
