@@ -1,19 +1,28 @@
 fileFormatVersion: 2
-guid: 122aeeb524380cc499f15ecf3d872f83
+guid: 5e4e8ee134ce05f418473a4281207843
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8142474943435783493
-    second: IMG_0234 (1)_0
+      213: 700915204636125962
+    second: run_left_0
   - first:
-      213: 32214287335342571
-    second: IMG_0234 (1)_1
+      213: 5151822504080555552
+    second: run_left_1
   - first:
-      213: -4275613900930201974
-    second: IMG_0234 (1)_2
+      213: -2291563094511753249
+    second: run_left_2
   - first:
-      213: -5147146639007772018
-    second: IMG_0234 (1)_3
+      213: -6730141864382394953
+    second: run_left_3
+  - first:
+      213: 4940053148889953498
+    second: run_left_4
+  - first:
+      213: -7038010021604649337
+    second: run_left_5
+  - first:
+      213: 5642574552772730615
+    second: run_left_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -60,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -135,89 +144,155 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IMG_0234 (1)_0
+      name: run_left_0
       rect:
         serializedVersion: 2
-        x: 199
-        y: 419
-        width: 102
-        height: 202
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 54d320402d1eff070800000000000000
-      internalID: 8142474943435783493
+      spriteID: a0ba10e3aa62ab900800000000000000
+      internalID: 700915204636125962
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_0234 (1)_1
+      name: run_left_1
       rect:
         serializedVersion: 2
-        x: 279
-        y: 459
-        width: 82
-        height: 122
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 48
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: be1c05149b2727000800000000000000
-      internalID: 32214287335342571
+      spriteID: 02eb59d9543fe7740800000000000000
+      internalID: 5151822504080555552
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_0234 (1)_2
+      name: run_left_2
       rect:
         serializedVersion: 2
-        x: 319
-        y: 259
-        width: 402
-        height: 422
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 96
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a86455e6fc7f9a4c0800000000000000
-      internalID: -4275613900930201974
+      spriteID: fd76b3bb18bb230e0800000000000000
+      internalID: -2291563094511753249
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_0234 (1)_3
+      name: run_left_3
       rect:
         serializedVersion: 2
-        x: 699
-        y: 419
-        width: 102
-        height: 202
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 144
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e82981f0769a198b0800000000000000
-      internalID: -5147146639007772018
+      spriteID: 7bd8085d1abb992a0800000000000000
+      internalID: -6730141864382394953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run_left_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad4b2275a289e8440800000000000000
+      internalID: 4940053148889953498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run_left_5
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7869d90ac27f35e90800000000000000
+      internalID: -7038010021604649337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: run_left_6
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 48
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fe5dacf8a37e4e40800000000000000
+      internalID: 5642574552772730615
       vertices: []
       indices: 
       edges: []
@@ -226,7 +301,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ca45633ff4c3f3347a92f0b00d0afd7b
     internalID: 0
     vertices: []
     indices: 
@@ -236,10 +311,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      IMG_0234 (1)_0: 8142474943435783493
-      IMG_0234 (1)_1: 32214287335342571
-      IMG_0234 (1)_2: -4275613900930201974
-      IMG_0234 (1)_3: -5147146639007772018
+      run_left_0: 700915204636125962
+      run_left_1: 5151822504080555552
+      run_left_2: -2291563094511753249
+      run_left_3: -6730141864382394953
+      run_left_4: 4940053148889953498
+      run_left_5: -7038010021604649337
+      run_left_6: 5642574552772730615
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

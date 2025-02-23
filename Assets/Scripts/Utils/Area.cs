@@ -21,13 +21,14 @@ namespace Utils {
             PlayRandomMusic();
 
             FadeImageTo(AreaManager.Instance.fogImage,
-                type is AreaType.Swamp or AreaType.City or AreaType.Plateau ? 1f : 0f, FadeDuration);
+                type is AreaType.Swamp or AreaType.City or AreaType.Plateau or AreaType.Cave ? 1f : 0f, FadeDuration);
 
             FadeVolumeTo(AreaManager.Instance.swampVolume, type is AreaType.Swamp ? 1f : 0f, FadeDuration);
             FadeVolumeTo(AreaManager.Instance.popVolume,
                 type is not (AreaType.Swamp or AreaType.City or AreaType.Jungle) ? 1f : 0f, FadeDuration);
             FadeVolumeTo(AreaManager.Instance.jungleVolume, type is AreaType.Jungle ? 1f : 0f, FadeDuration);
-            FadeVolumeTo(AreaManager.Instance.cityVolume, type is AreaType.City ? 1f : 0f, FadeDuration);
+            FadeVolumeTo(AreaManager.Instance.cityVolume, type is AreaType.City or AreaType.Cave ? 1f : 0f,
+                FadeDuration);
         }
 
         private void OnTriggerExit2D(Collider2D other) {
@@ -101,5 +102,6 @@ namespace Utils {
         City,
         Starter,
         Jungle,
+        Cave
     }
 }
