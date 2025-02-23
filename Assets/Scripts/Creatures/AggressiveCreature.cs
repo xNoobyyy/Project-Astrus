@@ -11,11 +11,13 @@ namespace Creatures {
         [SerializeField] private float attackCooldown = 1f;
         private float timeSinceLastAttack;
 
-        private void OnEnable() {
+        private new void OnEnable() {
+            base.OnEnable();
             EventManager.Instance.Subscribe<PlayerMoveEvent>(HandlePlayerMove);
         }
 
-        private void OnDisable() {
+        private new void OnDisable() {
+            base.OnDisable();
             EventManager.Instance.Unsubscribe<PlayerMoveEvent>(HandlePlayerMove);
         }
 

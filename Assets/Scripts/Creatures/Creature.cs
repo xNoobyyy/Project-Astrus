@@ -71,7 +71,14 @@ namespace Creatures {
 
             homePosition = Vector2Int.RoundToInt(transform.position);
             wanderPoints = GetRandomWanderPointsFromArea();
+        }
+
+        protected void OnEnable() {
             StartIdle();
+        }
+
+        protected void OnDisable() {
+            StopExistingCoroutines();
         }
 
         // Starts idle/wander behavior
