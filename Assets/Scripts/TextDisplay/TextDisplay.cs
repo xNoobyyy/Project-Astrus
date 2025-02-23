@@ -25,8 +25,8 @@ namespace TextDisplay
         public Button option1Button;
         public Button option2Button;
         public RectTransform textPosition;
-        private bool textComplete = false; // Überprüft, ob der Text vollständig angezeigt wurde
-        public bool isDialogueActive = false; // Flag, um zu verhindern, dass K während eines laufenden Dialogs funktioniert
+        private bool textComplete = false; 
+        public bool isDialogueActive = false; 
         public int storyID = 0;
         public StoryManager storyManager;
         public bool weiter;
@@ -42,9 +42,7 @@ namespace TextDisplay
                 Destroy(gameObject);
             }
         }
-
         // Methode zum Anzeigen des Fensters mit Text 
-
         public void Start() {
             Time.timeScale = 1f;
             storyManager.LoadStory();
@@ -62,35 +60,45 @@ namespace TextDisplay
             if (imageIndex.HasValue) { 
                 if (imageIndex.Value == 0) {
                     sprechblase.sprite = sprechblase0;
-                    sprechblase.rectTransform.anchoredPosition = new UnityEngine.Vector2(32, 0);
+                    sprechblase.rectTransform.anchoredPosition = new UnityEngine.Vector2(36, 0);
                     textPosition.anchoredPosition = new UnityEngine.Vector2(-10, 0); 
                     if (int.Parse(storyBlocks[(storyID+1).ToString()].person) == 1) {
                         leftImage.sprite = image1;
+                        RectTransform rectTransform = leftImage.GetComponent<RectTransform>();
+                        rectTransform.sizeDelta = new Vector2(228, 228);
                     }else if (int.Parse(storyBlocks[(storyID + 1).ToString()].person) == 2) {
                         leftImage.sprite = image2;
+                        RectTransform rectTransform = leftImage.GetComponent<RectTransform>();
+                        rectTransform.sizeDelta = new Vector2(228, 455);
                     } else {
                         Debug.Log("bildanzeigefehler");
                     }
                 }else if (imageIndex.Value == 1) {
                     leftImage.sprite = image1;
                     sprechblase.sprite = sprechblase1;
-                    sprechblase.rectTransform.anchoredPosition = new UnityEngine.Vector2(-16, 0);
+                    sprechblase.rectTransform.anchoredPosition = new UnityEngine.Vector2(-18, 0);
                     textPosition.anchoredPosition = new UnityEngine.Vector2(30, 0); 
+                    RectTransform rectTransform = leftImage.GetComponent<RectTransform>();
+                    rectTransform.sizeDelta = new Vector2(228, 228);
                 }else if (imageIndex.Value == 2) {
                     leftImage.sprite = image2;
                     sprechblase.sprite = sprechblase1;
-                    sprechblase.rectTransform.anchoredPosition = new UnityEngine.Vector2(-16, 0);
+                    sprechblase.rectTransform.anchoredPosition = new UnityEngine.Vector2(-18, 0);
                     textPosition.anchoredPosition = new UnityEngine.Vector2(30, 0); 
+                    RectTransform rectTransform = leftImage.GetComponent<RectTransform>();
+                    rectTransform.sizeDelta = new Vector2(228, 455);
                 } else {
                     Debug.Log("bildanzeigefehler2");
                 }
             }
             List<string> choices = ExtractChoices(text);
+            
             if (choices.Count == 0) {
                 if (coroutine != null) {
                     StopCoroutine(coroutine);
                     coroutine = null;
                 }
+                textComplete = false;
                 coroutine = StartCoroutine(TypeText(text)); // Text mit Animation anzeigen
             } else {
                 ShowChoices(choices);
@@ -99,8 +107,8 @@ namespace TextDisplay
         // Coroutine zur verzögerten Anzeige des Textes
         private IEnumerator TypeText(string text)
         {
-            displayText.text = ""; // Textfeld leeren
             textComplete = false;
+            displayText.text = ""; // Textfeld leeren
             foreach (char c in text)
             {
                 displayText.text += c; // Buchstabe für Buchstabe hinzufüg
@@ -109,7 +117,6 @@ namespace TextDisplay
             textComplete = true;
             storyID++;
             nextButton.gameObject.SetActive(true); // Next-Button anzeigen
-            coroutine = null;
         }
         public void OnNextButton(int c = 0)
         {
@@ -118,8 +125,8 @@ namespace TextDisplay
             option2Button.gameObject.SetActive(false);
             option1Text.text = "";
             option2Text.text = "";
-            
-            if (!textComplete && c !=1) return; // Falls der Text noch nicht fertig ist, nichts tun
+            nextButton.gameObject.SetActive(true);
+            if (!textComplete) return; // Falls der Text noch nicht fertig ist, nichts tun
             nextButton.gameObject.SetActive(false); // Button ausblenden
             if (!bool.Parse(storyBlocks[(storyID - 1).ToString()].weiter)) {
                 CloseWindow();
@@ -127,9 +134,6 @@ namespace TextDisplay
             }
             if (weiter)
             {
-                if (c == 1) {
-                    storyID++;
-                }
                 ShowText(storyManager.ShowStoryBlock(storyID.ToString()),int.Parse(storyBlocks[storyID.ToString()].person));
             }
             else{
@@ -142,9 +146,9 @@ namespace TextDisplay
             isDialogueActive = false; 
         }
         private void Update() {
-            if (Input.GetKeyDown(KeyCode.Return) && isDialogueActive && textComplete) {
-                OnNextButton();
-            } else if (Input.GetKeyDown(KeyCode.Return) && isDialogueActive && !textComplete) {
+            if (Input.GetKeyDown(KeyCode.Return) && isDialogueActive && x == displayText.text) {
+                OnNextButton(0);
+            }else if(Input.GetKeyDown(KeyCode.Space) && isDialogueActive && x != displayText.text) {
                 if(coroutine != null) {
                     StopCoroutine(coroutine);
                     coroutine = null;
@@ -166,14 +170,13 @@ namespace TextDisplay
             weiter = bool.Parse(storyBlocks[storyID.ToString()].weiter);
             
             if (start && !weiter) {
-                Debug.Log("startundnichtweiter");
                 ShowText(storyManager.ShowStoryBlock(storyID.ToString()),int.Parse(storyBlocks[storyID.ToString()].person));
                 
             } else if (weiter) {
                 ShowText(storyManager.ShowStoryBlock(storyID.ToString()),int.Parse(storyBlocks[storyID.ToString()].person));
                 
             }else {
-                Debug.Log("Fortsetzung folgt!");
+                Debug.Log("Ende");
             }
         }
         List<string> ExtractChoices(string text)
@@ -194,6 +197,8 @@ namespace TextDisplay
             option2Button.gameObject.SetActive(true);
             option1Text.text = choices[0];
             option2Text.text = choices[1];
+            textComplete = true;
+            storyID++;
         }
     }
 }
