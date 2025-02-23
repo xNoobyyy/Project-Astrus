@@ -31,7 +31,7 @@ namespace Player.Inventory {
         }
 
         private void Start() {
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
 
             PlayerInventory.Instance.Slots = itemSlotsContainer.GetComponentsInChildren<ItemSlot>();
 
