@@ -117,8 +117,8 @@ public class Crafting : MonoBehaviour {
         IronBow = new IronBow();
         GlomtomBow = new GlomtomBow();
         FireBow = new FireGlomtomBow();
-        IronAmour = new IronAmour(1);
-        ExtricAmour = new ExtricAmour(1);
+        IronAmour = new IronAmour();
+        ExtricAmour = new ExtricAmour();
 
         // Rezepte-Initialisierung
         // Basisrezepte (Werkzeuge & Waffen)
