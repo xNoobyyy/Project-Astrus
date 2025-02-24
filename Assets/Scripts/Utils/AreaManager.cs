@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Logic.Events;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
@@ -25,18 +24,6 @@ namespace Utils {
             } else {
                 Destroy(gameObject);
             }
-        }
-
-        private void OnEnable() {
-            EventManager.Instance.Subscribe<PlayerItemEvent>(OnItemPickup);
-        }
-
-        private void OnDisable() {
-            EventManager.Instance.Unsubscribe<PlayerItemEvent>(OnItemPickup);
-        }
-
-        private void OnItemPickup(PlayerItemEvent e) {
-            Debug.Log("Picked up item: " + e.Item);
         }
 
         private IEnumerator FadeVolume(Volume volume, float targetWeight, float duration) {
