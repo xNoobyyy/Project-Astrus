@@ -114,7 +114,7 @@ public class QuestLogic : MonoBehaviour {
 
     void Start() {
     // Gruppe 1: Festland
-        festlandQuest = new Quest("Festland", "Überquere das Meer.", true, 1);
+        festlandQuest = new Quest("Festland", "Überquere das Meer.", true, 4);
         baueQuest = new Quest("Holz", "Sammle Holz und Äste.", false, 1);
         bootQuest = new Quest("Boot", "Baue ein Boot.", false, 1);
         tierQuest = new Quest("Tier", "Streichele ein friedliches Tier.", false, 1);
@@ -122,27 +122,27 @@ public class QuestLogic : MonoBehaviour {
         QuestGroup group1 = new QuestGroup(festlandQuest, new List<Quest>() { baueQuest, bootQuest, tierQuest, betreteFestlandQuest });
 
         // Gruppe 2: Crafting
-        craftingQuest = new Quest("Werkzeuge", "Erstelle Werkzeuge und Waffen.", true, 1);
+        craftingQuest = new Quest("Werkzeuge", "Erstelle Werkzeuge und Waffen.", true, 3);
         eOSQuest = new Quest("Eisen/Stein", "Finde Eisen oder Stein.", false, 1);
         spitzAxtQuest = new Quest("Spitzhacke", "Baue eine Spitzhacke.", false, 1);
         schwertQuest = new Quest("Schwert", "Erstelle ein Schwert.", false, 1);
         QuestGroup group2 = new QuestGroup(craftingQuest, new List<Quest>() { eOSQuest, spitzAxtQuest, schwertQuest });
 
         // Gruppe 3: Erkundung
-        erkundenQuest = new Quest("Erkundung", "Erkunde den Planeten.", true, 1);
+        erkundenQuest = new Quest("Erkundung", "Erkunde den Planeten.", true, 2);
         zweiTiereQuest = new Quest("Tiere", "Treffe zwei friedliche Tiere.", false, 1);
         plateauQuest = new Quest("Plateau", "Finde das Plateau.", false, 1);
         QuestGroup group3 = new QuestGroup(erkundenQuest, new List<Quest>() { zweiTiereQuest, plateauQuest });
 
         // Gruppe 4: Erste Zombieattacke
-        überlebenQuest = new Quest("Zombies", "Überlebe die Zombieattacke.", true, 1);
+        überlebenQuest = new Quest("Zombies", "Überlebe die Zombieattacke.", true, 3);
         verfolgenQuest = new Quest("Verfolgen", "Folge der Gestalt.", false, 1);
         rennenQuest = new Quest("Rennen", "Renne vor Zombies.", false, 1);
         schutzQuest = new Quest("Schutz", "Finde Höhlenschutz.", false, 1);
         QuestGroup group4 = new QuestGroup(überlebenQuest, new List<Quest>() { verfolgenQuest, rennenQuest, schutzQuest });
 
         // Gruppe 5: Höhle
-        höhleQuest = new Quest("Höhle", "Erkunde die Höhle.", true, 1);
+        höhleQuest = new Quest("Höhle", "Erkunde die Höhle.", true, 4);
         fakelQuest = new Quest("Fackel", "Baue eine Fackel.", false, 1);
         stormQuest = new Quest("Dr. Storm", "Sprich mit Dr. Storm.", false, 1);
         erzQuest = new Quest("Erz", "Baue unbekanntes Erz ab.", false, 1);
@@ -150,13 +150,13 @@ public class QuestLogic : MonoBehaviour {
         QuestGroup group5 = new QuestGroup(höhleQuest, new List<Quest>() { fakelQuest, stormQuest, erzQuest, glomtomSchwertQuest });
 
         // Gruppe 6: Zweite Zombieattacke
-        zombie2Quest = new Quest("Zombies II", "Entkomme der zweiten Attacke.", true, 1);
+        zombie2Quest = new Quest("Zombies II", "Entkomme der zweiten Attacke.", true, 2);
         zombie3Quest = new Quest("Kampf", "Nutze das Glomtom-Schwert.", false, 1);
         flussQuest = new Quest("Fluss", "Fliehe über den Fluss.", false, 1);
         QuestGroup group6 = new QuestGroup(zombie2Quest, new List<Quest>() { zombie3Quest, flussQuest });
 
         // Gruppe 7: Plateau
-        plateau2Quest = new Quest("Plateau", "Erkunde das Plateau.", true, 1);
+        plateau2Quest = new Quest("Plateau", "Erkunde das Plateau.", true, 4);
         lianeQuest = new Quest("Liane", "Sammle eine Liane.", false, 1);
         erklimmeQuest = new Quest("Erklimme", "Klettere das Plateau hinauf.", false, 1);
         schatzkarteQuest = new Quest("Karte", "Finde die Schatzkarte.", false, 1);
@@ -164,7 +164,7 @@ public class QuestLogic : MonoBehaviour {
         QuestGroup group7 = new QuestGroup(plateau2Quest, new List<Quest>() { lianeQuest, erklimmeQuest, schatzkarteQuest, RezepteQuest });
 
         // Gruppe 8: Extric
-        ExtricQuest = new Quest("Extric", "Nutze Extric.", true, 1);
+        ExtricQuest = new Quest("Extric", "Nutze Extric.", true, 4);
         blumeQuest = new Quest("Blume", "Finde die besondere Blume.", false, 1);
         ressourcenQuest = new Quest("Ressourcen", "Sammle alle Ressourcen.", false, 1);
         craftenExtricQuest = new Quest("Extric Bau", "Stelle Extric her.", false, 1);
@@ -172,7 +172,7 @@ public class QuestLogic : MonoBehaviour {
         QuestGroup group8 = new QuestGroup(ExtricQuest, new List<Quest>() { blumeQuest, ressourcenQuest, craftenExtricQuest, rüstungQuest });
 
         // Gruppe 9: Zombieschatz
-        schatzQuest = new Quest("Schatz", "Finde den Zombieschatz.", true, 1);
+        schatzQuest = new Quest("Schatz", "Finde den Zombieschatz.", true, 5);
         bogenQuest = new Quest("Bogen", "Baue einen Bogen.", false, 1);
         sumpfQuest = new Quest("Sumpf", "Betrete den Sumpf.", false, 1);
         zombie4Quest = new Quest("Zombies", "Besiege die Zombies.", false, 1);
@@ -181,26 +181,26 @@ public class QuestLogic : MonoBehaviour {
         QuestGroup group9 = new QuestGroup(schatzQuest, new List<Quest>() { bogenQuest, sumpfQuest, zombie4Quest, findeDomilitantQuest, tagebuchQuest });
 
         // Gruppe 10: Domilitant
-        domilitantQuest = new Quest("Domilitant", "Setze Domilitant ein.", true, 1);
+        domilitantQuest = new Quest("Domilitant", "Setze Domilitant ein.", true, 2);
         rezeptFindenQuest = new Quest("Rezept", "Finde ein Rezept.", false, 1);
         trankQuest = new Quest("Trank", "Braue einen Trank.", false, 1);
         QuestGroup group10 = new QuestGroup(domilitantQuest, new List<Quest>() { rezeptFindenQuest, trankQuest });
 
         // Gruppe 11: Stadt
-        stadtQuest = new Quest("Stadt", "Betrete die Stadt.", true, 1);
+        stadtQuest = new Quest("Stadt", "Betrete die Stadt.", true, 3);
         crafteSchwertQuest = new Quest("Schwert", "Erstelle ein neues Schwert.", false, 1);
         unsichtbarQuest = new Quest("Unsichtbar", "Trinke den Trank.", false, 1);
         wächterQuest = new Quest("Wächter", "Vermeide Wächter-Zombies.", false, 1);
         QuestGroup group11 = new QuestGroup(stadtQuest, new List<Quest>() { crafteSchwertQuest, unsichtbarQuest, wächterQuest });
 
         // Gruppe 12: Labor
-        LaborQuest = new Quest("Labor", "Erkunde das Labor.", true, 1);
+        LaborQuest = new Quest("Labor", "Erkunde das Labor.", true, 2);
         rettenQuest = new Quest("Rette", "Rette dich ins Labor.", false, 1);
         virusQuest = new Quest("Virus", "Finde Virus-Hinweise.", false, 1);
         QuestGroup group12 = new QuestGroup(LaborQuest, new List<Quest>() { rettenQuest, virusQuest });
 
         // Gruppe 13: Endkampf
-        endkampfQuest = new Quest("Endkampf", "Gewinne den Endkampf.", true, 1);
+        endkampfQuest = new Quest("Endkampf", "Gewinne den Endkampf.", true, 4);
         besiegenQuest = new Quest("Boss", "Besiege den Endboss.", false, 1);
         kontrolleQuest = new Quest("Kontrolle", "Enthülle Zombie-Kontrolle.", false, 1);
         befreienQuest = new Quest("Befreien", "Befreie die Zombies.", false, 1);
@@ -208,7 +208,7 @@ public class QuestLogic : MonoBehaviour {
         QuestGroup group13 = new QuestGroup(endkampfQuest, new List<Quest>() { besiegenQuest, kontrolleQuest, befreienQuest, astrusQuest });
 
         // Gruppe 14: Abreise
-        verlassenQuest = new Quest("Abreise", "Verlasse den Planeten.", true, 1);
+        verlassenQuest = new Quest("Abreise", "Verlasse den Planeten.", true, 2);
         reparierenQuest = new Quest("Raumschiff", "Repariere das Schiff.", false, 1);
         nachHauseQuest = new Quest("Heimkehr", "Fliege nach Hause.", false, 1);
         QuestGroup group14 = new QuestGroup(verlassenQuest, new List<Quest>() { reparierenQuest, nachHauseQuest });

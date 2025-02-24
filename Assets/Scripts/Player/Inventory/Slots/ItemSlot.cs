@@ -102,11 +102,11 @@ namespace Player.Inventory {
                     if (itemRenderer.GetComponent<Animator>() == null) {
                         PlayerInventory.Instance.SetItem(
                             Array.IndexOf(PlayerInventory.Instance.Slots, this),
-                            new Stick(1));
+                            new Extric(1));
                     } else {
                         PlayerInventory.Instance.SetItem(
                             Array.IndexOf(PlayerInventory.Instance.Slots, this),
-                            new Stick(1));
+                            new Extric(1));
                     }
 
                     break;
