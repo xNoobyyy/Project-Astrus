@@ -14,10 +14,10 @@ namespace Utils {
         public Volume jungleVolume;
         public Volume cityVolume;
         public Volume caveVolume;
-        
+
         private readonly Dictionary<Volume, Coroutine> volumeFadeCoroutines = new();
         private Coroutine imageFadeCoroutine;
-        
+
         private void Awake() {
             if (Instance == null) {
                 Instance = this;
@@ -25,7 +25,7 @@ namespace Utils {
                 Destroy(gameObject);
             }
         }
-        
+
         private IEnumerator FadeVolume(Volume volume, float targetWeight, float duration) {
             var startWeight = volume.weight;
             var elapsed = 0f;

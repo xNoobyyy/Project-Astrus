@@ -1,4 +1,5 @@
 using Items;
+using Logic.Events;
 using UnityEngine;
 
 namespace Player.Inventory {
@@ -75,11 +76,13 @@ namespace Player.Inventory {
 
                     if (rest >= restAmount) {
                         slotResourceItem.SetAmount(slotResourceItem.Amount + restAmount);
+                        EventManager.Instance.Trigger(new PlayerItemEvent(slotResourceItem));
                         slot.UpdateDisplay();
                         return true;
                     }
 
                     slotResourceItem.SetAmount(slotResourceItem.MaxAmount);
+                    EventManager.Instance.Trigger(new PlayerItemEvent(slotResourceItem));
                     slot.UpdateDisplay();
                     restAmount -= rest;
                 }
@@ -91,11 +94,13 @@ namespace Player.Inventory {
                 if (firstEmpty == -1) return false;
 
                 SetItem(firstEmpty, resourceItem);
+                EventManager.Instance.Trigger(new PlayerItemEvent(resourceItem));
             } else {
                 var firstEmpty = FirstEmpty();
                 if (firstEmpty == -1) return false;
 
                 SetItem(firstEmpty, item);
+                EventManager.Instance.Trigger(new PlayerItemEvent(item));
             }
 
             return true;
