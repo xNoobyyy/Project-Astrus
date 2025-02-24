@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Logic.Events;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
@@ -14,10 +15,10 @@ namespace Utils {
         public Volume jungleVolume;
         public Volume cityVolume;
         public Volume caveVolume;
-        
+
         private readonly Dictionary<Volume, Coroutine> volumeFadeCoroutines = new();
         private Coroutine imageFadeCoroutine;
-        
+
         private void Awake() {
             if (Instance == null) {
                 Instance = this;
@@ -25,7 +26,19 @@ namespace Utils {
                 Destroy(gameObject);
             }
         }
-        
+
+        private void OnEnable() {
+            EventManager.Instance.Subscribe<PlayerItemEvent>(OnItemPickup);
+        }
+
+        private void OnDisable() {
+            EventManager.Instance.Unsubscribe<PlayerItemEvent>(OnItemPickup);
+        }
+
+        private void OnItemPickup(PlayerItemEvent e) {
+            Debug.Log("Picked up item: " + e.Item);
+        }
+
         private IEnumerator FadeVolume(Volume volume, float targetWeight, float duration) {
             var startWeight = volume.weight;
             var elapsed = 0f;

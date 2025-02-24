@@ -77,3 +77,6 @@ crashlytics-build.properties
 
 *.orig
 *.orig.meta
+
+# VS Code directory
+.vscode/
