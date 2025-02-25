@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Items;
+using Items.Items;
 using Player;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ namespace Objects {
         [SerializeField] private Sprite full;
         [SerializeField] private Sprite destroyed;
         [SerializeField] private PolygonCollider2D trigger;
+        [SerializeField] private ParticleSystem damageParticles;
 
         private SpriteRenderer spriteRenderer;
         private Camera mainCamera;
@@ -49,36 +51,9 @@ namespace Objects {
             }
         }
 
-        private void Update() {
-            if (IsDestroyed || !Input.GetMouseButtonDown(0)) return;
-            if (Vector2.Distance(PlayerMovement.Instance.transform.position, transform.position) > 3f) return;
-
-            var currentItem = LogicScript.Instance.accessableInventoryManager.CurrentSlot.Item;
-
-            // Convert mouse position to world position
-            var zCoord = mainCamera.WorldToScreenPoint(transform.position).z;
-            var mousePosition = Input.mousePosition;
-            mousePosition.z = zCoord;
-
-            var pos = mainCamera.ScreenToWorldPoint(mousePosition);
-            if (!trigger.OverlapPoint(pos)) return;
-
-            // In case multiple trees are on the same spot
-            var colliders = Physics2D.OverlapPointAll(pos);
-            foreach (var c in colliders) {
-                if (!c.CompareTag("Obstacle")) continue;
-                var tree = c.GetComponent<Tree>();
-                if (tree == null) return;
-                if (tree.IsDestroyed) continue;
-
-                return;
-            }
-
-            Chop(currentItem is AxeItem axe ? axe.ChopPower : 1);
-        }
-
         public void Chop(int chopPower) {
             Damage += chopPower;
+            damageParticles.Play();
             if (Damage < Health) return;
 
             Destroy();
@@ -92,6 +67,12 @@ namespace Objects {
             } else {
                 spriteRenderer.sprite = destroyed;
             }
+
+            var woodAmount = UnityEngine.Random.Range(1, 4);
+            var stickAmount = UnityEngine.Random.Range(1, 4);
+
+            ItemManager.Instance.DropItem(new Wood(woodAmount), transform.position);
+            ItemManager.Instance.DropItem(new Stick(stickAmount), transform.position);
 
             respawnCoroutine = StartCoroutine(RespawnTimer());
         }

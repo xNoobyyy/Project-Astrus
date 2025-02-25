@@ -12,7 +12,7 @@ namespace Player {
         private static readonly int HorizontalMove = Animator.StringToHash("horizontal_move");
         private static readonly int VerticalMove = Animator.StringToHash("vertical_move");
         private Animator animator;
-        private PlayerCombat playerCombat;
+        private PlayerItem playerItem;
 
         [SerializeField] private float speed = 1.5f;
 
@@ -26,9 +26,9 @@ namespace Player {
             }
         }
 
-        private void Start() {
+        private void Start() {  
             animator = GetComponent<Animator>();
-            playerCombat = GetComponent<PlayerCombat>();
+            playerItem = GetComponent<PlayerItem>();
 
             EventManager.Instance.Trigger(new PlayerMoveEvent(transform.position, transform.position, transform));
         }
@@ -39,7 +39,7 @@ namespace Player {
 
             movement = movement.normalized;
 
-            if (playerCombat.IsAttacking) movement = Vector2.zero;
+            if (playerItem.IsAttacking) movement = Vector2.zero;
 
             animator.SetFloat(HorizontalMove, movement.x);
             animator.SetFloat(VerticalMove, movement.y);

@@ -1,3 +1,4 @@
+using System;
 using Items;
 using Logic.Events;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 namespace Player.Inventory {
     public class PlayerInventory : MonoBehaviour {
         public ItemSlot[] Slots { get; set; }
+
+        [SerializeField] private GameObject slotContainer;
 
         public static PlayerInventory Instance { get; private set; }
 
@@ -14,6 +17,10 @@ namespace Player.Inventory {
             } else {
                 Destroy(gameObject);
             }
+        }
+
+        private void Start() {
+            Slots = slotContainer.GetComponentsInChildren<ItemSlot>(true);
         }
 
         public void SetItem(int index, Item item) {

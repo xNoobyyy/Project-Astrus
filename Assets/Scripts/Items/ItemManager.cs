@@ -37,8 +37,8 @@ namespace Items {
         public Sprite Amour1Icon;
         public Sprite Amour2Icon;
         public Sprite Amour3Icon;
-        
-        
+
+
         public AnimatorController glomtomIcon;
         public AnimatorController extricIcon;
         public AnimatorController domilitantIcon;
@@ -69,6 +69,14 @@ namespace Items {
             droppedItemComponent.MoveTo(position);
 
             return droppedItem;
+        }
+
+        public GameObject DropItem(Item item, Vector3 origin) {
+            var direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+            var distance = Random.Range(1f, 2f);
+
+            var position = origin + (Vector3)direction * distance;
+            return CreateDroppedItem(position, origin, item);
         }
     }
 }
