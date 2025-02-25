@@ -14,12 +14,15 @@ namespace Player.Inventory {
         /// Wird ein anderes Item übergeben, wird es ignoriert.
         /// </summary>
         /// <param name="item">Das zu setzende Item</param>
+        public GameObject panel;
         public new void SetItem(Item item) {
             // Falls das Item nicht null ist und kein PickaxeItem, wird es abgelehnt.
             if (item != null && !(item is CombatItem)) {
+                panel.SetActive(true);
                 return;
             }
             // Aufruf der Basisimplementierung für die visuelle Darstellung.
+            panel.SetActive(false);
             base.SetItem(item);
         }
 

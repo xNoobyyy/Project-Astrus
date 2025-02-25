@@ -1,4 +1,4 @@
-﻿using Animals;
+﻿using Creatures;
 
 namespace Logic.Events {
     public class CreatureDeathEvent {

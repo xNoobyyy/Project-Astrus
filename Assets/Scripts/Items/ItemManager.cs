@@ -36,6 +36,7 @@ namespace Items {
         public Sprite Axe2Icon;
         public Sprite Amour1Icon;
         public Sprite Amour2Icon;
+        public Sprite Amour3Icon;
         
         
         public AnimatorController glomtomIcon;

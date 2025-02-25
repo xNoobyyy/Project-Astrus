@@ -6,16 +6,46 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+
 
 namespace Player.Inventory {
-    public class ItemSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler,
+    public class ItemSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler,
         IDropHandler {
         public Item Item { get; private set; }
+        private TextMeshProUGUI  floatingText;
+        private GameObject floatingTextObject;
+
 
         public GameObject itemRenderer;
         public GameObject itemAmountRenderer;
         public TMP_Text itemAmountText;
 
+
+        void Start() {
+            Transform sibling = transform.parent.Find("ItemNameText");
+            if (sibling != null)
+            {
+                floatingText = sibling.GetComponent<TextMeshProUGUI>();
+                floatingTextObject = sibling.gameObject;
+                if(floatingText == null)
+                Debug.LogError("Kein Text-Component an FloatingText gefunden.");
+            }
+            else
+            {
+                sibling = transform.parent.parent.Find("ItemNameText");
+                Debug.LogError("FloatingText wurde in der Geschwisterebene nicht gefunden.");
+                if (sibling != null)
+                {
+                    floatingText = sibling.GetComponent<TextMeshProUGUI>();
+                    floatingTextObject = sibling.gameObject;
+                    if (floatingText == null)
+                    Debug.LogError("Kein Text-Component an FloatingText gefunden.");
+                }
+            }
+        }
+        
+        
         public void SetItem(Item item) {
             Item = item;
 
@@ -52,7 +82,14 @@ namespace Player.Inventory {
                 }
             }
         }
-
+        
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if (Item != null) {
+                floatingText.text = Item.Name;
+                floatingTextObject.transform.position = gameObject.transform.position + new Vector3(0,30,0);
+            }
+        }
         public void UpdateDisplay() {
             SetItem(Item);
         }
@@ -65,11 +102,11 @@ namespace Player.Inventory {
                     if (itemRenderer.GetComponent<Animator>() == null) {
                         PlayerInventory.Instance.SetItem(
                             Array.IndexOf(PlayerInventory.Instance.Slots, this),
-                            new Stick(1));
+                            new Extric(1));
                     } else {
                         PlayerInventory.Instance.SetItem(
                             Array.IndexOf(PlayerInventory.Instance.Slots, this),
-                            new Stick(1));
+                            new Extric(1));
                     }
 
                     break;

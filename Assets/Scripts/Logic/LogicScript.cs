@@ -1,9 +1,14 @@
+using System;
 using Player.Inventory;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class LogicScript : MonoBehaviour {
+    public static LogicScript Instance { get; private set; }
+    
+    public AccessableInventoryManager accessableInventoryManager;
+    public AccessableInventoryManager accessableInventoryManager2;
     public QuestScreenScript questScreen;
     public InventoryScreen inventoryScreen;
     public GameObject background;
@@ -16,6 +21,14 @@ public class LogicScript : MonoBehaviour {
     private bool InventoryOpen = false;
     public bool WatchOpen = false;
     public bool IconOpened = false;
+
+    private void Awake() {
+        if (Instance == null) {
+            Instance = this;
+        } else {
+            Destroy(gameObject);
+        }
+    }
 
     void Start() {
         inventoryScreen.Close();
@@ -53,6 +66,10 @@ public class LogicScript : MonoBehaviour {
     public void CloseWatch() {
         watch.close();
         //WatchOpen = !watch.closed();
+        accessableInventoryManager.UpdateSlots();
+        accessableInventoryManager2.UpdateSlots();
+        accessableInventoryManager.UpdateSlots();
+        accessableInventoryManager2.UpdateSlots();
     }
 
     public void AddQuestToQuestScreen(string quest) {

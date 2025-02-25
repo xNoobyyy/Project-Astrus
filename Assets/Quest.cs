@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public class Quest: MonoBehaviour  {
+public class Quest  {
     // Der Titel der Quest
     public string title;
     
