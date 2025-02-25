@@ -16,7 +16,7 @@
     },
     {
       "id": 2,
-      "text": "Keine Sorge. Ich werde dir bei allem helfen und zusammen reparieren wir das Raumschiff! Bewege dich mit 'w' 'a' 's' 'd' oder den Pfeiltasten. Öffne mit 'y' mein Menü. Hier findest du dein Inventar, die Karte, ein Logbuch und Crafting-Rezepte. Auch werde ich dir Quests anzeigen, mit denen du die Insel erkunden kannst.",
+      "text": "Zusammen schaffen wir das! Du kannst dich mit +Tasten+ bewegen. Öffne mit +Taste+ mein Menü. Hier findest du dein Inventar, die Karte, ein Logbuch und  Crafting-Rezept, die du oben im Inventar ausführen kannst. Auch befinden sich im Menü deine Nachrichten mit mir. Probiere die Nachrichten so schnell wie möglich zu öffnen, wenn du diese bekommst. In besonders gefährlichen Situationen werde ich dir auch direkt Tipps geben, ohne dass du diese erst antippen musst. Auch werde ich dir Quests anzeigen, mit denen du die Insel erkunden kannst.",
       "weiter": true,
       "start": false,
       "person": 1
