@@ -9,7 +9,7 @@ namespace Objects {
     public class Tree : MonoBehaviour {
         private static readonly int Destroyed = Animator.StringToHash("Destroyed");
         private const int RespawnTime = 300000; // 5 minutes
-        private const int Health = 3;
+        private const int Health = 6;
 
         [SerializeField] private Sprite full;
         [SerializeField] private Sprite destroyed;
@@ -50,9 +50,10 @@ namespace Objects {
         }
 
         private void Update() {
-            if (LogicScript.Instance.accessableInventoryManager.CurrentSlot.Item is not AxeItem axeItem) return;
             if (IsDestroyed || !Input.GetMouseButtonDown(0)) return;
             if (Vector2.Distance(PlayerMovement.Instance.transform.position, transform.position) > 3f) return;
+
+            var currentItem = LogicScript.Instance.accessableInventoryManager.CurrentSlot.Item;
 
             // Convert mouse position to world position
             var zCoord = mainCamera.WorldToScreenPoint(transform.position).z;
@@ -73,7 +74,7 @@ namespace Objects {
                 return;
             }
 
-            Chop(axeItem.ChopPower);
+            Chop(currentItem is AxeItem axe ? axe.ChopPower : 1);
         }
 
         public void Chop(int chopPower) {

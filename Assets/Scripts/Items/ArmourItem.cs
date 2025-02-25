@@ -9,7 +9,7 @@ namespace Items {
             lvl = Lvl;
         }
 
-        public override void OnUse() {
+        public override void OnUse(Transform player, Vector3 position) {
             OnAttack();
         }
 
