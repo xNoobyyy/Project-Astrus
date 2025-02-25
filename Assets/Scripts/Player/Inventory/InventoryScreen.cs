@@ -6,7 +6,6 @@ using Image = UnityEngine.UI.Image;
 
 namespace Player.Inventory {
     public class InventoryScreen : MonoBehaviour {
-        public GameObject itemSlotsContainer;
         public GameObject draggedItem;
         public Image draggedItemImage;
         public GameObject draggedItemAmount;
@@ -32,9 +31,7 @@ namespace Player.Inventory {
 
         private void Start() {
             //gameObject.SetActive(false);
-
-            PlayerInventory.Instance.Slots = itemSlotsContainer.GetComponentsInChildren<ItemSlot>();
-
+            
             CanvasRect = GetComponent<RectTransform>();
             Canvas = GetComponent<Canvas>();
             draggedItemRect = draggedItem.GetComponent<RectTransform>();

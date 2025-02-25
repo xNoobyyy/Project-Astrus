@@ -1,4 +1,5 @@
 ﻿using System;
+using Player;
 using UnityEditor.Animations;
 using UnityEngine;
 using Tree = Objects.Tree;
@@ -13,7 +14,7 @@ namespace Items {
         }
 
         public override void OnUse(Transform player, Vector3 position) {
-            if (Vector2.Distance(player.position, position) > 3f) return;
+            if (PlayerItem.Instance.IsBusy || Vector2.Distance(player.position, position) > 3f) return;
 
             var colliders = Physics2D.OverlapPointAll(position);
             var trees = Array.FindAll(colliders,
@@ -23,6 +24,7 @@ namespace Items {
             var tree = treeCollider?.GetComponent<Tree>() ?? treeCollider?.GetComponentInParent<Tree>();
 
             tree?.Chop(ChopPower);
+            PlayerItem.Instance.Chop();
             OnChop();
         }
 
