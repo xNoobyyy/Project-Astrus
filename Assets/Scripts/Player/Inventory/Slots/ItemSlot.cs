@@ -1,6 +1,7 @@
 using System;
 using Items;
 using Items.Items;
+using Logic.Events;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -145,6 +146,9 @@ namespace Player.Inventory {
                 if (left >= draggedResourceItem.Amount) {
                     resourceItem.SetAmount(resourceItem.Amount + draggedResourceItem.Amount);
                     UpdateDisplay();
+
+                    EventManager.Instance.Trigger(new PlayerMoveItemEvent(Item, this));
+
                     InventoryScreen.Instance.DraggingFrom.SetItem(null);
                 } else {
                     resourceItem.SetAmount(resourceItem.MaxAmount);
@@ -152,12 +156,18 @@ namespace Player.Inventory {
 
                     draggedResourceItem.SetAmount(draggedResourceItem.Amount - left);
                     InventoryScreen.Instance.DraggingFrom.UpdateDisplay();
+
+                    EventManager.Instance.Trigger(new PlayerMoveItemEvent(Item, this));
                 }
             } else {
                 var currentItem = Item;
 
                 SetItem(InventoryScreen.Instance.DraggingFrom.Item);
                 InventoryScreen.Instance.DraggingFrom.SetItem(currentItem);
+
+                EventManager.Instance.Trigger(new PlayerMoveItemEvent(Item, this));
+                EventManager.Instance.Trigger(new PlayerMoveItemEvent(currentItem,
+                    InventoryScreen.Instance.DraggingFrom));
             }
 
             InventoryScreen.Instance.ResetDragging();

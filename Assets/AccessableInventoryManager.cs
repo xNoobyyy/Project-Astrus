@@ -86,7 +86,6 @@ namespace Player.Inventory {
 
         private void OnPlayerMoveItem(PlayerMoveItemEvent e) {
             if (invenSlots.Contains(e.Slot)) {
-                Debug.Log("Update Slots");
                 UpdateSlots();
             }
 
@@ -97,7 +96,6 @@ namespace Player.Inventory {
 
         private void OnPlayerItemPickup(PlayerItemEvent e) {
             if (invenSlots.Contains(e.Slot)) {
-                Debug.Log("Update Slots");
                 UpdateSlots();
             }
 
@@ -126,7 +124,7 @@ namespace Player.Inventory {
             slots[previousIndex].gameObject.SetActive(true);
             slots[currentIndex].gameObject.SetActive(true);
             slots[nextIndex].gameObject.SetActive(true);
-            
+
             EventManager.Instance.Trigger(new PlayerChangeHeldItemEvent(slots[currentIndex]?.Item, requireShift));
         }
 
@@ -141,10 +139,8 @@ namespace Player.Inventory {
         }
 
         public void UpdateSlots() {
-            var i = 0;
-            foreach (var slot in slots) {
-                slot.SetItem(invenSlots[i].Item);
-                i++;
+            for (var i = 0; i < slots.Length; i++) {
+                slots[i].SetItem(invenSlots[i].Item);
             }
         }
     }

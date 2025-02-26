@@ -30,8 +30,8 @@ namespace Player.Inventory {
 
         public void SetItem(int index, Item item) {
             var slot = Slots[index];
-            EventManager.Instance.Trigger(new PlayerItemEvent(item, slot));
             slot.SetItem(item);
+            EventManager.Instance.Trigger(new PlayerItemEvent(item, slot));
         }
 
         public Item GetItem(int index) {

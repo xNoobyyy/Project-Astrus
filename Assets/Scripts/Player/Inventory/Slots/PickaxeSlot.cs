@@ -8,20 +8,22 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Player.Inventory {
-    public class PickaxeSlot : ItemSlot, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler {
+    public class PickaxeSlot : ItemSlot, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler,
+        IDropHandler {
         /// <summary>
         /// Setzt das Item in diesem Slot. Akzeptiert nur null oder Items vom Typ PickaxeItem.
         /// Wird ein anderes Item übergeben, wird es ignoriert.
         /// </summary>
         /// <param name="item">Das zu setzende Item</param>
-
         public GameObject panel;
+
         public new void SetItem(Item item) {
             // Falls das Item nicht null ist und kein PickaxeItem, wird es abgelehnt.
             if (item != null && !(item is PickaxeItem)) {
                 panel.SetActive(true);
                 return;
             }
+
             panel.SetActive(false);
             // Aufruf der Basisimplementierung für die visuelle Darstellung.
             base.SetItem(item);
@@ -58,6 +60,7 @@ namespace Player.Inventory {
                 panel.SetActive(true);
                 return;
             }
+
             InventoryScreen.Instance.ResetDragging();
         }
 
@@ -74,29 +77,12 @@ namespace Player.Inventory {
         /// </summary>
         /// <param name="eventData">Informationen zum Drop-Event</param>
         public new void OnDrop(PointerEventData eventData) {
-            if (InventoryScreen.Instance.DraggingFrom == null) return;
-
-            // Prüfe, ob das gezogene Item ein PickaxeItem ist.
-            if (!(InventoryScreen.Instance.DraggingFrom.Item is PickaxeItem)) {
-                // Nicht akzeptiert: Setze den Drag-Vorgang zurück.
-                InventoryScreen.Instance.ResetDragging();
-                return;
-            }
-            
-            // Falls versucht wird, den Slot auf sich selbst zu droppen, wird nichts getan.
-            if (InventoryScreen.Instance.DraggingFrom == this) {
+            if (InventoryScreen.Instance.DraggingFrom?.Item is not PickaxeItem) {
                 InventoryScreen.Instance.ResetDragging();
                 return;
             }
 
-            // Tausche die Items zwischen diesem Slot und dem Ursprungs-Slot.
-            var draggedItem = InventoryScreen.Instance.DraggingFrom.Item;
-            var currentItem = Item;
-
-            SetItem(draggedItem);
-            InventoryScreen.Instance.DraggingFrom.SetItem(currentItem);
-
-            InventoryScreen.Instance.ResetDragging();
+            base.OnDrop(eventData);
         }
     }
 }
