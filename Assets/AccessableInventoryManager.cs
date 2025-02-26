@@ -118,12 +118,6 @@ namespace Player.Inventory
         public void UpdateSlots() {
             int i = 0;
             foreach (AccessableSlot slot in slots) {
-                if (requireShift) {
-                    Debug.Log(slot.name);
-                    Debug.Log(invenSlots[i].name);
-                    Debug.Log(invenSlots[i].Item);
-                }
-
                 slot.SetItem(invenSlots[i].Item);
                 i++;
             }

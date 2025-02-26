@@ -29,7 +29,7 @@ namespace Items.DroppedItem {
             droppedItem.transform.position = Vector2.MoveTowards(
                 droppedItem.transform.position,
                 player.position,
-                5f * Time.deltaTime
+                0.5f * Time.deltaTime
             );
         }
     }

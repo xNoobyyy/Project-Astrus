@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Player;
 using UnityEditor.Animations;
 using UnityEngine;
@@ -14,16 +15,21 @@ namespace Items {
         }
 
         public override void OnUse(Transform player, Vector3 position) {
-            if (PlayerItem.Instance.IsBusy || Vector2.Distance(player.position, position) > 3f) return;
+            if (PlayerItem.Instance.IsBusy) return;
 
             var colliders = Physics2D.OverlapPointAll(position);
-            var trees = Array.FindAll(colliders,
+            var treeColliders = Array.FindAll(colliders,
                 c => c.GetComponent<Tree>() != null || c.GetComponentInParent<Tree>() != null);
-            Array.Sort(trees, (c1, c2) => c1.transform.position.y.CompareTo(c2.transform.position.y));
-            var treeCollider = trees.Length > 0 ? trees[0] : null;
-            var tree = treeCollider?.GetComponent<Tree>() ?? treeCollider?.GetComponentInParent<Tree>();
+            Array.Sort(treeColliders, (c1, c2) => c1.transform.position.y.CompareTo(c2.transform.position.y));
+            var trees = treeColliders.Select(c => c?.GetComponent<Tree>() ?? c?.GetComponentInParent<Tree>()).ToArray();
+            var nonDestroyed = Array.FindAll(trees, t => !t.IsDestroyed);
+            var tree = nonDestroyed.Length > 0 ? nonDestroyed[0] : null;
 
-            tree?.Chop(ChopPower);
+            if (tree == null) return;
+            if (Vector2.Distance(tree.trigger.ClosestPoint(player.transform.position), player.transform.position) >
+                3f) return;
+
+            tree.Chop(ChopPower);
             PlayerItem.Instance.Chop();
             OnChop();
         }

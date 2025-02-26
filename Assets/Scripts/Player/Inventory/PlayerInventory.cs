@@ -1,11 +1,12 @@
-using System;
+using System.Collections.Generic;
+using System.Linq;
 using Items;
 using Logic.Events;
 using UnityEngine;
 
 namespace Player.Inventory {
     public class PlayerInventory : MonoBehaviour {
-        public ItemSlot[] Slots { get; set; }
+        public ItemSlot[] Slots { get; private set; }
 
         [SerializeField] private GameObject slotContainer;
 
@@ -20,7 +21,16 @@ namespace Player.Inventory {
         }
 
         private void Start() {
-            Slots = slotContainer.GetComponentsInChildren<ItemSlot>();
+            var slotList = new List<ItemSlot>();
+
+            foreach (Transform child in slotContainer.transform) {
+                var component = child?.GetComponent<ItemSlot>();
+                if (component != null) {
+                    slotList.Add(component);
+                }
+            }
+
+            Slots = slotList.ToArray();
         }
 
         public void SetItem(int index, Item item) {
@@ -77,7 +87,9 @@ namespace Player.Inventory {
 
                 foreach (var slot in Slots) {
                     if (slot.Item is not ResourceItem slotResourceItem ||
-                        slotResourceItem.GetType() != resourceItem.GetType()) continue;
+                        slotResourceItem.GetType() != resourceItem.GetType()) {
+                        continue;
+                    }
 
                     var rest = slotResourceItem.MaxAmount - slotResourceItem.Amount;
 
@@ -96,15 +108,22 @@ namespace Player.Inventory {
 
                 resourceItem.SetAmount(restAmount);
 
-                if (restAmount <= 0) return true;
+                if (restAmount <= 0) {
+                    return true;
+                }
+
                 var firstEmpty = FirstEmpty();
-                if (firstEmpty == -1) return false;
+                if (firstEmpty == -1) {
+                    return false;
+                }
 
                 SetItem(firstEmpty, resourceItem);
                 EventManager.Instance.Trigger(new PlayerItemEvent(resourceItem));
             } else {
                 var firstEmpty = FirstEmpty();
-                if (firstEmpty == -1) return false;
+                if (firstEmpty == -1) {
+                    return false;
+                }
 
                 SetItem(firstEmpty, item);
                 EventManager.Instance.Trigger(new PlayerItemEvent(item));

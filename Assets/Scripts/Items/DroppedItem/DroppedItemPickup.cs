@@ -9,7 +9,6 @@ namespace Items.DroppedItem {
 
         public void OnTriggerEnter2D(Collider2D other) {
             if (!other.CompareTag("Player")) return;
-            Debug.Log("Player");
 
             var pickedUp = PlayerInventory.Instance.PickupItem(droppedItem.Item);
             if (pickedUp) {
@@ -21,7 +20,8 @@ namespace Items.DroppedItem {
         }
 
         public void OnTriggerStay2D(Collider2D other) {
-            if (!other.CompareTag("Player") || !waitingForPickup) return;
+            if (!other.CompareTag("Player")) return;
+            if (!waitingForPickup) return;
 
             if (!PlayerInventory.Instance.CanPickUpItem(droppedItem.Item)) return;
             if (!PlayerInventory.Instance.PickupItem(droppedItem.Item)) return;

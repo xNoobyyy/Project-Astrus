@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Creatures;
 using TextDisplay;
 using UnityEngine;
@@ -22,7 +23,7 @@ namespace Player {
         [NonSerialized] public Vector2 attackDirection;
 
         public bool IsChopping { get; private set; }
-        
+
         public bool IsBusy => IsAttacking || IsChopping;
 
         private void Awake() {
@@ -55,16 +56,23 @@ namespace Player {
                 if (currentItem != null) {
                     currentItem.OnUse(transform, worldPosition);
                 } else {
-                    if (IsBusy || Vector2.Distance(transform.position, worldPosition) > 3f) return;
+                    if (IsBusy) return;
 
                     var colliders = Physics2D.OverlapPointAll(worldPosition);
-                    var trees = Array.FindAll(colliders,
+                    var treeColliders = Array.FindAll(colliders,
                         c => c.GetComponent<Tree>() != null || c.GetComponentInParent<Tree>() != null);
-                    Array.Sort(trees, (c1, c2) => c1.transform.position.y.CompareTo(c2.transform.position.y));
-                    var treeCollider = trees.Length > 0 ? trees[0] : null;
-                    var tree = treeCollider?.GetComponent<Tree>() ?? treeCollider?.GetComponentInParent<Tree>();
+                    Array.Sort(treeColliders, (c1, c2) => c1.transform.position.y.CompareTo(c2.transform.position.y));
+                    var trees = treeColliders.Select(c => c?.GetComponent<Tree>() ?? c?.GetComponentInParent<Tree>())
+                        .ToArray();
+                    var nonDestroyed = Array.FindAll(trees, t => !t.IsDestroyed);
+                    var tree = nonDestroyed.Length > 0 ? nonDestroyed[0] : null;
 
-                    tree?.GetComponent<Tree>()?.Chop(1);
+                    if (tree == null) return;
+                    if (Vector2.Distance(tree.trigger.ClosestPoint(transform.position), transform.position) >
+                        3f) return;
+
+                    tree.GetComponent<Tree>()?.Chop(1);
+                    Chop();
                 }
             } else if (Input.GetMouseButtonDown(1)) {
                 // Right Click

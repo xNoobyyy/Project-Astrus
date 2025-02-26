@@ -14,7 +14,7 @@ namespace Objects {
 
         [SerializeField] private Sprite full;
         [SerializeField] private Sprite destroyed;
-        [SerializeField] private PolygonCollider2D trigger;
+        [SerializeField] public PolygonCollider2D trigger;
         [SerializeField] private ParticleSystem damageParticles;
 
         private SpriteRenderer spriteRenderer;
@@ -79,7 +79,7 @@ namespace Objects {
         private IEnumerator RespawnTimer() {
             var currentTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
             var timeLeft = RespawnTime - (currentTime - DestroyedAt);
-
+            
             if (timeLeft > 0) {
                 yield return new WaitForSeconds(timeLeft / 1000f);
             }
