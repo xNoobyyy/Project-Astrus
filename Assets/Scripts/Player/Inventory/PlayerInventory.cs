@@ -8,6 +8,10 @@ namespace Player.Inventory {
     public class PlayerInventory : MonoBehaviour {
         public ItemSlot[] Slots { get; private set; }
 
+        public ItemSlot[] NeutralSlots =>
+            Slots.Where(slot => slot != null && !slot.GetType().IsSubclassOf(typeof(ItemSlot)))
+                .ToArray();
+
         [SerializeField] private GameObject slotContainer;
 
         public static PlayerInventory Instance { get; private set; }
@@ -21,20 +25,14 @@ namespace Player.Inventory {
         }
 
         private void Start() {
-            var slotList = new List<ItemSlot>();
-
-            foreach (Transform child in slotContainer.transform) {
-                var component = child?.GetComponent<ItemSlot>();
-                if (component != null) {
-                    slotList.Add(component);
-                }
-            }
-
-            Slots = slotList.ToArray();
+            Slots = slotContainer.GetComponentsInChildren<ItemSlot>();
+            Debug.Log($"All Slots: {Slots.Length} and Neutral Slots {NeutralSlots.Length}");
         }
 
         public void SetItem(int index, Item item) {
-            Slots[index].SetItem(item);
+            var slot = Slots[index];
+            EventManager.Instance.Trigger(new PlayerItemEvent(item, slot));
+            slot.SetItem(item);
         }
 
         public Item GetItem(int index) {
@@ -46,9 +44,9 @@ namespace Player.Inventory {
         }
 
         public int FirstEmpty() {
-            for (var i = 0; i < Slots.Length; i++) {
-                if (Slots[i].Item == null) {
-                    return i;
+            foreach (var slot in NeutralSlots) {
+                if (slot.Item == null) {
+                    return Slots.ToList().IndexOf(slot);
                 }
             }
 
@@ -64,7 +62,7 @@ namespace Player.Inventory {
             if (item is not ResourceItem resourceItem) return FirstEmpty() != -1;
             if (FirstEmpty() != -1) return true;
 
-            foreach (var slot in Slots) {
+            foreach (var slot in NeutralSlots) {
                 if (slot.Item is not ResourceItem slotResourceItem ||
                     slotResourceItem.GetType() != resourceItem.GetType()) continue;
 
@@ -85,7 +83,7 @@ namespace Player.Inventory {
             if (item is ResourceItem resourceItem) {
                 var restAmount = resourceItem.Amount;
 
-                foreach (var slot in Slots) {
+                foreach (var slot in NeutralSlots) {
                     if (slot.Item is not ResourceItem slotResourceItem ||
                         slotResourceItem.GetType() != resourceItem.GetType()) {
                         continue;
@@ -95,13 +93,13 @@ namespace Player.Inventory {
 
                     if (rest >= restAmount) {
                         slotResourceItem.SetAmount(slotResourceItem.Amount + restAmount);
-                        EventManager.Instance.Trigger(new PlayerItemEvent(slotResourceItem));
+                        EventManager.Instance.Trigger(new PlayerItemEvent(slotResourceItem, slot));
                         slot.UpdateDisplay();
                         return true;
                     }
 
                     slotResourceItem.SetAmount(slotResourceItem.MaxAmount);
-                    EventManager.Instance.Trigger(new PlayerItemEvent(slotResourceItem));
+                    EventManager.Instance.Trigger(new PlayerItemEvent(slotResourceItem, slot));
                     slot.UpdateDisplay();
                     restAmount -= rest;
                 }
@@ -118,7 +116,6 @@ namespace Player.Inventory {
                 }
 
                 SetItem(firstEmpty, resourceItem);
-                EventManager.Instance.Trigger(new PlayerItemEvent(resourceItem));
             } else {
                 var firstEmpty = FirstEmpty();
                 if (firstEmpty == -1) {
@@ -126,7 +123,6 @@ namespace Player.Inventory {
                 }
 
                 SetItem(firstEmpty, item);
-                EventManager.Instance.Trigger(new PlayerItemEvent(item));
             }
 
             return true;

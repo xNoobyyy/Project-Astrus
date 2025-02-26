@@ -5,6 +5,7 @@ using System.Linq;
 using Logic.Events;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 using Utils.WhiteFlash;
 // for Pathfinding etc.
 using Random = UnityEngine.Random;
@@ -24,6 +25,7 @@ namespace Creatures {
         [SerializeField] protected float speed;
         [SerializeField] protected ParticleSystem damageParticles;
         [SerializeField] protected ParticleSystem deathParticles;
+        [SerializeField] private GameObject[] destroyOnDeath;
 
         [NonSerialized] public PolygonCollider2D Area;
 
@@ -187,6 +189,10 @@ namespace Creatures {
             Health = 0;
             Dead = true;
             EventManager.Instance.Trigger(new CreatureDeathEvent(this));
+            foreach (var obj in destroyOnDeath) {
+                Destroy(obj);
+            }
+
             StartCoroutine(DestroyGameObject());
         }
 

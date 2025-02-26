@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Creatures;
+using Items;
+using Logic.Events;
 using TextDisplay;
 using UnityEngine;
 using Tree = Objects.Tree;
@@ -14,6 +16,8 @@ namespace Player {
         public static PlayerItem Instance { get; private set; }
 
         [SerializeField] public Collider2D attackCollider;
+        [SerializeField] public Bow.Bow bowContainer;
+        [SerializeField] public Bow.Bow bowContainerShift;
 
         [NonSerialized] public Camera mainCamera;
         [NonSerialized] public Animator animator;
@@ -38,6 +42,14 @@ namespace Player {
             mainCamera = Camera.main;
             animator = GetComponent<Animator>();
             rb = GetComponent<Rigidbody2D>();
+        }
+
+        private void OnEnable() {
+            EventManager.Instance.Subscribe<PlayerChangeHeldItemEvent>(OnPlayerChangeHeldItem);
+        }
+
+        private void OnDisable() {
+            EventManager.Instance.Unsubscribe<PlayerChangeHeldItemEvent>(OnPlayerChangeHeldItem);
         }
 
         private void Update() {
@@ -109,6 +121,23 @@ namespace Player {
             animator.SetInteger(AttackDirection, 0);
             IsAttacking = false;
             attackDirection = Vector2.zero;
+        }
+
+        private void OnPlayerChangeHeldItem(PlayerChangeHeldItemEvent e) {
+            if (e.Item is not BowItem bowItem) {
+                if (bowContainer.gameObject.activeSelf) bowContainer.gameObject.SetActive(false);
+                if (bowContainerShift.gameObject.activeSelf) bowContainerShift.gameObject.SetActive(false);
+
+                return;
+            }
+
+            if (e.Shift) {
+                bowContainerShift.gameObject.SetActive(true);
+                bowContainerShift.SetItem(bowItem);
+            } else {
+                bowContainer.gameObject.SetActive(true);
+                bowContainer.SetItem(bowItem);
+            }
         }
     }
 }

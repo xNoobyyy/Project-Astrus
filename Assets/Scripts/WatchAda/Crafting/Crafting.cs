@@ -285,14 +285,12 @@ public class Crafting : MonoBehaviour {
                 if (instance is ResourceItem resourceItem) {
                     Debug.Log("Falsches Item");
                     CraftedSlot.fillSlot(resourceItem);
-                    EventManager.Instance.Trigger(new PlayerItemEvent(resourceItem));
                 }
             } else {
                 object instance = Activator.CreateInstance(typ);
                 if (instance is Item item) {
                     Debug.Log("Sollte funktionieren");
                     CraftedSlot.fillSlot(item);
-                    EventManager.Instance.Trigger(new PlayerItemEvent(item));
                 }
             }
         }
