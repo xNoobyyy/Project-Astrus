@@ -20,7 +20,7 @@ namespace Player.Inventory {
         }
 
         private void Start() {
-            Slots = slotContainer.GetComponentsInChildren<ItemSlot>(true);
+            Slots = slotContainer.GetComponentsInChildren<ItemSlot>();
         }
 
         public void SetItem(int index, Item item) {

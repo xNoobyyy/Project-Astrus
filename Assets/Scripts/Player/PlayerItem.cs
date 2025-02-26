@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Creatures;
 using TextDisplay;
@@ -19,6 +20,10 @@ namespace Player {
 
         public bool IsAttacking { get; set; }
         [NonSerialized] public Vector2 attackDirection;
+
+        public bool IsChopping { get; private set; }
+        
+        public bool IsBusy => IsAttacking || IsChopping;
 
         private void Awake() {
             if (Instance == null) {
@@ -50,7 +55,7 @@ namespace Player {
                 if (currentItem != null) {
                     currentItem.OnUse(transform, worldPosition);
                 } else {
-                    if (IsAttacking || Vector2.Distance(transform.position, worldPosition) > 3f) return;
+                    if (IsBusy || Vector2.Distance(transform.position, worldPosition) > 3f) return;
 
                     var colliders = Physics2D.OverlapPointAll(worldPosition);
                     var trees = Array.FindAll(colliders,
@@ -72,6 +77,16 @@ namespace Player {
 
                 currentItem?.OnUse(transform, worldPosition);
             }
+        }
+
+        public void Chop() {
+            IsChopping = true;
+            StartCoroutine(FinishChop());
+        }
+
+        private IEnumerator FinishChop() {
+            yield return new WaitForSeconds(1);
+            IsChopping = false;
         }
 
         private void Attack() {

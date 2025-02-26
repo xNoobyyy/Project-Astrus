@@ -18,7 +18,6 @@ namespace Objects {
         [SerializeField] private ParticleSystem damageParticles;
 
         private SpriteRenderer spriteRenderer;
-        private Camera mainCamera;
         private Animator animator;
 
         public int Damage { get; private set; }
@@ -29,26 +28,26 @@ namespace Objects {
 
         private void Awake() {
             spriteRenderer = GetComponent<SpriteRenderer>();
-            mainCamera = Camera.main;
             animator = GetComponent<Animator>();
+
+            Damage = 0;
+            DestroyedAt = -1;
         }
 
         private void OnEnable() {
-            if (IsDestroyed) {
-                if (respawnCoroutine != null) {
-                    StopCoroutine(respawnCoroutine);
-                    respawnCoroutine = null;
-                }
-
-                respawnCoroutine = StartCoroutine(RespawnTimer());
-            }
-        }
-
-        private void OnDisable() {
+            if (!IsDestroyed) return;
             if (respawnCoroutine != null) {
                 StopCoroutine(respawnCoroutine);
                 respawnCoroutine = null;
             }
+
+            respawnCoroutine = StartCoroutine(RespawnTimer());
+        }
+
+        private void OnDisable() {
+            if (respawnCoroutine == null) return;
+            StopCoroutine(respawnCoroutine);
+            respawnCoroutine = null;
         }
 
         public void Chop(int chopPower) {
