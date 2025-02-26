@@ -35,6 +35,7 @@ namespace Player {
                 Instance = this;
             } else {
                 Destroy(gameObject);
+                return;
             }
 
             IsAttacking = false;

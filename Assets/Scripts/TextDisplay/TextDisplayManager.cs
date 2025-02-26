@@ -12,6 +12,7 @@ namespace TextDisplay {
                 Instance = this;
             } else {
                 Destroy(gameObject);
+                return;
             }
         }
     }

@@ -29,7 +29,7 @@ namespace Player.Inventory {
                     Debug.LogError("Kein Text-Component an FloatingText gefunden.");
             } else {
                 sibling = transform.parent.parent.Find("ItemNameText");
-                Debug.LogError("FloatingText wurde in der Geschwisterebene nicht gefunden.");
+                Debug.Log("FloatingText wurde in der Geschwisterebene nicht gefunden.");
                 if (sibling != null) {
                     floatingText = sibling.GetComponent<TextMeshProUGUI>();
                     floatingTextObject = sibling.gameObject;

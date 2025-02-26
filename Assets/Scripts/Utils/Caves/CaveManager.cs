@@ -14,6 +14,7 @@ namespace Utils.Caves {
                 Instance = this;
             } else {
                 Destroy(gameObject);
+                return;
             }
 
             IsCave = false;

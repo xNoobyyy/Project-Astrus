@@ -26,6 +26,7 @@ namespace Player.Inventory {
                 Instance = this;
             } else {
                 Destroy(gameObject);
+                return;
             }
         }
 

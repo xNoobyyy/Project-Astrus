@@ -57,6 +57,7 @@ namespace Items {
                 Instance = this;
             } else {
                 Destroy(gameObject);
+                return;
             }
         }
 

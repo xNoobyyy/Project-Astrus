@@ -27,6 +27,7 @@ public class LogicScript : MonoBehaviour {
             Instance = this;
         } else {
             Destroy(gameObject);
+            return;
         }
     }
 

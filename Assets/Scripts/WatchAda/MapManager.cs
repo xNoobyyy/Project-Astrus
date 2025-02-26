@@ -138,7 +138,7 @@ public class MapManager : MonoBehaviour
                             img.sprite = coverSprite;
                         }
                     }
-                }//else { Debug.Log("true"); }
+                }
             }
         }
     }

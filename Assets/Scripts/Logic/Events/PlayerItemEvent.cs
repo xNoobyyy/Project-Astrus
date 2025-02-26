@@ -11,7 +11,6 @@ namespace Logic.Events {
         public readonly ItemSlot Slot;
 
         public PlayerItemEvent(Item item, ItemSlot slot) {
-            Debug.Log("PlayerItemEvent " + item.Name + "; slot: " + slot);
             Item = item;
             this.Slot = slot;
         }

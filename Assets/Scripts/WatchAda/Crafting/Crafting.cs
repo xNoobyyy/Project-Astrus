@@ -229,8 +229,6 @@ public class Crafting : MonoBehaviour {
     void Start() { }
 
     void Update() {
-        //Debug.Log("Los");
-
         CraftingItem1 = CraftingSlot1.Item;
         CraftingItem2 = CraftingSlot2.Item;
         CraftingItem3 = CraftingSlot3.Item;

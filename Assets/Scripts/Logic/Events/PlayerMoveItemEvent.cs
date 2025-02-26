@@ -8,7 +8,6 @@ namespace Logic.Events {
         public readonly ItemSlot Slot;
 
         public PlayerMoveItemEvent(Item item, ItemSlot slot) {
-            Debug.Log("PlayerMoveItemEvent " + item.Name + "; slot: " + slot);
             Item = item;
             Slot = slot;
         }

@@ -31,8 +31,6 @@ public class MapLogic : MonoBehaviour {
             int gridX = Mathf.FloorToInt((gridWidth * (player.position.x + 290)) / 680 );
             int gridY = Mathf.FloorToInt((gridHeight * (player.position.y + 35 + 166)) / 680 );
             
-            //Debug.Log(gridX + "," + gridY);
-
             // Markiere die Zelle, in der sich der Spieler befindet, sowie angrenzende Zellen im unlockRadius
             for (int i = gridX - unlockRadius; i <= gridX + unlockRadius; i++)
             {

@@ -39,7 +39,7 @@ namespace Player.Inventory {
         private int currentIndex = 0; // Index des aktuell aktiven (Haupt-)Slots
         public AccessableSlot CurrentSlot => slots[currentIndex];
 
-        void Start() {
+        private void Start() {
             if (slots == null || slots.Length != 5) {
                 Debug.LogError("Bitte weise dem InventoryManager genau 5 Slots zu!");
                 return;
@@ -59,7 +59,7 @@ namespace Player.Inventory {
             EventManager.Instance.Unsubscribe<PlayerItemEvent>(OnPlayerItemPickup);
         }
 
-        void Update() {
+        private void Update() {
             // Überprüfe den Mausradinput zum Rotieren
             var scroll = Input.GetAxis("Mouse ScrollWheel");
             var shift = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
@@ -126,12 +126,12 @@ namespace Player.Inventory {
             slots[previousIndex].gameObject.SetActive(true);
             slots[currentIndex].gameObject.SetActive(true);
             slots[nextIndex].gameObject.SetActive(true);
-
-            EventManager.Instance.Trigger(new PlayerChangeHeldItemEvent(slots[currentIndex].Item, requireShift));
+            
+            EventManager.Instance.Trigger(new PlayerChangeHeldItemEvent(slots[currentIndex]?.Item, requireShift));
         }
 
         // Animiert einen Slot in Richtung der Zielposition und Zielskalierung mittels Lerp
-        void AnimateSlot(AccessableSlot slot, Vector2 targetPosition, Vector3 targetScale) {
+        private void AnimateSlot(AccessableSlot slot, Vector2 targetPosition, Vector3 targetScale) {
             var rt = slot.GetComponent<RectTransform>();
             if (rt != null) {
                 rt.anchoredPosition =

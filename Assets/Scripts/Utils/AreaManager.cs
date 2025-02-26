@@ -18,11 +18,14 @@ namespace Utils {
         private readonly Dictionary<Volume, Coroutine> volumeFadeCoroutines = new();
         private Coroutine imageFadeCoroutine;
 
+        public Area LastOrCurrentArea { get; set; }
+
         private void Awake() {
             if (Instance == null) {
                 Instance = this;
             } else {
                 Destroy(gameObject);
+                return;
             }
         }
 

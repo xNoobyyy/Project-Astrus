@@ -32,6 +32,8 @@ namespace Utils {
                 FadeDuration);
             AreaManager.Instance.FadeVolumeTo(AreaManager.Instance.caveVolume, type is AreaType.Cave ? 1f : 0f,
                 FadeDuration);
+
+            AreaManager.Instance.LastOrCurrentArea = this;
         }
 
         private void OnTriggerExit2D(Collider2D other) {

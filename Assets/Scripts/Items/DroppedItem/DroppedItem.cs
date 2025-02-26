@@ -33,7 +33,7 @@ namespace Items.DroppedItem {
                 transform.position = Vector2.MoveTowards(
                     transform.position,
                     target,
-                    Time.fixedDeltaTime
+                    2.5f * Time.fixedDeltaTime
                 );
                 yield return new WaitForFixedUpdate();
             }
