@@ -1,4 +1,10 @@
 using UnityEngine;
+using System;
+using System.Collections.Generic;
+using Player.Inventory;
+using Items;
+using System.Reflection;
+using UnityEngine.Rendering.Universal;
 
 [System.Serializable]
 public class Quest  {
@@ -23,6 +29,8 @@ public class Quest  {
     // Optional: Ein Icon, das zur Darstellung der Quest genutzt wird
     public Sprite icon;
     
+    private List<QuestCondition> conditions = new List<QuestCondition>();
+    
     /// <summary>
     /// Konstruktor für eine neue Quest.
     /// </summary>
@@ -44,7 +52,7 @@ public class Quest  {
     }
     
     /// <summary>
-    /// Aktualisiert den Fortschritt der Quest.
+    /// Aktualisiert den Fortschritt der Quest und prüft ob sie abgeschlossen wurde
     /// </summary>
     /// <param name="amount">Die Menge, um die der Fortschritt erhöht werden soll.</param>
     public void UpdateProgress(int amount) {
@@ -54,8 +62,15 @@ public class Quest  {
         
         if (currentProgress >= requiredProgress) {
             currentProgress = requiredProgress;
-            isCompleted = true;
+            CompleteQuest();
         }
+    }
+    /// <summary>
+    /// Markiert die Quest als abgeschlossen und ruft das Abschluss-Event auf.
+    /// </summary>
+    private void CompleteQuest() 
+    {
+        isCompleted = true;
     }
     
     /// <summary>
@@ -66,4 +81,92 @@ public class Quest  {
             return 1f;
         return (float)currentProgress / requiredProgress;
     }
+    public void AddCondition(QuestCondition condition)
+    {
+        conditions.Add(condition);
+    }
+
+    public bool IsCompleted()
+    {
+        foreach (QuestCondition condition in conditions) {
+            if (condition.IsMet()) {
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
 }
+
+public abstract class QuestCondition {
+    public abstract bool IsMet();
+}
+
+public class ItemCondition : QuestCondition {
+    private Item item;
+    private GameObject[] allSlots;
+    private GameObject slotsContainer;
+    List<Item> itemSlots = new List<Item>();
+
+    public bool ContainsItem(Item item) {
+        foreach (Item obj in itemSlots) {
+            if (obj.Name == item.Name) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public void Update() {
+        if (Input.GetKeyDown(KeyCode.O)) {
+            Slots();
+        }
+    }
+
+    public void Slots() {
+        slotsContainer = GameObject.FindWithTag("Slots");
+        if (slotsContainer == null) {
+            Debug.LogError("SlotsContainer nicht gefunden!");
+            return;
+        }
+
+        itemSlots = GetAllItems(slotsContainer);
+    }
+
+
+    public ItemCondition(Item item) {
+        this.item = item;
+    }
+
+    public override bool IsMet() {
+        Debug.Log(ContainsItem(item));
+        return ContainsItem(item);
+    }
+
+    private List<GameObject> GetAllChildren(GameObject parent) {
+        List<GameObject> childrenList = new List<GameObject>();
+        foreach (Transform child in parent.transform) {
+            childrenList.Add(child.gameObject);
+            childrenList.AddRange(GetAllChildren(child.gameObject));
+        }
+
+        return childrenList;
+    }
+
+    private List<Item> GetAllItems(GameObject parent) {
+
+        List<GameObject> allChildren = GetAllChildren(parent);
+        List<Item> allItems = new List<Item>();
+
+        foreach (GameObject child in allChildren) {
+            if (child.TryGetComponent<ItemSlot>(out ItemSlot itemSlot) && itemSlot.Item != null) {
+                Debug.Log($"Item gefunden in {child.name}: {itemSlot.Item}");
+                allItems.Add(itemSlot.Item);
+            }
+        }
+
+        return allItems;
+    }
+}
+    

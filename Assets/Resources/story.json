@@ -219,7 +219,7 @@
     },
     {
       "id": 33,
-      "text": "Ich bin +Spieler+. Mein Raumschiff ist abgestürzt und ich muss es schnell reparieren.",
+      "text": "Ich bin {playerName}. Mein Raumschiff ist abgestürzt und ich muss es schnell reparieren.",
       "weiter": true,
       "start": false,
       "person": 0

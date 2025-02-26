@@ -1,4 +1,3 @@
-
 using System.Collections.Generic;
 using Player.Inventory;
 using TMPro; // Für TextMeshPro

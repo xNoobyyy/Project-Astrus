@@ -57,7 +57,7 @@ namespace Player.Inventory {
 
             return false;
         }
-
+        
         /// <summary>
         /// Tries to pick up the item. If the item is a ResourceItem, it will first try to stack it with existing items.
         /// </summary>

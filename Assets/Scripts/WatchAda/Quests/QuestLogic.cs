@@ -1,25 +1,19 @@
 using System.Collections.Generic;
+using Items;
+using Items.Items;
+using Player.Inventory;
 using TMPro;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.InputSystem.Controls;
 
 public class QuestLogic : MonoBehaviour {
-
+    public Item stick = new Stick(1);
     public TextMeshProUGUI mainTitle;
     public TextMeshProUGUI mainDescription;
     public TextMeshProUGUI mainProgress;
     public TextMeshProUGUI sideText;
     public GameObject sideDescription;
-
-    public Quest testQuest;
-    public Quest testQuest2;
-    public Quest testQuest3;
-    public Quest testQuest4;
-    public Quest testQuest5;
-    public Quest testQuest6;
-    public Quest testQuest7;
-    public Quest testQuest8;
-    public Quest testQuest9;
     
     public List<QuestGroup> questGroups = new List<QuestGroup>();
     public int activeGroup = 0;
@@ -111,11 +105,12 @@ public class QuestLogic : MonoBehaviour {
     public Quest nachHauseQuest;
     
     public List<Quest> sideQuests = new List<Quest>();
-
     void Start() {
     // Gruppe 1: Festland
         festlandQuest = new Quest("Festland", "Überquere das Meer.", true, 1);
         baueQuest = new Quest("Holz", "Sammle Holz und Äste.", false, 1);
+        baueQuest.AddCondition(new ItemCondition(stick));
+        Debug.Log("Bedingung hinzugefügt");
         bootQuest = new Quest("Boot", "Baue ein Boot.", false, 1);
         tierQuest = new Quest("Tier", "Streichele ein friedliches Tier.", false, 1);
         betreteFestlandQuest = new Quest("Ankunft", "Betrete das Festland.", false, 1);
@@ -221,6 +216,7 @@ public class QuestLogic : MonoBehaviour {
 
         UpdateSideQuests();
         UpdateMainQuest();
+        
     }
 
 
@@ -237,10 +233,18 @@ public class QuestLogic : MonoBehaviour {
         //return quest;
     //}
 
-    void Update()
-    {
-        // Update-Logik falls erforderlich
-    }
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.P)) {
+            foreach (var quest in questGroups[activeGroup].subQuests) {
+                if (!quest.IsCompleted()) continue;
+                FinishSideQuest(quest);
+            }
+            UpdateSideQuests();
+        }
+
+        if (Input.GetKeyDown(KeyCode.O)) {
+        }
+}
 
     public void UpdateMainQuest() {
         Quest quest = questGroups[activeGroup].mainQuest;
@@ -285,7 +289,7 @@ public class QuestLogic : MonoBehaviour {
 public class QuestGroup {
     public Quest mainQuest;
     public List<Quest> subQuests;
-
+    
     public QuestGroup(Quest mainQuest, List<Quest> subQuests = null) {
         this.mainQuest = mainQuest;
         this.subQuests = subQuests ?? new List<Quest>();

@@ -11,7 +11,6 @@ namespace Player.Inventory {
         public Image draggedItemImage;
         public GameObject draggedItemAmount;
         public TMP_Text draggedItemAmountText;
-
         public ItemSlot DraggingFrom { get; private set; }
 
         public static InventoryScreen Instance { get; private set; }
@@ -19,9 +18,6 @@ namespace Player.Inventory {
         public RectTransform CanvasRect { get; private set; }
 
         private RectTransform draggedItemRect;
-
-        
-
         private void Awake() {
             if (Instance == null) {
                 Instance = this;
