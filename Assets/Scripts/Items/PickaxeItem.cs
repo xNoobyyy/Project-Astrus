@@ -9,7 +9,7 @@ namespace Items {
             pickPower = PickPower;
         }
 
-        public override void OnUse() {
+        public override void OnUse(Transform player, Vector3 position) {
             OnPick();
         }
 

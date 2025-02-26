@@ -72,6 +72,8 @@ public class OpeningIcon : MonoBehaviour
                 openedIcon.SetActive(true);
                 if (startPosition == new Vector2(128, 128)) {
                     inventoryScreen.SetActive(true);
+                    inventoryScreen.SetActive(false);
+                    inventoryScreen.SetActive(true);
                 }
 
                 if (startPosition == new Vector2(-128, -128)) {

@@ -2,35 +2,58 @@ using System;
 using Items;
 using Items.Items;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Player.Inventory {
     public class ItemSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler,
+        IPointerEnterHandler,
         IDropHandler {
         public Item Item { get; private set; }
+        private TextMeshProUGUI floatingText;
+        private GameObject floatingTextObject;
+
 
         public GameObject itemRenderer;
         public GameObject itemAmountRenderer;
         public TMP_Text itemAmountText;
+
+
+        void Start() {
+            Transform sibling = transform.parent.Find("ItemNameText");
+            if (sibling != null) {
+                floatingText = sibling.GetComponent<TextMeshProUGUI>();
+                floatingTextObject = sibling.gameObject;
+                if (floatingText == null)
+                    Debug.LogError("Kein Text-Component an FloatingText gefunden.");
+            } else {
+                sibling = transform.parent.parent.Find("ItemNameText");
+                Debug.Log("FloatingText wurde in der Geschwisterebene nicht gefunden.");
+                if (sibling != null) {
+                    floatingText = sibling.GetComponent<TextMeshProUGUI>();
+                    floatingTextObject = sibling.gameObject;
+                    if (floatingText == null)
+                        Debug.LogError("Kein Text-Component an FloatingText gefunden.");
+                }
+            }
+        }
+
 
         public void SetItem(Item item) {
             Item = item;
 
             var itemRenderImageComponent = itemRenderer.GetComponent<Image>();
             var itemRenderAnimatorComponent = itemRenderer.GetComponent<Animator>();
-            
 
             if (Item == null) {
                 if (Item is ResourceItem resourceItem) {
                     resourceItem.Amount = 0;
                 }
+
                 itemRenderer.SetActive(false);
                 itemAmountRenderer.SetActive(false);
             } else {
-                
                 itemRenderer.SetActive(true);
                 if (itemRenderer.GetComponent<Animator>() == null) {
                     itemRenderImageComponent.sprite = Item.Icon;
@@ -39,17 +62,21 @@ namespace Player.Inventory {
                     itemRenderImageComponent.sprite = Item.Icon;
                     itemRenderImageComponent.preserveAspect = true;
                     itemRenderAnimatorComponent.runtimeAnimatorController = Item.AnimatedIcon;
-                    
-                    
                 }
 
                 if (Item is ResourceItem resourceItem) {
                     itemAmountRenderer.SetActive(true);
-                    itemAmountText.outlineWidth = 0.2f;
                     itemAmountText.text = resourceItem.Amount.ToString();
                 } else {
                     itemAmountRenderer.SetActive(false);
                 }
+            }
+        }
+
+        public void OnPointerEnter(PointerEventData eventData) {
+            if (Item != null) {
+                floatingText.text = Item.Name;
+                floatingTextObject.transform.position = gameObject.transform.position + new Vector3(0, 30, 0);
             }
         }
 
@@ -65,11 +92,11 @@ namespace Player.Inventory {
                     if (itemRenderer.GetComponent<Animator>() == null) {
                         PlayerInventory.Instance.SetItem(
                             Array.IndexOf(PlayerInventory.Instance.Slots, this),
-                            new Stick(1));
+                            new Extric(1));
                     } else {
                         PlayerInventory.Instance.SetItem(
                             Array.IndexOf(PlayerInventory.Instance.Slots, this),
-                            new Stick(1));
+                            new Extric(1));
                     }
 
                     break;
@@ -83,6 +110,7 @@ namespace Player.Inventory {
                             Array.IndexOf(PlayerInventory.Instance.Slots, this),
                             new Iron(1));
                     }
+
                     break;
             }
         }
@@ -108,7 +136,7 @@ namespace Player.Inventory {
                 InventoryScreen.Instance.ResetDragging();
                 return;
             }
-            
+
             if (InventoryScreen.Instance.DraggingFrom.Item is ResourceItem draggedResourceItem &&
                 Item is ResourceItem resourceItem && draggedResourceItem.GetType() == resourceItem.GetType() &&
                 resourceItem.Amount < resourceItem.MaxAmount) {
@@ -139,13 +167,14 @@ namespace Player.Inventory {
             if (Item is ResourceItem resourceItem) {
                 resourceItem.Amount = 0;
             }
+
             Item = null;
             var itemRenderImageComponent = itemRenderer.GetComponent<Image>();
             var itemRenderAnimatorComponent = itemRenderer.GetComponent<Animator>();
 
             itemRenderImageComponent = null;
             itemRenderAnimatorComponent = null;
-            
+
             itemRenderer.SetActive(false);
             itemAmountRenderer.SetActive(false);
         }

@@ -113,11 +113,15 @@ MonoBehaviour:
   speed: 1
   damageParticles: {fileID: 4953661432376400174}
   deathParticles: {fileID: 4904858497902227260}
+  destroyOnDeath:
+  - {fileID: 7828336729510870555}
+  - {fileID: 2218605640389945448}
   angryTag: {fileID: 2218605640389945448}
   chaseDuration: 15
   attackRange: 2
   attackDamage: 10
   attackCooldown: 1
+  followDistance: 20
 --- !u!114 &7307947283167862677
 MonoBehaviour:
   m_ObjectHideFlags: 0

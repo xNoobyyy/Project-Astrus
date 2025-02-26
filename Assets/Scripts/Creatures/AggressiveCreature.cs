@@ -1,4 +1,5 @@
 ﻿using Logic.Events;
+using TextDisplay;
 using UnityEngine;
 
 namespace Creatures {
@@ -11,11 +12,13 @@ namespace Creatures {
         [SerializeField] private float attackCooldown = 1f;
         private float timeSinceLastAttack;
 
-        private void OnEnable() {
+        private new void OnEnable() {
+            base.OnEnable();
             EventManager.Instance.Subscribe<PlayerMoveEvent>(HandlePlayerMove);
         }
 
-        private void OnDisable() {
+        private new void OnDisable() {
+            base.OnDisable();
             EventManager.Instance.Unsubscribe<PlayerMoveEvent>(HandlePlayerMove);
         }
 
@@ -56,7 +59,7 @@ namespace Creatures {
             if (agent.velocity.sqrMagnitude > 0.01f) SetAnimationDirection(agent.velocity.normalized);
 
             if (Vector3.Distance(transform.position, chaseTarget.position) < attackRange) {
-                if (timeSinceLastAttack > attackCooldown && !TextDisplay.TextDisplay.Instance.isDialogueActive) {
+                if (timeSinceLastAttack > attackCooldown && !TextDisplayManager.Instance.textDisplay.isDialogueActive) {
                     timeSinceLastAttack = 0;
                     EventManager.Instance.Trigger(new PlayerDamageEvent(attackDamage, transform));
                 } else {

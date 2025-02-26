@@ -12,6 +12,7 @@ namespace Logic.Events {
                 Instance = this;
             } else {
                 Destroy(gameObject);
+                return;
             }
 
             events = new Dictionary<Type, Delegate>();
