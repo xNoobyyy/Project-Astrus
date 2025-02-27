@@ -1,10 +1,10 @@
 using System;
+using System.Linq;
+using Logic.Events;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Player.Inventory
-{
-    
+namespace Player.Inventory {
     /*
     Anleitung zur Einrichtung:
     1. Erstelle ein leeres GameObject in deiner Szene (z.B. "InventoryManager") und hänge dieses Script daran.
@@ -15,117 +15,134 @@ namespace Player.Inventory
     6. Starte das Spiel: Mit dem Mausrad wechselst du zwischen den Slots. Der Slot links bzw. rechts (bzw. oben und unten, je nach deinen Positionseinstellungen) wird dabei ein- oder ausgeblendet.
     */
 
-    public class AccessableInventoryManager : MonoBehaviour
-    {
+    public class AccessableInventoryManager : MonoBehaviour {
         [Header("Slot Referenzen (genau 5 AccessableSlot Objekte zuweisen)")]
         public AccessableSlot[] slots; // Das Array MUSS exakt 5 Elemente enthalten
+
         public ItemSlot[] invenSlots;
 
         [Header("UI-Einstellungen")]
         // Zielpositionen (in lokalen Koordinaten) für die 3 sichtbaren Slots
-        public Vector2 mainSlotPosition = new Vector2(0, 0);      // Hauptslot (z.B. mittig)
-        public Vector2 previousSlotPosition = new Vector2(0, 50);   // Slot oberhalb des Hauptslots
-        public Vector2 nextSlotPosition = new Vector2(0, -50);      // Slot unterhalb des Hauptslots
+        public Vector2 mainSlotPosition = new Vector2(0, 0); // Hauptslot (z.B. mittig)
+
+        public Vector2 previousSlotPosition = new Vector2(0, 50); // Slot oberhalb des Hauptslots
+        public Vector2 nextSlotPosition = new Vector2(0, -50); // Slot unterhalb des Hauptslots
 
         // Zielskalierungen: Hauptslot größer, die anderen etwas kleiner
         public Vector3 mainSlotScale = Vector3.one;
         public Vector3 secondarySlotScale = new Vector3(0.8f, 0.8f, 0.8f);
 
         [Header("Animationseinstellungen")]
-        public float animationSpeed = 10f;  // Je höher der Wert, desto schneller die Animation
+        public float animationSpeed = 10f; // Je höher der Wert, desto schneller die Animation
 
         public bool requireShift;
         private int currentIndex = 0; // Index des aktuell aktiven (Haupt-)Slots
         public AccessableSlot CurrentSlot => slots[currentIndex];
 
-        void Start()
-        {
-            if (slots == null || slots.Length != 5)
-            {
+        private void Start() {
+            if (slots == null || slots.Length != 5) {
                 Debug.LogError("Bitte weise dem InventoryManager genau 5 Slots zu!");
                 return;
             }
+
             currentIndex = 0;
             UpdateActiveSlots();
         }
 
-        void Update()
-        {
+        private void OnEnable() {
+            EventManager.Instance.Subscribe<PlayerMoveItemEvent>(OnPlayerMoveItem);
+            EventManager.Instance.Subscribe<PlayerItemEvent>(OnPlayerItemPickup);
+        }
+
+        private void OnDisable() {
+            EventManager.Instance.Unsubscribe<PlayerMoveItemEvent>(OnPlayerMoveItem);
+            EventManager.Instance.Unsubscribe<PlayerItemEvent>(OnPlayerItemPickup);
+        }
+
+        private void Update() {
             // Überprüfe den Mausradinput zum Rotieren
-            float scroll = Input.GetAxis("Mouse ScrollWheel");
-            bool shift = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-            
-            if ((scroll > 0f && !requireShift && !shift) || (scroll > 0f && shift && requireShift)  )
-            {
+            var scroll = Input.GetAxis("Mouse ScrollWheel");
+            var shift = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+
+            if ((scroll > 0f && !requireShift && !shift) || (scroll > 0f && shift && requireShift)) {
                 RotateForward();
-            }
-            else if ( (scroll < 0f && !requireShift && !shift) || (scroll < 0f && shift && requireShift) )
-            {
+            } else if ((scroll < 0f && !requireShift && !shift) || (scroll < 0f && shift && requireShift)) {
                 RotateBackward();
             }
 
             // Berechne Indizes der sichtbaren Slots (vorher und nächst)
-            int prePreviousIndex = (currentIndex - 2 + slots.Length) % slots.Length;
-            int previousIndex = (currentIndex - 1 + slots.Length) % slots.Length;
-            int nextIndex = (currentIndex + 1) % slots.Length;
-            int nextNextIndex = (currentIndex + 2) % slots.Length;
+            var prePreviousIndex = (currentIndex - 2 + slots.Length) % slots.Length;
+            var previousIndex = (currentIndex - 1 + slots.Length) % slots.Length;
+            var nextIndex = (currentIndex + 1) % slots.Length;
+            var nextNextIndex = (currentIndex + 2) % slots.Length;
 
             // Animiert die Position und Skalierung der drei aktiven Slots mittels Lerp
-            AnimateSlot(slots[prePreviousIndex], previousSlotPosition - new Vector2(0,50), new Vector2(0,0));
-            AnimateSlot(slots[previousIndex], previousSlotPosition,secondarySlotScale);
+            AnimateSlot(slots[prePreviousIndex], previousSlotPosition - new Vector2(0, 50), new Vector2(0, 0));
+            AnimateSlot(slots[previousIndex], previousSlotPosition, secondarySlotScale);
             AnimateSlot(slots[currentIndex], mainSlotPosition, mainSlotScale);
-            AnimateSlot(slots[nextNextIndex], nextSlotPosition + new Vector2(0,50), new Vector2(0,0));
+            AnimateSlot(slots[nextNextIndex], nextSlotPosition + new Vector2(0, 50), new Vector2(0, 0));
             AnimateSlot(slots[nextIndex], nextSlotPosition, secondarySlotScale);
         }
 
+        private void OnPlayerMoveItem(PlayerMoveItemEvent e) {
+            if (invenSlots.Contains(e.Slot)) {
+                UpdateSlots();
+                UpdateSlots();
+            }
+
+            if (e.Slot == invenSlots[currentIndex]) {
+                EventManager.Instance.Trigger(new PlayerChangeHeldItemEvent(e.Item, requireShift));
+            }
+        }
+
+        private void OnPlayerItemPickup(PlayerItemEvent e) {
+            if (invenSlots.Contains(e.Slot)) {
+                UpdateSlots();
+                UpdateSlots();
+            }
+
+            if (e.Slot == invenSlots[currentIndex]) {
+                EventManager.Instance.Trigger(new PlayerChangeHeldItemEvent(e.Item, requireShift));
+            }
+        }
+
         // Rotiert das Inventar vorwärts (Mausrad nach oben/vorne)
-        void RotateForward()
-        {
+        void RotateForward() {
             currentIndex = (currentIndex + 1) % slots.Length;
             UpdateActiveSlots();
         }
 
         // Rotiert das Inventar rückwärts (Mausrad nach unten/hinten)
-        void RotateBackward()
-        {
+        void RotateBackward() {
             currentIndex = (currentIndex - 1 + slots.Length) % slots.Length;
             UpdateActiveSlots();
         }
 
         // Aktiviert nur die drei relevanten Slots (vorher, aktuell, nächst) und deaktiviert den Rest
-        void UpdateActiveSlots()
-        {
-            int previousIndex = (currentIndex - 1 + slots.Length) % slots.Length;
-            int nextIndex = (currentIndex + 1) % slots.Length;
+        void UpdateActiveSlots() {
+            var previousIndex = (currentIndex - 1 + slots.Length) % slots.Length;
+            var nextIndex = (currentIndex + 1) % slots.Length;
 
-            for (int i = 0; i < slots.Length; i++)
-            {
-                slots[i].gameObject.SetActive(true);
-            }
+            slots[previousIndex].gameObject.SetActive(true);
+            slots[currentIndex].gameObject.SetActive(true);
+            slots[nextIndex].gameObject.SetActive(true);
+
+            EventManager.Instance.Trigger(new PlayerChangeHeldItemEvent(slots[currentIndex]?.Item, requireShift));
         }
 
         // Animiert einen Slot in Richtung der Zielposition und Zielskalierung mittels Lerp
-        void AnimateSlot(AccessableSlot slot, Vector2 targetPosition, Vector3 targetScale)
-        {
-            RectTransform rt = slot.GetComponent<RectTransform>();
-            if (rt != null)
-            {
-                rt.anchoredPosition = Vector2.Lerp(rt.anchoredPosition, targetPosition, Time.deltaTime * animationSpeed);
+        private void AnimateSlot(AccessableSlot slot, Vector2 targetPosition, Vector3 targetScale) {
+            var rt = slot.GetComponent<RectTransform>();
+            if (rt != null) {
+                rt.anchoredPosition =
+                    Vector2.Lerp(rt.anchoredPosition, targetPosition, Time.deltaTime * animationSpeed);
                 rt.localScale = Vector3.Lerp(rt.localScale, targetScale, Time.deltaTime * animationSpeed);
             }
         }
 
         public void UpdateSlots() {
-            int i = 0;
-            foreach (AccessableSlot slot in slots) {
-                if (requireShift) {
-                    Debug.Log(slot.name);
-                    Debug.Log(invenSlots[i].name);
-                    Debug.Log(invenSlots[i].Item);
-                }
-
-                slot.SetItem(invenSlots[i].Item);
-                i++;
+            for (var i = 0; i < slots.Length; i++) {
+                slots[i].SetItem(invenSlots[i].Item);
             }
         }
     }

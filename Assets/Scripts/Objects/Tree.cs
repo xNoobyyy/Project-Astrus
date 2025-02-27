@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Items;
+using Items.Items;
 using Player;
 using UnityEngine;
 
@@ -9,14 +10,14 @@ namespace Objects {
     public class Tree : MonoBehaviour {
         private static readonly int Destroyed = Animator.StringToHash("Destroyed");
         private const int RespawnTime = 300000; // 5 minutes
-        private const int Health = 3;
+        private const int Health = 6;
 
         [SerializeField] private Sprite full;
         [SerializeField] private Sprite destroyed;
-        [SerializeField] private PolygonCollider2D trigger;
+        [SerializeField] public PolygonCollider2D trigger;
+        [SerializeField] private ParticleSystem damageParticles;
 
         private SpriteRenderer spriteRenderer;
-        private Camera mainCamera;
         private Animator animator;
 
         public int Damage { get; private set; }
@@ -27,57 +28,31 @@ namespace Objects {
 
         private void Awake() {
             spriteRenderer = GetComponent<SpriteRenderer>();
-            mainCamera = Camera.main;
             animator = GetComponent<Animator>();
+
+            Damage = 0;
+            DestroyedAt = -1;
         }
 
         private void OnEnable() {
-            if (IsDestroyed) {
-                if (respawnCoroutine != null) {
-                    StopCoroutine(respawnCoroutine);
-                    respawnCoroutine = null;
-                }
-
-                respawnCoroutine = StartCoroutine(RespawnTimer());
-            }
-        }
-
-        private void OnDisable() {
+            if (!IsDestroyed) return;
             if (respawnCoroutine != null) {
                 StopCoroutine(respawnCoroutine);
                 respawnCoroutine = null;
             }
+
+            respawnCoroutine = StartCoroutine(RespawnTimer());
         }
 
-        private void Update() {
-            if (LogicScript.Instance.accessableInventoryManager.CurrentSlot.Item is not AxeItem axeItem) return;
-            if (IsDestroyed || !Input.GetMouseButtonDown(0)) return;
-            if (Vector2.Distance(PlayerMovement.Instance.transform.position, transform.position) > 3f) return;
-
-            // Convert mouse position to world position
-            var zCoord = mainCamera.WorldToScreenPoint(transform.position).z;
-            var mousePosition = Input.mousePosition;
-            mousePosition.z = zCoord;
-
-            var pos = mainCamera.ScreenToWorldPoint(mousePosition);
-            if (!trigger.OverlapPoint(pos)) return;
-
-            // In case multiple trees are on the same spot
-            var colliders = Physics2D.OverlapPointAll(pos);
-            foreach (var c in colliders) {
-                if (!c.CompareTag("Obstacle")) continue;
-                var tree = c.GetComponent<Tree>();
-                if (tree == null) return;
-                if (tree.IsDestroyed) continue;
-
-                return;
-            }
-
-            Chop(axeItem.ChopPower);
+        private void OnDisable() {
+            if (respawnCoroutine == null) return;
+            StopCoroutine(respawnCoroutine);
+            respawnCoroutine = null;
         }
 
         public void Chop(int chopPower) {
             Damage += chopPower;
+            damageParticles.Play();
             if (Damage < Health) return;
 
             Destroy();
@@ -92,13 +67,19 @@ namespace Objects {
                 spriteRenderer.sprite = destroyed;
             }
 
+            var woodAmount = UnityEngine.Random.Range(1, 4);
+            var stickAmount = UnityEngine.Random.Range(1, 4);
+
+            ItemManager.Instance.DropItem(new Wood(woodAmount), transform.position);
+            ItemManager.Instance.DropItem(new Stick(stickAmount), transform.position);
+
             respawnCoroutine = StartCoroutine(RespawnTimer());
         }
 
         private IEnumerator RespawnTimer() {
             var currentTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
             var timeLeft = RespawnTime - (currentTime - DestroyedAt);
-
+            
             if (timeLeft > 0) {
                 yield return new WaitForSeconds(timeLeft / 1000f);
             }

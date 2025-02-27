@@ -1,4 +1,5 @@
 ﻿using Logic.Events;
+using TextDisplay;
 using UnityEngine;
 
 namespace Creatures {
@@ -58,7 +59,7 @@ namespace Creatures {
             if (agent.velocity.sqrMagnitude > 0.01f) SetAnimationDirection(agent.velocity.normalized);
 
             if (Vector3.Distance(transform.position, chaseTarget.position) < attackRange) {
-                if (timeSinceLastAttack > attackCooldown && !TextDisplay.TextDisplay.Instance.isDialogueActive) {
+                if (timeSinceLastAttack > attackCooldown && !TextDisplayManager.Instance.textDisplay.isDialogueActive) {
                     timeSinceLastAttack = 0;
                     EventManager.Instance.Trigger(new PlayerDamageEvent(attackDamage, transform));
                 } else {

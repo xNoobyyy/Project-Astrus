@@ -59,8 +59,6 @@ public class Recipies  {
             (ItemInSlot4, NumberInSlot4)
         };
         
-        //Debug.Log(NumberInSlot1 + "," + NumberInSlot2 + "," + NumberInSlot3 + "," + NumberInSlot4 + "und" + NumberOfItem1 + "," + NumberOfItem2+ ","  + NumberOfItem3 + "," + NumberOfItem4);
-        
         // Für jedes Rezept-Paar wird in den Slot-Paaren ein passender Eintrag gesucht.
         foreach (var recipePair in recipePairs) {
             bool foundMatch = false;

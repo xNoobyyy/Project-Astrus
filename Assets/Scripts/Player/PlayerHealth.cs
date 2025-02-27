@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using Logic.Events;
+using TextDisplay;
 using UnityEngine;
 using UnityEngine.UI;
+using Utils;
 using Utils.WhiteFlash;
 
 public class PlayerHealth : MonoBehaviour {
@@ -42,6 +44,8 @@ public class PlayerHealth : MonoBehaviour {
     }
 
     private void HandlePlayerDamage(PlayerDamageEvent e) {
+        if (AreaManager.Instance.LastOrCurrentArea.type == AreaType.Starter) return;
+
         var knockbackDir = (Vector2)(transform.position - e.Source.position).normalized;
         rb.AddForce(knockbackDir * 5f, ForceMode2D.Impulse);
         GetComponent<SpriteFlashEffect>().StartWhiteFlash();

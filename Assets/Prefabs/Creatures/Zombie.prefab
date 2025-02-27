@@ -112,6 +112,8 @@ MonoBehaviour:
   speed: 1
   damageParticles: {fileID: 4953661432376400174}
   deathParticles: {fileID: 4904858497902227260}
+  destroyOnDeath:
+  - {fileID: 7828336729510870555}
   attackRange: 2
   attackDamage: 10
   attackCooldown: 1

@@ -8,8 +8,6 @@ namespace TextDisplay
 {
     public class TextDisplay : MonoBehaviour
     {   
-        public static TextDisplay Instance { get; private set; }
-        
         public GameObject textWindow;
         public Text displayText;
         public Button nextButton;
@@ -34,14 +32,7 @@ namespace TextDisplay
         public Dictionary<string, StoryBlock> storyBlocks;
         public Coroutine coroutine;
         public String x;
-
-        private void Awake() {
-            if (Instance == null) {
-                Instance = this;
-            } else {
-                Destroy(gameObject);
-            }
-        }
+        
         // Methode zum Anzeigen des Fensters mit Text 
         public void Start() {
             Time.timeScale = 1f;

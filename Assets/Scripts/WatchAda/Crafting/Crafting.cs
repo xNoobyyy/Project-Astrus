@@ -60,9 +60,9 @@ public class Crafting : MonoBehaviour {
     public Item GlomtomBow;
     public Item FireBow;
     public Item IronAmour;
-    public Item Lvl1ExtricArmour;
-    public Item Lvl2ExtricArmour;
-    public Item Lvl3ExtricArmour;
+    public Item Lvl1ExtricArmor;
+    public Item Lvl2ExtricArmor;
+    public Item Lvl3ExtricArmor;
     public Item ExtricAmour;
 
     public Recipies ExtricRecipy;
@@ -77,9 +77,9 @@ public class Crafting : MonoBehaviour {
     public Recipies GlomtomBowRecipy;
     public Recipies FireBowRecipy;
     public Recipies IronAmourRecipy;
-    public Recipies Lvl1ExtricArmourRecipy;
-    public Recipies Lvl2ExtricArmourRecipy;
-    public Recipies Lvl3ExtricArmourRecipy;
+    public Recipies Lvl1ExtricArmorRecipy;
+    public Recipies Lvl2ExtricArmorRecipy;
+    public Recipies Lvl3ExtricArmorRecipy;
     public Recipies ExtricAmourRecipy;
     public Recipies StoneAxeRecipy;
     public Recipies IronAxeRecipy;
@@ -124,18 +124,17 @@ public class Crafting : MonoBehaviour {
         IronBow = new IronBow();
         GlomtomBow = new GlomtomBow();
         FireBow = new FireGlomtomBow();
-        IronAmour = new IronAmour();
-        Lvl1ExtricArmour = new lvl1ExtricAmour();
-        Lvl2ExtricArmour = new lvl2ExtricAmour();
-        Lvl3ExtricArmour = new lvl3ExtricAmour();
-        ExtricAmour = new ExtricAmour();
+        IronAmour = new IronAmor();
+        Lvl1ExtricArmor = new lvl1ExtricAmour();
+        Lvl2ExtricArmor = new lvl2ExtricAmour();
+        Lvl3ExtricArmor = new lvl3ExtricAmour();
+        ExtricAmour = new ExtricAmor();
 
         // Rezepte-Initialisierung
         // Basisrezepte (Werkzeuge & Waffen)
         // 2 Sticks + 3 Steine/Eisen = Axt
         StoneAxeRecipy = new Recipies(Stick, Stone, null, null, 2, 3, 0, 0, StoneAxe, 1);
         IronAxeRecipy = new Recipies(Stick, Iron, null, null, 2, 3, 0, 0, IronAxe, 1);
-
 
         // 4 Steine/Eisen (Pickaxe-Rezepte)
         StonePickaxeRecipy = new Recipies(Stone, Stick, null, null, 4, 2, 0, 0, StonePickaxe, 1);
@@ -180,9 +179,9 @@ public class Crafting : MonoBehaviour {
         // 4 Eisen = Schwache Rüstung
         IronAmourRecipy = new Recipies(Iron, null, null, null, 4, 0, 0, 0, IronAmour, 1);
         // (4-X) Eisen + X Extric = lvl. X Rüstung (als Beispiel hier: 2 Eisen + 2 Extric = gemischte Rüstung lvl.2)
-        Lvl1ExtricArmourRecipy = new Recipies(Iron,Extric, null, null, 3, 1, 0, 0, Lvl1ExtricArmour, 1);
-        Lvl2ExtricArmourRecipy = new Recipies(Iron, Extric, null, null, 2, 2, 0, 0, Lvl2ExtricArmour, 1);
-        Lvl3ExtricArmourRecipy = new Recipies(Iron, Extric, null, null, 1, 3, 0, 0, Lvl3ExtricArmour, 1);
+        Lvl1ExtricArmorRecipy = new Recipies(Iron, Extric, null, null, 3, 1, 0, 0, Lvl1ExtricArmor, 1);
+        Lvl2ExtricArmorRecipy = new Recipies(Iron, Extric, null, null, 2, 2, 0, 0, Lvl2ExtricArmor, 1);
+        Lvl3ExtricArmorRecipy = new Recipies(Iron, Extric, null, null, 1, 3, 0, 0, Lvl3ExtricArmor, 1);
         // 4 Extric = Full Rüstung
         ExtricAmourRecipy = new Recipies(Extric, null, null, null, 4, 0, 0, 0, ExtricAmour, 1);
 
@@ -218,21 +217,17 @@ public class Crafting : MonoBehaviour {
         AllRecipies.Add(ExtricRecipy);
         AllRecipies.Add(FireRecipy);
         AllRecipies.Add(IronAmourRecipy);
-        AllRecipies.Add(Lvl1ExtricArmourRecipy);
-        AllRecipies.Add(Lvl2ExtricArmourRecipy);
-        AllRecipies.Add(Lvl3ExtricArmourRecipy);
+        AllRecipies.Add(Lvl1ExtricArmorRecipy);
+        AllRecipies.Add(Lvl2ExtricArmorRecipy);
+        AllRecipies.Add(Lvl3ExtricArmorRecipy);
         AllRecipies.Add(ExtricAmourRecipy);
     }
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start() {
-        Debug.Log("Los");
-    }
+    void Start() { }
 
     void Update() {
-        //Debug.Log("Los");
-
         CraftingItem1 = CraftingSlot1.Item;
         CraftingItem2 = CraftingSlot2.Item;
         CraftingItem3 = CraftingSlot3.Item;
@@ -287,14 +282,12 @@ public class Crafting : MonoBehaviour {
                 if (instance is ResourceItem resourceItem) {
                     Debug.Log("Falsches Item");
                     CraftedSlot.fillSlot(resourceItem);
-                    EventManager.Instance.Trigger(new PlayerItemEvent(resourceItem));
                 }
             } else {
                 object instance = Activator.CreateInstance(typ);
                 if (instance is Item item) {
                     Debug.Log("Sollte funktionieren");
                     CraftedSlot.fillSlot(item);
-                    EventManager.Instance.Trigger(new PlayerItemEvent(item));
                 }
             }
         }

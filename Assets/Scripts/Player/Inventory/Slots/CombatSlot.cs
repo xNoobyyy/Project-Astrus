@@ -65,34 +65,17 @@ namespace Player.Inventory {
 
         /// <summary>
         /// Wird aufgerufen, wenn ein Item auf diesen Slot gedroppt wird.
-        /// Akzeptiert werden nur Items vom Typ PickaxeItem.
+        /// Akzeptiert werden nur Items vom Typ CombatItem.
         /// Andernfalls wird das Item in den vorherigen Slot zurückgestellt.
         /// </summary>
         /// <param name="eventData">Informationen zum Drop-Event</param>
         public new void OnDrop(PointerEventData eventData) {
-            if (InventoryScreen.Instance.DraggingFrom == null) return;
-
-            // Prüfe, ob das gezogene Item ein PickaxeItem ist.
-            if (!(InventoryScreen.Instance.DraggingFrom.Item is CombatItem)) {
-                // Nicht akzeptiert: Setze den Drag-Vorgang zurück.
-                InventoryScreen.Instance.ResetDragging();
-                return;
-            }
-            
-            // Falls versucht wird, den Slot auf sich selbst zu droppen, wird nichts getan.
-            if (InventoryScreen.Instance.DraggingFrom == this) {
+            if (InventoryScreen.Instance.DraggingFrom?.Item is not CombatItem) {
                 InventoryScreen.Instance.ResetDragging();
                 return;
             }
 
-            // Tausche die Items zwischen diesem Slot und dem Ursprungs-Slot.
-            var draggedItem = InventoryScreen.Instance.DraggingFrom.Item;
-            var currentItem = Item;
-
-            SetItem(draggedItem);
-            InventoryScreen.Instance.DraggingFrom.SetItem(currentItem);
-
-            InventoryScreen.Instance.ResetDragging();
+            base.OnDrop(eventData);
         }
     }
 }

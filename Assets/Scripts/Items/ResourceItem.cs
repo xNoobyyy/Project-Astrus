@@ -23,6 +23,6 @@ namespace Items {
             return true;
         }
 
-        public override void OnUse() { }
+        public override void OnUse(Transform player, Vector3 position) { }
     }
 }
