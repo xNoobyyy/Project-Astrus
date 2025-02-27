@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using Logic.Events;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 namespace Player.Inventory {

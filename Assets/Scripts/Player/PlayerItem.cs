@@ -5,6 +5,7 @@ using System.Linq;
 using Creatures;
 using Items;
 using Logic.Events;
+using Player.Inventory;
 using TextDisplay;
 using UnityEngine;
 using Tree = Objects.Tree;
@@ -68,7 +69,7 @@ namespace Player {
                 var currentItem = LogicScript.Instance.accessableInventoryManager.CurrentSlot.Item;
 
                 if (currentItem != null) {
-                    currentItem.OnUse(transform, worldPosition);
+                    currentItem.OnUse(transform, worldPosition, ClickType.Left);
                 } else {
                     if (IsBusy) return;
 
@@ -97,7 +98,7 @@ namespace Player {
                 var worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);
                 var currentItem = LogicScript.Instance.accessableInventoryManager2.CurrentSlot.Item;
 
-                currentItem?.OnUse(transform, worldPosition);
+                currentItem?.OnUse(transform, worldPosition, ClickType.Right);
             }
         }
 
@@ -127,8 +128,8 @@ namespace Player {
 
         private void OnPlayerChangeHeldItem(PlayerChangeHeldItemEvent e) {
             if (e.Item is not BowItem bowItem) {
-                if (bowContainer.gameObject.activeSelf) bowContainer.gameObject.SetActive(false);
-                if (bowContainerShift.gameObject.activeSelf) bowContainerShift.gameObject.SetActive(false);
+                if (bowContainer.gameObject.activeSelf && !e.Shift) bowContainer.gameObject.SetActive(false);
+                if (bowContainerShift.gameObject.activeSelf && e.Shift) bowContainerShift.gameObject.SetActive(false);
 
                 return;
             }
@@ -145,5 +146,18 @@ namespace Player {
         public Coroutine StartThirdPartyCoroutine(IEnumerator coroutine) {
             return StartCoroutine(coroutine);
         }
+
+        public AccessableInventoryManager GetInventoryManager(ClickType clickType) {
+            return clickType switch {
+                ClickType.Left => LogicScript.Instance.accessableInventoryManager,
+                ClickType.Right => LogicScript.Instance.accessableInventoryManager2,
+                _ => null
+            };
+        }
+    }
+
+    public enum ClickType {
+        Left,
+        Right
     }
 }

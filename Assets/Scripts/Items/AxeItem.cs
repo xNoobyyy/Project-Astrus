@@ -14,7 +14,7 @@ namespace Items {
             ChopPower = chopPower;
         }
 
-        public override void OnUse(Transform player, Vector3 position) {
+        public override void OnUse(Transform player, Vector3 position, ClickType clickType) {
             if (PlayerItem.Instance.IsBusy) return;
 
             var colliders = Physics2D.OverlapPointAll(position);

@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 namespace Creatures {
     public class FriendlyCreature : CreatureBase {
-        [SerializeField] private float runAwayDistance = 5f;
+        [SerializeField] private float runAwayDistance = 10f;
 
         public override void OnAttack(Transform attacker, float damage) {
             if (!HandleDamage(attacker, damage))

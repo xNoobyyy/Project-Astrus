@@ -1,4 +1,5 @@
-﻿using UnityEditor.Animations;
+﻿using Player;
+using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Items {
@@ -15,6 +16,6 @@ namespace Items {
             AnimatedIcon = animator;
         }
 
-        public abstract void OnUse(Transform player, Vector3 position);
+        public abstract void OnUse(Transform player, Vector3 position, ClickType clickType);
     }
 }

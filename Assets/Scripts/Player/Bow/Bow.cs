@@ -23,8 +23,10 @@ namespace Player.Bow {
             set => _mainCamera = value;
         }
 
+        public SpriteRenderer SpriteRenderer => spriteRenderer;
+
         private void Awake() {
-            spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         }
 
         private void Update() {

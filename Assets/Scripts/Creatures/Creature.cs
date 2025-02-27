@@ -25,6 +25,7 @@ namespace Creatures {
         [SerializeField] protected float speed;
         [SerializeField] protected ParticleSystem damageParticles;
         [SerializeField] protected ParticleSystem deathParticles;
+        [SerializeField] protected ParticleSystem fireParticles;
         [SerializeField] private GameObject[] destroyOnDeath;
 
         [NonSerialized] public PolygonCollider2D Area;
@@ -55,6 +56,9 @@ namespace Creatures {
 
         // Navigation
         protected NavMeshAgent agent;
+
+        protected float fireTicks = 0f;
+        protected Coroutine fireCoroutine;
 
         protected virtual void Awake() {
             animator = GetComponent<Animator>();
@@ -169,16 +173,40 @@ namespace Creatures {
         // Returns false if the creature dies.
         protected bool HandleDamage(Transform attacker, float damage) {
             Health -= damage;
-            var knockbackDir = ((Vector2)transform.position - (Vector2)attacker.position).normalized;
-            rb.AddForce(knockbackDir * KNOCKBACK_FORCE, ForceMode2D.Impulse);
+            if (attacker != null) {
+                var knockbackDir = ((Vector2)transform.position - (Vector2)attacker.position).normalized;
+                rb.AddForce(knockbackDir * KNOCKBACK_FORCE, ForceMode2D.Impulse);
+                var rotation = Quaternion.FromToRotation(Vector2.right, knockbackDir);
+                damageParticles.transform.rotation = rotation;
+                damageParticles.Play();
+            }
+
             GetComponent<SpriteFlashEffect>().StartWhiteFlash();
-            var rotation = Quaternion.FromToRotation(Vector2.right, knockbackDir);
-            damageParticles.transform.rotation = rotation;
-            damageParticles.Play();
             if (!(Health <= 0)) return true;
 
             Kill();
             return false;
+        }
+
+        public void SetOnFire(float duration = 5f) {
+            if (fireCoroutine != null) {
+                StopCoroutine(fireCoroutine);
+            }
+
+            fireCoroutine = StartCoroutine(FireDamageTicks(duration));
+        }
+
+        private IEnumerator FireDamageTicks(float duration) {
+            fireParticles.Play();
+            while (fireTicks < duration) {
+                fireTicks++;
+                HandleDamage(null, 1f);
+                yield return new WaitForSeconds(1f);
+            }
+
+            fireParticles.Stop();
+            fireTicks = 0f;
+            fireCoroutine = null;
         }
 
         public abstract void OnAttack(Transform attacker, float damage);
