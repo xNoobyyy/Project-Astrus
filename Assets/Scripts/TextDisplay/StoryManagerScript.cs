@@ -9,6 +9,8 @@ public class StoryManager : MonoBehaviour
     
     void Start() {
         LoadStory();
+        playerName = PlayerPrefs.GetString("PlayerName", "Unbekannt");
+        Debug.Log(playerName);
     }
     public void LoadStory(){
             TextAsset jsonFile = Resources.Load<TextAsset>("story");
