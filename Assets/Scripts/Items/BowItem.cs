@@ -18,7 +18,7 @@ namespace Items {
 
         public override void OnUse(Transform player, Vector3 position) {
             var v = (Vector2)(position - player.position);
-            PlayerItem.Instance.StartThirdPartyCoroutine(Shoot(player.position, v.normalized));
+            PlayerItem.Instance.StartThirdPartyCoroutine(Shoot(player, v.normalized));
 
             OnAttack();
         }
