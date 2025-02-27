@@ -1,5 +1,4 @@
-﻿using System;
-using Items;
+﻿using Items;
 using Items.Items;
 using UnityEngine;
 
@@ -23,9 +22,6 @@ namespace Player.Bow {
             }
             set => _mainCamera = value;
         }
-
-        public SpriteRenderer SpriteRenderer => spriteRenderer;
-
 
         private void Awake() {
             spriteRenderer = GetComponent<SpriteRenderer>();

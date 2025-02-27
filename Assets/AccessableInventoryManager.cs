@@ -87,6 +87,7 @@ namespace Player.Inventory {
         private void OnPlayerMoveItem(PlayerMoveItemEvent e) {
             if (invenSlots.Contains(e.Slot)) {
                 UpdateSlots();
+                UpdateSlots();
             }
 
             if (e.Slot == invenSlots[currentIndex]) {
@@ -96,6 +97,7 @@ namespace Player.Inventory {
 
         private void OnPlayerItemPickup(PlayerItemEvent e) {
             if (invenSlots.Contains(e.Slot)) {
+                UpdateSlots();
                 UpdateSlots();
             }
 

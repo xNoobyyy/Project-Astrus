@@ -1,12 +1,13 @@
-using System;
-using System.Linq;
+using System.Collections;
 using Creatures;
+using Player;
 using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Items {
     public abstract class BowItem : Item {
-        private const float MAX_DISTANCE = 100f;
+        private const float MaxDistance = 100f;
+        private const float ArrowSpeed = 50f;
 
         public int Damage { get; private set; }
 
@@ -17,15 +18,47 @@ namespace Items {
 
         public override void OnUse(Transform player, Vector3 position) {
             var v = (Vector2)(position - player.position);
-            var hits = Physics2D.RaycastAll(player.position, v, MAX_DISTANCE);
-            Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
-            hits.Select(hit => hit.collider.GetComponent<CreatureBase>())
-                .FirstOrDefault(creature => creature != null)?
-                .GetComponent<CreatureBase>()?
-                .OnAttack(player, Damage);
+            PlayerItem.Instance.StartThirdPartyCoroutine(Shoot(player.position, v.normalized));
 
             OnAttack();
         }
+
+        private IEnumerator Shoot(Transform player, Vector2 direction) {
+            var distanceFlown = 0f;
+
+
+            var arrow = Object.Instantiate(PlayerItem.Instance.arrowPrefab, player.position,
+                Quaternion.FromToRotation(Vector2.right, direction));
+
+            while (distanceFlown < MaxDistance) {
+                var step = ArrowSpeed * Time.deltaTime;
+                Vector2 currentPos = arrow.transform.position;
+                var nextPos = currentPos + direction * step;
+                var hit = Physics2D.Raycast(currentPos, direction, step);
+
+                if (hit.collider != null) {
+                    arrow.transform.position = hit.point;
+                    arrow.transform.SetParent(hit.collider.transform);
+
+                    if (!hit.collider.CompareTag("Obstacle")) {
+                        var creature = hit.collider.GetComponent<CreatureBase>();
+                        if (creature != null)
+                            creature.OnAttack(player, Damage);
+                    }
+
+                    yield return new WaitForSeconds(5f);
+                    Object.Destroy(arrow);
+                    yield break;
+                }
+
+                arrow.transform.position = nextPos;
+                distanceFlown += step;
+                yield return null;
+            }
+
+            Object.Destroy(arrow);
+        }
+
 
         protected virtual void OnAttack() { }
     }

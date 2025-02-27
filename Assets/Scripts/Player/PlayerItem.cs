@@ -18,6 +18,7 @@ namespace Player {
         [SerializeField] public Collider2D attackCollider;
         [SerializeField] public Bow.Bow bowContainer;
         [SerializeField] public Bow.Bow bowContainerShift;
+        [SerializeField] public GameObject arrowPrefab;
 
         [NonSerialized] public Camera mainCamera;
         [NonSerialized] public Animator animator;
@@ -139,6 +140,10 @@ namespace Player {
                 bowContainer.gameObject.SetActive(true);
                 bowContainer.SetItem(bowItem);
             }
+        }
+
+        public Coroutine StartThirdPartyCoroutine(IEnumerator coroutine) {
+            return StartCoroutine(coroutine);
         }
     }
 }
