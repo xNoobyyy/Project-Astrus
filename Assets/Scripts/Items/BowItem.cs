@@ -16,10 +16,13 @@ namespace Items {
         private bool inactive;
 
         public int Damage { get; private set; }
+        public float Downtime { get; private set; }
 
-        protected BowItem(string name, string description, Sprite icon, AnimatorController animator, int damage) : base(
+        protected BowItem(string name, string description, Sprite icon, AnimatorController animator, int damage,
+            float downtime) : base(
             name, description, icon, animator) {
             Damage = damage;
+            Downtime = downtime;
         }
 
         public override void OnUse(Transform player, Vector3 position, ClickType clickType) {
@@ -35,6 +38,8 @@ namespace Items {
             } else {
                 PlayerItem.Instance.bowContainerShift.SpriteRenderer.color = Color.white.WithAlpha(0.5f);
             }
+
+            PlayerItem.Instance.StartThirdPartyCoroutine(QueueReset(Downtime, clickType));
 
             var distanceFlown = 0f;
 
@@ -95,6 +100,15 @@ namespace Items {
             Object.Destroy(arrow);
         }
 
+        public IEnumerator QueueReset(float duration, ClickType clickType) {
+            yield return new WaitForSeconds(duration);
+            inactive = false;
+            if (clickType == ClickType.Left) {
+                PlayerItem.Instance.bowContainer.SpriteRenderer.color = Color.white;
+            } else {
+                PlayerItem.Instance.bowContainerShift.SpriteRenderer.color = Color.white;
+            }
+        }
 
         protected virtual void OnAttack(CreatureBase creature, Transform player) { }
     }

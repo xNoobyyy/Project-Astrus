@@ -27,7 +27,7 @@ namespace Items {
 
             if (tree == null) return;
             if (Vector2.Distance(tree.trigger.ClosestPoint(player.transform.position), player.transform.position) >
-                3f) return;
+                5f) return;
 
             tree.Chop(ChopPower);
             PlayerItem.Instance.Chop();

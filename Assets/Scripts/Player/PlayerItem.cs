@@ -5,6 +5,7 @@ using System.Linq;
 using Creatures;
 using Items;
 using Logic.Events;
+using Objects;
 using Player.Inventory;
 using TextDisplay;
 using UnityEngine;
@@ -68,12 +69,25 @@ namespace Player {
                 var worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);
                 var currentItem = LogicScript.Instance.accessableInventoryManager.CurrentSlot.Item;
 
+                var colliders = Physics2D.OverlapPointAll(worldPosition);
+                var chestCollider =
+                    colliders.FirstOrDefault(c => c.GetComponent<Chest>() || c.GetComponentInParent<Chest>());
+
+                if (chestCollider != null) {
+                    var chest = chestCollider.GetComponent<Chest>() ?? chestCollider.GetComponentInParent<Chest>();
+
+                    if (!chest.IsOpen &&
+                        Vector2.Distance(chest.trigger.ClosestPoint(transform.position), transform.position) < 5f) {
+                        chest.Open();
+                        return;
+                    }
+                }
+
                 if (currentItem != null) {
                     currentItem.OnUse(transform, worldPosition, ClickType.Left);
                 } else {
                     if (IsBusy) return;
 
-                    var colliders = Physics2D.OverlapPointAll(worldPosition);
                     var treeColliders = Array.FindAll(colliders,
                         c => c.GetComponent<Tree>() != null || c.GetComponentInParent<Tree>() != null);
                     Array.Sort(treeColliders, (c1, c2) => c1.transform.position.y.CompareTo(c2.transform.position.y));
@@ -84,7 +98,7 @@ namespace Player {
 
                     if (tree == null) return;
                     if (Vector2.Distance(tree.trigger.ClosestPoint(transform.position), transform.position) >
-                        3f) return;
+                        5f) return;
 
                     tree.GetComponent<Tree>()?.Chop(1);
                     Chop();
