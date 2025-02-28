@@ -84,7 +84,7 @@ namespace Player {
 
                     if (tree == null) return;
                     if (Vector2.Distance(tree.trigger.ClosestPoint(transform.position), transform.position) >
-                        3f) return;
+                        5f) return;
 
                     tree.GetComponent<Tree>()?.Chop(1);
                     Chop();
