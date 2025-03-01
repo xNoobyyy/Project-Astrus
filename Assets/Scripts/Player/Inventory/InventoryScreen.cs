@@ -19,7 +19,7 @@ namespace Player.Inventory {
 
         private RectTransform draggedItemRect;
 
-        
+        public QuestLogic ql;
 
         private void Awake() {
             if (Instance == null) {
@@ -84,6 +84,9 @@ namespace Player.Inventory {
             draggedItem.SetActive(false);
         }
 
+        void OnEnable() {
+            ql.Slots();
+        }
         
     }
 }
