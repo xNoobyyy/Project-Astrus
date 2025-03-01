@@ -16,6 +16,7 @@ public class LogicScript : MonoBehaviour {
     public RectTransform inventoryScreenVisu;
     public RectTransform questScreenVisu;
     public GameObject openingIcon;
+    public GameObject pauseScreen;
     private Vector2 QuestPosition;
     private Vector2 QuestSize;
     private bool InventoryOpen = false;
@@ -40,6 +41,16 @@ public class LogicScript : MonoBehaviour {
     void Update() {
         if (Input.GetKeyDown(KeyCode.I)) {
             OpenInventoryScreen();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && !WatchOpen) {
+            if (Time.timeScale == 1.0f) {
+                pauseScreen.SetActive(true);
+                Time.timeScale = 0f;
+            } else {
+                Time.timeScale = 1f;
+                pauseScreen.SetActive(false);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) && InventoryOpen) {

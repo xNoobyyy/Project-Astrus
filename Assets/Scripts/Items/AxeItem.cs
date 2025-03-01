@@ -14,7 +14,7 @@ namespace Items {
             ChopPower = chopPower;
         }
 
-        public override void OnUse(Transform player, Vector3 position) {
+        public override void OnUse(Transform player, Vector3 position, ClickType clickType) {
             if (PlayerItem.Instance.IsBusy) return;
 
             var colliders = Physics2D.OverlapPointAll(position);
@@ -27,7 +27,7 @@ namespace Items {
 
             if (tree == null) return;
             if (Vector2.Distance(tree.trigger.ClosestPoint(player.transform.position), player.transform.position) >
-                3f) return;
+                5f) return;
 
             tree.Chop(ChopPower);
             PlayerItem.Instance.Chop();

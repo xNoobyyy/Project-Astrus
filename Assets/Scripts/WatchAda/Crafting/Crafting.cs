@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Items;
 using Items.Items;
+using Items.Items.ArmorItems;
+using Items.Items.AxeItems;
+using Items.Items.BowItems;
+using Items.Items.CombatItems;
 using JetBrains.Annotations;
 using Logic.Events;
 using Player.Inventory;
@@ -135,7 +139,6 @@ public class Crafting : MonoBehaviour {
         // 2 Sticks + 3 Steine/Eisen = Axt
         StoneAxeRecipy = new Recipies(Stick, Stone, null, null, 2, 3, 0, 0, StoneAxe, 1);
         IronAxeRecipy = new Recipies(Stick, Iron, null, null, 2, 3, 0, 0, IronAxe, 1);
-
 
         // 4 Steine/Eisen (Pickaxe-Rezepte)
         StonePickaxeRecipy = new Recipies(Stone, Stick, null, null, 4, 2, 0, 0, StonePickaxe, 1);

@@ -5,6 +5,8 @@ using System.Linq;
 using Creatures;
 using Items;
 using Logic.Events;
+using Objects;
+using Player.Inventory;
 using TextDisplay;
 using UnityEngine;
 using Tree = Objects.Tree;
@@ -18,6 +20,7 @@ namespace Player {
         [SerializeField] public Collider2D attackCollider;
         [SerializeField] public Bow.Bow bowContainer;
         [SerializeField] public Bow.Bow bowContainerShift;
+        [SerializeField] public GameObject arrowPrefab;
 
         [NonSerialized] public Camera mainCamera;
         [NonSerialized] public Animator animator;
@@ -66,12 +69,25 @@ namespace Player {
                 var worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);
                 var currentItem = LogicScript.Instance.accessableInventoryManager.CurrentSlot.Item;
 
+                var colliders = Physics2D.OverlapPointAll(worldPosition);
+                var chestCollider =
+                    colliders.FirstOrDefault(c => c.GetComponent<Chest>() || c.GetComponentInParent<Chest>());
+
+                if (chestCollider != null) {
+                    var chest = chestCollider.GetComponent<Chest>() ?? chestCollider.GetComponentInParent<Chest>();
+
+                    if (!chest.IsOpen &&
+                        Vector2.Distance(chest.trigger.ClosestPoint(transform.position), transform.position) < 5f) {
+                        chest.Open();
+                        return;
+                    }
+                }
+
                 if (currentItem != null) {
-                    currentItem.OnUse(transform, worldPosition);
+                    currentItem.OnUse(transform, worldPosition, ClickType.Left);
                 } else {
                     if (IsBusy) return;
 
-                    var colliders = Physics2D.OverlapPointAll(worldPosition);
                     var treeColliders = Array.FindAll(colliders,
                         c => c.GetComponent<Tree>() != null || c.GetComponentInParent<Tree>() != null);
                     Array.Sort(treeColliders, (c1, c2) => c1.transform.position.y.CompareTo(c2.transform.position.y));
@@ -82,7 +98,7 @@ namespace Player {
 
                     if (tree == null) return;
                     if (Vector2.Distance(tree.trigger.ClosestPoint(transform.position), transform.position) >
-                        3f) return;
+                        5f) return;
 
                     tree.GetComponent<Tree>()?.Chop(1);
                     Chop();
@@ -96,7 +112,7 @@ namespace Player {
                 var worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);
                 var currentItem = LogicScript.Instance.accessableInventoryManager2.CurrentSlot.Item;
 
-                currentItem?.OnUse(transform, worldPosition);
+                currentItem?.OnUse(transform, worldPosition, ClickType.Right);
             }
         }
 
@@ -126,8 +142,8 @@ namespace Player {
 
         private void OnPlayerChangeHeldItem(PlayerChangeHeldItemEvent e) {
             if (e.Item is not BowItem bowItem) {
-                if (bowContainer.gameObject.activeSelf) bowContainer.gameObject.SetActive(false);
-                if (bowContainerShift.gameObject.activeSelf) bowContainerShift.gameObject.SetActive(false);
+                if (bowContainer.gameObject.activeSelf && !e.Shift) bowContainer.gameObject.SetActive(false);
+                if (bowContainerShift.gameObject.activeSelf && e.Shift) bowContainerShift.gameObject.SetActive(false);
 
                 return;
             }
@@ -140,5 +156,22 @@ namespace Player {
                 bowContainer.SetItem(bowItem);
             }
         }
+
+        public Coroutine StartThirdPartyCoroutine(IEnumerator coroutine) {
+            return StartCoroutine(coroutine);
+        }
+
+        public AccessableInventoryManager GetInventoryManager(ClickType clickType) {
+            return clickType switch {
+                ClickType.Left => LogicScript.Instance.accessableInventoryManager,
+                ClickType.Right => LogicScript.Instance.accessableInventoryManager2,
+                _ => null
+            };
+        }
+    }
+
+    public enum ClickType {
+        Left,
+        Right
     }
 }

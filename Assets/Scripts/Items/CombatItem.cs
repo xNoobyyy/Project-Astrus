@@ -14,7 +14,7 @@ namespace Items {
             Damage = damage;
         }
 
-        public override void OnUse(Transform player, Vector3 position) {
+        public override void OnUse(Transform player, Vector3 position, ClickType clickType) {
             if (LogicScript.Instance.accessableInventoryManager.CurrentSlot.Item is not CombatItem) return;
             if (PlayerItem.Instance.IsAttacking) return;
             if (TextDisplayManager.Instance.textDisplay.isDialogueActive) return;

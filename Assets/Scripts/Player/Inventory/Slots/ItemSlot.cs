@@ -3,6 +3,7 @@ using Items;
 using Items.Items;
 using Logic.Events;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -75,9 +76,15 @@ namespace Player.Inventory {
         }
 
         public void OnPointerEnter(PointerEventData eventData) {
-            if (Item != null) {
-                floatingText.text = Item.Name;
-                floatingTextObject.transform.position = gameObject.transform.position + new Vector3(0, 30, 0);
+            if (Item == null) return;
+
+            floatingText.text = Item.Name;
+            floatingTextObject.transform.position = gameObject.transform.position + new Vector3(0, 30, 0);
+        }
+
+        public void OnPointerExit(PointerEventData eventData) {
+            if (floatingText.text == Item.Name) {
+                floatingText.text = "";
             }
         }
 

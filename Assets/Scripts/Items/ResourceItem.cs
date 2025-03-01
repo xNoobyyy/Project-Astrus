@@ -1,4 +1,5 @@
-﻿using UnityEditor.Animations;
+﻿using Player;
+using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Items {
@@ -23,6 +24,6 @@ namespace Items {
             return true;
         }
 
-        public override void OnUse(Transform player, Vector3 position) { }
+        public override void OnUse(Transform player, Vector3 position, ClickType clickType) { }
     }
 }

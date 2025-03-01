@@ -1,6 +1,6 @@
-﻿using System;
-using Items;
+﻿using Items;
 using Items.Items;
+using Items.Items.BowItems;
 using UnityEngine;
 
 namespace Player.Bow {
@@ -26,9 +26,8 @@ namespace Player.Bow {
 
         public SpriteRenderer SpriteRenderer => spriteRenderer;
 
-
         private void Awake() {
-            spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         }
 
         private void Update() {
