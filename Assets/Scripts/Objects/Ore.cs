@@ -14,7 +14,6 @@ namespace Objects {
         [SerializeField] public PolygonCollider2D trigger;
         [SerializeField] private ParticleSystem damageParticles;
         [SerializeField] private OreType type;
-        [SerializeField] private GameObject[] disableOnDestroy;
         [SerializeField] private int requiredPickPower;
 
         private SpriteRenderer spriteRenderer;
@@ -24,10 +23,11 @@ namespace Objects {
         public bool IsDestroyed => DestroyedAt != -1;
 
         private Coroutine respawnCoroutine;
-        private new Collider2D collider;
+        private Collider2D polyCollider;
 
         private void Awake() {
             spriteRenderer = GetComponent<SpriteRenderer>();
+            polyCollider = GetComponent<PolygonCollider2D>();
 
             Damage = 0;
             DestroyedAt = -1;
@@ -72,17 +72,13 @@ namespace Objects {
                     ItemManager.Instance.DropItem(new Iron(UnityEngine.Random.Range(1, 3)), transform.position);
                     break;
                 case OreType.Glomtom:
-                    ItemManager.Instance.DropItem(new Glomtom(1), transform.position);
+                    ItemManager.Instance.DropItem(new Glomtom(), transform.position);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(type.ToString());
             }
 
-            foreach (var obj in disableOnDestroy) {
-                obj.SetActive(false);
-            }
-
-            collider.enabled = false;
+            polyCollider.enabled = false;
 
             respawnCoroutine = StartCoroutine(RespawnTimer());
         }
@@ -107,11 +103,7 @@ namespace Objects {
             DestroyedAt = -1;
             spriteRenderer.color = Color.white;
 
-            foreach (var obj in disableOnDestroy) {
-                obj.SetActive(true);
-            }
-
-            collider.enabled = true;
+            polyCollider.enabled = true;
         }
     }
 

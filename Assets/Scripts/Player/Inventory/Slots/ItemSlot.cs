@@ -11,6 +11,7 @@ using UnityEngine.UI;
 namespace Player.Inventory {
     public class ItemSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler,
         IPointerEnterHandler,
+        IPointerExitHandler,
         IDropHandler {
         public Item Item { get; private set; }
         private TextMeshProUGUI floatingText;
