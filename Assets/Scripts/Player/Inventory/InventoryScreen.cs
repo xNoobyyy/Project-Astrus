@@ -1,7 +1,6 @@
 using Items;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
 using Image = UnityEngine.UI.Image;
 
 namespace Player.Inventory {
@@ -32,7 +31,7 @@ namespace Player.Inventory {
 
         private void Start() {
             //gameObject.SetActive(false);
-            
+
             CanvasRect = GetComponent<RectTransform>();
             Canvas = GetComponent<Canvas>();
             draggedItemRect = draggedItem.GetComponent<RectTransform>();
@@ -87,6 +86,5 @@ namespace Player.Inventory {
         void OnEnable() {
             ql.Slots();
         }
-        
     }
 }

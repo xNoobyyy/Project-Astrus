@@ -1,15 +1,8 @@
-using System;
-using Items;
-using Items.Items;
-using TMPro;
-using Unity.VisualScripting;
-using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
-namespace Player.Inventory {
+namespace Player.Inventory.Slots {
     // Diese Klasse erbt von ItemSlot
-    public class DragOnlyItemSlot : ItemSlot, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler {
+    public class DragOnlyItemSlot : ItemSlot, IPointerClickHandler, IDropHandler {
 
         // Überschreibt den Klick-Handler, sodass keine neuen Items in den Slot gesetzt werden.
         public new void OnPointerClick(PointerEventData eventData) {

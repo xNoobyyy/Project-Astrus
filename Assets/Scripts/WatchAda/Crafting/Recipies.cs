@@ -3,7 +3,7 @@ using System.Linq;
 using Items;
 using UnityEngine;
 
-public class Recipies  {
+public class Recipies {
     public Item Item1;
     public Item Item2;
     public Item Item3;
@@ -14,11 +14,12 @@ public class Recipies  {
     public int? NumberOfItem4;
     public Item CraftedItem;
     public int CraftedAmount;
-    
+    public bool advanced; // Found on the plateau
+
     // Konstruktor
     public Recipies(Item item1, Item item2, Item item3, Item item4,
                     int? numberOfItem1, int? numberOfItem2, int? numberOfItem3, int? numberOfItem4,
-                    Item craftedItem, int craftedAmount) {
+                    Item craftedItem, int craftedAmount, bool advanced) {
         this.Item1 = item1;
         this.Item2 = item2;
         this.Item3 = item3;
@@ -29,7 +30,7 @@ public class Recipies  {
         this.NumberOfItem4 = numberOfItem4;
         this.CraftedItem = craftedItem;
         this.CraftedAmount = craftedAmount;
-        
+        this.advanced = advanced;
     }
 
     /// <summary>
@@ -41,9 +42,7 @@ public class Recipies  {
     public bool checkRecipy(
         Item ItemInSlot1, Item ItemInSlot2, Item ItemInSlot3, Item ItemInSlot4,
         int? NumberInSlot1, int? NumberInSlot2, int? NumberInSlot3, int? NumberInSlot4) {
-        
-        
-        
+
         // Erstelle Listen der (Item, Anzahl)-Paare für Rezept und Slots
         var recipePairs = new List<(Item item, int? count)> {
             (this.Item1, this.NumberOfItem1),
@@ -51,14 +50,14 @@ public class Recipies  {
             (this.Item3, this.NumberOfItem3),
             (this.Item4, this.NumberOfItem4)
         };
-        
+
         var slotPairs = new List<(Item item, int? count)> {
             (ItemInSlot1, NumberInSlot1),
             (ItemInSlot2, NumberInSlot2),
             (ItemInSlot3, NumberInSlot3),
             (ItemInSlot4, NumberInSlot4)
         };
-        
+
         // Für jedes Rezept-Paar wird in den Slot-Paaren ein passender Eintrag gesucht.
         foreach (var recipePair in recipePairs) {
             bool foundMatch = false;
@@ -72,7 +71,7 @@ public class Recipies  {
                 } else {
                     itemsMatch = false;
                 }
-                
+
                 // Vergleiche zusätzlich die Mengen (nullable int, null-sicher)
                 if (itemsMatch && object.Equals(slotPairs[i].count, recipePair.count)) {
                     foundMatch = true;
@@ -85,7 +84,7 @@ public class Recipies  {
                 return false;
             }
         }
-        
+
         return true;
     }
 }

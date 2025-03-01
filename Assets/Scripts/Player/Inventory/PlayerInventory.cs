@@ -26,6 +26,8 @@ namespace Player.Inventory {
 
         private void Start() {
             Slots = slotContainer.GetComponentsInChildren<ItemSlot>();
+            
+            Debug.Log($"Loaded {Slots.Length} slots");
         }
 
         public void SetItem(int index, Item item) {

@@ -8,16 +8,26 @@ using Utils;
 using Utils.WhiteFlash;
 
 public class PlayerHealth : MonoBehaviour {
+    
+    public static PlayerHealth Instance;
+    
     public int maxHealth = 100;
     public int currentHealth;
     public Slider healthSlider;
     public Transform respawnPointStrand;
     public Transform respawnPointPlateau;
     private Rigidbody2D rb;
-    bool plateau = false;
+    public bool plateau;
     private Coroutine regenCoroutine;
 
     private void Awake() {
+        if (Instance == null) {
+            Instance = this;
+        } else {
+            Destroy(gameObject);
+            return;
+        }
+
         rb = GetComponent<Rigidbody2D>();
     }
 

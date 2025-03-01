@@ -7,12 +7,13 @@ using Items.Items.ArmorItems;
 using Items.Items.AxeItems;
 using Items.Items.BowItems;
 using Items.Items.CombatItems;
-using JetBrains.Annotations;
-using Logic.Events;
 using Player.Inventory;
+using Player.Inventory.Slots;
 using UnityEngine;
 
 public class Crafting : MonoBehaviour {
+    public static Crafting Instance { get; private set; }
+
     public ItemSlot CraftingSlot1;
     public ItemSlot CraftingSlot2;
     public ItemSlot CraftingSlot3;
@@ -96,6 +97,13 @@ public class Crafting : MonoBehaviour {
     public List<Recipies> AllRecipies = new List<Recipies>();
 
     void Awake() {
+        if (Instance == null) {
+            Instance = this;
+        } else {
+            Destroy(gameObject);
+            return;
+        }
+
         // Initialisiere die Items hier – zu diesem Zeitpunkt sollten alle Unity-Ressourcen bereitstehen.
 
         Stick = new Stick();
@@ -137,69 +145,68 @@ public class Crafting : MonoBehaviour {
         // Rezepte-Initialisierung
         // Basisrezepte (Werkzeuge & Waffen)
         // 2 Sticks + 3 Steine/Eisen = Axt
-        StoneAxeRecipy = new Recipies(Stick, Stone, null, null, 2, 3, 0, 0, StoneAxe, 1);
-        IronAxeRecipy = new Recipies(Stick, Iron, null, null, 2, 3, 0, 0, IronAxe, 1);
+        StoneAxeRecipy = new Recipies(Stick, Stone, null, null, 2, 3, 0, 0, StoneAxe, 1, false);
+        IronAxeRecipy = new Recipies(Stick, Iron, null, null, 2, 3, 0, 0, IronAxe, 1, false);
 
         // 4 Steine/Eisen (Pickaxe-Rezepte)
-        StonePickaxeRecipy = new Recipies(Stone, Stick, null, null, 4, 2, 0, 0, StonePickaxe, 1);
-        IronPickaxeRecipy = new Recipies(Iron, Stick, null, null, 4, 2, 0, 0, IronPickaxe, 1);
+        StonePickaxeRecipy = new Recipies(Stone, Stick, null, null, 4, 2, 0, 0, StonePickaxe, 1, false);
+        IronPickaxeRecipy = new Recipies(Iron, Stick, null, null, 4, 2, 0, 0, IronPickaxe, 1, false);
 
         // Schwertrezepte
         // 1 Stick + 3 Steine = Schwert lvl. 1
-        StoneSwordRecipy = new Recipies(Stone, Stick, null, null, 3, 1, 0, 0, StoneSword, 1);
+        StoneSwordRecipy = new Recipies(Stone, Stick, null, null, 3, 1, 0, 0, StoneSword, 1, false);
         // 1 Stick + 3 Eisen = Schwert lvl. 2
-        IronSwordRecipy = new Recipies(Iron, Stick, null, null, 3, 1, 0, 0, IronSword, 1);
+        IronSwordRecipy = new Recipies(Iron, Stick, null, null, 3, 1, 0, 0, IronSword, 1, false);
         // 1 Stick + 3 Glomtom = Schwert lvl. 3
-        GlomtomSwordRecipy = new Recipies(Glomtom, Stick, null, null, 3, 1, 0, 0, GlomtomSword, 1);
+        GlomtomSwordRecipy = new Recipies(Glomtom, Stick, null, null, 3, 1, 0, 0, GlomtomSword, 1, false);
 
         // -------------------
         // Weitere Rezepte (Basis)
         // Boot: 4 Holz + 2 Sticks = Boot
         // (Hier wird – analog zu den Axt-Rezepten – zuerst Stick (2) und dann Holz (4) übergeben)
-        BoatRecipy = new Recipies(Stick, Wood, null, null, 2, 4, 0, 0, Boat, 1);
+        BoatRecipy = new Recipies(Stick, Wood, null, null, 2, 4, 0, 0, Boat, 1, false);
 
         // Feuerstein: 1 Kohle + 1 Stein = Feuerstein
-        FirestoneRecipy = new Recipies(Coal, Stone, null, null, 1, 1, 0, 0, Firestone, 1);
+        FirestoneRecipy = new Recipies(Coal, Stone, null, null, 1, 1, 0, 0, Firestone, 1, false);
 
         // Lagerfeuer: 1 Feuerstein + 1 Feuerstelle = Lagerfeuer
-        FireRecipy = new Recipies(Firestone, Fireplace, null, null, 1, 1, 0, 0, Fire, 1);
+        FireRecipy = new Recipies(Firestone, Fireplace, null, null, 1, 1, 0, 0, Fire, 1, false);
 
         // Feuerstelle: 5 Sticks + 5 Steine = Feuerstelle
-        FireplaceRecipy = new Recipies(Stick, Stone, null, null, 5, 5, 0, 0, Fireplace, 1);
+        FireplaceRecipy = new Recipies(Stick, Stone, null, null, 5, 5, 0, 0, Fireplace, 1, false);
 
         // Fackel: 1 Stick + 1 Feuerstein = Fackel
-        TorchRecipy = new Recipies(Stick, Firestone, null, null, 1, 1, 0, 0, Torch, 1);
+        TorchRecipy = new Recipies(Stick, Firestone, null, null, 1, 1, 0, 0, Torch, 1, false);
 
         // -------------------
         // Rezepte (auf dem Plateau gefundene)
         // Unsichtbarkeitstrank: 1 Glas mit Wasser + 4 Domilitant = Unsichtbarkeitstrank
         InvisibilityPotionRecipy =
-            new Recipies(BottleOfWater, Domilitant, null, null, 1, 4, 0, 0, InvisibilityPotion, 1);
+            new Recipies(BottleOfWater, Domilitant, null, null, 1, 4, 0, 0, InvisibilityPotion, 1, true);
 
         // 1 Holz + 1 Glomtom + 1 Eisen + 1 Besondere Blume = 10 Extric
-        ExtricRecipy = new Recipies(Wood, Glomtom, Iron, SpecialFlower, 1, 1, 1, 1, Extric, 10);
+        ExtricRecipy = new Recipies(Wood, Glomtom, Iron, SpecialFlower, 1, 1, 1, 1, Extric, 10, true);
 
         // Rüstungsrezepte:
         // 4 Eisen = Schwache Rüstung
-        IronAmourRecipy = new Recipies(Iron, null, null, null, 4, 0, 0, 0, IronAmour, 1);
-        // (4-X) Eisen + X Extric = lvl. X Rüstung (als Beispiel hier: 2 Eisen + 2 Extric = gemischte Rüstung lvl.2)
-        Lvl1ExtricArmorRecipy = new Recipies(Iron, Extric, null, null, 3, 1, 0, 0, Lvl1ExtricArmor, 1);
-        Lvl2ExtricArmorRecipy = new Recipies(Iron, Extric, null, null, 2, 2, 0, 0, Lvl2ExtricArmor, 1);
-        Lvl3ExtricArmorRecipy = new Recipies(Iron, Extric, null, null, 1, 3, 0, 0, Lvl3ExtricArmor, 1);
+        IronAmourRecipy = new Recipies(Iron, null, null, null, 4, 0, 0, 0, IronAmour, 1, false);
+        // (4-X) Eisen + X Extric = lvl. X Rüstung (Beispiel: 2 Eisen + 2 Extric = gemischte Rüstung lvl.2)
+        Lvl1ExtricArmorRecipy = new Recipies(Iron, Extric, null, null, 3, 1, 0, 0, Lvl1ExtricArmor, 1, true);
+        Lvl2ExtricArmorRecipy = new Recipies(Iron, Extric, null, null, 2, 2, 0, 0, Lvl2ExtricArmor, 1, true);
+        Lvl3ExtricArmorRecipy = new Recipies(Iron, Extric, null, null, 1, 3, 0, 0, Lvl3ExtricArmor, 1, true);
         // 4 Extric = Full Rüstung
-        ExtricAmourRecipy = new Recipies(Extric, null, null, null, 4, 0, 0, 0, ExtricAmour, 1);
+        ExtricAmourRecipy = new Recipies(Extric, null, null, null, 4, 0, 0, 0, ExtricAmour, 1, true);
 
         // -------------------
         // Rezepte (Bögen)
         // Bogen lvl. 1: 1 Holz + 2 Steine + 1 Liane
-        StoneBowRecipy = new Recipies(Wood, Stone, Liana, null, 1, 2, 1, 0, StoneBow, 1);
+        StoneBowRecipy = new Recipies(Wood, Stone, Liana, null, 1, 2, 1, 0, StoneBow, 1, false);
         // Bogen lvl. 2: 1 Holz + 2 Eisen + 1 Liane
-        IronBowRecipy = new Recipies(Wood, Iron, Liana, null, 1, 2, 1, 0, IronBow, 1);
+        IronBowRecipy = new Recipies(Wood, Iron, Liana, null, 1, 2, 1, 0, IronBow, 1, false);
         // Bogen lvl. 3: 1 Holz + 2 Glomtom + 1 Liane
-        GlomtomBowRecipy = new Recipies(Wood, Glomtom, Liana, null, 1, 2, 1, 0, GlomtomBow, 1);
+        GlomtomBowRecipy = new Recipies(Wood, Glomtom, Liana, null, 1, 2, 1, 0, GlomtomBow, 1, false);
         // Feuerbogen: 1 Bogen + 1 Feuerstein = Feuerbogen
-        FireBowRecipy = new Recipies(StoneBow, Firestone, null, null, 1, 1, 0, 0, FireBow, 1);
-
+        FireBowRecipy = new Recipies(StoneBow, Firestone, null, null, 1, 1, 0, 0, FireBow, 1, false);
 
         Debug.Log(StoneAxeRecipy);
         AllRecipies.Add(StoneAxeRecipy);
@@ -212,7 +219,6 @@ public class Crafting : MonoBehaviour {
         AllRecipies.Add(StoneBowRecipy);
         AllRecipies.Add(IronBowRecipy);
         AllRecipies.Add(GlomtomBowRecipy);
-        AllRecipies.Add(FirestoneRecipy);
         AllRecipies.Add(BoatRecipy);
         AllRecipies.Add(FirestoneRecipy);
         AllRecipies.Add(FireplaceRecipy);
@@ -226,7 +232,6 @@ public class Crafting : MonoBehaviour {
         AllRecipies.Add(Lvl3ExtricArmorRecipy);
         AllRecipies.Add(ExtricAmourRecipy);
     }
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() { }
@@ -269,20 +274,21 @@ public class Crafting : MonoBehaviour {
             CraftingAmountItem4 = 0;
         }
 
-        foreach (var recipy in AllRecipies.Where(recipy => recipy.checkRecipy(CraftingItem1, CraftingItem2,
-                     CraftingItem3, CraftingItem4, CraftingAmountItem1,
-                     CraftingAmountItem2, CraftingAmountItem3, CraftingAmountItem4))) {
+        var recipe = AllRecipies.FirstOrDefault(recipe => recipe.checkRecipy(CraftingItem1, CraftingItem2,
+            CraftingItem3, CraftingItem4, CraftingAmountItem1,
+            CraftingAmountItem2, CraftingAmountItem3, CraftingAmountItem4));
+
+        if (recipe != null) {
             CraftingSlot1.clearSlot();
             CraftingSlot2.clearSlot();
             CraftingSlot3.clearSlot();
             CraftingSlot4.clearSlot();
-            Debug.Log("Check");
 
-            Type typ = recipy.CraftedItem.GetType();
+            Type typ = recipe.CraftedItem.GetType();
 
             // Prüfen, ob der Typ von ResourceItem abgeleitet ist
             if (typeof(ResourceItem).IsAssignableFrom(typ)) {
-                object instance = Activator.CreateInstance(typ, new object[] { recipy.CraftedAmount });
+                object instance = Activator.CreateInstance(typ, new object[] { recipe.CraftedAmount });
                 if (instance is ResourceItem resourceItem) {
                     Debug.Log("Falsches Item");
                     CraftedSlot.fillSlot(resourceItem);
@@ -294,109 +300,6 @@ public class Crafting : MonoBehaviour {
                     CraftedSlot.fillSlot(item);
                 }
             }
-        }
-    }
-
-    // ????
-    void Updated() {
-        CraftingItem1 = CraftingSlot1.Item;
-        CraftingItem2 = CraftingSlot2.Item;
-        CraftingItem3 = CraftingSlot3.Item;
-        CraftingItem4 = CraftingSlot4.Item;
-
-        if (CraftingItem1 is ResourceItem resourceItem1) {
-            CraftingAmountItem1 = resourceItem1.Amount;
-        } else if (CraftingItem1 != null) {
-            CraftingAmountItem1 = 1;
-        } else {
-            CraftingAmountItem1 = 0;
-        }
-
-        if (CraftingItem2 is ResourceItem resourceItem2) {
-            CraftingAmountItem2 = resourceItem2.Amount;
-        } else if (CraftingItem2 != null) {
-            CraftingAmountItem2 = 1;
-        } else {
-            CraftingAmountItem2 = 0;
-        }
-
-        if (CraftingItem3 is ResourceItem resourceItem3) {
-            CraftingAmountItem3 = resourceItem3.Amount;
-        } else if (CraftingItem3 != null) {
-            CraftingAmountItem3 = 1;
-        } else {
-            CraftingAmountItem3 = 0;
-        }
-
-        if (CraftingItem4 is ResourceItem resourceItem4) {
-            CraftingAmountItem4 = resourceItem4.Amount;
-        } else if (CraftingItem4 != null) {
-            CraftingAmountItem4 = 1;
-        } else {
-            CraftingAmountItem4 = 0;
-        }
-
-        if (StoneAxeRecipy.checkRecipy(CraftingItem1, CraftingItem2, CraftingItem3, CraftingItem4, CraftingAmountItem1,
-                CraftingAmountItem2, CraftingAmountItem3, CraftingAmountItem4)) {
-            CraftingSlot1.clearSlot();
-            CraftingSlot2.clearSlot();
-            CraftingSlot3.clearSlot();
-            CraftingSlot4.clearSlot();
-            CraftedSlot.fillSlot(new StoneAxe());
-        }
-
-        if (IronAxeRecipy.checkRecipy(CraftingItem1, CraftingItem2, CraftingItem3, CraftingItem4, CraftingAmountItem1,
-                CraftingAmountItem2, CraftingAmountItem3, CraftingAmountItem4)) {
-            CraftedSlot.fillSlot(new IronAxe());
-            CraftingSlot1.clearSlot();
-            CraftingSlot2.clearSlot();
-            CraftingSlot3.clearSlot();
-            CraftingSlot4.clearSlot();
-        }
-
-        if (StonePickaxeRecipy.checkRecipy(CraftingItem1, CraftingItem2, CraftingItem3, CraftingItem4,
-                CraftingAmountItem1, CraftingAmountItem2, CraftingAmountItem3, CraftingAmountItem4)) {
-            CraftedSlot.fillSlot(new StonePickaxe());
-            CraftingSlot1.clearSlot();
-            CraftingSlot2.clearSlot();
-            CraftingSlot3.clearSlot();
-            CraftingSlot4.clearSlot();
-        }
-
-        if (IronPickaxeRecipy.checkRecipy(CraftingItem1, CraftingItem2, CraftingItem3, CraftingItem4,
-                CraftingAmountItem1, CraftingAmountItem2, CraftingAmountItem3, CraftingAmountItem4)) {
-            CraftedSlot.fillSlot(new IronPickaxe());
-            CraftingSlot1.clearSlot();
-            CraftingSlot2.clearSlot();
-            CraftingSlot3.clearSlot();
-            CraftingSlot4.clearSlot();
-        }
-
-        if (StoneSwordRecipy.checkRecipy(CraftingItem1, CraftingItem2, CraftingItem3, CraftingItem4,
-                CraftingAmountItem1, CraftingAmountItem2, CraftingAmountItem3, CraftingAmountItem4)) {
-            CraftedSlot.fillSlot(new StoneSword());
-            CraftingSlot1.clearSlot();
-            CraftingSlot2.clearSlot();
-            CraftingSlot3.clearSlot();
-            CraftingSlot4.clearSlot();
-        }
-
-        if (IronSwordRecipy.checkRecipy(CraftingItem1, CraftingItem2, CraftingItem3, CraftingItem4,
-                CraftingAmountItem1, CraftingAmountItem2, CraftingAmountItem3, CraftingAmountItem4)) {
-            CraftedSlot.fillSlot(new IronSword());
-            CraftingSlot1.clearSlot();
-            CraftingSlot2.clearSlot();
-            CraftingSlot3.clearSlot();
-            CraftingSlot4.clearSlot();
-        }
-
-        if (GlomtomSwordRecipy.checkRecipy(CraftingItem1, CraftingItem2, CraftingItem3, CraftingItem4,
-                CraftingAmountItem1, CraftingAmountItem2, CraftingAmountItem3, CraftingAmountItem4)) {
-            CraftedSlot.fillSlot(new GlomtomSword());
-            CraftingSlot1.clearSlot();
-            CraftingSlot2.clearSlot();
-            CraftingSlot3.clearSlot();
-            CraftingSlot4.clearSlot();
         }
     }
 }

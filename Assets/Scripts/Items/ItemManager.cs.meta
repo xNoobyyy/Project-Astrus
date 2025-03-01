@@ -12,7 +12,7 @@ MonoImporter:
   - domilitantIcon: {fileID: 7400000, guid: 2c27b9054438e3b45910479002b1df30, type: 2}
   - AstrusIcon: {fileID: 7400000, guid: 184fa81455207ca45bd4a9414835d926, type: 2}
   - droppedItemPrefab: {instanceID: 0}
-  executionOrder: -50
+  executionOrder: -700
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 
