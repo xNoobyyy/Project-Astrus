@@ -4,6 +4,7 @@ using Items;
 using Items.Items;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Objects {
     public class Ore : MonoBehaviour {
@@ -14,6 +15,7 @@ namespace Objects {
         [SerializeField] private ParticleSystem damageParticles;
         [SerializeField] private OreType type;
         [SerializeField] private GameObject[] disableOnDestroy;
+        [SerializeField] private int requiredPickPower;
 
         private SpriteRenderer spriteRenderer;
 
@@ -48,6 +50,8 @@ namespace Objects {
         }
 
         public void Break(int pickPower) {
+            if (IsDestroyed || pickPower < requiredPickPower) return;
+
             Damage += pickPower;
             damageParticles.Play();
             if (Damage < Health) return;

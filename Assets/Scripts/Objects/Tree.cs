@@ -51,6 +51,8 @@ namespace Objects {
         }
 
         public void Chop(int chopPower) {
+            if (IsDestroyed) return;
+
             Damage += chopPower;
             damageParticles.Play();
             if (Damage < Health) return;
@@ -79,7 +81,7 @@ namespace Objects {
         private IEnumerator RespawnTimer() {
             var currentTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
             var timeLeft = RespawnTime - (currentTime - DestroyedAt);
-            
+
             if (timeLeft > 0) {
                 yield return new WaitForSeconds(timeLeft / 1000f);
             }

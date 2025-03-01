@@ -96,7 +96,22 @@ namespace Player {
                     var nonDestroyed = Array.FindAll(trees, t => !t.IsDestroyed);
                     var tree = nonDestroyed.Length > 0 ? nonDestroyed[0] : null;
 
-                    if (tree == null) return;
+                    var ore = colliders
+                        .Where(c => c.GetComponent<Ore>() != null || c.GetComponentInParent<Ore>() != null)
+                        .Select(c => c.GetComponent<Ore>() ?? c.GetComponentInParent<Ore>())
+                        .FirstOrDefault(ore => !ore.IsDestroyed);
+
+                    if (tree == null) {
+                        if (ore == null) return;
+                        if (Vector2.Distance(ore.trigger.ClosestPoint(transform.position), transform.position) >
+                            5f) return;
+
+                        ore.Break(1);
+                        Chop();
+
+                        return;
+                    }
+
                     if (Vector2.Distance(tree.trigger.ClosestPoint(transform.position), transform.position) >
                         5f) return;
 
