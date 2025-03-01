@@ -79,6 +79,7 @@ namespace Player.Inventory {
         /// <param name="item">The item to pick up</param>
         /// <returns>true, when the full item was picked up, false when the full item was not picked up and the amount of the referenced item was changed</returns>
         public bool PickupItem(Item item) {
+            QuestLogic.ItemSlots.Add(item);
             if (item is ResourceItem resourceItem) {
                 var restAmount = resourceItem.Amount;
 
