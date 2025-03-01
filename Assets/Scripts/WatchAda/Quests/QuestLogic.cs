@@ -1,26 +1,18 @@
 using System.Collections.Generic;
+using Items;
+using Items.Items;
+using Player.Inventory;
 using TMPro;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.InputSystem.Controls;
 
 public class QuestLogic : MonoBehaviour {
-
     public TextMeshProUGUI mainTitle;
     public TextMeshProUGUI mainDescription;
     public TextMeshProUGUI mainProgress;
     public TextMeshProUGUI sideText;
     public GameObject sideDescription;
-
-    public Quest testQuest;
-    public Quest testQuest2;
-    public Quest testQuest3;
-    public Quest testQuest4;
-    public Quest testQuest5;
-    public Quest testQuest6;
-    public Quest testQuest7;
-    public Quest testQuest8;
-    public Quest testQuest9;
-    
     public List<QuestGroup> questGroups = new List<QuestGroup>();
     public int activeGroup = 0;
     
@@ -111,11 +103,15 @@ public class QuestLogic : MonoBehaviour {
     public Quest nachHauseQuest;
     
     public List<Quest> sideQuests = new List<Quest>();
+    public static QuestLogic Instance { get; private set; }
 
+    
     void Start() {
     // Gruppe 1: Festland
         festlandQuest = new Quest("Festland", "Überquere das Meer.", true, 4);
         baueQuest = new Quest("Holz", "Sammle Holz und Äste.", false, 1);
+        baueQuest.AddCondition(new ItemCondition("Stick"));
+        Debug.Log("Bedingung hinzugefügt");
         bootQuest = new Quest("Boot", "Baue ein Boot.", false, 1);
         tierQuest = new Quest("Tier", "Streichele ein friedliches Tier.", false, 1);
         betreteFestlandQuest = new Quest("Ankunft", "Betrete das Festland.", false, 1);
@@ -221,8 +217,8 @@ public class QuestLogic : MonoBehaviour {
 
         UpdateSideQuests();
         UpdateMainQuest();
+        
     }
-
 
     // Methode zur Erstellung und Initialisierung einer Quest
     //private Quest CreateQuest(string objectName, string title, string description, bool isMainQuest, int requiredProgress)
@@ -237,19 +233,41 @@ public class QuestLogic : MonoBehaviour {
         //return quest;
     //}
 
-    void Update()
-    {
-        // Update-Logik falls erforderlich
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.P)) {
+            bool shouldStop = false;
+            foreach (var quest in questGroups[activeGroup].subQuests) {
+                foreach (var condition in quest.conditions) {
+                    if (!condition.IsMet()) {
+                        shouldStop = true;
+                        break;
+                    }
+                }
+                if (shouldStop) {
+                    continue;
+                }
+                FinishSideQuest(quest);
+            }
+            UpdateSideQuests();
+            UpdateMainQuest();
+        }
     }
 
     public void UpdateMainQuest() {
         Quest quest = questGroups[activeGroup].mainQuest;
-        
+        quest.currentProgress = 0;
+        foreach (var sideQuest in questGroups[activeGroup].subQuests) {
+            if (sideQuest.currentProgress == sideQuest.requiredProgress) {
+                quest.currentProgress++;
+            }
+        }
         mainTitle.text = quest.title;
         mainDescription.text = quest.description;
         mainProgress.text = quest.currentProgress.ToString() + "/" + quest.requiredProgress.ToString();
-        
         UpdateSideQuests();
+        if (quest.currentProgress == quest.requiredProgress) {
+            FinishMainQuest();
+        }
     }
 
     public void FinishMainQuest() {
@@ -279,13 +297,47 @@ public class QuestLogic : MonoBehaviour {
                               quest.currentProgress.ToString() + "/" + quest.requiredProgress.ToString() + ")" + "\n\n" ;
         }
     }
+    private GameObject[] allSlots;
+    private GameObject slotsContainer;
+    public static List<Item> ItemSlots = new List<Item>();
+    public void Slots() {
+        slotsContainer = GameObject.FindWithTag("Slots");
+        if (slotsContainer == null) {
+            Debug.LogError("SlotsContainer nicht gefunden!");
+            return;
+        }
+        ItemSlots = GetAllItems(slotsContainer);
+        foreach (var item in ItemSlots) {
+            Debug.Log(item.Name);
+        }
+    }
+    private List<GameObject> GetAllChildren(GameObject parent) {
+        List<GameObject> childrenList = new List<GameObject>();
+        foreach (Transform child in parent.transform) {
+            childrenList.Add(child.gameObject);
+            childrenList.AddRange(GetAllChildren(child.gameObject));
+        }
+        return childrenList;
+    }
+    private List<Item> GetAllItems(GameObject parent) {
+
+        List<GameObject> allChildren = GetAllChildren(parent);
+        List<Item> allItems = new List<Item>();
+        foreach (GameObject child in allChildren) {
+            if (child.TryGetComponent(out ItemSlot itemSlot) && itemSlot.Item != null) {
+                Debug.Log($"Item gefunden in {child.name}: {itemSlot.Item}");
+                allItems.Add(itemSlot.Item);
+            }
+        }
+        return allItems;
+    }
 }
 
 [System.Serializable]
 public class QuestGroup {
     public Quest mainQuest;
     public List<Quest> subQuests;
-
+    
     public QuestGroup(Quest mainQuest, List<Quest> subQuests = null) {
         this.mainQuest = mainQuest;
         this.subQuests = subQuests ?? new List<Quest>();

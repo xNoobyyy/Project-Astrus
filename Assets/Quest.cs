@@ -1,4 +1,10 @@
 using UnityEngine;
+using System;
+using System.Collections.Generic;
+using Player.Inventory;
+using Items;
+using System.Reflection;
+using UnityEngine.Rendering.Universal;
 
 [System.Serializable]
 public class Quest  {
@@ -22,6 +28,7 @@ public class Quest  {
     
     // Optional: Ein Icon, das zur Darstellung der Quest genutzt wird
     public Sprite icon;
+    public List<QuestCondition> conditions = new List<QuestCondition>();
     
     /// <summary>
     /// Konstruktor für eine neue Quest.
@@ -44,7 +51,7 @@ public class Quest  {
     }
     
     /// <summary>
-    /// Aktualisiert den Fortschritt der Quest.
+    /// Aktualisiert den Fortschritt der Quest und prüft ob sie abgeschlossen wurde
     /// </summary>
     /// <param name="amount">Die Menge, um die der Fortschritt erhöht werden soll.</param>
     public void UpdateProgress(int amount) {
@@ -54,8 +61,15 @@ public class Quest  {
         
         if (currentProgress >= requiredProgress) {
             currentProgress = requiredProgress;
-            isCompleted = true;
+            CompleteQuest();
         }
+    }
+    /// <summary>
+    /// Markiert die Quest als abgeschlossen und ruft das Abschluss-Event auf.
+    /// </summary>
+    private void CompleteQuest() 
+    {
+        isCompleted = true;
     }
     
     /// <summary>
@@ -65,5 +79,50 @@ public class Quest  {
         if (requiredProgress == 0)
             return 1f;
         return (float)currentProgress / requiredProgress;
+    }
+    public void AddCondition(QuestCondition condition)
+    {
+        conditions.Add(condition);
+    }
+
+    public bool IsCompleted()
+    {
+        foreach (QuestCondition condition in conditions) {
+            if (condition.IsMet()) {
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+public abstract class QuestCondition {
+    public abstract bool IsMet();
+}
+
+public class ItemCondition : QuestCondition {
+    public string itemName;
+    
+    public ItemCondition(String itemName) {
+            Debug.Log($"ItemCondition erstellt mit Item: {itemName}");
+        this.itemName = itemName;
+    }
+
+    public override bool IsMet() {
+        Debug.Log(itemName);
+        return ContainsItem(itemName);
+    }
+    public bool ContainsItem(string name) {
+        if (string.IsNullOrEmpty(name)) {
+            Debug.LogError("Fehler: Der übergebene String ist null oder leer!");
+            return false;
+        }
+        foreach (Item obj in QuestLogic.ItemSlots) {
+            if (obj != null && obj.Name == name) { 
+                return true;
+            }
+        }
+        return false;
     }
 }
