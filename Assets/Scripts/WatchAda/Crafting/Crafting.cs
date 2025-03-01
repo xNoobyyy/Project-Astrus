@@ -95,6 +95,9 @@ public class Crafting : MonoBehaviour {
     public Recipies GlomtomSwordRecipy;
 
     public List<Recipies> AllRecipies = new List<Recipies>();
+    
+    EventCrafting ec = new EventCrafting();
+    EventM em = new EventM();
 
     void Awake() {
         if (Instance == null) {
@@ -297,6 +300,9 @@ public class Crafting : MonoBehaviour {
                 object instance = Activator.CreateInstance(typ);
                 if (instance is Item item) {
                     Debug.Log("Sollte funktionieren");
+                    CraftingCondition.craftedItem = item;
+                    em.Subscribe(ec);
+                    ec.TriggerEvent();
                     CraftedSlot.fillSlot(item);
                 }
             }

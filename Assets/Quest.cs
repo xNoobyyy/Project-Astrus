@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Player.Inventory;
 using Items;
 using System.Reflection;
+using Items.Items;
 using UnityEngine.Rendering.Universal;
 
 [System.Serializable]
@@ -101,6 +102,41 @@ public abstract class QuestCondition {
     public abstract bool IsMet();
 }
 
+public class CraftingCondition : QuestCondition {
+    public string itemName;
+    public static Item craftedItem = new Astrus(1);
+    public override bool IsMet(){
+        if (craftedItem.Name == itemName) {
+            
+            return true;
+        }
+        return false;
+    }
+    public CraftingCondition(string itemName) {
+        this.itemName = itemName;
+    }
+}
+
+public class EventM {
+    public void Subscribe(EventCrafting publisher) {
+        publisher.OnCrafting += HandleEvent; // Registriere die Methode für das Event
+    }
+
+    private void HandleEvent() {
+        Debug.Log("hbvdsj");
+        foreach (var questG in QuestLogic.questGroups) {
+            foreach (var quest in questG.subQuests) {
+                foreach (var condition in quest.conditions) {
+                    if (condition.GetType() == typeof(CraftingCondition)) {
+                        if (condition.IsMet()) {
+                            quest.currentProgress = quest.requiredProgress;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 public class ItemCondition : QuestCondition {
     public string itemName;
     
@@ -124,5 +160,12 @@ public class ItemCondition : QuestCondition {
             }
         }
         return false;
+    }
+}
+public class EventCrafting {
+    public event Action OnCrafting;
+
+    public void TriggerEvent() {
+        OnCrafting?.Invoke(); 
     }
 }
