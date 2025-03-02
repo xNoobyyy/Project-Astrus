@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Creatures;
 using Items;
+using Items.Items;
 using Logic.Events;
 using Objects;
+using Objects.Placeables;
 using Player.Inventory;
 using TextDisplay;
 using UnityEngine;
@@ -22,8 +24,12 @@ namespace Player {
         [SerializeField] public Bow.Bow bowContainerShift;
         [SerializeField] public GameObject arrowPrefab;
 
+        [SerializeField] private BoxCollider2D boatPreview;
+        [SerializeField] private GameObject boatPrefab;
+
         [NonSerialized] public Camera mainCamera;
         [NonSerialized] public Animator animator;
+
         private Rigidbody2D rb;
 
         public bool IsAttacking { get; set; }
@@ -60,13 +66,16 @@ namespace Player {
             if (TextDisplayManager.Instance.textDisplay.isDialogueActive) return;
             if (LogicScript.Instance.WatchOpen) return;
 
+            var zCoord = mainCamera.WorldToScreenPoint(transform.position).z;
+            var mousePosition = Input.mousePosition;
+            mousePosition.z = zCoord;
+
+            var worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);
+
+            if (CheckBoat(worldPosition)) return;
+
             if (Input.GetMouseButtonDown(0)) {
                 // Left Click
-                var zCoord = mainCamera.WorldToScreenPoint(transform.position).z;
-                var mousePosition = Input.mousePosition;
-                mousePosition.z = zCoord;
-
-                var worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);
                 var currentItem = LogicScript.Instance.accessableInventoryManager.CurrentSlot.Item;
 
                 var colliders = Physics2D.OverlapPointAll(worldPosition);
@@ -120,15 +129,71 @@ namespace Player {
                 }
             } else if (Input.GetMouseButtonDown(1)) {
                 // Right Click
-                var zCoord = mainCamera.WorldToScreenPoint(transform.position).z;
-                var mousePosition = Input.mousePosition;
-                mousePosition.z = zCoord;
-
-                var worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);
                 var currentItem = LogicScript.Instance.accessableInventoryManager2.CurrentSlot.Item;
 
                 currentItem?.OnUse(transform, worldPosition, ClickType.Right);
             }
+        }
+
+        private bool CheckBoat(Vector2 worldPosition) {
+            if (LogicScript.Instance.accessableInventoryManager.CurrentSlot.Item is Boat boat) {
+                if (Vector2.Distance(transform.position, worldPosition) > 10f) {
+                    HideBoatPreview();
+                    return false;
+                }
+
+                boatPreview.transform.position = worldPosition;
+
+                if (!PlaceableBoat.IsPlaceable(boatPreview)) {
+                    HideBoatPreview();
+                    return false;
+                }
+
+                if (Input.GetMouseButtonDown(0)) {
+                    boat.Amount--;
+                    LogicScript.Instance.accessableInventoryManager.CurrentItemSlot.SetItem(boat.Amount == 0
+                        ? null
+                        : boat);
+                    LogicScript.Instance.accessableInventoryManager.UpdateSlots();
+
+                    Instantiate(boatPrefab, worldPosition, Quaternion.identity);
+                    return true;
+                }
+
+                if (!boatPreview.gameObject.activeSelf) boatPreview.gameObject.SetActive(true);
+                return false;
+            }
+
+            if (LogicScript.Instance.accessableInventoryManager2.CurrentSlot.Item is Boat boat2) {
+                if (Vector2.Distance(transform.position, worldPosition) > 10f) {
+                    HideBoatPreview();
+                    return false;
+                }
+
+                boatPreview.transform.position = worldPosition;
+
+                if (!PlaceableBoat.IsPlaceable(boatPreview)) {
+                    HideBoatPreview();
+                    return false;
+                }
+
+                if (Input.GetMouseButtonDown(1)) {
+                    boat2.Amount--;
+                    LogicScript.Instance.accessableInventoryManager2.CurrentItemSlot.SetItem(boat2.Amount == 0
+                        ? null
+                        : boat2);
+                    LogicScript.Instance.accessableInventoryManager2.UpdateSlots();
+
+                    Instantiate(boatPrefab, worldPosition, Quaternion.identity);
+                    return true;
+                }
+
+                if (!boatPreview.gameObject.activeSelf) boatPreview.gameObject.SetActive(true);
+                return false;
+            }
+
+            HideBoatPreview();
+            return false;
         }
 
         public void Chop() {
@@ -139,6 +204,10 @@ namespace Player {
         private IEnumerator FinishChop() {
             yield return new WaitForSeconds(1);
             IsChopping = false;
+        }
+
+        private void HideBoatPreview() {
+            if (boatPrefab.gameObject.activeSelf) boatPreview.gameObject.SetActive(false);
         }
 
         private void Attack() {

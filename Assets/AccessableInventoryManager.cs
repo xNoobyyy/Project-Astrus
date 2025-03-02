@@ -26,14 +26,14 @@ namespace Player.Inventory {
 
         [Header("UI-Einstellungen")]
         // Zielpositionen (in lokalen Koordinaten) für die 3 sichtbaren Slots
-        public Vector2 mainSlotPosition = new Vector2(0, 0); // Hauptslot (z.B. mittig)
+        public Vector2 mainSlotPosition = new(0, 0); // Hauptslot (z.B. mittig)
 
-        public Vector2 previousSlotPosition = new Vector2(0, 50); // Slot oberhalb des Hauptslots
-        public Vector2 nextSlotPosition = new Vector2(0, -50); // Slot unterhalb des Hauptslots
+        public Vector2 previousSlotPosition = new(0, 50); // Slot oberhalb des Hauptslots
+        public Vector2 nextSlotPosition = new(0, -50); // Slot unterhalb des Hauptslots
 
         // Zielskalierungen: Hauptslot größer, die anderen etwas kleiner
         public Vector3 mainSlotScale = Vector3.one;
-        public Vector3 secondarySlotScale = new Vector3(0.8f, 0.8f, 0.8f);
+        public Vector3 secondarySlotScale = new(0.8f, 0.8f, 0.8f);
 
         [Header("Animationseinstellungen")]
         public float animationSpeed = 10f; // Je höher der Wert, desto schneller die Animation
@@ -41,6 +41,7 @@ namespace Player.Inventory {
         public bool requireShift;
         private int currentIndex = 0; // Index des aktuell aktiven (Haupt-)Slots
         public AccessableSlot CurrentSlot => slots[currentIndex];
+        public ItemSlot CurrentItemSlot => invenSlots[currentIndex];
 
         private void Start() {
             if (slots == null || slots.Length != 5) {

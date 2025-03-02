@@ -14,7 +14,7 @@ public class QuestLogic : MonoBehaviour {
     public TextMeshProUGUI mainTitle;
     public TextMeshProUGUI mainDescription;
     public TextMeshProUGUI mainProgress;
-    public static TextMeshProUGUI sideText;
+    public TextMeshProUGUI sideText;
     public GameObject sideDescription;
     public static List<QuestGroup> questGroups = new List<QuestGroup>();
     public static int activeGroup = 0;
@@ -336,7 +336,7 @@ public class QuestLogic : MonoBehaviour {
         }
     }
 
-    public static void UpdateSideQuests()
+    public void UpdateSideQuests()
     {
         sideText.text = "";
         foreach (Quest quest in questGroups[activeGroup].subQuests)

@@ -77,16 +77,16 @@ namespace Player.Inventory {
         }
 
         public void OnPointerEnter(PointerEventData eventData) {
-            if (Item == null) return;
+            if (Item == null || floatingText == null) return;
 
             floatingText.text = Item.Name;
             floatingTextObject.transform.position = gameObject.transform.position + new Vector3(0, 30, 0);
         }
 
         public void OnPointerExit(PointerEventData eventData) {
-            if (floatingText.text == Item.Name) {
-                floatingText.text = "";
-            }
+            if (floatingText == null || Item == null || floatingText.text != Item.Name) return;
+
+            floatingText.text = "";
         }
 
         public void UpdateDisplay() {
