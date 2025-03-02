@@ -44,7 +44,7 @@ public class LogicScript : MonoBehaviour {
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) && !WatchOpen) {
-            if (Time.timeScale == 1.0f) {
+            if (Mathf.Approximately(Time.timeScale, 1.0f)) {
                 pauseScreen.SetActive(true);
                 Time.timeScale = 0f;
             } else {
@@ -57,26 +57,30 @@ public class LogicScript : MonoBehaviour {
             CloseInventoryScreen();
         }
 
-        if (Input.GetKeyDown(KeyCode.Z)) {
+        if (Input.GetKeyDown(KeyCode.E) && !WatchOpen) {
             OpenWatch();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && WatchOpen && !IconOpened) {
+        if (Input.GetKeyDown(KeyCode.E) && WatchOpen && !IconOpened) {
             CloseWatch();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && IconOpened) {
+        if (Input.GetKeyDown(KeyCode.E) && IconOpened) {
             watch.ReverseAnimation();
         }
     }
 
     public void OpenWatch() {
         watch.open();
+        accessableInventoryManager.HideHints();
+        accessableInventoryManager2.HideHints();
         //WatchOpen = true;
     }
 
     public void CloseWatch() {
         watch.close();
+        accessableInventoryManager.ShowHints();
+        accessableInventoryManager2.ShowHints();
         //WatchOpen = !watch.closed();
     }
 

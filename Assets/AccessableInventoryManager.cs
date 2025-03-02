@@ -22,6 +22,8 @@ namespace Player.Inventory {
 
         public ItemSlot[] invenSlots;
 
+        [SerializeField] private GameObject hints;
+
         [Header("UI-Einstellungen")]
         // Zielpositionen (in lokalen Koordinaten) für die 3 sichtbaren Slots
         public Vector2 mainSlotPosition = new Vector2(0, 0); // Hauptslot (z.B. mittig)
@@ -61,6 +63,8 @@ namespace Player.Inventory {
         }
 
         private void Update() {
+            if (LogicScript.Instance.WatchOpen) return;
+
             // Überprüfe den Mausradinput zum Rotieren
             var scroll = Input.GetAxis("Mouse ScrollWheel");
             var shift = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
@@ -145,6 +149,14 @@ namespace Player.Inventory {
             for (var i = 0; i < slots.Length; i++) {
                 slots[i].SetItem(invenSlots[i].Item);
             }
+        }
+
+        public void HideHints() {
+            hints.SetActive(false);
+        }
+
+        public void ShowHints() {
+            hints.SetActive(true);
         }
     }
 }
