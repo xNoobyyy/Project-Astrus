@@ -22,16 +22,18 @@ namespace Player.Inventory {
 
         public ItemSlot[] invenSlots;
 
+        [SerializeField] private GameObject hints;
+
         [Header("UI-Einstellungen")]
         // Zielpositionen (in lokalen Koordinaten) für die 3 sichtbaren Slots
-        public Vector2 mainSlotPosition = new Vector2(0, 0); // Hauptslot (z.B. mittig)
+        public Vector2 mainSlotPosition = new(0, 0); // Hauptslot (z.B. mittig)
 
-        public Vector2 previousSlotPosition = new Vector2(0, 50); // Slot oberhalb des Hauptslots
-        public Vector2 nextSlotPosition = new Vector2(0, -50); // Slot unterhalb des Hauptslots
+        public Vector2 previousSlotPosition = new(0, 50); // Slot oberhalb des Hauptslots
+        public Vector2 nextSlotPosition = new(0, -50); // Slot unterhalb des Hauptslots
 
         // Zielskalierungen: Hauptslot größer, die anderen etwas kleiner
         public Vector3 mainSlotScale = Vector3.one;
-        public Vector3 secondarySlotScale = new Vector3(0.8f, 0.8f, 0.8f);
+        public Vector3 secondarySlotScale = new(0.8f, 0.8f, 0.8f);
 
         [Header("Animationseinstellungen")]
         public float animationSpeed = 10f; // Je höher der Wert, desto schneller die Animation
@@ -39,6 +41,7 @@ namespace Player.Inventory {
         public bool requireShift;
         private int currentIndex = 0; // Index des aktuell aktiven (Haupt-)Slots
         public AccessableSlot CurrentSlot => slots[currentIndex];
+        public ItemSlot CurrentItemSlot => invenSlots[currentIndex];
 
         private void Start() {
             if (slots == null || slots.Length != 5) {
@@ -61,6 +64,8 @@ namespace Player.Inventory {
         }
 
         private void Update() {
+            if (LogicScript.Instance.WatchOpen) return;
+
             // Überprüfe den Mausradinput zum Rotieren
             var scroll = Input.GetAxis("Mouse ScrollWheel");
             var shift = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
@@ -145,6 +150,14 @@ namespace Player.Inventory {
             for (var i = 0; i < slots.Length; i++) {
                 slots[i].SetItem(invenSlots[i].Item);
             }
+        }
+
+        public void HideHints() {
+            hints.SetActive(false);
+        }
+
+        public void ShowHints() {
+            hints.SetActive(true);
         }
     }
 }

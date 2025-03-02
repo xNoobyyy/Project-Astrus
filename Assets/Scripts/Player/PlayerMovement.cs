@@ -14,7 +14,7 @@ namespace Player {
         private Animator animator;
         private PlayerItem playerItem;
 
-        [SerializeField] private float speed = 1.5f;
+        [SerializeField] public float speed = 3f;
 
         private Vector2 movement;
 

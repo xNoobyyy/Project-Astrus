@@ -95,11 +95,11 @@ public class Crafting : MonoBehaviour {
     public Recipies GlomtomSwordRecipy;
 
     public List<Recipies> AllRecipies = new List<Recipies>();
-    
-    EventCrafting ec = new EventCrafting();
-    EventM em = new EventM();
 
-    void Awake() {
+    private EventCrafting ec = new EventCrafting();
+    private EventM em = new EventM();
+
+    private void Awake() {
         if (Instance == null) {
             Instance = this;
         } else {
@@ -236,10 +236,9 @@ public class Crafting : MonoBehaviour {
         AllRecipies.Add(ExtricAmourRecipy);
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start() { }
+    private void Update() {
+        if (CraftedSlot.Item != null) return;
 
-    void Update() {
         CraftingItem1 = CraftingSlot1.Item;
         CraftingItem2 = CraftingSlot2.Item;
         CraftingItem3 = CraftingSlot3.Item;
