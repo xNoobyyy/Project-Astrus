@@ -16,651 +16,658 @@
     },
     {
       "id": 2,
-      "text": "Zusammen schaffen wir das! Du kannst dich mit +Tasten+ bewegen. Öffne mit +Taste+ mein Menü. Hier findest du dein Inventar, die Karte, ein Logbuch und  Crafting-Rezept, die du oben im Inventar ausführen kannst. Auch befinden sich im Menü deine Nachrichten mit mir. Probiere die Nachrichten so schnell wie möglich zu öffnen, wenn du diese bekommst. In besonders gefährlichen Situationen werde ich dir auch direkt Tipps geben, ohne dass du diese erst antippen musst. Auch werde ich dir Quests anzeigen, mit denen du die Insel erkunden kannst.",
+      "text": "Zusammen schaffen wir das! Du kannst dich mit W, A, S, D bewegen. Öffne mit E mein Menü. Hier findest du dein Inventar, die Karte, ein Logbuch und  Crafting-Rezept, die du im Inventar ausführen kannst. Auch befinden sich im Menü deine Nachrichten mit mir. Probiere die Nachrichten so schnell wie möglich zu öffnen, wenn du diese bekommst...",
       "weiter": true,
       "start": false,
       "person": 1
     },
     {
       "id": 3,
+      "text": "In besonders gefährlichen Situationen werde ich dir auch direkt Tipps geben, ohne dass du diese erst antippen musst. Auch werde ich dir Quests anzeigen, mit denen du die Insel erkunden kannst.",
+      "weiter": true,
+      "start": false,
+      "person": 1
+    },
+    {
+      "id": 4,
       "text": "Verstanden!",
       "weiter": true,
       "start": false,
       "person": 0
     },
     {
-      "id": 4,
+      "id": 5,
       "text": "Ich habe eine erste Quest für dich. Baue ein Boot, um von dieser Insel zum Festland zu gelangen. Schaue dafür in den Crafting-Rezepten nach und sammele geeignete Ressourcen.",
       "weiter": false,
       "start": false,
       "person": 1
     },
     {
-      "id": 5,
-      "text": "Ich benötige zwei Sticks und vier Holz.",
+      "id": 6,
+      "text": "Ich benötige zwei Äste und vier Holz.",
       "weiter": true,
       "start": true,
       "person": 0
     },
     {
-      "id": 6,
-      "text": "Genau! Klicke auf einen Baum. Dadurch erhältst du Holz und Sticks. Baue dir dann das Boot mit den benötigten Objekten.",
+      "id": 7,
+      "text": "Genau! Klicke auf einen Baum. Dadurch erhältst du Holz und Äste. Baue dir dann das Boot mit den benötigten Objekten.",
       "weiter": false,
       "start": false,
       "person": 1
     },
     {
-      "id": 7,
+      "id": 8,
       "text": "Sehr gut. Durch das Klicken auf verschiedene Objekte kannst du diese abbauen und einsammeln. Lass uns nun zum Meer gehen und zum Festland übersetzen.",
       "weiter": true,
       "start": true,
       "person" : 1
     },
     {
-      "id": 8,
+      "id": 9,
       "text": "Alles klar! Was sind das für Tiere hier?",
       "weiter" : true,
       "start": false,
       "person": 0
     },
     {
-      "id": 9,
+      "id": 10,
       "text": "Oh, das sind Quokkas. Süß, oder? Hier gibt es unterschiedliche Tiere, die meisten sind aber relativ harmlos. Falls dich doch mal eins nervt, kannst du dieses auch mit einem Klick angreifen. Manche lassen sich sogar auch streicheln. Das kannst du dann auf dem Festland mal ausprobieren",
       "weiter": false,
       "start": false,
       "person": 1
     },
     {
-      "id": 10,
-      "text": "Ziehe das Boot aus deinem Inventar. Steige nun mit ? ein und bewege dich mit ?. Deine erste Quest ist geschafft. Herzlichen Glückwunsch und gute Fahrt!",
+      "id": 11,
+      "text": "Wähle den Inventarslot des Bootes aus und klicke dann auf das Meer, um dieses zu platzieren. Steige dann durch ein Klicken auf das Boot ein. Deine erste Quest ist geschafft. Herzlichen Glückwunsch und gute Fahrt!",
       "weiter": false,
       "start": true,
       "person": 1
     },{
-      "id": 11,
+      "id": 12,
       "text": "Mhm, komisch. Hier liegen viele verschiedene Objekte herum. Ich dachte, hier leben nur Tiere… sei auf jeden Fall vorsichtig, wenn du das Festland weiter erkundest!",
       "weiter": false,
       "start":true,
       "person": 1
     },{
-      "id": 12,
-      "text":"{playerName}, ich habe eine neue Quest für dich! Wir wissen nicht, wer auf diesem Planeten wohnt und wie gefährlich potentielle Bewohner sind. Finde Ressourcen und crafte aus diesen Werkzeuge oder Waffen. Eisen und Stein findest du bei den Grasslands.",
+      "id": 13,
+      "text":"{playerName}, ich habe eine neue Quest für dich! Wir wissen nicht, wer auf diesem Planeten wohnt und wie gefährlich potentielle Bewohner sind. Finde Ressourcen und crafte aus diesen Werkzeuge oder Waffen. Eisen und Stein findest du im Grasland.",
       "weiter": false,
       "start": true,
       "person":1
     },{
-      "id": 13,
+      "id": 14,
       "text":"Sehr gut. Crafte nun Werkzeuge und ein Schwert, um dich verteidigen zu können. Eine Spitzhacke könnte bestimmt noch nützlich werden.",
       "weiter": false,
       "start": true,
       "person": 1
     },{
-      "id": 14,
+      "id": 15,
       "text": "Erkunde nun diesen Planeten weiter, jetzt kannst du dich ja auch verteidigen. Viel Spaß!",
       "weiter": false,
       "start": true,
       "person": 1
     },{
-      "id": 15,
+      "id": 16,
       "text": "Wow, du hast das Plateau gefunden. Keine Ahnung, was uns dort erwartet, aber leider können wir es noch nicht erreichen. Es liegt zu hoch!",
       "weiter": false,
       "start": true,
       "person": 1
     },{
-      "id": 16,
+      "id": 17,
       "text":"[Ahhhhh, irgendetwas Gruseliges bewegt sich hier. Ich habe Angst!] [Irgendetwas hat sich hier gerade bewegt. Was soll ich machen?]" ,
       "weiter": true,
       "start": true ,
       "person": 0
     },{
-      "id": 17,
+      "id": 18,
       "text": "Keine Sorge, du kannst dich ja mit deinem Schwert verteidigen. Am besten verfolgen wir die Gestalt vorsichtig und finden mehr über sie heraus.",
       "weiter": true,
       "start": false,
       "person": 1
     },{
-      "id": 18,
+      "id": 19,
       "text": "Okay, los geht’s.",
       "weiter": true,
       "start": false,
       "person": 0
     },{
-      "id": 19,
+      "id": 20,
       "text":"Pass auf dich auf und halte immer genug Abstand." ,
       "weiter": false,
       "start": true,
       "person": 1
     },{
-      "id": 20,
+      "id": 21,
       "text":"Cool, hier gibt es ja sogar einen Jungle. Achtung, die Gestalt wird langsamer!" ,
       "weiter": true ,
       "start": true,
       "person": 1
     },{
-      "id": 21,
+      "id": 22,
       "text": "Oh Gott, es ist ein Zombie!",
       "weiter": true,
       "start": false,
       "person": 0
     },{
-      "id": 22,
+      "id": 23,
       "text": "Du schaffst das. Benutze dein Schwert und verteidige dich!",
       "weiter": false,
       "start": false,
       "person": 1
     },{
-      "id": 23,
+      "id": 24,
       "text": "Renne jetzt schnell weg, um dich vor den Zombies zu schützen." ,
       "weiter": false ,
       "start": true ,
       "person": 1
     },{
-      "id": 24,
+      "id": 25,
       "text": "Achtung {playerName}, hinter dem Wasserfall dort hinten befindet sich eine versteckte Höhle. Dort können wir uns vor den Zombies verstecken. Beeil dich!" ,
       "weiter": false,
       "start": true,
       "person": 1
     }, 
     { 
-      "id": 25,
+      "id": 26,
       "text": "Oh, hier ist es aber sehr dunkel! Am besten craftest du dir erstmal eine Fackel. Rufe dafür das passende Rezept auf.",
       "weiter": false,
       "start": true,
       "person": 1
     },
     { 
-      "id": 26,
+      "id": 27,
       "text": "Kohle müsstest du hier in der Höhle finden. Baue es mit deiner Spitzhacke ab und crafte die Fackel.",
       "weiter": false,
       "start": true,
       "person": 1
     },
     { 
-      "id": 27,
+      "id": 28,
       "text": "Huch, da hinten ist ein anderes Licht. Ist da jemand?",
       "weiter": true,
       "start": true,
       "person": 0
     },
     { 
-      "id": 28,
+      "id": 29,
       "text": "Hallo Fremder, erschrecke dich bitte nicht. Mein Name ist Dr. Storm. Versteckst du dich auch vor den Zombies?",
       "weiter": true,
       "start": false,
       "person": 2
     },
     {
-      "id": 29,
+      "id": 30,
       "text": "Ja, was… was machen Sie hier? Ich dachte hier leben keine Menschen…",
       "weiter": true,
       "start": false,
       "person": 0
     },
     {
-      "id": 30,
+      "id": 31,
       "text": "Überraschung! Ich bin hier auch der einzige Mensch hihi… obwohl jetzt sind wir ja zu zweit.",
       "weiter": true,
       "start": false,
       "person": 2
     },
     {
-      "id": 31,
+      "id": 32,
       "text": "[Ähhh...][Okay...]",
       "weiter": true,
       "start": false,
       "person": 0
     },
     {
-      "id": 32,
+      "id": 33,
       "text": "Wie heißt du Fremder?",
       "weiter": true,
       "start": false,
       "person": 2
     },
     {
-      "id": 33,
-      "text": "Ich bin +Spieler+. Mein Raumschiff ist abgestürzt und ich muss es schnell reparieren.",
+      "id": 34,
+      "text": "Ich bin {playerName}. Mein Raumschiff ist abgestürzt und ich muss es schnell reparieren.",
       "weiter": true,
       "start": false,
       "person": 0
     },
     {
-      "id": 34,
+      "id": 35,
       "text": "Oh je, oh je. Na, hoffentlich kommst du hier schnell wieder weg.",
       "weiter": true,
       "start": false,
       "person": 2
     },
     {
-      "id": 35,
+      "id": 36,
       "text": "Das hoffe ich auch.",
       "weiter": true,
       "start": false,
       "person": 0
     },
     {
-      "id": 36,
+      "id": 37,
       "text": "Die Zombies nerven ganz schön, oder? Ich war gerade im Sumpf und dann haben sie mich hier hergejagt.",
       "weiter": true,
       "start": false,
       "person": 2
     },
     {
-      "id": 37,
+      "id": 38,
       "text": "Es gibt hier einen Sumpf?",
       "weiter": true,
       "start": false,
       "person": 0
     },
     {
-      "id": 38,
+      "id": 39,
       "text": "Genau, hier gibt es ALLES! Allerdings ist der Sumpf sehr gefährlich und verseucht. Gehe da lieber nicht hin, außer du hast mit dem Leben abgeschlossen hihi.",
       "weiter": true,
       "start": false,
       "person": 2
     },
     {
-      "id": 39,
+      "id": 40,
       "text": "[Äh.][Nein, habe ich eigentlich nicht.]",
       "weiter": true,
       "start": false,
       "person": 0
     },
     {
-      "id": 40,
+      "id": 41,
       "text": "Hier gibt es auch irgend so eine alte Farm mit so komischen Rezepten und so… leider keine Kuchenrezepte.",
       "weiter": true,
       "start": false,
       "person": 2
     },
     {
-      "id": 41,
+      "id": 42,
       "text": "Eine alte Farm mit Rezepten?",
       "weiter": true,
       "start": false,
       "person": 0
     },
     {
-      "id": 42,
+      "id": 43,
       "text": "Jupp. Da hinten auf einem Plateau.",
       "weiter": true,
       "start": false,
       "person": 2
     },
     {
-      "id": 43,
+      "id": 44,
       "text": "Klingt spannend, aber wie soll ich dort hochkommen?",
       "weiter": true,
       "start": false,
       "person": 0
     },
     {
-      "id": 44,
+      "id": 45,
       "text": "Benutze doch eine Liane. Früher bin ich damit überall hochgeklettert, aber jetzt… meine Rückenschmerzen halten mich davon ab.",
       "weiter": true,
       "start": false,
       "person": 2
     },
     {
-      "id": 45,
+      "id": 46,
       "text": "Danke für Ihre Hilfe, ich mache mich dann mal auf den Weg.",
       "weiter": true,
       "start": false,
       "person": 0
     },
     {
-      "id": 46,
+      "id": 47,
       "text": "Ich muss auch los… Melde dich, falls du doch ein Brownie-Rezept in der Farm findest, hihi.",
       "weiter": false,
       "start": false,
       "person": 2
     },
     { 
-      "id": 47,
-      "text": "Was ein interessantes Gespräch! Guck mal +Spieler+, dort hinten glitzert etwas.",
+      "id": 48,
+      "text": "Was ein interessantes Gespräch! Guck mal {playerName}, dort hinten glitzert etwas.",
       "weiter": false,
       "start": true,
       "person": 1
     },
     { 
-      "id": 48,
+      "id": 49,
       "text": "Oh, das ist Glomtom. Eins der seltenen Erze hier. Öffne meine Rezepte und crafte neue Werkzeuge.",
       "weiter": false,
       "start": true,
       "person": 1
     },
     {
-      "id": 49,
+      "id": 50,
       "text": "Sehr gut. Jetzt können wir uns richtig verteidigen! Verlasse die Höhle wieder und gehe Richtung Plateau.",
       "weiter": true,
       "start": true,
       "person": 1
     },
     {
-      "id": 50,
+      "id": 51,
       "text": "Los geht’s!",
       "weiter": false,
       "start": false,
       "person": 0
     },
     { 
-      "id": 51,
+      "id": 52,
       "text": "Zombies sind wasserscheu. Laufe über die Seerosen und rette dich schnell über den Fluss!",
       "weiter": false,
       "start": true,
       "person": 1
     },
     { 
-      "id": 52,
+      "id": 53,
       "text": "[Ich sehe jetzt das Plateau.][Juhu, ich bin da!]",
       "weiter": true,
       "start": true,
       "person": 0
     },
     {
-      "id": 53,
+      "id": 54,
       "text": "Sehr gut. Baue jetzt bei einem Jungle-Baum eine Liane ab.",
       "weiter": false,
       "start": false,
       "person": 1
     },
     {
-      "id": 54,
+      "id": 55,
       "text": "Klettere jetzt das Plateau hoch.",
       "weiter": false,
       "start": true,
       "person": 1
     },
     { 
-      "id": 55,
+      "id": 56,
       "text": "Erkunde alte Farm und finde Rezepte.",
       "weiter": false,
       "start": true,
       "person": 1
     },
     { 
-      "id": 56,
-      "text": "Oh, wie interessant. Öffne die Truhe mit +Mausklick+.",
+      "id": 57,
+      "text": "Oh, wie interessant. Öffne die Truhe mit einem Klick.",
       "weiter": false,
       "start": true,
       "person": 1
     },
     { 
-      "id": 57,
+      "id": 58,
       "text": "Cool, ein Zombieschatz! Vielleicht ist das Astrus.",
       "weiter": true,
       "start": true,
       "person": 1
     },
     {
-      "id": 58,
+      "id": 59,
       "text": "Was ist das neben der Truhe? Vielleicht kannst du ja draufklicken.",
       "weiter": false,
       "start": false,
       "person": 1
     },
     { 
-      "id": 59,
+      "id": 60,
       "text": "Aus einem Erz namens Extric können wir eine Rüstung craften. Vielleicht können wir damit den Sumpf betreten.",
       "weiter": false,
       "start": true,
       "person": 1
     },
     { 
-      "id": 60,
+      "id": 61,
       "text": "Was eine schöne Rüstung. Hast du noch genug Waffen? Falls nicht, crafte dir lieber noch ein neues Schwert oder einen Bogen. Wenn du fertig bist, können wir sofort zum Sumpf gehen.",
       "weiter": false,
       "start": true,
       "person": 1
     },
     { 
-      "id": 61,
+      "id": 62,
       "text": "Probiere mal den Schlamm zu betreten. Und halte ein paar Waffen bereit, falls wir auf Zombies treffen!",
       "weiter": false,
       "start": true,
       "person": 1
     },
     { 
-      "id": 62,
+      "id": 63,
       "text": "Ich kann den Sumpf wirklich betreten!",
       "weiter": true,
       "start": true,
       "person": 0
     },
     {
-      "id": 63,
+      "id": 64,
       "text": "Super, folge dem Weg auf der Schatzkarte. Mal gucken, was der Zombieschatz wirklich ist.",
       "weiter": false,
       "start": false,
       "person": 1
     },
     { 
-      "id": 64,
+      "id": 65,
       "text": "Du musst sie besiegen. Du schaffst das!",
       "weiter": false,
       "start": true,
       "person": 1
     },
     { 
-      "id": 65,
+      "id": 66,
       "text": "Wow, ein weiteres seltenes Erz. Es heißt Domilitant. Nehme so viel mit, wie du kannst. Ich glaube, wir brauchen das noch, um Astrus zu finden.",
       "weiter": true,
       "start": true,
       "person": 1
     },
     {
-      "id": 66,
+      "id": 67,
       "text": "Da liegt noch mehr in der Truhe.",
       "weiter": true,
       "start": false,
       "person": 0
     },
     {
-      "id": 67,
+      "id": 68,
       "text": "Stimmt. Ein Tagebuch. Vielleicht enthält es nützliche Hinweise.",
       "weiter": false,
       "start": false,
       "person": 1
     },
     { 
-      "id": 68,
+      "id": 69,
       "text": "Wir können Astrus in der Stadt finden!",
       "weiter": true,
       "start": true,
       "person": 0
     },
     {
-      "id": 69,
+      "id": 70,
       "text": "Zum Glück, dann kommen wir bald hier weg! Gehe zurück zum Plateau. Vielleicht findet sich dort ein passendes Rezept mit Domilitant.",
       "weiter": false,
       "start": false,
       "person": 1
     },
     { 
-      "id": 70,
+      "id": 71,
       "text": "Sehr gut. Wir können aus Domilitant einen Unsichtbarkeitstrank brauen. Das könnte nütlich werden.",
       "weiter": true,
       "start": true,
       "person": 1
     },
     {
-      "id": 71,
+      "id": 72,
       "text": "Stimmt. Ich habe auch alle benötigten Ressourcen schon hier bei der Hütte.",
       "weiter": true,
       "start": false,
       "person": 0
     },
     {
-      "id": 72,
+      "id": 73,
       "text": "Los gehts. Viel Spaß beim Brauen!",
       "weiter": false,
       "start": false,
       "person": 1
     },
     { 
-      "id": 73,
+      "id": 74,
       "text": "Mit dem Trank können wir ungehindert die Stadt betreten. Wenn wir unsichtbar sind, werden uns die Zombies nicht angreifen.",
       "weiter": true,
       "start": true,
       "person": 1
     },
     {
-      "id": 74,
+      "id": 75,
       "text": "Eine gute Idee. Los gehts zur Stadt, damit wir endlich hier wegkommen.",
       "weiter": true,
       "start": false,
       "person":0
     },
     {
-      "id": 75,
+      "id": 76,
       "text": "Ja. Wir holen uns endlich Astrus! Crafte genug Waffen und eine gute Rüstung. Dann kann es losgehen",
       "weiter": false,
       "start": false,
       "person": 1
     },
     { 
-      "id": 76,
+      "id": 77,
       "text": "Trinke jetzt den Trank, damit die Zombies dich nicht angreifen. Passe aber auf, falls die Zombies gegen dich stoßen. Ich glaube, dadurch könnte die Wirkung aufhören.",
       "weiter": true,
       "start": true,
       "person": 1
     },
     {
-      "id": 77,
+      "id": 78,
       "text": "Okay, ich passe auf.",
       "weiter": true,
       "start": false,
       "person": 0
     },
     {
-      "id": 78,
-      "text": "Viel Glück. Ich glaube an dich {Spieler}",
+      "id": 79,
+      "text": "Viel Glück. Ich glaube an dich {playerName}",
       "weiter": false,
       "start": false,
       "person": 1
     },
     { 
-      "id": 79,
+      "id": 80,
       "text": "Oh Gott. Ada, was soll ich tun? Hier sind so viele Zombies!",
       "weiter": true,
       "start": true,
       "person": 0
     },
     {
-      "id": 80,
+      "id": 81,
       "text": "Am Ende des Weges ist ein altes Labor. Vielleicht kannst du dich dort vor den Zombies verstecken.",
       "weiter": false,
       "start": false,
       "person": 1
     },
     { 
-      "id": 81,
+      "id": 82,
       "text": "Zum Glück hat das funktioniert!",
       "weiter": true,
       "start": true,
       "person": 0
     },
     {
-      "id": 82,
+      "id": 83,
       "text": "Guck dich mal um, vielleicht finden wir hier Hinweise auf Astrus oder die Zombies.",
       "weiter": false,
       "start": false,
       "person": 1
     },
     {
-      "id": 83,
+      "id": 84,
       "text": "Oh Gott, der Boss-Zombie überwacht mich.",
       "weiter": true,
       "start": true,
       "person": 0
     },
     {
-      "id": 84,
+      "id": 85,
       "text": "Du musst gegen ihn kämpfen {Spieler}. Er kontrolliert alle Zombies und Astrus. Du schaffst das!",
       "weiter": false,
       "start": false,
       "person": 1
     },
     {
-      "id": 85,
-      "text": "[Dr. Storm?! Sie kontrollieren hier alles???[Oh mein Gott, Dr.Storm??!!",
+      "id": 86,
+      "text": "[Dr. Storm?! Sie kontrollieren hier alles???][Oh mein Gott, Dr.Storm??!!]",
       "weiter": true,
       "start": true,
       "person": 0
     },
     {
-      "id": 86,
+      "id": 87,
       "text": "Korrekt. Seit Jahren gehört und gehorcht mir hier ALLES! Und du kleine Bestie musstest hier alles kaputtmachen!",
       "weiter": true,
       "start": false,
       "person": 2
     },
     {
-      "id": 87,
+      "id": 88,
       "text": "Wieso haben Sie mich angegriffen? Ich wollte doch einfach nur hier weg.",
       "weiter": true,
       "start": false,
       "person": 0
     },
     {
-      "id": 88,
+      "id": 89,
     "text": "Weil du meine seltenen Erze, mein Astrus klauen wolltest. Das hat NOCH NIE jemand gewagt!",
       "weiter": false,
       "start": false,
       "person": 2
     },
     { 
-      "id": 89,
-      "text": "OH Gott...Ist das Astrus?",
+      "id": 90,
+      "text": "Oh Gott...Ist das Astrus?",
       "weiter": true,
       "start": true,
       "person": 0
     },
     {
-      "id": 90,
+      "id": 91,
       "text": "Ja. Dr. Storm hatte es die ganze Zeit und hat damit die Zombies kontrolliert. Endlich können wir hier weg!",
       "weiter": true,
       "start": false,
       "person": 1
     },
     {
-      "id": 91,
+      "id": 92,
       "text": "Die Zombies... sie greifen mich nicht mehr an.",
       "weiter": true,
       "start": false,
       "person": 0
     },
     {
-      "id": 92,
+      "id": 93,
       "text": "Ohne Dr. Storm sind sie friedlich. Zum Glück. Du hast sie befreit.",
       "weiter": true,
       "start": false,
       "person": 1
     },
     {
-      "id": 93,
+      "id": 94,
       "text": "Die Zombies sind befreit und ich habe Astrus. Endlich kann ich das Raumschiff reparieren!",
       "weiter": true,
       "start": false,
       "person": 0
     },
     {
-      "id": 94,
+      "id": 95,
       "text": "Du hast es wirklich geschafft. Ab gehts zurück zum Raumschiff und dann können wir hier endlich weg!",
       "weiter": false,
       "start": false,
       "person": 1
     },
     { 
-      "id": 95,
+      "id": 96,
       "text": "Klicke auf das Raumschiff, um es zu reparieren.",
       "weiter": false,
       "start": true,
       "person": 1
     },
     { 
-      "id": 96,
-      "text": "Ich bin so stolz auf dich {Spieler}! Guten Heimflug.",
+      "id": 97,
+      "text": "Ich bin so stolz auf dich {playerName}! Guten Heimflug.",
       "weiter": false,
       "start": true,
       "person": 1
