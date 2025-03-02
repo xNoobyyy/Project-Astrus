@@ -14,10 +14,10 @@ public class QuestLogic : MonoBehaviour {
     public TextMeshProUGUI mainTitle;
     public TextMeshProUGUI mainDescription;
     public TextMeshProUGUI mainProgress;
-    public static TextMeshProUGUI sideText;
+    public TextMeshProUGUI sideText;
     public GameObject sideDescription;
-    public static List<QuestGroup> questGroups = new List<QuestGroup>();
-    public static int activeGroup = 0;
+    public List<QuestGroup> questGroups = new List<QuestGroup>();
+    public int activeGroup = 0;
     
     public Quest festlandQuest;
 
@@ -106,14 +106,16 @@ public class QuestLogic : MonoBehaviour {
     public Quest nachHauseQuest;
     
     public List<Quest> sideQuests = new List<Quest>();
-    public static QuestLogic Instance { get; private set; }
-
+    public List<string> orte = new List<string>();
     private void OnEnable() {
         EventManager.Instance.Subscribe<PlayerItemEvent>(OnItemPickup);
+        TriggerEvent.OnAreaEntered += HandleAreaEntered;
+        
     }
 
     private void OnDisable() {
         EventManager.Instance.Unsubscribe<PlayerItemEvent>(OnItemPickup);
+        TriggerEvent.OnAreaEntered -= HandleAreaEntered;
     }
 
     private void OnItemPickup(PlayerItemEvent e) {
@@ -127,22 +129,26 @@ public class QuestLogic : MonoBehaviour {
             }
         }
     }
-    
+    private void HandleAreaEntered(string area)
+    {
+        orte.Add(area);
+    }
     void Start() {
     // Gruppe 1: Festland
         festlandQuest = new Quest("Festland", "Überquere das Meer.", true, 4);
-        baueQuest = new Quest("Holz", "Sammle Holz und Äste.", false, 1);
+        baueQuest = new Quest("Holz", "Sammle Holz und Äste.", false, 2, 0);
         baueQuest.AddCondition(new ItemCondition("Stick"));
         baueQuest.AddCondition(new ItemCondition("Wood"));
         bootQuest = new Quest("Boot", "Baue ein Boot.", false, 1);
         bootQuest.AddCondition(new CraftingCondition("Boat"));
         tierQuest = new Quest("Tier", "Streichele ein friedliches Tier.", false, 1);//!
-        betreteFestlandQuest = new Quest("Ankunft", "Betrete das Festland.", false, 1);//!
+        betreteFestlandQuest = new Quest("Ankunft", "Betrete das Festland.", false, 1);
+        betreteFestlandQuest.AddCondition(new EnteredCondition("Festland"));
         QuestGroup group1 = new QuestGroup(festlandQuest, new List<Quest>() { baueQuest, bootQuest, tierQuest, betreteFestlandQuest });
 
         // Gruppe 2: Crafting
         craftingQuest = new Quest("Werkzeuge", "Erstelle Werkzeuge und Waffen.", true, 3);
-        eOSQuest = new Quest("Eisen/Stein", "Finde Eisen oder Stein.", false, 1);
+        eOSQuest = new Quest("Eisen/Stein", "Finde Eisen und Stein.", false, 2);
         eOSQuest.AddCondition(new ItemCondition("Stone"));
         eOSQuest.AddCondition(new ItemCondition("Iron"));
         spitzAxtQuest = new Quest("Spitzhacke", "Baue eine Spitzhacke aus Stein.", false, 1);
@@ -154,14 +160,16 @@ public class QuestLogic : MonoBehaviour {
         // Gruppe 3: Erkundung
         erkundenQuest = new Quest("Erkundung", "Erkunde den Planeten.", true, 2);
         zweiTiereQuest = new Quest("Tiere", "Treffe zwei friedliche Tiere.", false, 1);//!
-        plateauQuest = new Quest("Plateau", "Finde das Plateau.", false, 1);//!
+        plateauQuest = new Quest("Plateau", "Finde das Plateau.", false, 1);
+        plateauQuest.AddCondition(new EnteredCondition("Plateauumgebung"));
         QuestGroup group3 = new QuestGroup(erkundenQuest, new List<Quest>() { zweiTiereQuest, plateauQuest });
 
         // Gruppe 4: Erste Zombieattacke
         überlebenQuest = new Quest("Zombies", "Überlebe die Zombieattacke.", true, 3);
         verfolgenQuest = new Quest("Verfolgen", "Folge der Gestalt.", false, 1);//!
         rennenQuest = new Quest("Rennen", "Renne vor Zombies.", false, 1);//!
-        schutzQuest = new Quest("Schutz", "Finde Höhlenschutz.", false, 1);//!
+        schutzQuest = new Quest("Schutz", "Finde Höhlenschutz.", false, 1);
+        schutzQuest.AddCondition(new EnteredCondition("Höhle"));
         QuestGroup group4 = new QuestGroup(überlebenQuest, new List<Quest>() { verfolgenQuest, rennenQuest, schutzQuest });
 
         // Gruppe 5: Höhle
@@ -178,14 +186,16 @@ public class QuestLogic : MonoBehaviour {
         // Gruppe 6: Zweite Zombieattacke
         zombie2Quest = new Quest("Zombies II", "Entkomme der zweiten Attacke.", true, 2);
         zombie3Quest = new Quest("Kampf", "Nutze das Glomtom-Schwert.", false, 1);//!
-        flussQuest = new Quest("Fluss", "Fliehe über den Fluss.", false, 1);//!
+        flussQuest = new Quest("Fluss", "Fliehe über den Fluss.", false, 1);
+        flussQuest.AddCondition(new EnteredCondition("Fluss"));////////////////////
         QuestGroup group6 = new QuestGroup(zombie2Quest, new List<Quest>() { zombie3Quest, flussQuest });
 
         // Gruppe 7: Plateau
         plateau2Quest = new Quest("Plateau", "Erkunde das Plateau.", true, 4);
         lianeQuest = new Quest("Liane", "Sammle eine Liane.", false, 1);
         lianeQuest.AddCondition(new ItemCondition("Liana"));
-        erklimmeQuest = new Quest("Erklimme", "Klettere das Plateau hinauf.", false, 1);//!
+        erklimmeQuest = new Quest("Erklimme", "Klettere das Plateau hinauf.", false, 1);
+        erklimmeQuest.AddCondition(new EnteredCondition("Plateau"));
         schatzkarteQuest = new Quest("Karte", "Finde die Schatzkarte.", false, 1);//!
         RezepteQuest = new Quest("Rezepte", "Entdecke alte Rezepte.", false, 1);//!
         QuestGroup group7 = new QuestGroup(plateau2Quest, new List<Quest>() { lianeQuest, erklimmeQuest, schatzkarteQuest, RezepteQuest });
@@ -194,7 +204,7 @@ public class QuestLogic : MonoBehaviour {
         ExtricQuest = new Quest("Extric", "Nutze Extric.", true, 4);
         blumeQuest = new Quest("Blume", "Finde die besondere Blume.", false, 1);
         blumeQuest.AddCondition(new ItemCondition("SpecialFlower"));
-        ressourcenQuest = new Quest("Ressourcen", "Sammle alle Ressourcen.", false, 1);
+        ressourcenQuest = new Quest("Ressourcen", "Sammle alle Ressourcen.", false, 7);
         ressourcenQuest.AddCondition(new ItemCondition("SpecialFlower"));
         ressourcenQuest.AddCondition(new ItemCondition("Wood"));
         ressourcenQuest.AddCondition(new ItemCondition("Stick"));
@@ -212,7 +222,8 @@ public class QuestLogic : MonoBehaviour {
         schatzQuest = new Quest("Schatz", "Finde den Zombieschatz.", true, 5);
         bogenQuest = new Quest("Bogen", "Baue einen Bogen aus Eisen.", false, 1);
         bogenQuest.AddCondition(new CraftingCondition("IronBow"));
-        sumpfQuest = new Quest("Sumpf", "Betrete den Sumpf.", false, 1);//!
+        sumpfQuest = new Quest("Sumpf", "Betrete den Sumpf.", false, 1);
+        sumpfQuest.AddCondition(new EnteredCondition("Sumpf"));
         zombie4Quest = new Quest("Zombies", "Besiege die Zombies.", false, 1);//!
         findeDomilitantQuest = new Quest("Domilitant", "Finde Domilitant.", false, 1);
         findeDomilitantQuest.AddCondition(new ItemCondition("Domilitant"));
@@ -236,7 +247,8 @@ public class QuestLogic : MonoBehaviour {
 
         // Gruppe 12: Labor
         LaborQuest = new Quest("Labor", "Erkunde das Labor.", true, 2);
-        rettenQuest = new Quest("Rette", "Rette dich ins Labor.", false, 1);//!
+        rettenQuest = new Quest("Rette", "Rette dich ins Labor.", false, 1);
+        rettenQuest.AddCondition(new EnteredCondition("Labor"));//////////
         virusQuest = new Quest("Virus", "Finde Virus-Hinweise.", false, 1);//!
         QuestGroup group12 = new QuestGroup(LaborQuest, new List<Quest>() { rettenQuest, virusQuest });
 
@@ -260,10 +272,8 @@ public class QuestLogic : MonoBehaviour {
             group1, group2, group3, group4, group5, group6, group7, group8,
             group9, group10, group11, group12, group13, group14
         };
-
         UpdateSideQuests();
         UpdateMainQuest();
-        
     }
 
     // Methode zur Erstellung und Initialisierung einer Quest
@@ -278,10 +288,7 @@ public class QuestLogic : MonoBehaviour {
         //quest.currentProgress = 0;
         //return quest;
     //}
-    
-    
-
-    void Update() {
+    /*void Update() {
         if (Input.GetKeyDown(KeyCode.P)) {
             bool shouldStop = false;
             foreach (var quest in questGroups[activeGroup].subQuests) {
@@ -292,6 +299,7 @@ public class QuestLogic : MonoBehaviour {
                     }
                 }
                 if (shouldStop) {
+                    shouldStop = false;
                     continue;
                 }
                 FinishSideQuest(quest);
@@ -299,7 +307,7 @@ public class QuestLogic : MonoBehaviour {
             UpdateSideQuests();
             UpdateMainQuest();
         }
-    }
+    }*/
 
     public void UpdateMainQuest() {
         Quest quest = questGroups[activeGroup].mainQuest;
@@ -336,7 +344,7 @@ public class QuestLogic : MonoBehaviour {
         }
     }
 
-    public static void UpdateSideQuests()
+    public void UpdateSideQuests()
     {
         sideText.text = "";
         foreach (Quest quest in questGroups[activeGroup].subQuests)
@@ -348,7 +356,7 @@ public class QuestLogic : MonoBehaviour {
     
     private GameObject[] allSlots;
     private GameObject slotsContainer;
-    public static List<Item> ItemSlots = new List<Item>();
+    public  List<Item> ItemSlots = new List<Item>();
     public void Slots() {
         slotsContainer = GameObject.FindWithTag("Slots");
         if (slotsContainer == null) {

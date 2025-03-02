@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Area
   - Slots
+  - QuestLogic
+  - Textdisplay
   layers:
   - Default
   - TransparentFX

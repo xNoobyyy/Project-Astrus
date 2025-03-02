@@ -9,6 +9,7 @@ using UnityEngine.Rendering.Universal;
 
 [System.Serializable]
 public class Quest  {
+    
     // Der Titel der Quest
     public string title;
     
@@ -30,7 +31,7 @@ public class Quest  {
     // Optional: Ein Icon, das zur Darstellung der Quest genutzt wird
     public Sprite icon;
     public List<QuestCondition> conditions = new List<QuestCondition>();
-    
+    public int textbaustein;
     /// <summary>
     /// Konstruktor für eine neue Quest.
     /// </summary>
@@ -39,7 +40,7 @@ public class Quest  {
     /// <param name="isMainQuest">True, wenn es sich um die Hauptquest handelt</param>
     /// <param name="requiredProgress">Wie viel Fortschritt nötig ist, um die Quest abzuschließen</param>
     /// <param name="icon">Optionales Icon für die Quest</param>
-    public Quest(string title, string description, bool isMainQuest, int requiredProgress, Sprite icon = null) {
+    public Quest(string title, string description, bool isMainQuest, int requiredProgress, int textbaustein = 1000, Sprite icon = null) {
         this.title = title;
         this.description = description;
         this.isMainQuest = isMainQuest;
@@ -99,6 +100,7 @@ public class Quest  {
 }
 
 public abstract class QuestCondition {
+    public QuestLogic ql = GameObject.FindWithTag("QuestLogic").GetComponent<QuestLogic>();
     public abstract bool IsMet();
 }
 
@@ -118,13 +120,18 @@ public class CraftingCondition : QuestCondition {
 }
 
 public class EventM {
+    public QuestLogic ql;
+
+    void Start() {
+        ql = GameObject.FindWithTag("QuestLogic").GetComponent<QuestLogic>();
+    }
     public void Subscribe(EventCrafting publisher) {
+        ql = GameObject.FindWithTag("QuestLogic").GetComponent<QuestLogic>();
         publisher.OnCrafting += HandleEvent; // Registriere die Methode für das Event
     }
 
     private void HandleEvent() {
-        Debug.Log("hbvdsj");
-        foreach (var questG in QuestLogic.questGroups) {
+        foreach (var questG in ql.questGroups) {
             foreach (var quest in questG.subQuests) {
                 foreach (var condition in quest.conditions) {
                     if (condition.GetType() == typeof(CraftingCondition)) {
@@ -141,12 +148,11 @@ public class ItemCondition : QuestCondition {
     public string itemName;
     
     public ItemCondition(String itemName) {
-            Debug.Log($"ItemCondition erstellt mit Item: {itemName}");
+            
         this.itemName = itemName;
     }
 
     public override bool IsMet() {
-        Debug.Log(itemName);
         return ContainsItem(itemName);
     }
     public bool ContainsItem(string name) {
@@ -154,7 +160,7 @@ public class ItemCondition : QuestCondition {
             Debug.LogError("Fehler: Der übergebene String ist null oder leer!");
             return false;
         }
-        foreach (Item obj in QuestLogic.ItemSlots) {
+        foreach (Item obj in ql.ItemSlots) {
             if (obj != null && obj.Name == name) { 
                 return true;
             }
@@ -167,5 +173,20 @@ public class EventCrafting {
 
     public void TriggerEvent() {
         OnCrafting?.Invoke(); 
+    }
+}
+
+public class EnteredCondition : QuestCondition {
+    private string area;
+    public EnteredCondition(string a) {
+        area = a;
+    }
+    public override bool IsMet() {
+        foreach (var ort in ql.orte) {
+            if (ort == area) {
+                return true;
+            }
+        }
+        return false;
     }
 }

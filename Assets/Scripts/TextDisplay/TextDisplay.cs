@@ -32,13 +32,16 @@ namespace TextDisplay
         public Dictionary<string, StoryBlock> storyBlocks;
         public Coroutine coroutine;
         public String x;
-        
+        public Button notificationButton;
+
+        public int textbaustein;
         // Methode zum Anzeigen des Fensters mit Text 
         public void Start() {
             Time.timeScale = 1f;
             storyManager.LoadStory();
             storyBlocks = storyManager.storyBlocks;
             SpecificStoryDialogue(0);
+            notificationButton.onClick.AddListener(OnNotificationClick);
         }
         public void ShowText(string text, int? imageIndex = null)
         {
@@ -190,6 +193,14 @@ namespace TextDisplay
             option2Text.text = choices[1];
             textComplete = true;
             storyID++;
+        }
+        public void OnNotificationClick(){
+            SpecificStoryDialogue(textbaustein);
+            notificationButton.gameObject.SetActive(false);
+        }
+        public void Notification(int i) {
+            textbaustein = i;
+            notificationButton.gameObject.SetActive(true);
         }
     }
 }
