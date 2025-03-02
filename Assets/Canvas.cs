@@ -4,13 +4,10 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 public class Canvas2 : MonoBehaviour {
-    private QuestLogic ql;
-    private TextDisplay.TextDisplay td;
+    [SerializeField] private QuestLogic ql;
+    [SerializeField] private TextDisplay.TextDisplay td;
     public GameObject p;
-    void Start() {
-        ql = GameObject.FindWithTag("QuestLogic").GetComponent<QuestLogic>();
-        td = GameObject.FindWithTag("Textdisplay").GetComponent<TextDisplay.TextDisplay>();
-    }
+    
     private void OnEnable() {
         if (td.notificationButton.gameObject.activeSelf) {
             p.gameObject.SetActive(true);
