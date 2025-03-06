@@ -21,10 +21,11 @@ namespace Items.DroppedItem {
                 player = other.transform;
             }
 
+            if (droppedItem.IsDroppingMotion) return;
+
             var distance = Vector2.Distance(player.position, droppedItem.transform.position);
 
             if (distance is > AttractionRadius or < 0.1f) return;
-
 
             droppedItem.transform.position = Vector2.MoveTowards(
                 droppedItem.transform.position,

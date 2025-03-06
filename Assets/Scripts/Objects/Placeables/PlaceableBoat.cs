@@ -1,61 +1,87 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Logic.Events;
 using Player;
 using UnityEngine;
 using Utils;
 
 namespace Objects.Placeables {
-    public class PlaceableBoat : MonoBehaviour, IInteractable {
-        private static readonly int InBoatHash = Animator.StringToHash("InBoat");
-
-        [SerializeField] private GameObject hints;
+    public class PlaceableBoat : Interactable {
+        private static readonly int InBoatHash = Animator.StringToHash("boat");
 
         public bool InBoat { get; private set; }
 
+        private SpriteRenderer spriteRenderer;
+
+        private void Awake() {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        private void OnEnable() {
+            EventManager.Instance.Subscribe<PlayerMoveEvent>(OnPlayerMove);
+        }
+
+        private void OnDisable() {
+            EventManager.Instance.Unsubscribe<PlayerMoveEvent>(OnPlayerMove);
+        }
+
         private void Update() {
+            if (!InBoat || !Input.GetKeyDown(KeyCode.Space)) return;
+
+            var nearestPoint = ColliderManager.Instance.Land
+                .Select(land => CustomClosestPoint(land, transform.position))
+                .OrderBy(point => Vector2.Distance(point, transform.position))
+                .FirstOrDefault();
+
+            if (nearestPoint == default) return;
+            if (Vector2.Distance(nearestPoint, transform.position) > 10f) return;
+
+            ExitBoat(nearestPoint);
+        }
+
+        private void OnPlayerMove(PlayerMoveEvent e) {
             if (!InBoat) return;
 
-            if (Input.GetKeyDown(KeyCode.Space)) {
-                ExitBoat();
-            }
+            transform.position = e.To;
         }
 
-        public void OnInteract(Transform player) {
+        public override void OnInteract(Transform player) {
             if (InBoat) return;
 
-            EnterBoat();
+            EnterBoat(player);
         }
 
-        private void EnterBoat() {
+        private void EnterBoat(Transform player) {
             InBoat = true;
-            hints.SetActive(true);
 
             PlayerItem.Instance.animator.SetBool(InBoatHash, true);
             PlayerMovement.Instance.GetComponent<Rigidbody2D>().linearDamping = 1f;
             PlayerMovement.Instance.speed = 5f;
+
+            spriteRenderer.enabled = false;
+
+            player.position = transform.position;
         }
 
-        private void ExitBoat() {
+        private void ExitBoat(Vector2 point) {
             InBoat = false;
-            hints.SetActive(false);
 
             PlayerItem.Instance.animator.SetBool(InBoatHash, false);
             PlayerMovement.Instance.GetComponent<Rigidbody2D>().linearDamping = 5f;
             PlayerMovement.Instance.speed = 3f;
+
+            spriteRenderer.enabled = true;
+
+            var v = (point - (Vector2)PlayerItem.Instance.transform.position).normalized * 0.5f;
+            PlayerItem.Instance.transform.position = point + v;
         }
 
         public static bool IsPlaceable(BoxCollider2D box) {
             var boxPolygon = GetColliderPolygon(box);
 
-            foreach (var col in ColliderManager.Instance.Land) {
-                var poly = GetColliderPolygon(col);
-                if (DoPolygonsOverlap(poly, boxPolygon)) {
-                    Debug.Log($"Not placeable: Overlap detected with {col.name}");
-                    return false;
-                }
-            }
-
-            Debug.Log("Placeable: No overlap detected.");
-            return true;
+            return !ColliderManager.Instance.Land.Select(GetColliderPolygon)
+                .Any(poly => DoPolygonsOverlap(poly, boxPolygon));
         }
 
         // Converts any Collider2D to a polygon representation in world space.
@@ -127,10 +153,9 @@ namespace Objects.Placeables {
             var isInside = false;
             var count = polygon.Length;
             for (int i = 0, j = count - 1; i < count; j = i++) {
-                if (((polygon[i].y > point.y) != (polygon[j].y > point.y)) &&
-                    (point.x <
-                     (polygon[j].x - polygon[i].x) * (point.y - polygon[i].y) / (polygon[j].y - polygon[i].y) +
-                     polygon[i].x)) {
+                if (polygon[i].y > point.y != polygon[j].y > point.y &&
+                    point.x < (polygon[j].x - polygon[i].x) * (point.y - polygon[i].y) / (polygon[j].y - polygon[i].y) +
+                    polygon[i].x) {
                     isInside = !isInside;
                 }
             }
@@ -150,5 +175,58 @@ namespace Objects.Placeables {
             var u = (qp.x * r.y - qp.y * r.x) / denominator;
             return (t is >= 0 and <= 1 && u is >= 0 and <= 1);
         }
+
+        private static Vector2 CustomClosestPoint(Vector2[] polygon, Vector2 point) {
+            var closest = Vector2.zero;
+            var minDistance = float.MaxValue;
+            for (var i = 0; i < polygon.Length; i++) {
+                var a = polygon[i];
+                var b = polygon[(i + 1) % polygon.Length];
+                var candidate = ClosestPointOnLineSegment(a, b, point);
+                var dist = Vector2.Distance(candidate, point);
+
+                if (!(dist < minDistance)) continue;
+
+                minDistance = dist;
+                closest = candidate;
+            }
+
+            return closest;
+        }
+
+        private static Vector2 ClosestPointOnLineSegment(Vector2 a, Vector2 b, Vector2 point) {
+            var ab = b - a;
+            var t = Vector2.Dot(point - a, ab) / Vector2.Dot(ab, ab);
+            t = Mathf.Clamp01(t);
+            return a + t * ab;
+        }
+
+        private static Vector2 CustomClosestPoint(Collider2D collider, Vector2 point) {
+            var polygon = GetColliderPolygon(collider);
+            return CustomClosestPoint(polygon, point);
+        }
+
+#if UNITY_EDITOR
+        private void OnDrawGizmos() {
+            if (!InBoat) return;
+            if (ColliderManager.Instance == null || ColliderManager.Instance.Land == null) return;
+
+            var nearestPoint = ColliderManager.Instance.Land
+                .Select(land => CustomClosestPoint(land, transform.position))
+                .OrderBy(point => Vector2.Distance(point, transform.position))
+                .FirstOrDefault();
+
+            if (nearestPoint == default) return;
+            if (Vector2.Distance(nearestPoint, transform.position) > 10f) return;
+
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(transform.position, nearestPoint);
+            Gizmos.DrawSphere(nearestPoint, 0.3f);
+
+            Gizmos.color = Color.red;
+            var v = (nearestPoint - (Vector2)PlayerItem.Instance.transform.position).normalized * 0.5f;
+            Gizmos.DrawSphere(nearestPoint + v, 0.3f);
+        }
+#endif
     }
 }

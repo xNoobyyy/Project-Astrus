@@ -110,22 +110,36 @@ namespace Player {
                         .Select(c => c.GetComponent<Ore>() ?? c.GetComponentInParent<Ore>())
                         .FirstOrDefault(ore => !ore.IsDestroyed);
 
-                    if (tree == null) {
-                        if (ore == null) return;
+                    var boat = colliders
+                        .Where(c => c.GetComponent<PlaceableBoat>() != null ||
+                                    c.GetComponentInParent<PlaceableBoat>() != null)
+                        .Select(c => c.GetComponent<PlaceableBoat>() ?? c.GetComponentInParent<PlaceableBoat>())
+                        .FirstOrDefault();
+
+                    if (boat != null) {
+                        if (Vector2.Distance(boat.transform.position, transform.position) > 10f) return;
+
+                        boat.OnInteract(transform);
+                        return;
+                    }
+
+                    if (tree != null) {
+                        if (Vector2.Distance(tree.trigger.ClosestPoint(transform.position), transform.position) >
+                            5f) return;
+
+                        tree.Chop(1);
+                        Chop();
+                        return;
+                    }
+
+                    if (ore != null) {
                         if (Vector2.Distance(ore.trigger.ClosestPoint(transform.position), transform.position) >
                             5f) return;
 
                         ore.Break(1);
                         Chop();
-
                         return;
                     }
-
-                    if (Vector2.Distance(tree.trigger.ClosestPoint(transform.position), transform.position) >
-                        5f) return;
-
-                    tree.GetComponent<Tree>()?.Chop(1);
-                    Chop();
                 }
             } else if (Input.GetMouseButtonDown(1)) {
                 // Right Click
