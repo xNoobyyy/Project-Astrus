@@ -11,6 +11,7 @@ using Objects.Placeables;
 using Player.Inventory;
 using TextDisplay;
 using UnityEngine;
+using Utils;
 using Tree = Objects.Tree;
 
 namespace Player {
@@ -26,11 +27,14 @@ namespace Player {
 
         [SerializeField] private BoxCollider2D boatPreview;
         [SerializeField] private GameObject boatPrefab;
+        [SerializeField] private GameObject boatHint;
 
         [NonSerialized] public Camera mainCamera;
         [NonSerialized] public Animator animator;
 
         private Rigidbody2D rb;
+
+        public bool InBoat { get; set; }
 
         public bool IsAttacking { get; set; }
         [NonSerialized] public Vector2 attackDirection;
@@ -56,10 +60,28 @@ namespace Player {
 
         private void OnEnable() {
             EventManager.Instance.Subscribe<PlayerChangeHeldItemEvent>(OnPlayerChangeHeldItem);
+            EventManager.Instance.Subscribe<PlayerMoveEvent>(OnPlayerMove);
         }
 
         private void OnDisable() {
             EventManager.Instance.Unsubscribe<PlayerChangeHeldItemEvent>(OnPlayerChangeHeldItem);
+            EventManager.Instance.Unsubscribe<PlayerMoveEvent>(OnPlayerMove);
+        }
+
+        private void OnPlayerMove(PlayerMoveEvent e) {
+            if (!InBoat) return;
+            if (ColliderManager.Instance == null || ColliderManager.Instance.Land == null) return;
+
+            var nearestPoint = ColliderManager.Instance.Land
+                .Select(land => PlaceableBoat.CustomClosestPoint(land, transform.position))
+                .OrderBy(point => Vector2.Distance(point, transform.position))
+                .FirstOrDefault();
+
+            if (nearestPoint == default || Vector2.Distance(nearestPoint, transform.position) > 10f) {
+                boatHint.SetActive(false);
+            } else {
+                boatHint.SetActive(true);
+            }
         }
 
         private void Update() {

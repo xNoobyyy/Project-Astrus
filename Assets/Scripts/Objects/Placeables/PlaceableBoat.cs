@@ -62,6 +62,8 @@ namespace Objects.Placeables {
             spriteRenderer.enabled = false;
 
             player.position = transform.position;
+
+            PlayerItem.Instance.InBoat = true;
         }
 
         private void ExitBoat(Vector2 point) {
@@ -75,6 +77,8 @@ namespace Objects.Placeables {
 
             var v = (point - (Vector2)PlayerItem.Instance.transform.position).normalized * 0.5f;
             PlayerItem.Instance.transform.position = point + v;
+
+            PlayerItem.Instance.InBoat = false;
         }
 
         public static bool IsPlaceable(BoxCollider2D box) {
@@ -201,7 +205,7 @@ namespace Objects.Placeables {
             return a + t * ab;
         }
 
-        private static Vector2 CustomClosestPoint(Collider2D collider, Vector2 point) {
+        public static Vector2 CustomClosestPoint(Collider2D collider, Vector2 point) {
             var polygon = GetColliderPolygon(collider);
             return CustomClosestPoint(polygon, point);
         }

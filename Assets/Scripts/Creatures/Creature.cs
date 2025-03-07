@@ -15,12 +15,21 @@ namespace Creatures {
         void OnAttack(Transform attacker, float damage);
     }
 
+    public enum CreatureType {
+        Dodo,
+        Quokka,
+        Zombie,
+        ZombieBoss,
+        Golem,
+    }
+
     public abstract class CreatureBase : MonoBehaviour, IAttackable {
         // Animation parameter hash
         private static readonly int Direction = Animator.StringToHash("direction");
         protected static readonly int Running = Animator.StringToHash("running");
 
         // Common configuration fields
+        [SerializeField] public CreatureType type;
         [SerializeField] protected float maxHealth;
         [SerializeField] protected float speed;
         [SerializeField] protected ParticleSystem damageParticles;
@@ -102,10 +111,10 @@ namespace Creatures {
                 idleCoroutine = null;
             }
 
-            if (moveCoroutine != null) {
-                StopCoroutine(moveCoroutine);
-                moveCoroutine = null;
-            }
+            if (moveCoroutine == null) return;
+
+            StopCoroutine(moveCoroutine);
+            moveCoroutine = null;
         }
 
         private IEnumerator IdleThenWander(float time) {
@@ -182,6 +191,7 @@ namespace Creatures {
             }
 
             GetComponent<SpriteFlashEffect>().StartWhiteFlash();
+            EventManager.Instance.Trigger(new CreatureDamageEvent(this));
             if (!(Health <= 0)) return true;
 
             Kill();
