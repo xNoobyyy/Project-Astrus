@@ -77,7 +77,7 @@ namespace Objects {
             ItemManager.Instance.DropItem(new Stick(stickAmount), transform.position);
 
             if (AreaManager.Instance.LastOrCurrentArea?.type == AreaType.Jungle) {
-                if (UnityEngine.Random.Range(0, 10) != 0) return;
+                if (UnityEngine.Random.Range(0, 5) != 0) return;
                 ItemManager.Instance.DropItem(new Liana(1), transform.position);
             }
 
