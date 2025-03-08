@@ -10,6 +10,7 @@ TagManager:
   - Slots
   - QuestLogic
   - Textdisplay
+  - Placeable
   layers:
   - Default
   - TransparentFX

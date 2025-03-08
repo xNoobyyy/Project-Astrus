@@ -50,6 +50,7 @@ namespace Creatures {
         protected Animator animator;
         private Rigidbody2D rb;
         private SpriteRenderer spriteRenderer;
+        private new Collider2D collider;
 
         // Coroutines
         private Coroutine idleCoroutine;
@@ -73,6 +74,7 @@ namespace Creatures {
             animator = GetComponent<Animator>();
             rb = GetComponent<Rigidbody2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
+            collider = GetComponent<Collider2D>();
             Health = maxHealth;
 
             damageParticles.Stop();
@@ -230,6 +232,7 @@ namespace Creatures {
             foreach (var obj in destroyOnDeath) {
                 Destroy(obj);
             }
+            collider.enabled = false;
 
             StartCoroutine(DestroyGameObject());
         }

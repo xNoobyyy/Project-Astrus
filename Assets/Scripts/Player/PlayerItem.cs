@@ -29,6 +29,10 @@ namespace Player {
         [SerializeField] private GameObject boatPrefab;
         [SerializeField] private GameObject boatHint;
 
+        [SerializeField] private Transform vinePreview;
+        [SerializeField] private GameObject vinePrefab;
+        [SerializeField] private GameObject vineContainer;
+
         [NonSerialized] public Camera mainCamera;
         [NonSerialized] public Animator animator;
 
@@ -69,7 +73,11 @@ namespace Player {
         }
 
         private void OnPlayerMove(PlayerMoveEvent e) {
-            if (!InBoat) return;
+            if (!InBoat) {
+                if (boatHint.activeSelf) boatHint.SetActive(false);
+                return;
+            }
+
             if (ColliderManager.Instance == null || ColliderManager.Instance.Land == null) return;
 
             var nearestPoint = ColliderManager.Instance.Land
@@ -95,6 +103,7 @@ namespace Player {
             var worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);
 
             if (CheckBoat(worldPosition)) return;
+            if (CheckVine(worldPosition)) return;
 
             if (Input.GetMouseButtonDown(0)) {
                 // Left Click
@@ -114,54 +123,55 @@ namespace Player {
                     }
                 }
 
+                if (IsBusy) return;
+
+                var treeColliders = Array.FindAll(colliders,
+                    c => c.GetComponent<Tree>() != null || c.GetComponentInParent<Tree>() != null);
+                Array.Sort(treeColliders, (c1, c2) => c1.transform.position.y.CompareTo(c2.transform.position.y));
+                var trees = treeColliders.Select(c => c?.GetComponent<Tree>() ?? c?.GetComponentInParent<Tree>())
+                    .ToArray();
+                var nonDestroyed = Array.FindAll(trees, t => !t.IsDestroyed);
+                var tree = nonDestroyed.Length > 0 ? nonDestroyed[0] : null;
+
+                var ore = colliders
+                    .Where(c => c.GetComponent<Ore>() != null || c.GetComponentInParent<Ore>() != null)
+                    .Select(c => c.GetComponent<Ore>() ?? c.GetComponentInParent<Ore>())
+                    .FirstOrDefault(ore => !ore.IsDestroyed);
+
+                var boat = colliders
+                    .Where(c => c.GetComponent<PlaceableBoat>() != null ||
+                                c.GetComponentInParent<PlaceableBoat>() != null)
+                    .Select(c => c.GetComponent<PlaceableBoat>() ?? c.GetComponentInParent<PlaceableBoat>())
+                    .FirstOrDefault();
+
+                if (boat != null) {
+                    if (Vector2.Distance(boat.transform.position, transform.position) > 10f) return;
+
+                    boat.OnInteract(transform);
+                    return;
+                }
+
+                if (tree != null) {
+                    if (Vector2.Distance(tree.trigger.ClosestPoint(transform.position), transform.position) >
+                        5f) return;
+
+                    tree.Chop(1);
+                    Chop();
+                    return;
+                }
+
+                if (ore != null) {
+                    if (Vector2.Distance(ore.trigger.ClosestPoint(transform.position), transform.position) >
+                        5f) return;
+
+                    ore.Break(1);
+                    Chop();
+                    return;
+                }
+
                 if (currentItem != null) {
                     currentItem.OnUse(transform, worldPosition, ClickType.Left);
-                } else {
-                    if (IsBusy) return;
-
-                    var treeColliders = Array.FindAll(colliders,
-                        c => c.GetComponent<Tree>() != null || c.GetComponentInParent<Tree>() != null);
-                    Array.Sort(treeColliders, (c1, c2) => c1.transform.position.y.CompareTo(c2.transform.position.y));
-                    var trees = treeColliders.Select(c => c?.GetComponent<Tree>() ?? c?.GetComponentInParent<Tree>())
-                        .ToArray();
-                    var nonDestroyed = Array.FindAll(trees, t => !t.IsDestroyed);
-                    var tree = nonDestroyed.Length > 0 ? nonDestroyed[0] : null;
-
-                    var ore = colliders
-                        .Where(c => c.GetComponent<Ore>() != null || c.GetComponentInParent<Ore>() != null)
-                        .Select(c => c.GetComponent<Ore>() ?? c.GetComponentInParent<Ore>())
-                        .FirstOrDefault(ore => !ore.IsDestroyed);
-
-                    var boat = colliders
-                        .Where(c => c.GetComponent<PlaceableBoat>() != null ||
-                                    c.GetComponentInParent<PlaceableBoat>() != null)
-                        .Select(c => c.GetComponent<PlaceableBoat>() ?? c.GetComponentInParent<PlaceableBoat>())
-                        .FirstOrDefault();
-
-                    if (boat != null) {
-                        if (Vector2.Distance(boat.transform.position, transform.position) > 10f) return;
-
-                        boat.OnInteract(transform);
-                        return;
-                    }
-
-                    if (tree != null) {
-                        if (Vector2.Distance(tree.trigger.ClosestPoint(transform.position), transform.position) >
-                            5f) return;
-
-                        tree.Chop(1);
-                        Chop();
-                        return;
-                    }
-
-                    if (ore != null) {
-                        if (Vector2.Distance(ore.trigger.ClosestPoint(transform.position), transform.position) >
-                            5f) return;
-
-                        ore.Break(1);
-                        Chop();
-                        return;
-                    }
+                    return;
                 }
             } else if (Input.GetMouseButtonDown(1)) {
                 // Right Click
@@ -232,6 +242,75 @@ namespace Player {
             return false;
         }
 
+        private bool CheckVine(Vector2 worldPosition) {
+            if (LogicScript.Instance.accessableInventoryManager.CurrentSlot.Item is Liana vine) {
+                if (Vector2.Distance(transform.position, worldPosition) > 10f) {
+                    HineVinePreview();
+                    return false;
+                }
+
+                var placeableCollider = ColliderManager.Instance.Placeables
+                    .FirstOrDefault(pc => pc.OverlapPoint(worldPosition));
+
+                if (placeableCollider == null) {
+                    HineVinePreview();
+                    return false;
+                }
+
+                var placePosition = new Vector2(worldPosition.x, placeableCollider.bounds.center.y);
+                vinePreview.position = placePosition;
+
+                if (Input.GetMouseButtonDown(0)) {
+                    vine.Amount--;
+                    LogicScript.Instance.accessableInventoryManager.CurrentItemSlot.SetItem(vine.Amount == 0
+                        ? null
+                        : vine);
+                    LogicScript.Instance.accessableInventoryManager.UpdateSlots();
+
+                    Instantiate(vinePrefab, placePosition, Quaternion.identity, vineContainer.transform);
+                    return true;
+                }
+
+                if (!vinePreview.gameObject.activeSelf) vinePreview.gameObject.SetActive(true);
+                return false;
+            }
+
+            if (LogicScript.Instance.accessableInventoryManager2.CurrentSlot.Item is Liana vine2) {
+                if (Vector2.Distance(transform.position, worldPosition) > 10f) {
+                    HineVinePreview();
+                    return false;
+                }
+
+                var placeableCollider = ColliderManager.Instance.Placeables
+                    .FirstOrDefault(pc => pc.OverlapPoint(worldPosition));
+
+                if (placeableCollider == null) {
+                    HineVinePreview();
+                    return false;
+                }
+
+                var placePosition = new Vector2(worldPosition.x, placeableCollider.bounds.center.y);
+                vinePreview.position = placePosition;
+
+                if (Input.GetMouseButtonDown(1)) {
+                    vine2.Amount--;
+                    LogicScript.Instance.accessableInventoryManager2.CurrentItemSlot.SetItem(vine2.Amount == 0
+                        ? null
+                        : vine2);
+                    LogicScript.Instance.accessableInventoryManager2.UpdateSlots();
+
+                    Instantiate(vinePrefab, placePosition, Quaternion.identity, vineContainer.transform);
+                    return true;
+                }
+
+                if (!vinePreview.gameObject.activeSelf) vinePreview.gameObject.SetActive(true);
+                return false;
+            }
+
+            HineVinePreview();
+            return false;
+        }
+
         public void Chop() {
             IsChopping = true;
             StartCoroutine(FinishChop());
@@ -243,7 +322,11 @@ namespace Player {
         }
 
         private void HideBoatPreview() {
-            if (boatPrefab.gameObject.activeSelf) boatPreview.gameObject.SetActive(false);
+            if (boatPreview.gameObject.activeSelf) boatPreview.gameObject.SetActive(false);
+        }
+
+        private void HineVinePreview() {
+            if (vinePreview.gameObject.activeSelf) vinePreview.gameObject.SetActive(false);
         }
 
         private void Attack() {

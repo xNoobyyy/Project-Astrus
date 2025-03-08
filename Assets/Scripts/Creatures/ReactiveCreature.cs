@@ -30,8 +30,8 @@ namespace Creatures {
         }
 
         protected override void Kill() {
+            if (angryTag) angryTag.SetActive(false);
             base.Kill();
-            angryTag.SetActive(false);
         }
 
         private IEnumerator ChaseLoop() {

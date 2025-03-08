@@ -54,6 +54,7 @@ namespace Objects.Placeables {
 
         private void EnterBoat(Transform player) {
             InBoat = true;
+            var originalPosition = transform.position;
 
             PlayerItem.Instance.animator.SetBool(InBoatHash, true);
             PlayerMovement.Instance.GetComponent<Rigidbody2D>().linearDamping = 1f;
@@ -64,10 +65,13 @@ namespace Objects.Placeables {
             player.position = transform.position;
 
             PlayerItem.Instance.InBoat = true;
+
+            EventManager.Instance.Trigger(new PlayerMoveEvent(originalPosition, transform.position, transform));
         }
 
         private void ExitBoat(Vector2 point) {
             InBoat = false;
+            var originalPosition = transform.position;
 
             PlayerItem.Instance.animator.SetBool(InBoatHash, false);
             PlayerMovement.Instance.GetComponent<Rigidbody2D>().linearDamping = 5f;
@@ -79,6 +83,8 @@ namespace Objects.Placeables {
             PlayerItem.Instance.transform.position = point + v;
 
             PlayerItem.Instance.InBoat = false;
+
+            EventManager.Instance.Trigger(new PlayerMoveEvent(originalPosition, transform.position, transform));
         }
 
         public static bool IsPlaceable(BoxCollider2D box) {
