@@ -13,10 +13,10 @@ public class OpeningIcon : MonoBehaviour
     public GameObject mapScreen;
     public MapManager mapManager;
     public GameObject logPanel;
-    private bool moving = false;
-    private bool resizing = false;
+    public bool moving = false;
+    public bool resizing = false;
     private bool reversing = false;
-    private bool animationActive = false;
+    public bool animationActive = false;
     
     private Vector2 targetSize = new Vector2(206, 204);
     private Vector2 targetPosition = Vector2.zero;
