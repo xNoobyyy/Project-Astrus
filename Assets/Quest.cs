@@ -10,6 +10,9 @@ using UnityEngine.Rendering.Universal;
 [System.Serializable]
 public class Quest  {
     
+    // ID der Quest
+    public string id;
+    
     // Der Titel der Quest
     public string title;
     
@@ -40,7 +43,8 @@ public class Quest  {
     /// <param name="isMainQuest">True, wenn es sich um die Hauptquest handelt</param>
     /// <param name="requiredProgress">Wie viel Fortschritt nötig ist, um die Quest abzuschließen</param>
     /// <param name="icon">Optionales Icon für die Quest</param>
-    public Quest(string title, string description, bool isMainQuest, int requiredProgress, int textbaustein = 1000, Sprite icon = null) {
+    public Quest(string id, string title, string description, bool isMainQuest, int requiredProgress, int textbaustein = 1000, Sprite icon = null) {
+        this.id = id;
         this.title = title;
         this.description = description;
         this.isMainQuest = isMainQuest;
