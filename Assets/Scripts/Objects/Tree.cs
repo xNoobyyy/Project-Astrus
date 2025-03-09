@@ -4,6 +4,7 @@ using Items;
 using Items.Items;
 using Player;
 using UnityEngine;
+using Utils;
 
 namespace Objects {
     [RequireComponent(typeof(SpriteRenderer), typeof(Collider2D))]
@@ -74,6 +75,11 @@ namespace Objects {
 
             ItemManager.Instance.DropItem(new Wood(woodAmount), transform.position);
             ItemManager.Instance.DropItem(new Stick(stickAmount), transform.position);
+
+            if (AreaManager.Instance.LastOrCurrentArea?.type == AreaType.Jungle) {
+                if (UnityEngine.Random.Range(0, 5) != 0) return;
+                ItemManager.Instance.DropItem(new Liana(1), transform.position);
+            }
 
             respawnCoroutine = StartCoroutine(RespawnTimer());
         }

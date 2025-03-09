@@ -10,6 +10,7 @@ TagManager:
   - Slots
   - QuestLogic
   - Textdisplay
+  - Placeable
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - 
   - 
   - Creature
-  - 
+  - Boat
   - 
   - 
   - 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Logic.Events;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
@@ -34,6 +35,8 @@ namespace Utils {
                 FadeDuration);
 
             AreaManager.Instance.LastOrCurrentArea = this;
+
+            EventManager.Instance.Trigger(new PlayerAreaEnterEvent(this));
         }
 
         private void OnTriggerExit2D(Collider2D other) {

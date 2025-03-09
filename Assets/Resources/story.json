@@ -16,7 +16,7 @@
     },
     {
       "id": 2,
-      "text": "Zusammen schaffen wir das! Du kannst dich mit W, A, S, D bewegen. Öffne mit E mein Menü. Hier findest du dein Inventar, die Karte, ein Logbuch und  Crafting-Rezept, die du im Inventar ausführen kannst. Auch befinden sich im Menü deine Nachrichten mit mir. Probiere die Nachrichten so schnell wie möglich zu öffnen, wenn du diese bekommst...",
+      "text": "Zusammen schaffen wir das! Du kannst dich mit W, A, S, D bewegen. Öffne mit E mein Menü. Hier findest du dein Inventar, die Karte, ein Logbuch und Crafting-Rezept, die du im Inventar ausführen kannst. Auch befinden sich im Menü deine Nachrichten mit mir. Probiere die Nachrichten so schnell wie möglich zu öffnen, wenn du diese bekommst...",
       "weiter": true,
       "start": false,
       "person": 1
@@ -114,56 +114,14 @@
       "start": true,
       "person": 1
     },{
-      "id": 17,
-      "text":"[Ahhhhh, irgendetwas Gruseliges bewegt sich hier. Ich habe Angst!] [Irgendetwas hat sich hier gerade bewegt. Was soll ich machen?]" ,
-      "weiter": true,
-      "start": true ,
-      "person": 0
-    },{
-      "id": 18,
-      "text": "Keine Sorge, du kannst dich ja mit deinem Schwert verteidigen. Am besten verfolgen wir die Gestalt vorsichtig und finden mehr über sie heraus.",
-      "weiter": true,
-      "start": false,
-      "person": 1
-    },{
-      "id": 19,
-      "text": "Okay, los geht’s.",
-      "weiter": true,
-      "start": false,
-      "person": 0
-    },{
-      "id": 20,
-      "text":"Pass auf dich auf und halte immer genug Abstand." ,
-      "weiter": false,
-      "start": true,
-      "person": 1
-    },{
       "id": 21,
-      "text":"Cool, hier gibt es ja sogar einen Jungle. Achtung, die Gestalt wird langsamer!" ,
-      "weiter": true ,
-      "start": true,
-      "person": 1
-    },{
-      "id": 22,
-      "text": "Oh Gott, es ist ein Zombie!",
-      "weiter": true,
-      "start": false,
-      "person": 0
-    },{
-      "id": 23,
-      "text": "Du schaffst das. Benutze dein Schwert und verteidige dich!",
-      "weiter": false,
-      "start": false,
-      "person": 1
-    },{
-      "id": 24,
-      "text": "Renne jetzt schnell weg, um dich vor den Zombies zu schützen." ,
+      "text":"Oh Gott, hier gibt es Zombies. Verteidige dich mit deinem Schwert und probiere irgendwie ihnen zu entkommen. Du schaffst das!" ,
       "weiter": false ,
-      "start": true ,
+      "start": true,
       "person": 1
     },{
       "id": 25,
-      "text": "Achtung {playerName}, hinter dem Wasserfall dort hinten befindet sich eine versteckte Höhle. Dort können wir uns vor den Zombies verstecken. Beeil dich!" ,
+      "text": "Achtung {playerName}, hinter dem Wasserfall dort hinten befindet sich eine versteckte Höhle. Dort können wir uns vor den Zombies verstecken!" ,
       "weiter": false,
       "start": true,
       "person": 1
@@ -464,7 +422,7 @@
     },
     {
       "id": 68,
-      "text": "Stimmt. Ein Tagebuch. Vielleicht enthält es nützliche Hinweise.",
+      "text": "Stimmt. Eine Karte.",
       "weiter": false,
       "start": false,
       "person": 1

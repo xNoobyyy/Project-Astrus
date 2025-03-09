@@ -2,6 +2,7 @@ using System;
 using Items;
 using Items.Items;
 using Logic.Events;
+using Player.Inventory.Slots;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -23,31 +24,26 @@ namespace Player.Inventory {
         public TMP_Text itemAmountText;
 
 
-        void Start() {
-            Transform sibling = transform.parent.Find("ItemNameText");
-            if (sibling != null) {
-                floatingText = sibling.GetComponent<TextMeshProUGUI>();
-                floatingTextObject = sibling.gameObject;
-                if (floatingText == null)
-                    Debug.LogError("Kein Text-Component an FloatingText gefunden.");
-            } else {
+        private void Start() {
+            var sibling = transform.parent.Find("ItemNameText");
+            if (sibling != null) { } else {
                 sibling = transform.parent.parent.Find("ItemNameText");
                 Debug.Log("FloatingText wurde in der Geschwisterebene nicht gefunden.");
-                if (sibling != null) {
-                    floatingText = sibling.GetComponent<TextMeshProUGUI>();
-                    floatingTextObject = sibling.gameObject;
-                    if (floatingText == null)
-                        Debug.LogError("Kein Text-Component an FloatingText gefunden.");
-                }
+                if (sibling == null) return;
             }
+
+            floatingText = sibling.GetComponent<TextMeshProUGUI>();
+            floatingTextObject = sibling.gameObject;
+            if (floatingText == null)
+                Debug.LogError("Kein Text-Component an FloatingText gefunden.");
         }
 
 
         public void SetItem(Item item) {
             Item = item;
 
-            var itemRenderImageComponent = itemRenderer.GetComponent<Image>();
-            var itemRenderAnimatorComponent = itemRenderer.GetComponent<Animator>();
+            var image = itemRenderer.GetComponent<Image>();
+            var animator = itemRenderer.GetComponent<Animator>();
 
             if (Item == null) {
                 if (Item is ResourceItem resourceItem) {
@@ -58,13 +54,13 @@ namespace Player.Inventory {
                 itemAmountRenderer.SetActive(false);
             } else {
                 itemRenderer.SetActive(true);
-                if (itemRenderer.GetComponent<Animator>() == null) {
-                    itemRenderImageComponent.sprite = Item.Icon;
-                    itemRenderImageComponent.preserveAspect = true;
+
+                if (ReferenceEquals(Item.AnimatedIcon, null)) {
+                    animator.runtimeAnimatorController = null;
+                    image.sprite = Item.Icon;
+                    image.preserveAspect = true;
                 } else {
-                    itemRenderImageComponent.sprite = Item.Icon;
-                    itemRenderImageComponent.preserveAspect = true;
-                    itemRenderAnimatorComponent.runtimeAnimatorController = Item.AnimatedIcon;
+                    animator.runtimeAnimatorController = Item.AnimatedIcon;
                 }
 
                 if (Item is ResourceItem resourceItem) {
@@ -169,6 +165,14 @@ namespace Player.Inventory {
                 }
             } else {
                 var currentItem = Item;
+                switch (InventoryScreen.Instance.DraggingFrom) {
+                    case AxeSlot when Item is not AxeItem:
+                    case CombatSlot when Item is not CombatItem:
+                    case ArmorSlot when Item is not ArmorItem:
+                    case PickaxeSlot when Item is not PickaxeItem:
+                        InventoryScreen.Instance.ResetDragging();
+                        return;
+                }
 
                 SetItem(InventoryScreen.Instance.DraggingFrom.Item);
                 InventoryScreen.Instance.DraggingFrom.SetItem(currentItem);
@@ -181,23 +185,23 @@ namespace Player.Inventory {
             InventoryScreen.Instance.ResetDragging();
         }
 
-        public void clearSlot() {
+        public void ClearSlot() {
             if (Item is ResourceItem resourceItem) {
                 resourceItem.Amount = 0;
             }
 
             Item = null;
-            var itemRenderImageComponent = itemRenderer.GetComponent<Image>();
-            var itemRenderAnimatorComponent = itemRenderer.GetComponent<Animator>();
+            var image = itemRenderer.GetComponent<Image>();
+            var animator = itemRenderer.GetComponent<Animator>();
 
-            itemRenderImageComponent = null;
-            itemRenderAnimatorComponent = null;
+            image.sprite = null;
+            animator.runtimeAnimatorController = null;
 
             itemRenderer.SetActive(false);
             itemAmountRenderer.SetActive(false);
         }
 
-        public void fillSlot(Item item) {
+        public void FillSlot(Item item) {
             Item = item;
             PlayerInventory.Instance.SetItem(
                 Array.IndexOf(PlayerInventory.Instance.Slots, this),

@@ -13,6 +13,8 @@ namespace Items.DroppedItem {
         private Vector3 target;
         private Coroutine moveCoroutine;
 
+        public bool IsDroppingMotion { get; private set; }
+
         public void Initialize(Item item) {
             Item = item;
             GetComponent<SpriteRenderer>().sprite = Item.Icon;
@@ -26,6 +28,7 @@ namespace Items.DroppedItem {
         }
 
         private IEnumerator MoveCoroutine() {
+            IsDroppingMotion = true;
             var distance = Vector2.Distance(transform.position, target);
             while (distance > 0.1f) {
                 distance = Vector2.Distance(transform.position, target);
@@ -39,6 +42,7 @@ namespace Items.DroppedItem {
             }
 
             target = Vector3.zero;
+            IsDroppingMotion = false;
         }
     }
 }

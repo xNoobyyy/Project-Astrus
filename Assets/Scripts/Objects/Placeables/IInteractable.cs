@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace Objects.Placeables {
-    public interface IInteractable {
-        void OnInteract(Transform player);
+    public abstract class Interactable : MonoBehaviour {
+        public abstract void OnInteract(Transform player);
     }
 }

@@ -281,10 +281,10 @@ public class Crafting : MonoBehaviour {
             CraftingAmountItem2, CraftingAmountItem3, CraftingAmountItem4));
 
         if (recipe != null) {
-            CraftingSlot1.clearSlot();
-            CraftingSlot2.clearSlot();
-            CraftingSlot3.clearSlot();
-            CraftingSlot4.clearSlot();
+            CraftingSlot1.ClearSlot();
+            CraftingSlot2.ClearSlot();
+            CraftingSlot3.ClearSlot();
+            CraftingSlot4.ClearSlot();
 
             Type typ = recipe.CraftedItem.GetType();
 
@@ -293,7 +293,7 @@ public class Crafting : MonoBehaviour {
                 object instance = Activator.CreateInstance(typ, new object[] { recipe.CraftedAmount });
                 if (instance is ResourceItem resourceItem) {
                     Debug.Log("Falsches Item");
-                    CraftedSlot.fillSlot(resourceItem);
+                    CraftedSlot.FillSlot(resourceItem);
                 }
             } else {
                 object instance = Activator.CreateInstance(typ);
@@ -302,7 +302,7 @@ public class Crafting : MonoBehaviour {
                     CraftingCondition.craftedItem = item;
                     em.Subscribe(ec);
                     ec.TriggerEvent();
-                    CraftedSlot.fillSlot(item);
+                    CraftedSlot.FillSlot(item);
                 }
             }
         }
