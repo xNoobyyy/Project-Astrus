@@ -2,24 +2,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CircularPhotoPanel : MonoBehaviour
-{
+public class CircularPhotoPanel : MonoBehaviour {
+    public bool plateuGefunden;
     [Header("Fotos konfigurieren")]
     [Tooltip("Liste der anzuzeigenden Fotos (als Sprite)")]
     public List<Sprite> photos;
+    public List<Sprite> photoslate;
 
     [Header("Referenzen")]
-    [Tooltip("Prefab für ein Foto-Element (muss ein Image-Komponente besitzen)")]
+    [Tooltip("Prefab für ein Foto-Element (muss eine Image-Komponente besitzen)")]
     public GameObject photoItemPrefab;
+    public GameObject photoItemPrefabsmall;
+
     [Tooltip("Content-Panel (das Kindobjekt des ScrollRect mit Vertical Layout)")]
     public RectTransform contentPanel;
 
-    void Start()
+    void Awake()
     {
         if (contentPanel == null)
         {
             Debug.LogError("Content Panel nicht zugewiesen!");
             return;
+        }
+
+        if (plateuGefunden) {
+            photos.AddRange(photoslate);
         }
         
         // Bestehende Kinder ggf. löschen
@@ -28,10 +35,13 @@ public class CircularPhotoPanel : MonoBehaviour
             Destroy(child.gameObject);
         }
         
-        // Für jedes Foto ein Element instanziieren
+        // Für jedes Foto ein Element instanziieren und die Höhe prüfen
         foreach (Sprite photo in photos)
         {
-            GameObject item = Instantiate(photoItemPrefab, contentPanel);
+            // Wähle das Prefab basierend auf der Höhe des Sprites (32 oder anders)
+            GameObject prefabToUse = (photo.rect.height == 32f) ? photoItemPrefab : photoItemPrefabsmall;
+            GameObject item = Instantiate(prefabToUse, contentPanel);
+            
             Image img = item.GetComponent<Image>();
             if (img != null)
             {

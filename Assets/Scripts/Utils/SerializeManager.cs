@@ -16,6 +16,7 @@ namespace Utils {
         [SerializeField] private PlayerHealth playerHealth;
         [SerializeField] private GameObject vinePrefab;
         [SerializeField] private GameObject vineContainer;
+        [SerializeField] private QuestLogic questLogic;
 
         private void Awake() {
             if (Instance != null) {
@@ -42,10 +43,10 @@ namespace Utils {
                 var json = File.ReadAllText(path);
                 Debug.Log($"Loaded from: {path}");
                 return json;
-            } else {
-                Debug.LogError($"No save file found at: {path}");
-                return null;
             }
+
+            Debug.LogError($"No save file found at: {path}");
+            return null;
         }
 
         public SaveData Save() {
@@ -70,36 +71,42 @@ namespace Utils {
 
             var currentHealth = playerHealth.currentHealth;
 
+            var questProgresses = questLogic.questGroups.SelectMany(qg => qg.subQuests)
+                .Select(q => (q.id, q.currentProgress)).ToArray();
+
             var saveData = new SaveData {
                 items = items,
-                playerPosition = playerPosition,
-                reachedPlateau = reachedPlateau,
+                PlayerPosition = playerPosition,
+                ReachedPlateau = reachedPlateau,
                 vinePositions = vinePositions,
                 IdentificatedInteractables = identifiedInteractables,
-                playerHealth = currentHealth
+                PlayerHealth = currentHealth,
+                QuestProgresses = questProgresses
             };
 
             return saveData;
         }
 
         public void Load(SaveData saveData) {
-            for (var i = 0; i < saveData.items.Length; i++) {
-                var saveItem = saveData.items[i];
-                if (saveItem == null || saveItem.id == "") continue;
+            if (saveData.items is { Length: 0 }) {
+                for (var i = 0; i < saveData.items.Length; i++) {
+                    var saveItem = saveData.items[i];
+                    if (saveItem == null || saveItem.id == "") continue;
 
-                var itemType = ItemList.items.First(il => il.Item1 == saveItem.id).Item2;
-                var item = typeof(ResourceItem).IsAssignableFrom(itemType)
-                    ? (Item)Activator.CreateInstance(itemType, saveItem.amount)
-                    : (Item)Activator.CreateInstance(itemType);
+                    var itemType = ItemList.items.First(il => il.Item1 == saveItem.id).Item2;
+                    var item = typeof(ResourceItem).IsAssignableFrom(itemType)
+                        ? (Item)Activator.CreateInstance(itemType, saveItem.amount)
+                        : (Item)Activator.CreateInstance(itemType);
 
-                playerInventory.SetItem(i, item);
+                    playerInventory.SetItem(i, item);
+                }
             }
 
-            player.position = saveData.playerPosition;
+            if (saveData.PlayerPosition.HasValue) player.position = saveData.PlayerPosition.Value;
 
-            playerHealth.plateau = saveData.reachedPlateau;
+            if (saveData.ReachedPlateau.HasValue) playerHealth.plateau = saveData.ReachedPlateau.Value;
 
-            if (saveData.vinePositions.Length > 0) {
+            if (saveData.vinePositions is { Length: > 0 }) {
                 foreach (Transform vine in vineContainer.transform) {
                     Destroy(vine.gameObject);
                 }
@@ -109,27 +116,39 @@ namespace Utils {
                 }
             }
 
-            var interactables = FindObjectsByType<IdentificatedInteractable>(FindObjectsInactive.Include,
-                FindObjectsSortMode.None);
-            foreach (var (uuid, interactedAt) in saveData.IdentificatedInteractables) {
-                var interactable = interactables.FirstOrDefault(ii => ii.Uuid == uuid);
-                if (interactable == null) continue;
+            if (saveData.IdentificatedInteractables is { Length: > 0 }) {
+                var interactables = FindObjectsByType<IdentificatedInteractable>(FindObjectsInactive.Include,
+                    FindObjectsSortMode.None);
+                foreach (var (uuid, interactedAt) in saveData.IdentificatedInteractables) {
+                    var interactable = interactables.FirstOrDefault(ii => ii.Uuid == uuid);
+                    if (interactable == null) continue;
 
-                interactable.SetInteractedAt(interactedAt);
+                    interactable.SetInteractedAt(interactedAt);
+                }
             }
 
-            playerHealth.currentHealth = saveData.playerHealth;
+            if (saveData.PlayerHealth.HasValue) playerHealth.currentHealth = saveData.PlayerHealth.Value;
+
+            if (saveData.QuestProgresses is { Length: > 0 }) {
+                foreach (var (id, progress) in saveData.QuestProgresses) {
+                    questLogic.questGroups.SelectMany(qg => qg.subQuests).FirstOrDefault(q => q.id == id)
+                        ?.UpdateProgress(progress);
+                    questLogic.UpdateSideQuests();
+                    questLogic.UpdateMainQuest();
+                }
+            }
         }
     }
 
     [Serializable]
     public class SaveData {
         [ItemCanBeNull] public SaveItem[] items;
-        public Vector2 playerPosition;
-        public bool reachedPlateau;
+        public Vector2? PlayerPosition;
+        public bool? ReachedPlateau;
         public Vector2[] vinePositions;
         public (string, long)[] IdentificatedInteractables;
-        public int playerHealth;
+        public int? PlayerHealth;
+        public (string, int)[] QuestProgresses;
     }
 
     [Serializable]
