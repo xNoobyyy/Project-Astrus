@@ -139,11 +139,11 @@ public class Crafting : MonoBehaviour {
         IronBow = new IronBow();
         GlomtomBow = new GlomtomBow();
         FireBow = new FireGlomtomBow();
-        IronAmour = new IronAmor();
-        Lvl1ExtricArmor = new lvl1ExtricAmour();
-        Lvl2ExtricArmor = new lvl2ExtricAmour();
-        Lvl3ExtricArmor = new lvl3ExtricAmour();
-        ExtricAmour = new ExtricAmor();
+        IronAmour = new IronArmor();
+        Lvl1ExtricArmor = new Lvl1Amour();
+        Lvl2ExtricArmor = new Lvl2Amour();
+        Lvl3ExtricArmor = new Lvl3Amour();
+        ExtricAmour = new ExtricArmor();
 
         // Rezepte-Initialisierung
         // Basisrezepte (Werkzeuge & Waffen)
@@ -290,7 +290,7 @@ public class Crafting : MonoBehaviour {
 
             // Prüfen, ob der Typ von ResourceItem abgeleitet ist
             if (typeof(ResourceItem).IsAssignableFrom(typ)) {
-                object instance = Activator.CreateInstance(typ, new object[] { recipe.CraftedAmount });
+                object instance = Activator.CreateInstance(typ, recipe.CraftedAmount);
                 if (instance is ResourceItem resourceItem) {
                     Debug.Log("Falsches Item");
                     CraftedSlot.FillSlot(resourceItem);

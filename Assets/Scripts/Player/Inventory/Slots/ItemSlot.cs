@@ -165,13 +165,15 @@ namespace Player.Inventory {
                 }
             } else {
                 var currentItem = Item;
-                switch (InventoryScreen.Instance.DraggingFrom) {
-                    case AxeSlot when Item is not AxeItem:
-                    case CombatSlot when Item is not CombatItem:
-                    case ArmorSlot when Item is not ArmorItem:
-                    case PickaxeSlot when Item is not PickaxeItem:
-                        InventoryScreen.Instance.ResetDragging();
-                        return;
+                if (currentItem != null) {
+                    switch (InventoryScreen.Instance.DraggingFrom) {
+                        case AxeSlot when Item is not AxeItem:
+                        case CombatSlot when Item is not CombatItem:
+                        case ArmorSlot when Item is not ArmorItem:
+                        case PickaxeSlot when Item is not PickaxeItem:
+                            InventoryScreen.Instance.ResetDragging();
+                            return;
+                    }
                 }
 
                 SetItem(InventoryScreen.Instance.DraggingFrom.Item);

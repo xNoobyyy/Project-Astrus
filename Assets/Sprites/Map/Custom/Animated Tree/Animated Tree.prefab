@@ -46,7 +46,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4615312297679307053, guid: a8faa85937c8bdb45960319664403d25, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.125
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4615312297679307053, guid: a8faa85937c8bdb45960319664403d25, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -58,11 +58,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4615312297679307053, guid: a8faa85937c8bdb45960319664403d25, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.07
+      value: 1.05
       objectReference: {fileID: 0}
     - target: {fileID: 4615312297679307053, guid: a8faa85937c8bdb45960319664403d25, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.28
+      value: 1.76
       objectReference: {fileID: 0}
     - target: {fileID: 4615312297679307053, guid: a8faa85937c8bdb45960319664403d25, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.size
@@ -194,7 +194,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6438975888025950088, guid: a8faa85937c8bdb45960319664403d25, type: 3}
       propertyPath: m_Name
-      value: Tree (231) Variant
+      value: Animated Tree
       objectReference: {fileID: 0}
     - target: {fileID: 7998832493467483731, guid: a8faa85937c8bdb45960319664403d25, type: 3}
       propertyPath: full

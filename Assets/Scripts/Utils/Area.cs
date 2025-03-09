@@ -41,6 +41,7 @@ namespace Utils {
 
         private void OnTriggerExit2D(Collider2D other) {
             if (!other.CompareTag("Player")) return;
+            if (!AudioManager.Instance) return;
 
             AudioManager.Instance.StopMusic();
 

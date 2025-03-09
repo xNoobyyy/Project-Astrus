@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 namespace Objects {
-    public class Chest : MonoBehaviour {
+    public class Chest : IdentificatedInteractable {
         private const float RespawnTime = 600000; // 10 minutes
 
         [SerializeField] private Sprite closed;
@@ -19,6 +19,7 @@ namespace Objects {
 
         public long OpenedAt { get; private set; }
         public bool IsOpen => OpenedAt != -1;
+        public override long InteractedAt => OpenedAt;
 
         private void Awake() {
             spriteRenderer = GetComponent<SpriteRenderer>();
@@ -40,6 +41,13 @@ namespace Objects {
             if (respawnCoroutine == null) return;
             StopCoroutine(respawnCoroutine);
             respawnCoroutine = null;
+        }
+
+        public override void SetInteractedAt(long timestamp) {
+            StopCoroutine(respawnCoroutine);
+            
+            OpenedAt = timestamp;
+            respawnCoroutine = StartCoroutine(RespawnTimer());
         }
 
         private IEnumerator RespawnTimer() {
@@ -78,7 +86,9 @@ namespace Objects {
             OpenedAt = -1;
         }
 
-        private void OnValidate() {
+        private new void OnValidate() {
+            base.OnValidate();
+            
             spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = closed;
         }

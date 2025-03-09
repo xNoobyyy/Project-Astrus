@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace Objects {
-    public class Ore : MonoBehaviour {
+    public class Ore : IdentificatedInteractable {
         private const int RespawnTime = 300000; // 5 minutes
         private const int Health = 6;
 
@@ -21,6 +21,7 @@ namespace Objects {
         public int Damage { get; private set; }
         public long DestroyedAt { get; private set; }
         public bool IsDestroyed => DestroyedAt != -1;
+        public override long InteractedAt => DestroyedAt;
 
         private Coroutine respawnCoroutine;
         private Collider2D polyCollider;
@@ -47,6 +48,13 @@ namespace Objects {
             if (respawnCoroutine == null) return;
             StopCoroutine(respawnCoroutine);
             respawnCoroutine = null;
+        }
+
+        public override void SetInteractedAt(long timestamp) {
+            StopCoroutine(respawnCoroutine);
+
+            DestroyedAt = timestamp;
+            respawnCoroutine = StartCoroutine(RespawnTimer());
         }
 
         public void Break(int pickPower) {
