@@ -15,7 +15,7 @@ public class LogicScript : MonoBehaviour {
     public Watch watch;
     public RectTransform inventoryScreenVisu;
     public RectTransform questScreenVisu;
-    public GameObject openingIcon;
+    public OpeningIcon openingIcon;
     public GameObject pauseScreen;
     private Vector2 QuestPosition;
     private Vector2 QuestSize;
@@ -61,7 +61,7 @@ public class LogicScript : MonoBehaviour {
             OpenWatch();
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && WatchOpen && !IconOpened) {
+        if (Input.GetKeyDown(KeyCode.E) && WatchOpen && !IconOpened && !openingIcon.animationActive) {
             CloseWatch();
         }
 
