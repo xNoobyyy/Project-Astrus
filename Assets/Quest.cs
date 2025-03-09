@@ -190,3 +190,26 @@ public class EnteredCondition : QuestCondition {
         return false;
     }
 }
+
+public class InteractingCondition : QuestCondition {
+    private string art;
+    private int anzahl;
+    int erreichteAnzahl;
+    public InteractingCondition(string a, int i) {
+        art = a;
+        anzahl = i;
+    }
+    public override bool IsMet() {
+        erreichteAnzahl = 0;
+        foreach (var interaction in ql.interaktionen) {
+            if (art == "Tier" && (interaction == "Dodo" || interaction == "Quokka" || interaction == "Golem")) {
+                erreichteAnzahl++;
+            }
+            if(art == "Zombie" && (interaction == "Zombie")|| interaction == "ZombieBoss") {}
+        }
+        if (erreichteAnzahl >= anzahl) {
+            return true;
+        }
+        return false;
+    }
+}

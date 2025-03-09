@@ -68,6 +68,7 @@ namespace Utils {
         City,
         Starter,
         Jungle,
-        Cave
+        Cave,
+        Labor
     }
 }

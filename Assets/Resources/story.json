@@ -16,14 +16,14 @@
     },
     {
       "id": 2,
-      "text": "Zusammen schaffen wir das! Du kannst dich mit W, A, S, D bewegen. Öffne mit E mein Menü. Hier findest du dein Inventar, die Karte, ein Logbuch und Crafting-Rezept, die du im Inventar ausführen kannst. Auch befinden sich im Menü deine Nachrichten mit mir. Probiere die Nachrichten so schnell wie möglich zu öffnen, wenn du diese bekommst...",
+      "text": "Zusammen schaffen wir das! Du kannst dich mit W, A, S, D bewegen. Öffne mit E mein Menü. Hier findest du dein Inventar, die Karte, ein Logbuch und Crafting-Rezept, die du im Inventar ausführen kannst. In besonderen Situationen melde ich mich bei dir. Wenn ich eine Nachricht für dich habe, erscheint ein Glockensymbol am Bildschirmrand. Probiere diese Nachrichten so schnell wie möglich zu öffnen...",
       "weiter": true,
       "start": false,
       "person": 1
     },
     {
       "id": 3,
-      "text": "In besonders gefährlichen Situationen werde ich dir auch direkt Tipps geben, ohne dass du diese erst antippen musst. Auch werde ich dir Quests anzeigen, mit denen du die Insel erkunden kannst.",
+      "text": "Ich werde dir außerdem Quests anzeigen, mit denen du die Insel erkunden kannst, um dein Raumschiff schnellstens zu reparieren. Aber Achtung: Solange du noch offene Nachrichten mit mir hast, kannst du die Quests nicht abschließen und kommst deinem Ziel somit nicht näher!",
       "weiter": true,
       "start": false,
       "person": 1
@@ -86,18 +86,18 @@
     },{
       "id": 12,
       "text": "Mhm, komisch. Hier liegen viele verschiedene Objekte herum. Ich dachte, hier leben nur Tiere… sei auf jeden Fall vorsichtig, wenn du das Festland weiter erkundest!",
-      "weiter": false,
+      "weiter": true,
       "start":true,
       "person": 1
     },{
       "id": 13,
       "text":"{playerName}, ich habe eine neue Quest für dich! Wir wissen nicht, wer auf diesem Planeten wohnt und wie gefährlich potentielle Bewohner sind. Finde Ressourcen und crafte aus diesen Werkzeuge oder Waffen. Eisen und Stein findest du im Grasland.",
       "weiter": false,
-      "start": true,
+      "start": false,
       "person":1
     },{
       "id": 14,
-      "text":"Sehr gut. Crafte nun Werkzeuge und ein Schwert, um dich verteidigen zu können. Eine Spitzhacke könnte bestimmt noch nützlich werden.",
+      "text":"Sehr gut. Crafte nun Werkzeuge und ein Schwert, um dich verteidigen zu können. Eine Spitzhacke könnte bestimmt noch nützlich werden. Bedenke dabei, dass du nicht mit jedem Werkzeug jede Ressource abbauen kannst.",
       "weiter": false,
       "start": true,
       "person": 1
@@ -121,23 +121,23 @@
       "person": 1
     },{
       "id": 25,
-      "text": "Achtung {playerName}, hinter dem Wasserfall dort hinten befindet sich eine versteckte Höhle. Dort können wir uns vor den Zombies verstecken!" ,
+      "text": "Achtung {playerName}, wenn du zu viele Lebenspunkte verlierst, wirst du zu einem früheren Standpunkt zurückgesetzt! Hinter dem Wasserfall im Dschungel befindet sich eine versteckte Höhle. Dort können wir uns vor den Zombies verstecken!" ,
       "weiter": false,
       "start": true,
       "person": 1
     }, 
     { 
       "id": 26,
-      "text": "Oh, hier ist es aber sehr dunkel! Am besten craftest du dir erstmal eine Fackel. Rufe dafür das passende Rezept auf.",
-      "weiter": false,
+      "text": "Oh, hier ist es aber sehr dunkel! Am besten craftest du dir erstmal eine Fackel.",
+      "weiter": true,
       "start": true,
       "person": 1
     },
     { 
       "id": 27,
-      "text": "Kohle müsstest du hier in der Höhle finden. Baue es mit deiner Spitzhacke ab und crafte die Fackel.",
+      "text": "Die benötigte Kohle müsstest du hier in der Höhle finden. Baue sie mit deiner Spitzhacke ab und crafte die Fackel.",
       "weiter": false,
-      "start": true,
+      "start": false,
       "person": 1
     },
     { 
@@ -170,14 +170,14 @@
     },
     {
       "id": 32,
-      "text": "[Ähhh...][Okay...]",
+      "text": "[Das ist doch ein toller Zufall, vielleicht kannst du mir ja helfen!][Ich bin mir nicht ganz sicher, ob das ein Grund zur Freude ist...]",
       "weiter": true,
       "start": false,
       "person": 0
     },
     {
       "id": 33,
-      "text": "Wie heißt du Fremder?",
+      "text": "Wie heißt du denn Fremder?",
       "weiter": true,
       "start": false,
       "person": 2
@@ -226,14 +226,14 @@
     },
     {
       "id": 40,
-      "text": "[Äh.][Nein, habe ich eigentlich nicht.]",
+      "text": "[Tja, eigentlich habe ich eh nichts mehr zu verlieren.][Nein, habe ich eigentlich nicht.]",
       "weiter": true,
       "start": false,
       "person": 0
     },
     {
       "id": 41,
-      "text": "Hier gibt es auch irgend so eine alte Farm mit so komischen Rezepten und so… leider keine Kuchenrezepte.",
+      "text": "Wie du meinst. Auf jeden Fall gibt es hier auch irgendeine alte Farm mit so komischen Rezepten und so… leider keine Kuchenrezepte.",
       "weiter": true,
       "start": false,
       "person": 2
@@ -282,7 +282,7 @@
     },
     { 
       "id": 48,
-      "text": "Was ein interessantes Gespräch! Guck mal {playerName}, dort hinten glitzert etwas.",
+      "text": "Was für ein interessantes Gespräch! Guck mal {playerName}, dort hinten glitzert etwas.",
       "weiter": false,
       "start": true,
       "person": 1
@@ -310,7 +310,7 @@
     },
     { 
       "id": 52,
-      "text": "Zombies sind wasserscheu. Laufe über die Seerosen und rette dich schnell über den Fluss!",
+      "text": "Zombies sind übrigens wasserscheu. Finde die Seerosenblätter auf denen du den Fluss überqueren kannst, damit du Zombies zukünftig schneller abhängst!",
       "weiter": false,
       "start": true,
       "person": 1
@@ -329,39 +329,18 @@
       "start": false,
       "person": 1
     },
-    {
-      "id": 55,
-      "text": "Klettere jetzt das Plateau hoch.",
-      "weiter": false,
-      "start": true,
-      "person": 1
-    },
     { 
       "id": 56,
-      "text": "Erkunde alte Farm und finde Rezepte.",
-      "weiter": false,
-      "start": true,
-      "person": 1
-    },
-    { 
-      "id": 57,
-      "text": "Oh, wie interessant. Öffne die Truhe mit einem Klick.",
+      "text": "Hier muss irgendwo die alte Farm sein. Vielleicht entdeckst du ja die Rezepte von denen der alte Mann gesprochen hat! Auf dem Plateau bist du übrigens vor den Zombies geschützt, die sind viel zu minderbegabt um eine Liane hinaufzuklettern!",
       "weiter": false,
       "start": true,
       "person": 1
     },
     { 
       "id": 58,
-      "text": "Cool, ein Zombieschatz! Vielleicht ist das Astrus.",
+      "text": "Cool, ein Schatz! Vielleicht können wir damit ja dein Raumschiff reparieren!",
       "weiter": true,
       "start": true,
-      "person": 1
-    },
-    {
-      "id": 59,
-      "text": "Was ist das neben der Truhe? Vielleicht kannst du ja draufklicken.",
-      "weiter": false,
-      "start": false,
       "person": 1
     },
     { 
@@ -373,7 +352,7 @@
     },
     { 
       "id": 61,
-      "text": "Was eine schöne Rüstung. Hast du noch genug Waffen? Falls nicht, crafte dir lieber noch ein neues Schwert oder einen Bogen. Wenn du fertig bist, können wir sofort zum Sumpf gehen.",
+      "text": "Was für eine schöne Rüstung. Hast du noch genügend Waffen? Falls nicht, crafte dir lieber noch ein neues Schwert oder einen Bogen. Wenn du fertig bist, können wir sofort zum Sumpf gehen.",
       "weiter": false,
       "start": true,
       "person": 1
@@ -400,15 +379,8 @@
       "person": 1
     },
     { 
-      "id": 65,
-      "text": "Du musst sie besiegen. Du schaffst das!",
-      "weiter": false,
-      "start": true,
-      "person": 1
-    },
-    { 
       "id": 66,
-      "text": "Wow, ein weiteres seltenes Erz. Es heißt Domilitant. Nehme so viel mit, wie du kannst. Ich glaube, wir brauchen das noch, um Astrus zu finden.",
+      "text": "Wow, ein weiteres seltenes Erz. Es heißt Domilitant. Nimm so viel mit, wie du kannst. Ich glaube, wir brauchen das noch, um von diesem grauenhaften Planeten zu kommen.",
       "weiter": true,
       "start": true,
       "person": 1
@@ -429,7 +401,7 @@
     },
     { 
       "id": 69,
-      "text": "Wir können Astrus in der Stadt finden!",
+      "text": "Wir können ein wertvolles, energiegeladenes Erz namens Astrus in der Stadt finden. Genau sowas brauchen wir um dein Raumschiff zum Laufen zu bringen!",
       "weiter": true,
       "start": true,
       "person": 0
@@ -450,7 +422,7 @@
     },
     {
       "id": 72,
-      "text": "Stimmt. Ich habe auch alle benötigten Ressourcen schon hier bei der Hütte.",
+      "text": "Stimmt! Ich wollte schon immer mal unsichtbar sein.",
       "weiter": true,
       "start": false,
       "person": 0
@@ -478,7 +450,7 @@
     },
     {
       "id": 76,
-      "text": "Ja. Wir holen uns endlich Astrus! Crafte genug Waffen und eine gute Rüstung. Dann kann es losgehen",
+      "text": "Ja. Wir holen uns endlich Astrus! Crafte genügend starke Waffen und eine gute Rüstung. Dann kann es losgehen!",
       "weiter": false,
       "start": false,
       "person": 1
@@ -499,7 +471,7 @@
     },
     {
       "id": 79,
-      "text": "Viel Glück. Ich glaube an dich {playerName}",
+      "text": "Viel Glück. Ich glaube an dich {playerName}!",
       "weiter": false,
       "start": false,
       "person": 1
@@ -527,35 +499,35 @@
     },
     {
       "id": 83,
-      "text": "Guck dich mal um, vielleicht finden wir hier Hinweise auf Astrus oder die Zombies.",
+      "text": "Guck dich mal um, vielleicht finden wir hier Hinweise auf Astrus oder auf die Herkunft der Zombies.",
       "weiter": false,
       "start": false,
       "person": 1
     },
     {
       "id": 84,
-      "text": "Oh Gott, der Boss-Zombie überwacht mich.",
+      "text": "Oh Gott, der Boss-Zombie weiß nun wohl, wo ich bin!.",
       "weiter": true,
       "start": true,
       "person": 0
     },
     {
       "id": 85,
-      "text": "Du musst gegen ihn kämpfen {Spieler}. Er kontrolliert alle Zombies und Astrus. Du schaffst das!",
+      "text": "Du musst gegen ihn kämpfen {Spieler}. Er kontrolliert scheinbar alle Zombies und hat vielleicht sogar das wertvolle Astrus versteckt. Du schaffst das!",
       "weiter": false,
       "start": false,
       "person": 1
     },
     {
       "id": 86,
-      "text": "[Dr. Storm?! Sie kontrollieren hier alles???][Oh mein Gott, Dr.Storm??!!]",
+      "text": "[Dr. Storm?! Sie kontrollieren dies Alles??? Sie kamen mir von Anfang an verdächtig vor!][Oh mein Gott, Dr.Storm??!! Ich dachte sie wären auf meiner Seite!]",
       "weiter": true,
       "start": true,
       "person": 0
     },
     {
       "id": 87,
-      "text": "Korrekt. Seit Jahren gehört und gehorcht mir hier ALLES! Und du kleine Bestie musstest hier alles kaputtmachen!",
+      "text": "Ich bin abgrundtief böse hihihi. Seit Jahren gehört und gehorcht mir hier ALLES! Und du kleine Bestie bist kurz davor meine ganze Arbeit kaputtzumachen!",
       "weiter": true,
       "start": false,
       "person": 2
@@ -611,7 +583,7 @@
     },
     {
       "id": 95,
-      "text": "Du hast es wirklich geschafft. Ab gehts zurück zum Raumschiff und dann können wir hier endlich weg!",
+      "text": "Du hast es wirklich geschafft. Ab geht es zurück zum Raumschiff und dann können wir hier endlich weg!",
       "weiter": false,
       "start": false,
       "person": 1

@@ -28,7 +28,8 @@ public class QuestLogic : MonoBehaviour {
 
     public Quest craftingQuest;
 
-    public Quest eOSQuest;
+    public Quest eQuest;
+    public Quest sQuest;
     public Quest spitzAxtQuest;
     public Quest schwertQuest;
 
@@ -39,7 +40,7 @@ public class QuestLogic : MonoBehaviour {
 
     public Quest überlebenQuest;
 
-    public Quest verfolgenQuest;
+    public Quest angreifen2Quest;
     public Quest rennenQuest;
     public Quest schutzQuest;
 
@@ -89,6 +90,7 @@ public class QuestLogic : MonoBehaviour {
     public Quest wächterQuest;
 
     public Quest LaborQuest;
+    public Quest laborVerlassenQuest;
 
     public Quest rettenQuest;
     public Quest virusQuest;
@@ -107,90 +109,114 @@ public class QuestLogic : MonoBehaviour {
 
     public List<Quest> sideQuests = new List<Quest>();
     public List<string> orte = new List<string>();
+    public List<string> interaktionen = new List<string>();
 
     private void OnEnable() {
         EventManager.Instance.Subscribe<PlayerItemEvent>(OnItemPickup);
-        TriggerEvent.OnAreaEntered += HandleAreaEntered;
+        EventManager.Instance.Subscribe<PlayerAreaEnterEvent>(OnAreaEntered);
+        EventManager.Instance.Subscribe<CreatureDamageEvent>(OnCreatureDamage);
     }
 
     private void OnDisable() {
         EventManager.Instance.Unsubscribe<PlayerItemEvent>(OnItemPickup);
-        TriggerEvent.OnAreaEntered -= HandleAreaEntered;
+        EventManager.Instance.Unsubscribe<PlayerAreaEnterEvent>(OnAreaEntered);
+        EventManager.Instance.Unsubscribe<CreatureDamageEvent>(OnCreatureDamage);
     }
 
+    private void OnAreaEntered(PlayerAreaEnterEvent e) {
+        orte.Add(e.AreaType.ToString());
+        foreach (var q in questGroups[activeGroup].subQuests) {
+                foreach (var condition in q.conditions) {
+                    if (condition.GetType() == typeof(EnteredCondition)) {
+                        condition.IsMet();
+                    }
+                }
+        }
+    }
     private void OnItemPickup(PlayerItemEvent e) {
-        foreach (var questGroup in questGroups) {
-            foreach (var quest in questGroup.subQuests) {
-                foreach (var condition in quest.conditions) {
+        foreach (var q in questGroups[activeGroup].subQuests) {
+                foreach (var condition in q.conditions) {
                     if (condition.GetType() == typeof(ItemCondition)) {
                         condition.IsMet();
                     }
                 }
-            }
         }
     }
 
+    private void OnCreatureDamage(CreatureDamageEvent e) {
+        interaktionen.Add(e.CreatureType.ToString());
+        foreach (var q in questGroups[activeGroup].subQuests) {
+            foreach (var condition in q.conditions) {
+                if (condition.GetType() == typeof(InteractingCondition)) {
+                    condition.IsMet();
+                }
+            }
+        }
+    }
     private void HandleAreaEntered(string area) {
         orte.Add(area);
     }
 
     void Start() {
-        // Gruppe 1: Festland
+        // Gruppe 1: Festland FERTIG
         festlandQuest = new Quest("Festland", "Überquere das Meer.", true, 4);
-        baueQuest = new Quest("Holz", "Sammle Holz und Äste.", false, 2, 0);
+        baueQuest = new Quest("Holz", "Sammle Holz und Äste.", false, 2, 8);
         baueQuest.AddCondition(new ItemCondition("Stick"));
         baueQuest.AddCondition(new ItemCondition("Wood"));
-        bootQuest = new Quest("Boot", "Baue ein Boot.", false, 1);
+        bootQuest = new Quest("Boot", "Baue ein Boot.", false, 1, 11);
         bootQuest.AddCondition(new CraftingCondition("Boat"));
-        tierQuest = new Quest("Tier", "Streichele ein friedliches Tier.", false, 1); //!
-        betreteFestlandQuest = new Quest("Ankunft", "Betrete das Festland.", false, 1);
-        betreteFestlandQuest.AddCondition(new EnteredCondition("Festland"));
+        tierQuest = new Quest("Tier", "Streichele ein Tier.", false, 1); 
+        tierQuest.AddCondition(new InteractingCondition("Tier", 1));
+        betreteFestlandQuest = new Quest("Ankunft", "Betrete das Festland.", false, 1, 12);
+        betreteFestlandQuest.AddCondition(new EnteredCondition("Beach"));
         QuestGroup group1 = new QuestGroup(festlandQuest,
             new List<Quest>() { baueQuest, bootQuest, tierQuest, betreteFestlandQuest });
 
-        // Gruppe 2: Crafting
-        craftingQuest = new Quest("Werkzeuge", "Erstelle Werkzeuge und Waffen.", true, 3);
-        eOSQuest = new Quest("Eisen/Stein", "Finde Eisen und Stein.", false, 2);
-        eOSQuest.AddCondition(new ItemCondition("Stone"));
-        eOSQuest.AddCondition(new ItemCondition("Iron"));
+        // Gruppe 2: Crafting FERTIG
+        craftingQuest = new Quest("Werkzeuge", "Erstelle Werkzeuge und Waffen.", true, 4, 15);
+        eQuest = new Quest("Stein", "Finde Stein", false, 1, 14);
+        eQuest.AddCondition(new ItemCondition("Stone"));
+        sQuest = new Quest("Eisen", "Finde Eisen", false, 1);
+        sQuest.AddCondition(new ItemCondition("Iron"));
         spitzAxtQuest = new Quest("Spitzhacke", "Baue eine Spitzhacke aus Stein.", false, 1);
         spitzAxtQuest.AddCondition(new CraftingCondition("StonePickaxe"));
         schwertQuest = new Quest("Schwert", "Erstelle ein Schwert aus Eisen.", false, 1);
         schwertQuest.AddCondition(new CraftingCondition("IronSword"));
-        QuestGroup group2 = new QuestGroup(craftingQuest, new List<Quest>() { eOSQuest, spitzAxtQuest, schwertQuest });
+        QuestGroup group2 = new QuestGroup(craftingQuest, new List<Quest>() { eQuest, sQuest, spitzAxtQuest, schwertQuest });
 
         // Gruppe 3: Erkundung
         erkundenQuest = new Quest("Erkundung", "Erkunde den Planeten.", true, 2);
-        zweiTiereQuest = new Quest("Tiere", "Treffe zwei friedliche Tiere.", false, 1); //!
-        plateauQuest = new Quest("Plateau", "Finde das Plateau.", false, 1);
-        plateauQuest.AddCondition(new EnteredCondition("Plateauumgebung"));
+        zweiTiereQuest = new Quest("Tiere", "Treffe zwei Tiere.", false, 1); 
+        zweiTiereQuest.AddCondition(new InteractingCondition("Tier", 2));
+        plateauQuest = new Quest("Plateau", "Finde das Plateau.", false, 1, 16);
+        plateauQuest.AddCondition(new EnteredCondition("Plateauumgebung"));///////////////////////////////////////////////////////
         QuestGroup group3 = new QuestGroup(erkundenQuest, new List<Quest>() { zweiTiereQuest, plateauQuest });
 
-        // Gruppe 4: Erste Zombieattacke
-        überlebenQuest = new Quest("Zombies", "Überlebe die Zombieattacke.", true, 3);
-        verfolgenQuest = new Quest("Verfolgen", "Folge der Gestalt.", false, 1); //!
-        rennenQuest = new Quest("Rennen", "Renne vor Zombies.", false, 1); //!
-        schutzQuest = new Quest("Schutz", "Finde Höhlenschutz.", false, 1);
-        schutzQuest.AddCondition(new EnteredCondition("Höhle"));
+        // Gruppe 4: Erste Zombieattacke FERTIG
+        überlebenQuest = new Quest("Zombies", "Überlebe die Zombieattacke.", true, 2);
+        angreifen2Quest = new Quest("Angreifen", "Greife einen Zombie an", false, 1, 21);
+        angreifen2Quest.AddCondition(new InteractingCondition("Zombie", 1));
+        schutzQuest = new Quest("Schutz", "Bringe dich in Sicherheit.", false, 1, 26);
+        schutzQuest.AddCondition(new EnteredCondition("Cave"));
         QuestGroup group4 =
-            new QuestGroup(überlebenQuest, new List<Quest>() { verfolgenQuest, rennenQuest, schutzQuest });
+            new QuestGroup(überlebenQuest, new List<Quest>() { angreifen2Quest, rennenQuest, schutzQuest });
 
         // Gruppe 5: Höhle
-        höhleQuest = new Quest("Höhle", "Erkunde die Höhle.", true, 4);
-        fakelQuest = new Quest("Fackel", "Baue eine Fackel.", false, 1);
+        höhleQuest = new Quest("Höhle", "Erkunde die Höhle.", true, 4, 52);
+        fakelQuest = new Quest("Fackel", "Baue eine Fackel.", false, 1, 28);
         fakelQuest.AddCondition(new CraftingCondition("Torch"));
-        stormQuest = new Quest("Dr. Storm", "Sprich mit Dr. Storm.", false, 1); //!
-        erzQuest = new Quest("Erz", "Baue unbekanntes Erz ab.", false, 1);
+        stormQuest = new Quest("Dr. Storm", "Sprich mit Dr. Storm.", false, 1, 48); //!
+        erzQuest = new Quest("Erz", "Baue unbekanntes Erz ab.", false, 1, 49);
         erzQuest.AddCondition(new ItemCondition("Glomtom"));
-        glomtomSchwertQuest = new Quest("Glomtom", "Erstelle Glomtom-Schwert.", false, 1);
+        glomtomSchwertQuest = new Quest("Glomtom", "Erstelle Glomtom-Schwert.", false, 1, 50);
         glomtomSchwertQuest.AddCondition(new CraftingCondition("GlomtomSword"));
         QuestGroup group5 = new QuestGroup(höhleQuest,
             new List<Quest>() { fakelQuest, stormQuest, erzQuest, glomtomSchwertQuest });
 
         // Gruppe 6: Zweite Zombieattacke
-        zombie2Quest = new Quest("Zombies II", "Entkomme der zweiten Attacke.", true, 2);
+        zombie2Quest = new Quest("Zombies II", "Entkomme der zweiten Attacke.", true, 2, 53);
         zombie3Quest = new Quest("Kampf", "Nutze das Glomtom-Schwert.", false, 1); //!
-        flussQuest = new Quest("Fluss", "Fliehe über den Fluss.", false, 1);
+        flussQuest = new Quest("Fluss", "Überquere die Seerosen.", false, 1);
         flussQuest.AddCondition(new EnteredCondition("Fluss")); ////////////////////
         QuestGroup group6 = new QuestGroup(zombie2Quest, new List<Quest>() { zombie3Quest, flussQuest });
 
@@ -198,15 +224,15 @@ public class QuestLogic : MonoBehaviour {
         plateau2Quest = new Quest("Plateau", "Erkunde das Plateau.", true, 4);
         lianeQuest = new Quest("Liane", "Sammle eine Liane.", false, 1);
         lianeQuest.AddCondition(new ItemCondition("Liana"));
-        erklimmeQuest = new Quest("Erklimme", "Klettere das Plateau hinauf.", false, 1);
+        erklimmeQuest = new Quest("Erklimme", "Klettere das Plateau hinauf.", false, 1, 56);
         erklimmeQuest.AddCondition(new EnteredCondition("Plateau"));
-        schatzkarteQuest = new Quest("Karte", "Finde die Schatzkarte.", false, 1); //!
-        RezepteQuest = new Quest("Rezepte", "Entdecke alte Rezepte.", false, 1); //!
+        schatzkarteQuest = new Quest("Karte", "Entdecke die Geheimnisse der Farm.", false, 1, 58); //!
+        RezepteQuest = new Quest("Rezepte", "Entdecke alte Rezepte.", false, 1, 60); //!
         QuestGroup group7 = new QuestGroup(plateau2Quest,
             new List<Quest>() { lianeQuest, erklimmeQuest, schatzkarteQuest, RezepteQuest });
 
         // Gruppe 8: Extric
-        ExtricQuest = new Quest("Extric", "Nutze Extric.", true, 4);
+        ExtricQuest = new Quest("Extric", "Nutze Extric.", true, 4, 62);
         blumeQuest = new Quest("Blume", "Finde die besondere Blume.", false, 1);
         blumeQuest.AddCondition(new ItemCondition("SpecialFlower"));
         ressourcenQuest = new Quest("Ressourcen", "Sammle alle Ressourcen.", false, 7);
@@ -219,60 +245,59 @@ public class QuestLogic : MonoBehaviour {
         ressourcenQuest.AddCondition(new ItemCondition("Liana"));
         craftenExtricQuest = new Quest("Extric Bau", "Stelle Extric her.", false, 1);
         craftenExtricQuest.AddCondition(new CraftingCondition("Extric"));
-        rüstungQuest = new Quest("Rüstung", "Erstelle Extric-Rüstung.", false, 1);
+        rüstungQuest = new Quest("Rüstung", "Erstelle Extric-Rüstung.", false, 1, 61);
         rüstungQuest.AddCondition(new CraftingCondition("ExtricAmor"));
         QuestGroup group8 = new QuestGroup(ExtricQuest,
             new List<Quest>() { blumeQuest, ressourcenQuest, craftenExtricQuest, rüstungQuest });
 
         // Gruppe 9: Zombieschatz
-        schatzQuest = new Quest("Schatz", "Finde den Zombieschatz.", true, 5);
+        schatzQuest = new Quest("Schatz", "Finde den Zombieschatz.", true, 5, 71);
         bogenQuest = new Quest("Bogen", "Baue einen Bogen aus Eisen.", false, 1);
         bogenQuest.AddCondition(new CraftingCondition("IronBow"));
-        sumpfQuest = new Quest("Sumpf", "Betrete den Sumpf.", false, 1);
-        sumpfQuest.AddCondition(new EnteredCondition("Sumpf"));
-        zombie4Quest = new Quest("Zombies", "Besiege die Zombies.", false, 1); //!
-        findeDomilitantQuest = new Quest("Domilitant", "Finde Domilitant.", false, 1);
+        sumpfQuest = new Quest("Sumpf", "Betrete den Sumpf.", false, 1, 63);
+        sumpfQuest.AddCondition(new EnteredCondition("Swamp"));
+        findeDomilitantQuest = new Quest("Domilitant", "Finde Domilitant.", false, 1, 66);
         findeDomilitantQuest.AddCondition(new ItemCondition("Domilitant"));
-        tagebuchQuest = new Quest("Tagebuch", "Lies das Tagebuch.", false, 1); //!
+        tagebuchQuest = new Quest("Tagebuch", "Finde den verborgenen Hinweis.", false, 1, 69); //!
         QuestGroup group9 = new QuestGroup(schatzQuest,
-            new List<Quest>() { bogenQuest, sumpfQuest, zombie4Quest, findeDomilitantQuest, tagebuchQuest });
+            new List<Quest>() { bogenQuest, sumpfQuest, findeDomilitantQuest, tagebuchQuest });
 
         // Gruppe 10: Domilitant
         domilitantQuest = new Quest("Domilitant", "Setze Domilitant ein.", true, 2);
         rezeptFindenQuest = new Quest("Rezept", "Finde ein Rezept.", false, 1); //!
-        trankQuest = new Quest("Trank", "Braue einen Trank.", false, 1);
+        trankQuest = new Quest("Trank", "Braue einen Trank.", false, 1, 74);
         trankQuest.AddCondition(new CraftingCondition("InvisibilityPotion"));
         QuestGroup group10 = new QuestGroup(domilitantQuest, new List<Quest>() { rezeptFindenQuest, trankQuest });
 
         // Gruppe 11: Stadt
         stadtQuest = new Quest("Stadt", "Betrete die Stadt.", true, 3);
-        crafteSchwertQuest = new Quest("Schwert", "Erstelle ein neues Schwert aus Glomtom.", false, 1);
+        crafteSchwertQuest = new Quest("Schwert", "Erstelle ein neues Schwert aus Glomtom.", false, 1, 77);
         crafteSchwertQuest.AddCondition(new CraftingCondition("GlomtomSword"));
         unsichtbarQuest = new Quest("Unsichtbar", "Trinke den Trank.", false, 1); //!
-        wächterQuest = new Quest("Wächter", "Vermeide Wächter-Zombies.", false, 1); //!
+        wächterQuest = new Quest("Wächter", "Betrete die Stadt.", false, 1, 80); 
+        wächterQuest.AddCondition(new EnteredCondition("City"));
         QuestGroup group11 = new QuestGroup(stadtQuest,
             new List<Quest>() { crafteSchwertQuest, unsichtbarQuest, wächterQuest });
 
         // Gruppe 12: Labor
         LaborQuest = new Quest("Labor", "Erkunde das Labor.", true, 2);
-        rettenQuest = new Quest("Rette", "Rette dich ins Labor.", false, 1);
-        rettenQuest.AddCondition(new EnteredCondition("Labor")); //////////
-        virusQuest = new Quest("Virus", "Finde Virus-Hinweise.", false, 1); //!
+        rettenQuest = new Quest("Rette", "Rette dich ins Labor.", false, 1, 82);
+        rettenQuest.AddCondition(new EnteredCondition("Labor")); 
+        virusQuest = new Quest("Virus", "Finde Virus-Hinweise.", false, 1, 84); //!
+        laborVerlassenQuest = new Quest("Labor Verlassen", "Stelle dich dem Bosszombie", false, 1, 86);//!
         QuestGroup group12 = new QuestGroup(LaborQuest, new List<Quest>() { rettenQuest, virusQuest });
 
         // Gruppe 13: Endkampf
-        endkampfQuest = new Quest("Endkampf", "Gewinne den Endkampf.", true, 4);
-        besiegenQuest = new Quest("Boss", "Besiege den Endboss.", false, 1); //1
-        kontrolleQuest = new Quest("Kontrolle", "Enthülle Zombie-Kontrolle.", false, 1); //!
-        befreienQuest = new Quest("Befreien", "Befreie die Zombies.", false, 1); //!
+        endkampfQuest = new Quest("Endkampf", "Gewinne den Endkampf.", true, 2, 96);
+        besiegenQuest = new Quest("Boss", "Besiege den Endboss.", false, 1, 90); //1
         astrusQuest = new Quest("Astrus", "Finde Astrus.", false, 1);
         astrusQuest.AddCondition(new ItemCondition("Astrus"));
         QuestGroup group13 = new QuestGroup(endkampfQuest,
-            new List<Quest>() { besiegenQuest, kontrolleQuest, befreienQuest, astrusQuest });
+            new List<Quest>() { besiegenQuest,  astrusQuest });
 
         // Gruppe 14: Abreise
         verlassenQuest = new Quest("Abreise", "Verlasse den Planeten.", true, 2);
-        reparierenQuest = new Quest("Raumschiff", "Repariere das Schiff.", false, 1); //!
+        reparierenQuest = new Quest("Raumschiff", "Repariere das Schiff.", false, 1, 97); //!
         nachHauseQuest = new Quest("Heimkehr", "Fliege nach Hause.", false, 1); //!
         QuestGroup group14 = new QuestGroup(verlassenQuest, new List<Quest>() { reparierenQuest, nachHauseQuest });
 
