@@ -1,6 +1,7 @@
 using Items;
 using TMPro;
 using UnityEngine;
+using WatchAda.Quests;
 using Image = UnityEngine.UI.Image;
 
 namespace Player.Inventory {
@@ -23,10 +24,10 @@ namespace Player.Inventory {
         private void Awake() {
             if (Instance == null) {
                 Instance = this;
-            } else {
-                Destroy(gameObject);
                 return;
             }
+
+            Destroy(gameObject);
         }
 
         private void Start() {

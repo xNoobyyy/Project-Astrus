@@ -299,7 +299,7 @@ public class Crafting : MonoBehaviour {
                 object instance = Activator.CreateInstance(typ);
                 if (instance is Item item) {
                     Debug.Log("Sollte funktionieren");
-                    CraftingCondition.craftedItem = item;
+                    CraftingCondition.CraftedItem = item;
                     em.Subscribe(ec);
                     ec.TriggerEvent();
                     CraftedSlot.FillSlot(item);

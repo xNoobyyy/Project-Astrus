@@ -30,13 +30,14 @@ namespace Items.DroppedItem {
         private IEnumerator MoveCoroutine() {
             IsDroppingMotion = true;
             var distance = Vector2.Distance(transform.position, target);
+
             while (distance > 0.1f) {
                 distance = Vector2.Distance(transform.position, target);
 
                 transform.position = Vector2.MoveTowards(
                     transform.position,
                     target,
-                    2.5f * Time.fixedDeltaTime
+                    5f * Time.fixedDeltaTime
                 );
                 yield return new WaitForFixedUpdate();
             }

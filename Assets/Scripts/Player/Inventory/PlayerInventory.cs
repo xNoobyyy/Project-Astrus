@@ -3,6 +3,7 @@ using System.Linq;
 using Items;
 using Logic.Events;
 using UnityEngine;
+using WatchAda.Quests;
 
 namespace Player.Inventory {
     public class PlayerInventory : MonoBehaviour {
