@@ -2,9 +2,13 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Creatures;
 using Player.Inventory;
 using Items;
 using Items.Items;
+using Logic.Events;
+using TextDisplay;
+using Utils;
 using WatchAda.Quests;
 
 [System.Serializable]
@@ -32,7 +36,7 @@ public class Quest {
 
     // Optional: Ein Icon, das zur Darstellung der Quest genutzt wird
     public Sprite icon;
-    public List<QuestCondition> conditions = new List<QuestCondition>();
+    public Dictionary<QuestCondition, bool> Conditions = new();
     public int textbaustein;
 
     /// <summary>
@@ -68,18 +72,37 @@ public class Quest {
         if (isCompleted) return;
 
         currentProgress += amount;
+        QuestLogic.Instance.UpdateMainQuest();
+        QuestLogic.Instance.UpdateSideQuests();
 
-        if (currentProgress >= requiredProgress) {
-            currentProgress = requiredProgress;
-            CompleteQuest();
-        }
+        if (currentProgress < requiredProgress) return;
+
+        currentProgress = requiredProgress;
+        CompleteQuest();
+    }
+
+    public void CompleteCondition(QuestCondition condition) {
+        Debug.Log("Completing condition " + condition);
+        if (!Conditions.ContainsKey(condition)) return;
+
+        Debug.Log("Completed condition " + condition);
+        Conditions[condition] = true;
+        UpdateProgress(1);
     }
 
     /// <summary>
     /// Markiert die Quest als abgeschlossen und ruft das Abschluss-Event auf.
     /// </summary>
-    private void CompleteQuest() {
+    public void CompleteQuest() {
+        foreach (var condition in Conditions.Keys.ToList()) {
+            Conditions[condition] = true;
+        }
+
         isCompleted = true;
+        QuestLogic.Instance.UpdateMainQuest();
+        QuestLogic.Instance.UpdateSideQuests();
+
+        if (textbaustein != 1000) TextDisplayManager.Instance.textDisplay.Notification(textbaustein);
     }
 
     /// <summary>
@@ -92,119 +115,53 @@ public class Quest {
     }
 
     public void AddCondition(QuestCondition condition) {
-        conditions.Add(condition);
-    }
-
-    public bool IsCompleted() {
-        foreach (var condition in conditions) {
-            if (condition.IsMet()) { } else {
-                return false;
-            }
-        }
-
-        return true;
+        Conditions[condition] = false;
     }
 }
 
-public abstract class QuestCondition {
-    protected readonly QuestLogic Ql = GameObject.FindWithTag("QuestLogic").GetComponent<QuestLogic>();
-    public abstract bool IsMet();
-}
+public abstract class QuestCondition { }
 
-public class CraftingCondition : QuestCondition {
-    private readonly Type itemType;
-    public static Item CraftedItem = new Astrus(1);
+public abstract class GenericQuestCondition<T> : QuestCondition { }
 
-    public override bool IsMet() {
-        return CraftedItem.GetType() == itemType;
-    }
-
-    public CraftingCondition(Type itemType) {
-        this.itemType = itemType;
-    }
-}
-
-public class EventM {
-    private QuestLogic Ql;
-
-    private void Start() {
-        Ql = GameObject.FindWithTag("QuestLogic").GetComponent<QuestLogic>();
-    }
-
-    public void Subscribe(EventCrafting publisher) {
-        Ql = GameObject.FindWithTag("QuestLogic").GetComponent<QuestLogic>();
-        publisher.OnCrafting += HandleEvent; // Registriere die Methode für das Event
-    }
-
-    private void HandleEvent() {
-        foreach (var quest in Ql.questGroups.SelectMany(questG =>
-                     from quest in questG.subQuests
-                     from condition in quest.conditions
-                         .Where(condition => condition.GetType() == typeof(CraftingCondition))
-                         .Where(condition => condition.IsMet())
-                     select quest)) {
-            quest.currentProgress = quest.requiredProgress;
-        }
-    }
-}
-
-public class ItemCondition : QuestCondition {
+public sealed class ItemCondition : GenericQuestCondition<Item> {
     private readonly Type itemType;
 
     public ItemCondition(Type itemType) {
         this.itemType = itemType;
     }
 
-    public override bool IsMet() {
-        return PlayerInventory.Instance.Slots.Select(slot => slot.Item)
-            .Any(obj => obj != null && obj.GetType() == itemType);
+    public bool IsMet(Item check) {
+        return check.GetType() == itemType;
     }
 }
 
-public class EventCrafting {
-    public event Action OnCrafting;
+public sealed class EnteredCondition : GenericQuestCondition<Area> {
+    private readonly AreaType areaType;
 
-    public void TriggerEvent() {
-        OnCrafting?.Invoke();
+    public EnteredCondition(AreaType areaType) {
+        this.areaType = areaType;
+    }
+
+    public bool IsMet(Area check) {
+        return check.type == areaType;
     }
 }
 
-public class EnteredCondition : QuestCondition {
-    private string area;
+public sealed class InteractingCondition : GenericQuestCondition<CreatureInteractEvent> {
+    private readonly CreatureType[] creatureTypes;
+    private readonly InteractionType interactionType;
 
-    public EnteredCondition(string a) {
-        area = a;
+    public InteractingCondition(CreatureType[] creatureTypes, InteractionType interactionType) {
+        this.creatureTypes = creatureTypes;
+        this.interactionType = interactionType;
     }
 
-    public override bool IsMet() {
-        return Ql.orte.Any(ort => ort == area);
-    }
-}
-
-public class InteractingCondition : QuestCondition {
-    private string art;
-    private int anzahl;
-    int erreichteAnzahl;
-
-    public InteractingCondition(string a, int i) {
-        art = a;
-        anzahl = i;
+    public InteractingCondition(CreatureType creatureType, InteractionType interactionType) {
+        this.creatureTypes = new[] { creatureType };
+        this.interactionType = interactionType;
     }
 
-    public override bool IsMet() {
-        erreichteAnzahl = 0;
-        foreach (var interaction in Ql.interaktionen) {
-            if (art == "Tier" && (interaction == "Dodo" || interaction == "Quokka" || interaction == "Golem")) {
-                erreichteAnzahl++;
-            }
-
-            if (art == "Zombie" && (interaction == "Zombie") || interaction == "ZombieBoss") { }
-        }
-
-        if (erreichteAnzahl >= anzahl) {
-            return true;
-        }
-
-        return false;
+    public bool IsMet(CreatureInteractEvent check) {
+        return creatureTypes.Contains(check.Creature.type) && check.InteractionType == interactionType;
     }
 }

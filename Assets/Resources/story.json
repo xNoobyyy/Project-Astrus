@@ -261,7 +261,7 @@
     },
     {
       "id": 45,
-      "text": "Benutze doch eine Liane. Früher bin ich damit überall hochgeklettert, aber jetzt… meine Rückenschmerzen halten mich davon ab.",
+      "text": "Benutze doch eine Liane! Die Bäume hier im Dschungel lassen diese beim Fällen fallen. Früher bin ich damit überall hochgeklettert, aber jetzt… meine Rückenschmerzen halten mich davon ab.",
       "weiter": true,
       "start": false,
       "person": 2
@@ -289,7 +289,7 @@
     },
     { 
       "id": 49,
-      "text": "Oh, das ist Glomtom. Eins der seltenen Erze hier. Öffne meine Rezepte und crafte neue Werkzeuge.",
+      "text": "Oh, das ist Glomtom. Eins der seltenen Erze hier. Öffne meine Rezepte und Crafte neue Werkzeuge.",
       "weiter": false,
       "start": true,
       "person": 1

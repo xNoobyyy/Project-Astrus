@@ -5,6 +5,7 @@ using System.Linq;
 using Creatures;
 using Items;
 using Items.Items;
+using Logic;
 using Logic.Events;
 using Objects;
 using Objects.Placeables;
@@ -94,7 +95,7 @@ namespace Player {
 
         private void Update() {
             if (TextDisplayManager.Instance.textDisplay.isDialogueActive) return;
-            if (LogicScript.Instance.WatchOpen) return;
+            if (LogicScript.Instance.watchOpen) return;
 
             var zCoord = mainCamera.WorldToScreenPoint(transform.position).z;
             var mousePosition = Input.mousePosition;

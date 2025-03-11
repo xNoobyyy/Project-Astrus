@@ -1,10 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Logic.Events;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.UI;
 
 namespace Utils {
     [RequireComponent(typeof(Collider2D))]
@@ -14,8 +9,14 @@ namespace Utils {
         public AreaType type;
         public AudioClip[] music;
 
+        public bool secondary;
+
         private void OnTriggerEnter2D(Collider2D other) {
             if (!other.CompareTag("Player")) return;
+            if (secondary) {
+                EventManager.Instance.Trigger(new PlayerAreaEnterEvent(this));
+                return;
+            }
 
             PlayRandomMusic();
 
@@ -41,6 +42,7 @@ namespace Utils {
 
         private void OnTriggerExit2D(Collider2D other) {
             if (!other.CompareTag("Player")) return;
+            if (secondary) return;
             if (!AudioManager.Instance) return;
 
             AudioManager.Instance.StopMusic();
@@ -55,7 +57,7 @@ namespace Utils {
         }
 
         private void PlayRandomMusic() {
-            AudioManager.Instance.PlayMusic(music[UnityEngine.Random.Range(0, music.Length)],
+            AudioManager.Instance.PlayMusic(music[Random.Range(0, music.Length)],
                 onMusicEnd: PlayRandomMusic);
         }
     }
@@ -69,6 +71,9 @@ namespace Utils {
         Starter,
         Jungle,
         Cave,
-        Labor
+        Labor,
+        PlateauSight,
+        JungleCave,
+        LilyPads
     }
 }

@@ -2,12 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using Objects;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
-namespace TextDisplay
-{
-    public class TextDisplay : MonoBehaviour
-    {   
+
+namespace TextDisplay {
+    public class TextDisplay : MonoBehaviour {
         public GameObject textWindow;
         public Text displayText;
         public Button nextButton;
@@ -23,8 +24,8 @@ namespace TextDisplay
         public Button option1Button;
         public Button option2Button;
         public RectTransform textPosition;
-        private bool textComplete = false; 
-        public bool isDialogueActive = false; 
+        private bool textComplete = false;
+        public bool isDialogueActive = false;
         public int storyID = 0;
         public StoryManager storyManager;
         public bool weiter;
@@ -34,7 +35,9 @@ namespace TextDisplay
         public String x;
         public Button notificationButton;
 
-        public int textbaustein;
+        public Queue<int> notifications = new();
+        public bool talkedToDrStorm = false;
+
         // Methode zum Anzeigen des Fensters mit Text 
         public void Start() {
             Time.timeScale = 1f;
@@ -43,77 +46,84 @@ namespace TextDisplay
             SpecificStoryDialogue(0);
             notificationButton.onClick.AddListener(OnNotificationClick);
         }
-        public void ShowText(string text, int? imageIndex = null)
-        {
+
+        public void ShowText(string text, int? imageIndex = null) {
             x = text;
             if (start) {
                 isDialogueActive = true; // Dialog wird gestartet
                 textWindow.SetActive(true); // Fenster aktivieren
             }
 
-            if (imageIndex.HasValue) { 
+            if (imageIndex.HasValue) {
                 if (imageIndex.Value == 0) {
                     sprechblase.sprite = sprechblase0;
                     sprechblase.rectTransform.anchoredPosition = new UnityEngine.Vector2(36, 0);
-                    textPosition.anchoredPosition = new UnityEngine.Vector2(-10, 0); 
-                    if (int.Parse(storyBlocks[(storyID+1).ToString()].person) == 1) {
+                    textPosition.anchoredPosition = new UnityEngine.Vector2(-10, 0);
+                    if (int.Parse(storyBlocks[(storyID + 1).ToString()].person) == 1) {
                         leftImage.sprite = image1;
-                        RectTransform rectTransform = leftImage.GetComponent<RectTransform>();
+                        var rectTransform = leftImage.GetComponent<RectTransform>();
                         rectTransform.sizeDelta = new Vector2(228, 228);
-                    }else if (int.Parse(storyBlocks[(storyID + 1).ToString()].person) == 2) {
+                    } else if (int.Parse(storyBlocks[(storyID + 1).ToString()].person) == 2) {
                         leftImage.sprite = image2;
-                        RectTransform rectTransform = leftImage.GetComponent<RectTransform>();
+                        var rectTransform = leftImage.GetComponent<RectTransform>();
                         rectTransform.sizeDelta = new Vector2(228, 455);
                     } else {
                         Debug.Log("bildanzeigefehler");
                     }
-                }else if (imageIndex.Value == 1) {
+                } else if (imageIndex.Value == 1) {
                     leftImage.sprite = image1;
                     sprechblase.sprite = sprechblase1;
                     sprechblase.rectTransform.anchoredPosition = new UnityEngine.Vector2(-18, 0);
-                    textPosition.anchoredPosition = new UnityEngine.Vector2(30, 0); 
-                    RectTransform rectTransform = leftImage.GetComponent<RectTransform>();
+                    textPosition.anchoredPosition = new UnityEngine.Vector2(30, 0);
+                    var rectTransform = leftImage.GetComponent<RectTransform>();
                     rectTransform.sizeDelta = new Vector2(228, 228);
-                }else if (imageIndex.Value == 2) {
+                } else if (imageIndex.Value == 2) {
                     leftImage.sprite = image2;
                     sprechblase.sprite = sprechblase1;
                     sprechblase.rectTransform.anchoredPosition = new UnityEngine.Vector2(-18, 0);
-                    textPosition.anchoredPosition = new UnityEngine.Vector2(30, 0); 
-                    RectTransform rectTransform = leftImage.GetComponent<RectTransform>();
+                    textPosition.anchoredPosition = new UnityEngine.Vector2(30, 0);
+                    var rectTransform = leftImage.GetComponent<RectTransform>();
                     rectTransform.sizeDelta = new Vector2(228, 455);
                 } else {
                     Debug.Log("bildanzeigefehler2");
                 }
             }
-            List<string> choices = ExtractChoices(text);
-            
+
+            var choices = ExtractChoices(text);
+
             if (choices.Count == 0) {
                 if (coroutine != null) {
                     StopCoroutine(coroutine);
                     coroutine = null;
                 }
+
                 textComplete = false;
                 coroutine = StartCoroutine(TypeText(text)); // Text mit Animation anzeigen
             } else {
                 ShowChoices(choices);
             }
         }
+
         // Coroutine zur verzögerten Anzeige des Textes
-        private IEnumerator TypeText(string text)
-        {
+        private IEnumerator TypeText(string text) {
             textComplete = false;
             displayText.text = ""; // Textfeld leeren
-            foreach (char c in text)
-            {
-                displayText.text += c; // Buchstabe für Buchstabe hinzufüg
-                yield return new WaitForSeconds(0.01f); // Kurze Verzögerung
+            foreach (var c in text) {
+                displayText.text += c; // Buchstabe für Buchstabe hinzufügen
+                yield return new WaitForSecondsRealtime(0.01f); // Kurze Verzögerung
             }
+
             textComplete = true;
             storyID++;
             nextButton.gameObject.SetActive(true); // Next-Button anzeigen
         }
-        public void OnNextButton(int c = 0)
-        {
+
+        public void OnNextButton(int c = 0) {
+            if (storyID == 47) {
+                DrStorm.Instance.gameObject.SetActive(false);
+                talkedToDrStorm = true;
+            }
+
             optionsPanel.SetActive(false);
             option1Button.gameObject.SetActive(false);
             option2Button.gameObject.SetActive(false);
@@ -126,27 +136,30 @@ namespace TextDisplay
                 CloseWindow();
                 return;
             }
-            if (weiter)
-            {
-                ShowText(storyManager.ShowStoryBlock(storyID.ToString()),int.Parse(storyBlocks[storyID.ToString()].person));
-            }
-            else{
-                ShowText(storyManager.ShowStoryBlock(storyID.ToString()),int.Parse(storyBlocks[storyID.ToString()].person));
-            }
+
+            ShowText(storyManager.ShowStoryBlock(storyID.ToString()),
+                int.Parse(storyBlocks[storyID.ToString()].person));
         }
-        private void CloseWindow()
-        {
+
+        private void CloseWindow() {
             textWindow.SetActive(false);
-            isDialogueActive = false; 
+            isDialogueActive = false;
+
+            Time.timeScale = 1f;
+            if (notifications.Count > 0) {
+                notificationButton.gameObject.SetActive(true);
+            }
         }
+
         private void Update() {
             if (Input.GetKeyDown(KeyCode.Return) && isDialogueActive && x == displayText.text) {
                 OnNextButton(0);
-            }else if(Input.GetKeyDown(KeyCode.Space) && isDialogueActive && x != displayText.text) {
-                if(coroutine != null) {
+            } else if (Input.GetKeyDown(KeyCode.Return) && isDialogueActive && x != displayText.text) {
+                if (coroutine != null) {
                     StopCoroutine(coroutine);
                     coroutine = null;
                 }
+
                 displayText.text = "";
                 displayText.text = x;
                 textComplete = true;
@@ -159,33 +172,39 @@ namespace TextDisplay
             storyID = i;
             NextStoryDialogue();
         }
+
         public void NextStoryDialogue() {
+            Time.timeScale = 0f;
+
             start = bool.Parse(storyBlocks[storyID.ToString()].start);
             weiter = bool.Parse(storyBlocks[storyID.ToString()].weiter);
-            
+
             if (start && !weiter) {
-                ShowText(storyManager.ShowStoryBlock(storyID.ToString()),int.Parse(storyBlocks[storyID.ToString()].person));
-                
+                Debug.Log(1);
+                ShowText(storyManager.ShowStoryBlock(storyID.ToString()),
+                    int.Parse(storyBlocks[storyID.ToString()].person));
             } else if (weiter) {
-                ShowText(storyManager.ShowStoryBlock(storyID.ToString()),int.Parse(storyBlocks[storyID.ToString()].person));
-                
-            }else {
-                Debug.Log("Ende");
+                Debug.Log(2);
+                ShowText(storyManager.ShowStoryBlock(storyID.ToString()),
+                    int.Parse(storyBlocks[storyID.ToString()].person));
+            } else {
+                Debug.Log(3);
             }
         }
-        List<string> ExtractChoices(string text)
-        {
-            List<string> choices = new List<string>();
-            MatchCollection matches = Regex.Matches(text, @"\[(.*?)\]");
 
-            foreach (Match match in matches){
+        List<string> ExtractChoices(string text) {
+            var choices = new List<string>();
+            var matches = Regex.Matches(text, @"\[(.*?)\]");
+
+            foreach (Match match in matches) {
                 choices.Add(match.Groups[1].Value);
             }
+
             return choices;
         }
-        void ShowChoices(List<string> choices)
-        {
-            displayText.text = ""; 
+
+        void ShowChoices(List<string> choices) {
+            displayText.text = "";
             optionsPanel.SetActive(true);
             option1Button.gameObject.SetActive(true);
             option2Button.gameObject.SetActive(true);
@@ -194,12 +213,14 @@ namespace TextDisplay
             textComplete = true;
             storyID++;
         }
-        public void OnNotificationClick(){
-            SpecificStoryDialogue(textbaustein);
+
+        public void OnNotificationClick() {
+            SpecificStoryDialogue(notifications.Dequeue());
             notificationButton.gameObject.SetActive(false);
         }
+
         public void Notification(int i) {
-            textbaustein = i;
+            notifications.Enqueue(i);
             notificationButton.gameObject.SetActive(true);
         }
     }

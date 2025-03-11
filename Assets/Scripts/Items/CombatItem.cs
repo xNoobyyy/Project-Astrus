@@ -1,4 +1,5 @@
-﻿using Player;
+﻿using Logic;
+using Player;
 using TextDisplay;
 using UnityEditor.Animations;
 using UnityEngine;

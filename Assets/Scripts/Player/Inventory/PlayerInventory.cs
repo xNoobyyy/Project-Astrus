@@ -9,7 +9,7 @@ using WatchAda.Quests;
 namespace Player.Inventory {
     public class PlayerInventory : MonoBehaviour {
         public ItemSlot[] Slots { get; private set; }
-        public QuestLogic ql;
+
         public ItemSlot[] NeutralSlots =>
             Slots.Where(slot => slot != null && !slot.GetType().IsSubclassOf(typeof(ItemSlot)))
                 .ToArray();
@@ -29,7 +29,6 @@ namespace Player.Inventory {
         private void Start() {
             Slots = slotContainer.GetComponentsInChildren<ItemSlot>();
             Debug.Log($"Loaded {Slots.Length} slots");
-            ql = GameObject.FindWithTag("QuestLogic").GetComponent<QuestLogic>();
         }
 
         public void SetItem(int index, Item item) {
@@ -83,7 +82,6 @@ namespace Player.Inventory {
         /// <param name="item">The item to pick up</param>
         /// <returns>true, when the full item was picked up, false when the full item was not picked up and the amount of the referenced item was changed</returns>
         public bool PickupItem(Item item) {
-            ql.ItemSlots.Add(item);
             if (item is ResourceItem resourceItem) {
                 var restAmount = resourceItem.Amount;
 

@@ -29,7 +29,7 @@ namespace Creatures {
             elapsedChaseTime = 0f;
             StopExistingCoroutines();
             angryTag.SetActive(true);
-            moveCoroutine = StartCoroutine(ChaseLoop());
+            MoveCoroutine = StartCoroutine(ChaseLoop());
         }
 
         protected override void Kill() {
@@ -38,12 +38,12 @@ namespace Creatures {
         }
 
         private IEnumerator ChaseLoop() {
-            animator.SetBool(Running, true);
+            Animator.SetBool(Running, true);
             while (isChasing && chaseTarget != null && elapsedChaseTime < chaseDuration &&
                    Vector2.Distance(transform.position, chaseTarget.position) < followDistance) {
-                agent.SetDestination(chaseTarget.position);
+                Agent.SetDestination(chaseTarget.position);
 
-                if (agent.velocity.sqrMagnitude > 0.01f) SetAnimationDirection(agent.velocity.normalized);
+                if (Agent.velocity.sqrMagnitude > 0.01f) SetAnimationDirection(Agent.velocity.normalized);
 
                 if (Vector3.Distance(transform.position, chaseTarget.position) < attackRange) {
                     if (timeSinceLastAttack > attackCooldown &&
@@ -59,17 +59,20 @@ namespace Creatures {
                 elapsedChaseTime += Time.deltaTime;
             }
 
-            animator.SetBool(Running, false);
+            Animator.SetBool(Running, false);
             isChasing = false;
             chaseTarget = null;
             angryTag.SetActive(false);
-            agent.ResetPath();
+            Agent.ResetPath();
             StartIdle();
         }
 
         public override void OnTouch() {
             if (heartsCoroutine != null) StopCoroutine(heartsCoroutine);
+
             hearts.Play();
+            EventManager.Instance.Trigger(new CreatureInteractEvent(this, InteractionType.Pet));
+
             heartsCoroutine = StartCoroutine(StopHearts());
         }
 

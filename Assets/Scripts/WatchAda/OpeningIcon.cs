@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using Logic;
 using Player.Inventory;
 
 public class OpeningIcon : MonoBehaviour
@@ -68,7 +69,7 @@ public class OpeningIcon : MonoBehaviour
                 moving = false;
                 resizing = false;
                 animationActive = false;
-                logic.IconOpened = true;
+                logic.iconOpened = true;
                 openedIcon.SetActive(true);
                 if (startPosition == new Vector2(128, 128)) {
                     inventoryScreen.SetActive(true);
@@ -128,7 +129,7 @@ public class OpeningIcon : MonoBehaviour
             openedIcon.SetActive(false);
             reversing = true;
             animationActive = true;
-            logic.IconOpened = false;
+            logic.iconOpened = false;
         }
     }
 }

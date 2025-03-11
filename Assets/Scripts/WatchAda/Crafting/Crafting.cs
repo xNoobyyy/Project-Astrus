@@ -7,9 +7,11 @@ using Items.Items.ArmorItems;
 using Items.Items.AxeItems;
 using Items.Items.BowItems;
 using Items.Items.CombatItems;
+using Logic.Events;
 using Player.Inventory;
 using Player.Inventory.Slots;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Crafting : MonoBehaviour {
     public static Crafting Instance { get; private set; }
@@ -95,9 +97,6 @@ public class Crafting : MonoBehaviour {
     public Recipies GlomtomSwordRecipy;
 
     public List<Recipies> AllRecipies = new List<Recipies>();
-
-    private EventCrafting ec = new EventCrafting();
-    private EventM em = new EventM();
 
     private void Awake() {
         if (Instance == null) {
@@ -299,10 +298,8 @@ public class Crafting : MonoBehaviour {
                 object instance = Activator.CreateInstance(typ);
                 if (instance is Item item) {
                     Debug.Log("Sollte funktionieren");
-                    CraftingCondition.CraftedItem = item;
-                    em.Subscribe(ec);
-                    ec.TriggerEvent();
                     CraftedSlot.FillSlot(item);
+                    EventManager.Instance.Trigger(new PlayerItemEvent(item, CraftedSlot));
                 }
             }
         }

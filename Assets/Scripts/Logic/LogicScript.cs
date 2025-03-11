@@ -1,108 +1,73 @@
-using System;
 using Player.Inventory;
-using Unity.VisualScripting;
+using TextDisplay;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.Serialization;
 
-public class LogicScript : MonoBehaviour {
-    public static LogicScript Instance { get; private set; }
+namespace Logic {
+    public class LogicScript : MonoBehaviour {
+        public static LogicScript Instance { get; private set; }
 
-    public AccessableInventoryManager accessableInventoryManager;
-    public AccessableInventoryManager accessableInventoryManager2;
-    public QuestScreenScript questScreen;
-    public InventoryScreen inventoryScreen;
-    public GameObject background;
-    public Watch watch;
-    public RectTransform inventoryScreenVisu;
-    public RectTransform questScreenVisu;
-    public OpeningIcon openingIcon;
-    public GameObject pauseScreen;
-    private Vector2 QuestPosition;
-    private Vector2 QuestSize;
-    private bool InventoryOpen = false;
-    public bool WatchOpen = false;
-    public bool IconOpened = false;
+        public AccessableInventoryManager accessableInventoryManager;
+        public AccessableInventoryManager accessableInventoryManager2;
+        public InventoryScreen inventoryScreen;
+        public Watch watch;
+        public OpeningIcon openingIcon;
+        public GameObject pauseScreen;
+        public bool watchOpen;
+        public bool iconOpened;
 
-    private void Awake() {
-        if (Instance == null) {
-            Instance = this;
-        } else {
-            Destroy(gameObject);
-            return;
-        }
-    }
-
-    void Start() {
-        inventoryScreen.Close();
-        QuestPosition = questScreenVisu.transform.position;
-        QuestSize = questScreenVisu.sizeDelta;
-    }
-
-    void Update() {
-        if (Input.GetKeyDown(KeyCode.I)) {
-            OpenInventoryScreen();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape) && !WatchOpen) {
-            if (Mathf.Approximately(Time.timeScale, 1.0f)) {
-                pauseScreen.SetActive(true);
-                Time.timeScale = 0f;
+        private void Awake() {
+            if (Instance == null) {
+                Instance = this;
             } else {
-                Time.timeScale = 1f;
-                pauseScreen.SetActive(false);
+                Destroy(gameObject);
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && InventoryOpen) {
-            CloseInventoryScreen();
+        private void Start() {
+            inventoryScreen.Close();
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && !WatchOpen) {
-            OpenWatch();
+        private void Update() {
+            if (Input.GetKeyDown(KeyCode.Escape) && !watchOpen) {
+                if (Mathf.Approximately(Time.timeScale, 1.0f)) {
+                    pauseScreen.SetActive(true);
+                    Time.timeScale = 0f;
+                } else {
+                    Time.timeScale = 1f;
+                    pauseScreen.SetActive(false);
+                }
+
+                return;
+            }
+
+            if (TextDisplayManager.Instance.textDisplay.isDialogueActive) return;
+
+            if (Input.GetKeyDown(KeyCode.E) && !watchOpen) {
+                OpenWatch();
+            }
+
+            if (Input.GetKeyDown(KeyCode.E) && watchOpen && !iconOpened && !openingIcon.animationActive) {
+                CloseWatch();
+            }
+
+            if (Input.GetKeyDown(KeyCode.E) && iconOpened) {
+                watch.ReverseAnimation();
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && WatchOpen && !IconOpened && !openingIcon.animationActive) {
-            CloseWatch();
+        private void OpenWatch() {
+            watch.open();
+            accessableInventoryManager.HideHints();
+            accessableInventoryManager2.HideHints();
+            //WatchOpen = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && IconOpened) {
-            watch.ReverseAnimation();
+        private void CloseWatch() {
+            watch.close();
+            accessableInventoryManager.ShowHints();
+            accessableInventoryManager2.ShowHints();
+            //WatchOpen = !watch.closed();
         }
-    }
-
-    public void OpenWatch() {
-        watch.open();
-        accessableInventoryManager.HideHints();
-        accessableInventoryManager2.HideHints();
-        //WatchOpen = true;
-    }
-
-    public void CloseWatch() {
-        watch.close();
-        accessableInventoryManager.ShowHints();
-        accessableInventoryManager2.ShowHints();
-        //WatchOpen = !watch.closed();
-    }
-
-    public void AddQuestToQuestScreen(string quest) {
-        questScreen.AddQuest(quest);
-    }
-
-    public void RemoveQuestFromQuestScreen(string quest) {
-        questScreen.CompleteQuest(quest);
-    }
-
-    public void OpenInventoryScreen() {
-        questScreen.ConvertToInventory(inventoryScreenVisu.transform.position.x,
-            inventoryScreenVisu.transform.position.y, inventoryScreenVisu.sizeDelta.x, inventoryScreenVisu.sizeDelta.y);
-
-        //inventoryScreen.Open();
-        InventoryOpen = true;
-    }
-
-    public void CloseInventoryScreen() {
-        questScreen.ConvertToQuestUI(QuestPosition.x, QuestPosition.y, QuestSize.x, QuestSize.y);
-        inventoryScreen.Close();
-        InventoryOpen = false;
     }
 }

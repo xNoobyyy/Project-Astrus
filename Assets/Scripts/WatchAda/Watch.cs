@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Image = UnityEngine.UIElements.Image;
 using System.Collections;
+using Logic;
 
 public class Watch : MonoBehaviour {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -63,7 +64,7 @@ public class Watch : MonoBehaviour {
                 logIcon.SetActive(true);
                 opened = true;
                 opening = false;
-                logic.WatchOpen = true;
+                logic.watchOpen = true;
             }
         }
 
@@ -72,7 +73,7 @@ public class Watch : MonoBehaviour {
                 gameObject.SetActive(false);
                 closing = false;
                 opened = false;
-                logic.WatchOpen = false;
+                logic.watchOpen = false;
             }
         }
     }
@@ -157,6 +158,6 @@ public class Watch : MonoBehaviour {
         logIcon.SetActive(true);
         opened = true;
         opening = false;
-        logic.WatchOpen = true;
+        logic.watchOpen = true;
     }
 }

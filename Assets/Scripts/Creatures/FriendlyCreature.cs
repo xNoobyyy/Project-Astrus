@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Logic.Events;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,15 +18,18 @@ namespace Creatures {
 
             StopExistingCoroutines();
             var destination = GetSafeRunAwayDestination(attacker.position);
-            moveCoroutine = StartCoroutine(WanderTo(destination, () => {
-                moveCoroutine = null;
+            MoveCoroutine = StartCoroutine(WanderTo(destination, () => {
+                MoveCoroutine = null;
                 StartIdle();
             }));
         }
 
         public override void OnTouch() {
             if (heartsCoroutine != null) StopCoroutine(heartsCoroutine);
+            
             hearts.Play();
+            EventManager.Instance.Trigger(new CreatureInteractEvent(this, InteractionType.Pet));
+            
             heartsCoroutine = StartCoroutine(StopHearts());
         }
 

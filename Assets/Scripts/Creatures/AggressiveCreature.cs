@@ -30,8 +30,8 @@ namespace Creatures {
 
                 isChasing = false;
                 chaseTarget = null;
-                animator.SetBool(Running, false);
-                agent.ResetPath();
+                Animator.SetBool(Running, false);
+                Agent.ResetPath();
                 StartIdle();
             } else {
                 if (!IsLos(e.Transform.position)) return;
@@ -39,7 +39,7 @@ namespace Creatures {
                 chaseTarget = e.Transform;
                 isChasing = true;
                 StopExistingCoroutines();
-                animator.SetBool(Running, true);
+                Animator.SetBool(Running, true);
             }
         }
 
@@ -56,9 +56,9 @@ namespace Creatures {
         private void Update() {
             if (!isChasing || chaseTarget == null) return;
 
-            agent.SetDestination(chaseTarget.position);
+            Agent.SetDestination(chaseTarget.position);
 
-            if (agent.velocity.sqrMagnitude > 0.01f) SetAnimationDirection(agent.velocity.normalized);
+            if (Agent.velocity.sqrMagnitude > 0.01f) SetAnimationDirection(Agent.velocity.normalized);
 
             if (Vector3.Distance(transform.position, chaseTarget.position) < attackRange) {
                 if (timeSinceLastAttack > attackCooldown && !TextDisplayManager.Instance.textDisplay.isDialogueActive) {

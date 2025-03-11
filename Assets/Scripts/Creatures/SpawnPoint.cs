@@ -22,7 +22,6 @@ namespace Creatures {
 
         public CreatureBase Spawn() {
             currentCreature = Instantiate(prefab, transform.position, Quaternion.identity, transform);
-            currentCreature.Area = Area;
             return currentCreature;
         }
 

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Logic.Events;
+using NavMeshPlus.Components;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Serialization;
@@ -37,24 +38,22 @@ namespace Creatures {
         [SerializeField] protected ParticleSystem fireParticles;
         [SerializeField] private GameObject[] destroyOnDeath;
 
-        [NonSerialized] public PolygonCollider2D Area;
-
         // Health and state
         public float Health { get; protected set; }
         public bool Dead { get; protected set; }
 
         // Knockback constant
-        private const float KNOCKBACK_FORCE = 15f;
+        private const float KnockbackForce = 15f;
 
         // References
-        protected Animator animator;
+        protected Animator Animator;
         private Rigidbody2D rb;
         private SpriteRenderer spriteRenderer;
         private new Collider2D collider;
 
         // Coroutines
         private Coroutine idleCoroutine;
-        protected Coroutine moveCoroutine;
+        protected Coroutine MoveCoroutine;
 
         // Home/wandering logic
         private Vector2Int homePosition;
@@ -65,13 +64,13 @@ namespace Creatures {
         private const float IdleMax = 10f;
 
         // Navigation
-        protected NavMeshAgent agent;
+        protected NavMeshAgent Agent;
 
-        protected float fireTicks = 0f;
-        protected Coroutine fireCoroutine;
+        private float fireTicks;
+        private Coroutine fireCoroutine;
 
         protected virtual void Awake() {
-            animator = GetComponent<Animator>();
+            Animator = GetComponent<Animator>();
             rb = GetComponent<Rigidbody2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             collider = GetComponent<Collider2D>();
@@ -82,9 +81,9 @@ namespace Creatures {
         }
 
         protected virtual void Start() {
-            agent = GetComponent<NavMeshAgent>();
-            agent.updateRotation = false;
-            agent.updateUpAxis = false;
+            Agent = GetComponent<NavMeshAgent>();
+            Agent.updateRotation = false;
+            Agent.updateUpAxis = false;
 
             homePosition = Vector2Int.RoundToInt(transform.position);
             wanderPoints = GetRandomWanderPointsFromArea();
@@ -102,7 +101,7 @@ namespace Creatures {
         protected void StartIdle() {
             if (idleCoroutine != null) return;
             StopExistingCoroutines();
-            animator.SetBool(Running, false);
+            Animator.SetBool(Running, false);
             var idleTime = Random.Range(IdleMin, IdleMax);
             idleCoroutine = StartCoroutine(IdleThenWander(idleTime));
         }
@@ -113,32 +112,32 @@ namespace Creatures {
                 idleCoroutine = null;
             }
 
-            if (moveCoroutine == null) return;
+            if (MoveCoroutine == null) return;
 
-            StopCoroutine(moveCoroutine);
-            moveCoroutine = null;
+            StopCoroutine(MoveCoroutine);
+            MoveCoroutine = null;
         }
 
         private IEnumerator IdleThenWander(float time) {
             yield return new WaitForSeconds(time);
             idleCoroutine = null;
             var randomPoint = wanderPoints[Random.Range(0, wanderPoints.Length)];
-            moveCoroutine = StartCoroutine(WanderTo(randomPoint, () => {
-                moveCoroutine = null;
+            MoveCoroutine = StartCoroutine(WanderTo(randomPoint, () => {
+                MoveCoroutine = null;
                 StartIdle();
             }));
         }
 
         protected IEnumerator WanderTo(Vector2 destination, Action onComplete = null) {
-            animator.SetBool(Running, true);
-            agent.SetDestination(destination);
-            while (agent.pathPending || agent.remainingDistance > agent.stoppingDistance) {
-                if (agent.velocity.sqrMagnitude > 0.01f)
-                    SetAnimationDirection(agent.velocity.normalized);
+            Animator.SetBool(Running, true);
+            Agent.SetDestination(destination);
+            while (Agent.pathPending || Agent.remainingDistance > Agent.stoppingDistance) {
+                if (Agent.velocity.sqrMagnitude > 0.01f)
+                    SetAnimationDirection(Agent.velocity.normalized);
                 yield return null;
             }
 
-            animator.SetBool(Running, false);
+            Animator.SetBool(Running, false);
             onComplete?.Invoke();
         }
 
@@ -149,20 +148,24 @@ namespace Creatures {
 
         private Vector2[] GetRandomWanderPointsFromArea() {
             var points = new List<Vector2>();
-            var bounds = Area.bounds;
             var attempts = 0;
-            while (points.Count < 10 && attempts < 100) {
-                var randomPoint = new Vector2(
+
+            while (points.Count < 10 && attempts < 1000) {
+                var randomPoint = homePosition + new Vector2(
                     Random.Range(-50, 50),
                     Random.Range(-50, 50)
                 );
-                if (Area.OverlapPoint(randomPoint)) {
-                    if (NavMesh.SamplePosition(randomPoint, out var hit, 1.0f, NavMesh.AllAreas)) {
-                        points.Add(hit.position);
-                    }
+                if (NavMesh.SamplePosition(randomPoint, out var hit, 1.0f, NavMesh.AllAreas)) {
+                    points.Add(hit.position);
                 }
 
                 attempts++;
+            }
+
+            if (points.Count == 0) {
+                Debug.LogError($"Failed to find any valid wander points for {name}");
+            } else {
+                Debug.Log($"Found {points.Count} wander points for {name}");
             }
 
             return points.ToArray();
@@ -177,7 +180,7 @@ namespace Creatures {
 
         // Updates the animator parameter based on a movement direction
         protected void SetAnimationDirection(Vector2 moveDirection) {
-            animator.SetInteger(Direction, GetAnimDirection(moveDirection));
+            Animator.SetInteger(Direction, GetAnimDirection(moveDirection));
         }
 
         // Processes common damage logic (subtract health, apply knockback, flash, damage particles).
@@ -186,14 +189,14 @@ namespace Creatures {
             Health -= damage;
             if (attacker != null) {
                 var knockbackDir = ((Vector2)transform.position - (Vector2)attacker.position).normalized;
-                rb.AddForce(knockbackDir * KNOCKBACK_FORCE, ForceMode2D.Impulse);
+                rb.AddForce(knockbackDir * KnockbackForce, ForceMode2D.Impulse);
                 var rotation = Quaternion.FromToRotation(Vector2.right, knockbackDir);
                 damageParticles.transform.rotation = rotation;
                 damageParticles.Play();
             }
 
             GetComponent<SpriteFlashEffect>().StartWhiteFlash();
-            EventManager.Instance.Trigger(new CreatureDamageEvent(this));
+            EventManager.Instance.Trigger(new CreatureInteractEvent(this, InteractionType.Attack));
             if (!(Health <= 0)) return true;
 
             Kill();

@@ -84,9 +84,5 @@ namespace Player.Inventory {
             DraggingFrom = null;
             draggedItem.SetActive(false);
         }
-
-        void OnEnable() {
-            ql.Slots();
-        }
     }
 }

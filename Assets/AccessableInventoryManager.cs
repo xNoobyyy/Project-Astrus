@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Logic;
 using Logic.Events;
 using Player.Inventory.Slots;
 using UnityEngine;
@@ -65,7 +66,7 @@ namespace Player.Inventory {
         }
 
         private void Update() {
-            if (LogicScript.Instance.WatchOpen) return;
+            if (LogicScript.Instance.watchOpen) return;
 
             // Überprüfe den Mausradinput zum Rotieren
             var scroll = Input.GetAxis("Mouse ScrollWheel");
