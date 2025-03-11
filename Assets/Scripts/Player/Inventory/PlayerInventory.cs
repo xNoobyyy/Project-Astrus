@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Items;
 using Logic.Events;
+using Player.Inventory.Slots;
 using UnityEngine;
 using WatchAda.Quests;
 

@@ -1,6 +1,7 @@
 using System;
 using Items;
 using Items.Items;
+using Player.Inventory.Slots;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;

@@ -1,4 +1,5 @@
 using Items;
+using Player.Inventory.Slots;
 using TMPro;
 using UnityEngine;
 using WatchAda.Quests;

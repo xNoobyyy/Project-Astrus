@@ -1,5 +1,6 @@
 ﻿using Items;
 using Player.Inventory;
+using Player.Inventory.Slots;
 using UnityEngine;
 
 namespace Logic.Events {

@@ -11,6 +11,9 @@ namespace Creatures {
         [SerializeField] private int attackDamage = 5;
         [SerializeField] private float attackCooldown = 1f;
         [SerializeField] private float followDistance = 20f;
+        [SerializeField] private ParticleSystem hearts;
+
+        private Coroutine heartsCoroutine;
         private float timeSinceLastAttack;
 
         private Transform chaseTarget;
@@ -62,6 +65,17 @@ namespace Creatures {
             angryTag.SetActive(false);
             agent.ResetPath();
             StartIdle();
+        }
+
+        public override void OnTouch() {
+            if (heartsCoroutine != null) StopCoroutine(heartsCoroutine);
+            hearts.Play();
+            heartsCoroutine = StartCoroutine(StopHearts());
+        }
+
+        private IEnumerator StopHearts() {
+            yield return new WaitForSeconds(5f);
+            hearts.Stop();
         }
     }
 }

@@ -51,6 +51,8 @@ namespace Creatures {
             StopExistingCoroutines();
         }
 
+        public override void OnTouch() { }
+
         private void Update() {
             if (!isChasing || chaseTarget == null) return;
 

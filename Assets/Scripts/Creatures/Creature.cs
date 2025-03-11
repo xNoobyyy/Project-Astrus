@@ -232,10 +232,13 @@ namespace Creatures {
             foreach (var obj in destroyOnDeath) {
                 Destroy(obj);
             }
+
             collider.enabled = false;
 
             StartCoroutine(DestroyGameObject());
         }
+
+        public abstract void OnTouch();
 
         protected bool IsLos(Vector2 v) => Vector2.Distance(v, transform.position) < 20f && Physics2D.RaycastAll(
             transform.position, v - (Vector2)transform.position,

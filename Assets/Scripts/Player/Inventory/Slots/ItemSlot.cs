@@ -2,14 +2,12 @@ using System;
 using Items;
 using Items.Items;
 using Logic.Events;
-using Player.Inventory.Slots;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Player.Inventory {
+namespace Player.Inventory.Slots {
     public class ItemSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler,
         IPointerEnterHandler,
         IPointerExitHandler,
@@ -151,7 +149,7 @@ namespace Player.Inventory {
                     resourceItem.SetAmount(resourceItem.Amount + draggedResourceItem.Amount);
                     UpdateDisplay();
 
-                    //EventManager.Instance.Trigger(new PlayerMoveItemEvent(Item, this));
+                    EventManager.Instance.Trigger(new PlayerMoveItemEvent(Item, this));
 
                     InventoryScreen.Instance.DraggingFrom.SetItem(null);
                 } else {
@@ -161,7 +159,7 @@ namespace Player.Inventory {
                     draggedResourceItem.SetAmount(draggedResourceItem.Amount - left);
                     InventoryScreen.Instance.DraggingFrom.UpdateDisplay();
 
-                    //EventManager.Instance.Trigger(new PlayerMoveItemEvent(Item, this));
+                    EventManager.Instance.Trigger(new PlayerMoveItemEvent(Item, this));
                 }
             } else {
                 var currentItem = Item;
@@ -179,9 +177,9 @@ namespace Player.Inventory {
                 SetItem(InventoryScreen.Instance.DraggingFrom.Item);
                 InventoryScreen.Instance.DraggingFrom.SetItem(currentItem);
 
-                //EventManager.Instance.Trigger(new PlayerMoveItemEvent(Item, this));
-                //EventManager.Instance.Trigger(new PlayerMoveItemEvent(currentItem,
-            //        InventoryScreen.Instance.DraggingFrom));
+                EventManager.Instance.Trigger(new PlayerMoveItemEvent(Item, this));
+                EventManager.Instance.Trigger(new PlayerMoveItemEvent(currentItem,
+                    InventoryScreen.Instance.DraggingFrom));
             }
 
             InventoryScreen.Instance.ResetDragging();

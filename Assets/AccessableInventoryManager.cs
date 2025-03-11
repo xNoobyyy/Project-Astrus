@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Logic.Events;
+using Player.Inventory.Slots;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
@@ -148,6 +149,7 @@ namespace Player.Inventory {
 
         public void UpdateSlots() {
             for (var i = 0; i < slots.Length; i++) {
+                Debug.Log($"Slot {i}: {invenSlots[i].Item}");
                 slots[i].SetItem(invenSlots[i].Item);
             }
         }

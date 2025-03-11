@@ -144,6 +144,12 @@ namespace Player {
                     .Select(c => c.GetComponent<PlaceableBoat>() ?? c.GetComponentInParent<PlaceableBoat>())
                     .FirstOrDefault();
 
+                var creatures = colliders
+                    .Where(c => c.GetComponent<CreatureBase>() != null ||
+                                c.GetComponentInParent<CreatureBase>() != null)
+                    .Select(c => c.GetComponent<CreatureBase>() ?? c.GetComponentInParent<CreatureBase>())
+                    .ToArray();
+
                 if (boat != null) {
                     if (Vector2.Distance(boat.transform.position, transform.position) > 10f) return;
 
@@ -151,7 +157,7 @@ namespace Player {
                     return;
                 }
 
-                if (tree != null) {
+                if (tree != null && currentItem is not AxeItem) {
                     if (Vector2.Distance(tree.trigger.ClosestPoint(transform.position), transform.position) >
                         5f) return;
 
@@ -160,13 +166,21 @@ namespace Player {
                     return;
                 }
 
-                if (ore != null) {
+                if (ore != null && currentItem is not PickaxeItem) {
                     if (Vector2.Distance(ore.trigger.ClosestPoint(transform.position), transform.position) >
                         5f) return;
 
                     ore.Break(1);
                     Chop();
                     return;
+                }
+
+                if (currentItem is null or ResourceItem && creatures.Length > 0) {
+                    if (Vector2.Distance(transform.position, worldPosition) <= 4f) {
+                        foreach (var creature in creatures) {
+                            creature.OnTouch(transform);
+                        }
+                    }
                 }
 
                 if (currentItem != null) {

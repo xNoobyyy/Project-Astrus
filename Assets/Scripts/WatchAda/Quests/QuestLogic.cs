@@ -7,6 +7,7 @@ using Items.Items.BowItems;
 using Items.Items.CombatItems;
 using Logic.Events;
 using Player.Inventory;
+using Player.Inventory.Slots;
 using TMPro;
 using UnityEngine;
 
@@ -139,10 +140,12 @@ namespace WatchAda.Quests {
                     condition.IsMet();
                 }
 
-                foreach (var condition in questGroups.SelectMany(questGroup =>
-                             questGroup.subQuests.Where(quest => !quest.isCompleted).SelectMany(quest =>
-                                 quest.conditions.Where(condition => condition.GetType() == typeof(ItemCondition))))) {
-                    condition.IsMet();
+                foreach (var quest in questGroups[activeGroup].subQuests) {
+                    foreach (var condition in quest.conditions) {
+                        if (condition.GetType() == typeof(ItemCondition)) {
+                            condition.IsMet();
+                        }
+                    }
                 }
             }
         }
