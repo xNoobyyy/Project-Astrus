@@ -5,7 +5,9 @@ using Items;
 using JetBrains.Annotations;
 using Objects;
 using Player.Inventory;
+using TextDisplay;
 using UnityEngine;
+using UnityEngine.Serialization;
 using WatchAda.Quests;
 
 namespace Utils {
@@ -75,6 +77,10 @@ namespace Utils {
             var questProgresses = questLogic.questGroups.SelectMany(qg => qg.subQuests)
                 .Select(q => (q.id, q.currentProgress)).ToArray();
 
+            var dialogueOpenedRecipies = TextDisplayManager.Instance.openedRecipies;
+
+            var dialogueDiedFromZombie = TextDisplayManager.Instance.diedFromZombie;
+
             var saveData = new SaveData {
                 items = items,
                 PlayerPosition = playerPosition,
@@ -82,8 +88,12 @@ namespace Utils {
                 vinePositions = vinePositions,
                 IdentificatedInteractables = identifiedInteractables,
                 PlayerHealth = currentHealth,
-                QuestProgresses = questProgresses
+                QuestProgresses = questProgresses,
+                DialogueOpenedRecipies = dialogueOpenedRecipies,
+                DialogueDiedFromZombie = dialogueDiedFromZombie
             };
+
+            saveData.DialogueOpenedRecipies = true;
 
             return saveData;
         }
@@ -138,6 +148,12 @@ namespace Utils {
                     questLogic.UpdateMainQuest();
                 }
             }
+
+            if (saveData.DialogueOpenedRecipies.HasValue)
+                TextDisplayManager.Instance.openedRecipies = saveData.DialogueOpenedRecipies.Value;
+
+            if (saveData.DialogueDiedFromZombie.HasValue)
+                TextDisplayManager.Instance.diedFromZombie = saveData.DialogueDiedFromZombie.Value;
         }
     }
 
@@ -150,6 +166,8 @@ namespace Utils {
         public (string, long)[] IdentificatedInteractables;
         public int? PlayerHealth;
         public (string, int)[] QuestProgresses;
+        public bool? DialogueOpenedRecipies;
+        public bool? DialogueDiedFromZombie;
     }
 
     [Serializable]

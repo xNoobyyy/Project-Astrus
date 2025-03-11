@@ -7,6 +7,9 @@ namespace TextDisplay {
 
         public TextDisplay textDisplay;
 
+        public bool openedRecipies;
+        public bool diedFromZombie;
+
         private void Awake() {
             if (Instance == null) {
                 Instance = this;

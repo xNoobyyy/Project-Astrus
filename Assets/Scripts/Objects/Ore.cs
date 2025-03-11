@@ -82,6 +82,9 @@ namespace Objects {
                 case OreType.Glomtom:
                     ItemManager.Instance.DropItem(new Glomtom(), transform.position);
                     break;
+                case OreType.Coal:
+                    ItemManager.Instance.DropItem(new Coal(UnityEngine.Random.Range(3, 6)), transform.position);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(type.ToString());
             }
@@ -118,6 +121,7 @@ namespace Objects {
     public enum OreType {
         Stone,
         Iron,
-        Glomtom
+        Glomtom,
+        Coal
     }
 }

@@ -36,9 +36,25 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.70440245
       objectReference: {fileID: 0}
+    - target: {fileID: 5555790791487967409, guid: 680d2cd3c2005c848a0acd475f2b12f0, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5555790791487967409, guid: 680d2cd3c2005c848a0acd475f2b12f0, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5959120837184597136, guid: 680d2cd3c2005c848a0acd475f2b12f0, type: 3}
       propertyPath: requiredPickPower
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474638022210056032, guid: 680d2cd3c2005c848a0acd475f2b12f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474638022210056032, guid: 680d2cd3c2005c848a0acd475f2b12f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.625
       objectReference: {fileID: 0}
     - target: {fileID: 6590020371921643362, guid: 680d2cd3c2005c848a0acd475f2b12f0, type: 3}
       propertyPath: m_LocalPosition.x
