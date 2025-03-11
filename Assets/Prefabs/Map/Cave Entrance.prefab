@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6005980668608250658}
   - component: {fileID: 2183221585691358541}
   - component: {fileID: 2798777007632389415}
+  - component: {fileID: 5679000404372428391}
   m_Layer: 0
   m_Name: Cave Entrance
   m_TagString: Untagged
@@ -148,6 +149,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8da22b2b5c3c41bc8ccb2e50185cbf24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5679000404372428391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3595009314863343311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &7630032062152443057
 GameObject:
   m_ObjectHideFlags: 0

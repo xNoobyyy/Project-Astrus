@@ -178,7 +178,7 @@ namespace Player {
                 if (currentItem is null or ResourceItem && creatures.Length > 0) {
                     if (Vector2.Distance(transform.position, worldPosition) <= 4f) {
                         foreach (var creature in creatures) {
-                            creature.OnTouch(transform);
+                            creature.OnTouch();
                         }
                     }
                 }

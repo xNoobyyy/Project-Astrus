@@ -153,8 +153,8 @@ namespace Creatures {
             var attempts = 0;
             while (points.Count < 10 && attempts < 100) {
                 var randomPoint = new Vector2(
-                    Random.Range(bounds.min.x, bounds.max.x),
-                    Random.Range(bounds.min.y, bounds.max.y)
+                    Random.Range(-50, 50),
+                    Random.Range(-50, 50)
                 );
                 if (Area.OverlapPoint(randomPoint)) {
                     if (NavMesh.SamplePosition(randomPoint, out var hit, 1.0f, NavMesh.AllAreas)) {
