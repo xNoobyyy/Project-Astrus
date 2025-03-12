@@ -3,7 +3,7 @@
     {
       "id": 0,
       "text": "Hallo {playerName}, ich bin Ada, deine intelligente Uhr. Du bist auf diesem unbekannten Planeten abgestürzt und jetzt ist dein Raumschiff komplett kaputt.",
-      "weiter" : true,
+      "weiter": true,
       "start": true,
       "person": 1
     },
@@ -38,15 +38,15 @@
     {
       "id": 5,
       "text": "Ich habe eine erste Quest für dich. Baue ein Boot, um von dieser Insel zum Festland zu gelangen. Schaue dafür in den Crafting-Rezepten nach und sammele geeignete Ressourcen.",
-      "weiter": false,
+      "weiter": true,
       "start": false,
       "person": 1
     },
     {
       "id": 6,
-      "text": "Ich benötige zwei Äste und vier Holz.",
+      "text": "Für ein Boot benötige ich zwei Äste und vier Holz.",
       "weiter": true,
-      "start": true,
+      "start": false,
       "person": 0
     },
     {
@@ -58,96 +58,103 @@
     },
     {
       "id": 8,
-      "text": "Sehr gut. Durch das Klicken auf verschiedene Objekte kannst du diese abbauen und einsammeln. Lass uns nun zum Meer gehen und zum Festland übersetzen.",
+      "text": "Sehr gut. Durch das Klicken auf verschiedene Objekte kannst du diese abbauen und einsammeln. Außerdem kannst du so auch die verschiedenen lokalen Tiere streicheln.",
       "weiter": true,
       "start": true,
-      "person" : 1
+      "person": 1
     },
     {
       "id": 9,
-      "text": "Alles klar! Was sind das für Tiere hier?",
-      "weiter" : true,
+      "text": "Alles klar! Was sind das denn für Tiere hier?",
+      "weiter": true,
       "start": false,
       "person": 0
     },
     {
       "id": 10,
-      "text": "Oh, das sind Quokkas. Süß, oder? Hier gibt es unterschiedliche Tiere, die meisten sind aber relativ harmlos. Falls dich doch mal eins nervt, kannst du dieses auch mit einem Klick angreifen. Manche lassen sich sogar auch streicheln. Das kannst du dann auf dem Festland mal ausprobieren",
+      "text": "Oh, das sind Quokkas. Süß, oder?",
       "weiter": false,
       "start": false,
       "person": 1
     },
     {
       "id": 11,
-      "text": "Wähle den Inventarslot des Bootes aus und klicke dann auf das Meer, um dieses zu platzieren. Steige dann durch ein Klicken auf das Boot ein. Deine erste Quest ist geschafft. Herzlichen Glückwunsch und gute Fahrt!",
+      "text": "Wähle nun den Inventarslot des Bootes aus und klicke dann auf das Meer, um dieses zu platzieren. Steige dann durch ein Klicken auf das Boot ein. Deine erste Quest ist geschafft. Herzlichen Glückwunsch und gute Fahrt!",
       "weiter": false,
       "start": true,
       "person": 1
-    },{
+    },
+    {
       "id": 12,
       "text": "Mhm, komisch. Hier liegen viele verschiedene Objekte herum. Ich dachte, hier leben nur Tiere… sei auf jeden Fall vorsichtig, wenn du das Festland weiter erkundest!",
       "weiter": true,
-      "start":true,
+      "start": true,
       "person": 1
-    },{
+    },
+    {
       "id": 13,
-      "text":"{playerName}, ich habe eine neue Quest für dich! Wir wissen nicht, wer auf diesem Planeten wohnt und wie gefährlich potentielle Bewohner sind. Finde Ressourcen und crafte aus diesen Werkzeuge oder Waffen. Eisen und Stein findest du im Grasland.",
+      "text": "{playerName}, ich habe eine neue Quest für dich! Wir wissen nicht, wer auf diesem Planeten wohnt und wie gefährlich potentielle Bewohner sind. Finde Ressourcen und crafte aus diesen Werkzeuge oder Waffen. Eisen und Stein findest du im Grasland.",
       "weiter": false,
       "start": false,
-      "person":1
-    },{
+      "person": 1
+    },
+    {
       "id": 14,
-      "text":"Sehr gut. Crafte nun Werkzeuge und ein Schwert, um dich verteidigen zu können. Eine Spitzhacke könnte bestimmt noch nützlich werden. Bedenke dabei, dass du nicht mit jedem Werkzeug jede Ressource abbauen kannst.",
+      "text": "Sehr gut. Crafte nun Werkzeuge und ein Schwert, um dich verteidigen zu können. Eine Spitzhacke könnte bestimmt noch nützlich werden. Bedenke dabei, dass du nicht mit jedem Werkzeug jede Ressource abbauen kannst.",
       "weiter": false,
       "start": true,
       "person": 1
-    },{
+    },
+    {
       "id": 15,
       "text": "Erkunde nun diesen Planeten weiter, jetzt kannst du dich ja auch verteidigen. Viel Spaß!",
       "weiter": false,
       "start": true,
       "person": 1
-    },{
+    },
+    {
       "id": 16,
       "text": "Wow, du hast das Plateau gefunden. Keine Ahnung, was uns dort erwartet, aber leider können wir es noch nicht erreichen. Es liegt zu hoch!",
       "weiter": false,
       "start": true,
       "person": 1
-    },{
+    },
+    {
       "id": 21,
-      "text":"Oh Gott, hier gibt es Zombies. Verteidige dich mit deinem Schwert und probiere irgendwie ihnen zu entkommen. Du schaffst das!" ,
-      "weiter": false ,
-      "start": true,
-      "person": 1
-    },{
-      "id": 25,
-      "text": "Achtung {playerName}, wenn du zu viele Lebenspunkte verlierst, wirst du zu einem früheren Standpunkt zurückgesetzt! Hinter dem Wasserfall im Dschungel befindet sich eine versteckte Höhle. Dort können wir uns vor den Zombies verstecken!" ,
+      "text": "Oh Gott, hier gibt es Zombies. Verteidige dich mit deinem Schwert und probiere irgendwie ihnen zu entkommen. Du schaffst das!",
       "weiter": false,
       "start": true,
       "person": 1
-    }, 
-    { 
+    },
+    {
+      "id": 25,
+      "text": "Achtung {playerName}, wenn du zu viele Lebenspunkte verlierst, wirst du zu einem früheren Standpunkt zurückgesetzt! Hinter dem Wasserfall im Dschungel befindet sich eine versteckte Höhle. Dort können wir uns vor den Zombies verstecken!",
+      "weiter": false,
+      "start": true,
+      "person": 1
+    },
+    {
       "id": 26,
       "text": "Oh, hier ist es aber sehr dunkel! Am besten craftest du dir erstmal eine Fackel.",
       "weiter": true,
       "start": true,
       "person": 1
     },
-    { 
+    {
       "id": 27,
       "text": "Die benötigte Kohle müsstest du hier in der Höhle finden. Baue sie mit deiner Spitzhacke ab und crafte die Fackel.",
       "weiter": false,
       "start": false,
       "person": 1
     },
-    { 
+    {
       "id": 28,
       "text": "Huch, da hinten ist ein anderes Licht. Ist da jemand?",
       "weiter": true,
       "start": true,
       "person": 0
     },
-    { 
+    {
       "id": 29,
       "text": "Hallo Fremder, erschrecke dich bitte nicht. Mein Name ist Dr. Storm. Versteckst du dich auch vor den Zombies?",
       "weiter": true,
@@ -280,14 +287,14 @@
       "start": false,
       "person": 2
     },
-    { 
+    {
       "id": 48,
       "text": "Was für ein interessantes Gespräch! Guck mal {playerName}, dort hinten glitzert etwas.",
       "weiter": false,
       "start": true,
       "person": 1
     },
-    { 
+    {
       "id": 49,
       "text": "Oh, das ist Glomtom. Eins der seltenen Erze hier. Öffne meine Rezepte und Crafte neue Werkzeuge.",
       "weiter": false,
@@ -308,14 +315,14 @@
       "start": false,
       "person": 0
     },
-    { 
+    {
       "id": 52,
       "text": "Zombies sind übrigens wasserscheu. Finde die Seerosenblätter auf denen du den Fluss überqueren kannst, damit du Zombies zukünftig schneller abhängst!",
       "weiter": false,
       "start": true,
       "person": 1
     },
-    { 
+    {
       "id": 53,
       "text": "[Ich sehe jetzt das Plateau.][Juhu, ich bin da!]",
       "weiter": true,
@@ -329,42 +336,42 @@
       "start": false,
       "person": 1
     },
-    { 
+    {
       "id": 56,
       "text": "Hier muss irgendwo die alte Farm sein. Vielleicht entdeckst du ja die Rezepte von denen der alte Mann gesprochen hat! Auf dem Plateau bist du übrigens vor den Zombies geschützt, die sind viel zu minderbegabt um eine Liane hinaufzuklettern!",
       "weiter": false,
       "start": true,
       "person": 1
     },
-    { 
+    {
       "id": 58,
       "text": "Cool, ein Schatz! Vielleicht können wir damit ja dein Raumschiff reparieren!",
       "weiter": true,
       "start": true,
       "person": 1
     },
-    { 
+    {
       "id": 60,
-      "text": "Aus einem Erz namens Extric können wir eine Rüstung craften. Vielleicht können wir damit den Sumpf betreten.",
+      "text": "Aus einem Erz namens Extric können wir eine Rüstung craften. Mit einer vollständigen Extricrüstung können wir vielleicht dann den Sumpf betreten.",
       "weiter": false,
       "start": true,
       "person": 1
     },
-    { 
+    {
       "id": 61,
       "text": "Was für eine schöne Rüstung. Hast du noch genügend Waffen? Falls nicht, crafte dir lieber noch ein neues Schwert oder einen Bogen. Wenn du fertig bist, können wir sofort zum Sumpf gehen.",
       "weiter": false,
       "start": true,
       "person": 1
     },
-    { 
+    {
       "id": 62,
       "text": "Probiere mal den Schlamm zu betreten. Und halte ein paar Waffen bereit, falls wir auf Zombies treffen!",
       "weiter": false,
       "start": true,
       "person": 1
     },
-    { 
+    {
       "id": 63,
       "text": "Ich kann den Sumpf wirklich betreten!",
       "weiter": true,
@@ -378,7 +385,7 @@
       "start": false,
       "person": 1
     },
-    { 
+    {
       "id": 66,
       "text": "Wow, ein weiteres seltenes Erz. Es heißt Domilitant. Nimm so viel mit, wie du kannst. Ich glaube, wir brauchen das noch, um von diesem grauenhaften Planeten zu kommen.",
       "weiter": true,
@@ -399,7 +406,7 @@
       "start": false,
       "person": 1
     },
-    { 
+    {
       "id": 69,
       "text": "Wir können ein wertvolles, energiegeladenes Erz namens Astrus in der Stadt finden. Genau sowas brauchen wir um dein Raumschiff zum Laufen zu bringen!",
       "weiter": true,
@@ -413,7 +420,7 @@
       "start": false,
       "person": 1
     },
-    { 
+    {
       "id": 71,
       "text": "Sehr gut. Wir können aus Domilitant einen Unsichtbarkeitstrank brauen. Das könnte nütlich werden.",
       "weiter": true,
@@ -434,7 +441,7 @@
       "start": false,
       "person": 1
     },
-    { 
+    {
       "id": 74,
       "text": "Mit dem Trank können wir ungehindert die Stadt betreten. Wenn wir unsichtbar sind, werden uns die Zombies nicht angreifen.",
       "weiter": true,
@@ -446,7 +453,7 @@
       "text": "Eine gute Idee. Los gehts zur Stadt, damit wir endlich hier wegkommen.",
       "weiter": true,
       "start": false,
-      "person":0
+      "person": 0
     },
     {
       "id": 76,
@@ -455,7 +462,7 @@
       "start": false,
       "person": 1
     },
-    { 
+    {
       "id": 77,
       "text": "Trinke jetzt den Trank, damit die Zombies dich nicht angreifen. Passe aber auf, falls die Zombies gegen dich stoßen. Ich glaube, dadurch könnte die Wirkung aufhören.",
       "weiter": true,
@@ -476,7 +483,7 @@
       "start": false,
       "person": 1
     },
-    { 
+    {
       "id": 80,
       "text": "Oh Gott. Ada, was soll ich tun? Hier sind so viele Zombies!",
       "weiter": true,
@@ -490,7 +497,7 @@
       "start": false,
       "person": 1
     },
-    { 
+    {
       "id": 82,
       "text": "Zum Glück hat das funktioniert!",
       "weiter": true,
@@ -541,12 +548,12 @@
     },
     {
       "id": 89,
-    "text": "Weil du meine seltenen Erze, mein Astrus klauen wolltest. Das hat NOCH NIE jemand gewagt!",
+      "text": "Weil du meine seltenen Erze, mein Astrus klauen wolltest. Das hat NOCH NIE jemand gewagt!",
       "weiter": false,
       "start": false,
       "person": 2
     },
-    { 
+    {
       "id": 90,
       "text": "Oh Gott...Ist das Astrus?",
       "weiter": true,
@@ -588,16 +595,23 @@
       "start": false,
       "person": 1
     },
-    { 
+    {
       "id": 96,
-      "text": "Klicke auf das Raumschiff, um es zu reparieren.",
+      "text": "Klicke nun auf das Raumschiff, um es zu reparieren.",
       "weiter": false,
       "start": true,
       "person": 1
     },
-    { 
+    {
       "id": 97,
       "text": "Ich bin so stolz auf dich {playerName}! Guten Heimflug.",
+      "weiter": false,
+      "start": true,
+      "person": 1
+    },
+    {
+      "id": 200,
+      "text": "Ich glaube in deinem aktuellen Zustand sollten wir hier noch nicht hingehen! Irgendwas sagt mir wir sollten uns besser verteidigen können ...",
       "weiter": false,
       "start": true,
       "person": 1

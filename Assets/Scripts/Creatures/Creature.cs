@@ -162,11 +162,7 @@ namespace Creatures {
                 attempts++;
             }
 
-            if (points.Count == 0) {
-                Debug.LogError($"Failed to find any valid wander points for {name}");
-            } else {
-                Debug.Log($"Found {points.Count} wander points for {name}");
-            }
+            if (points.Count == 0) Debug.LogError($"Failed to find any valid wander points for {name}");
 
             return points.ToArray();
         }
@@ -226,7 +222,7 @@ namespace Creatures {
 
         public abstract void OnAttack(Transform attacker, float damage);
 
-        protected virtual void Kill() {
+        public virtual void Kill() {
             deathParticles.Play();
             spriteRenderer.enabled = false;
             Health = 0;

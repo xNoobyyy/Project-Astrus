@@ -15,6 +15,7 @@ namespace Logic {
         public GameObject pauseScreen;
         public bool watchOpen;
         public bool iconOpened;
+        public Canvas computerScreen;
 
         private void Awake() {
             if (Instance == null) {
@@ -40,7 +41,8 @@ namespace Logic {
 
                 return;
             }
-
+            
+            if (computerScreen.gameObject.activeSelf) return;
             if (TextDisplayManager.Instance.textDisplay.isDialogueActive) return;
 
             if (Input.GetKeyDown(KeyCode.E) && !watchOpen) {
@@ -57,16 +59,18 @@ namespace Logic {
         }
 
         private void OpenWatch() {
-            watch.open();
+            watch.Open();
             accessableInventoryManager.HideHints();
             accessableInventoryManager2.HideHints();
+            Time.timeScale = 0f;
             //WatchOpen = true;
         }
 
         private void CloseWatch() {
-            watch.close();
+            watch.Close();
             accessableInventoryManager.ShowHints();
             accessableInventoryManager2.ShowHints();
+            Time.timeScale = 1f;
             //WatchOpen = !watch.closed();
         }
     }

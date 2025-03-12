@@ -32,7 +32,7 @@ namespace Creatures {
             MoveCoroutine = StartCoroutine(ChaseLoop());
         }
 
-        protected override void Kill() {
+        public override void Kill() {
             if (angryTag) angryTag.SetActive(false);
             base.Kill();
         }

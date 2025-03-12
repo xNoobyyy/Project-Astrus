@@ -7,6 +7,8 @@ using Items.Items.ArmorItems;
 using Items.Items.BowItems;
 using Items.Items.CombatItems;
 using Logic.Events;
+using Player.Inventory;
+using TextDisplay;
 using TMPro;
 using UnityEngine;
 using Utils;
@@ -45,7 +47,8 @@ namespace WatchAda.Quests {
         public Quest überlebenQuest;
 
         public Quest angreifen2Quest;
-        public Quest rennenQuest;
+
+        // public Quest rennenQuest;
         public Quest schutzQuest;
 
         public Quest höhleQuest;
@@ -77,14 +80,16 @@ namespace WatchAda.Quests {
         public Quest schatzQuest;
 
         public Quest bogenQuest;
+
         public Quest sumpfQuest;
-        public Quest zombie4Quest;
+
+        // public Quest zombie4Quest;
         public Quest findeDomilitantQuest;
         public Quest tagebuchQuest;
 
         public Quest domilitantQuest;
 
-        public Quest rezeptFindenQuest;
+        // public Quest rezeptFindenQuest;
         public Quest trankQuest;
 
         public Quest stadtQuest;
@@ -102,16 +107,15 @@ namespace WatchAda.Quests {
         public Quest endkampfQuest;
 
         public Quest besiegenQuest;
-        public Quest kontrolleQuest;
-        public Quest befreienQuest;
+
+        // public Quest kontrolleQuest;
+        // public Quest befreienQuest;
         public Quest astrusQuest;
 
         public Quest verlassenQuest;
 
         public Quest reparierenQuest;
         public Quest nachHauseQuest;
-
-        public List<Quest> sideQuests = new();
 
         private void Awake() {
             if (Instance == null) {
@@ -125,12 +129,14 @@ namespace WatchAda.Quests {
             EventManager.Instance.Subscribe<PlayerItemEvent>(OnItemPickup);
             EventManager.Instance.Subscribe<PlayerAreaEnterEvent>(OnAreaEntered);
             EventManager.Instance.Subscribe<CreatureInteractEvent>(OnCreatureInteraction);
+            EventManager.Instance.Subscribe<PlayerItemUseEvent>(OnPlayerItemUse);
         }
 
         private void OnDisable() {
             EventManager.Instance.Unsubscribe<PlayerItemEvent>(OnItemPickup);
             EventManager.Instance.Unsubscribe<PlayerAreaEnterEvent>(OnAreaEntered);
             EventManager.Instance.Unsubscribe<CreatureInteractEvent>(OnCreatureInteraction);
+            EventManager.Instance.Unsubscribe<PlayerItemUseEvent>(OnPlayerItemUse);
         }
 
         private void OnAreaEntered(PlayerAreaEnterEvent e) {
@@ -167,6 +173,19 @@ namespace WatchAda.Quests {
 
                     if (interactingCondition.IsMet(e)) {
                         quest.CompleteCondition(interactingCondition);
+                    }
+                }
+            }
+        }
+
+        private void OnPlayerItemUse(PlayerItemUseEvent e) {
+            foreach (var quest in questGroups[activeGroup].subQuests) {
+                foreach (var conditionKey in quest.Conditions.Keys.ToList()) {
+                    if (conditionKey is not ItemUseCondition itemUseCondition) continue;
+                    if (quest.Conditions[conditionKey]) continue;
+
+                    if (itemUseCondition.IsMet(e.Item)) {
+                        quest.CompleteCondition(itemUseCondition);
                     }
                 }
             }
@@ -277,7 +296,8 @@ namespace WatchAda.Quests {
             zombie2Quest = new Quest("id_zombies_second_main", "Zombies II", "Entkomme der zweiten Attacke.", true, 2,
                 53);
 
-            zombie3Quest = new Quest("id_zombies_kampf", "Kampf", "Schlage mit dem Glomtomschwert.", false, 1); //!
+            zombie3Quest = new Quest("id_zombies_kampf", "Kampf", "Schlage mit dem Glomtomschwert.", false, 1); //?
+            zombie3Quest.AddCondition(new ItemUseCondition(typeof(GlomtomSword)));
 
             flussQuest = new Quest("id_zombies_fluss", "Fluss", "Überquere die Seerosen.", false, 1);
             flussQuest.AddCondition(new EnteredCondition(AreaType.LilyPads)); ////////////////////
@@ -298,9 +318,10 @@ namespace WatchAda.Quests {
             erklimmeQuest.AddCondition(new EnteredCondition(AreaType.Plateau));
 
             schatzkarteQuest =
-                new Quest("id_plateau_karte", "Karte", "Entdecke die Geheimnisse der Farm.", false, 1, 58); //!
+                new Quest("id_plateau_karte", "Karte", "Entdecke die Geheimnisse der Farm.", false, 1, 58); //?
+            schatzkarteQuest.AddCondition(new EnteredCondition(AreaType.Farm));
 
-            RezepteQuest = new Quest("id_plateau_rezepte", "Rezepte", "Entdecke alte Rezepte.", false, 1, 60); //!
+            RezepteQuest = new Quest("id_plateau_rezepte", "Rezepte", "Entdecke alte Rezepte.", false, 1, 60); //?
 
             var group7 = new QuestGroup(
                 plateau2Quest,
@@ -351,14 +372,17 @@ namespace WatchAda.Quests {
             // Gruppe 10: Domilitant
             domilitantQuest = new Quest("id_domilitant_main", "Domilitant", "Setze Domilitant ein.", true, 2);
 
-            rezeptFindenQuest = new Quest("id_domilitant_rezept", "Rezept", "Finde ein Rezept.", false, 1); //!
+            //rezeptFindenQuest = new Quest("id_domilitant_rezept", "Rezept", "Finde ein Rezept.", false, 1); //!
 
-            trankQuest = new Quest("id_domilitant_trank", "Trank", "Braue einen Trank.", false, 1, 74);
+            trankQuest = new Quest("id_domilitant_trank", "Trank",
+                "Braue dir einen Unsichtbarkeitstrank, sodass dich die Zombies nicht entdecken.", false, 1, 74);
             trankQuest.AddCondition(new ItemCondition(typeof(InvisibilityPotion)));
 
             var group10 = new QuestGroup(
                 domilitantQuest,
-                new List<Quest> { rezeptFindenQuest, trankQuest }
+                new List<Quest> {
+                    /*rezeptFindenQuest,*/ trankQuest
+                }
             );
 
 
@@ -370,7 +394,8 @@ namespace WatchAda.Quests {
                 1, 77);
             crafteSchwertQuest.AddCondition(new ItemCondition(typeof(GlomtomSword)));
 
-            unsichtbarQuest = new Quest("id_stadt_unsichtbar", "Unsichtbar", "Trinke den Trank.", false, 1); //!
+            unsichtbarQuest = new Quest("id_stadt_unsichtbar", "Unsichtbar", "Trinke den Unsichtbarkeitstrank.", false,
+                1); //!
 
             wächterQuest = new Quest("id_stadt_waechter", "Wächter", "Betrete die Stadt.", false, 1, 80);
             wächterQuest.AddCondition(new EnteredCondition(AreaType.City));
@@ -382,16 +407,17 @@ namespace WatchAda.Quests {
 
 
             // Gruppe 12: Labor
-            LaborQuest = new Quest("id_labor_main", "Labor", "Erkunde das Labor.", true, 2);
+            LaborQuest = new Quest("id_labor_main", "Geschichte", "Was ist hier passiert?", true, 2);
 
-            rettenQuest = new Quest("id_labor_rette", "Rette", "Rette dich ins Labor.", false, 1, 82);
+            rettenQuest = new Quest("id_labor_rette", "Labor", "Finde das alte, zerstörte Labor.", false, 1, 82);
             rettenQuest.AddCondition(new EnteredCondition(AreaType.Labor));
 
-            virusQuest = new Quest("id_labor_virus", "Virus", "Finde Virus-Hinweise.", false, 1, 84); //!
+            virusQuest = new Quest("id_labor_virus", "Virus?", "Klicke auf den eingeschalteten Computerbildschirm.",
+                false, 1, 84); //?  
 
-            laborVerlassenQuest = new Quest("id_labor_verlassen", "Labor Verlassen", "Stelle dich dem Bosszombie",
+            laborVerlassenQuest = new Quest("id_labor_verlassen", "Was .. ist ... das", "Stelle dich dem ???.",
                 false, 1,
-                86); //!
+                86); //?
 
             var group12 = new QuestGroup(
                 LaborQuest,
@@ -454,6 +480,23 @@ namespace WatchAda.Quests {
 
         public void FinishMainQuest() {
             activeGroup++;
+            TextDisplayManager.Instance.textDisplay.notifications.Clear();
+            TextDisplayManager.Instance.textDisplay.notificationButton.gameObject.SetActive(false);
+            TextDisplayManager.Instance.textDisplay.panel.gameObject.SetActive(false);
+
+            foreach (var quest in questGroups[activeGroup].subQuests) {
+                foreach (var conditionKey in quest.Conditions.Keys.ToList()) {
+                    if (conditionKey is not ItemCondition itemCondition) continue;
+                    if (quest.Conditions[conditionKey]) continue;
+
+                    foreach (var item in PlayerInventory.Instance.Slots.Select(slot => slot.Item)) {
+                        if (itemCondition.IsMet(item)) {
+                            quest.CompleteCondition(itemCondition);
+                        }
+                    }
+                }
+            }
+
             UpdateMainQuest();
         }
 

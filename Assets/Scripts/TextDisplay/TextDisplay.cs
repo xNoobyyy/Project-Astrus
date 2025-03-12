@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using Logic;
 using Objects;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -34,6 +35,8 @@ namespace TextDisplay {
         public Coroutine coroutine;
         public String x;
         public Button notificationButton;
+        public GameObject panel;
+        public Canvas2 canvas2;
 
         public Queue<int> notifications = new();
         public bool talkedToDrStorm = false;
@@ -146,8 +149,12 @@ namespace TextDisplay {
             isDialogueActive = false;
 
             Time.timeScale = 1f;
-            if (notifications.Count > 0) {
-                notificationButton.gameObject.SetActive(true);
+
+            if (notifications.Count <= 0) return;
+
+            notificationButton.gameObject.SetActive(true);
+            if (canvas2.gameObject.activeSelf) {
+                panel.SetActive(true);
             }
         }
 
@@ -180,15 +187,11 @@ namespace TextDisplay {
             weiter = bool.Parse(storyBlocks[storyID.ToString()].weiter);
 
             if (start && !weiter) {
-                Debug.Log(1);
                 ShowText(storyManager.ShowStoryBlock(storyID.ToString()),
                     int.Parse(storyBlocks[storyID.ToString()].person));
             } else if (weiter) {
-                Debug.Log(2);
                 ShowText(storyManager.ShowStoryBlock(storyID.ToString()),
                     int.Parse(storyBlocks[storyID.ToString()].person));
-            } else {
-                Debug.Log(3);
             }
         }
 
@@ -217,6 +220,7 @@ namespace TextDisplay {
         public void OnNotificationClick() {
             SpecificStoryDialogue(notifications.Dequeue());
             notificationButton.gameObject.SetActive(false);
+            panel.SetActive(false);
         }
 
         public void Notification(int i) {

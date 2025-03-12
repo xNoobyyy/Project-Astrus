@@ -1,9 +1,11 @@
 ﻿using Logic.Events;
+using Player;
 using TextDisplay;
 using UnityEngine;
 
 namespace Creatures {
     public class AggressiveCreature : CreatureBase {
+        private static readonly int Spawned = Animator.StringToHash("spawned");
         private Transform chaseTarget;
         private bool isChasing;
 
@@ -13,7 +15,6 @@ namespace Creatures {
         private float timeSinceLastAttack;
 
         private new void OnEnable() {
-            base.OnEnable();
             EventManager.Instance.Subscribe<PlayerMoveEvent>(HandlePlayerMove);
         }
 
@@ -22,11 +23,17 @@ namespace Creatures {
             EventManager.Instance.Unsubscribe<PlayerMoveEvent>(HandlePlayerMove);
         }
 
+        public void Init() {
+            base.OnEnable();
+            Animator.SetBool(Spawned, true);
+        }
+
         private void HandlePlayerMove(PlayerMoveEvent e) {
             if (Vector2Int.RoundToInt(e.From) == Vector2Int.RoundToInt(e.To)) return;
 
             if (isChasing) {
-                if (Vector3.Distance(transform.position, chaseTarget.position) < 20f) return;
+                if (Vector3.Distance(transform.position, chaseTarget.position) < 20f &&
+                    !PlayerItem.Instance.Invisible) return;
 
                 isChasing = false;
                 chaseTarget = null;
@@ -34,7 +41,7 @@ namespace Creatures {
                 Agent.ResetPath();
                 StartIdle();
             } else {
-                if (!IsLos(e.Transform.position)) return;
+                if (!IsLos(e.Transform.position) || PlayerItem.Instance.Invisible) return;
 
                 chaseTarget = e.Transform;
                 isChasing = true;

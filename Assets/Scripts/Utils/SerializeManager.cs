@@ -4,6 +4,7 @@ using System.Linq;
 using Items;
 using JetBrains.Annotations;
 using Objects;
+using Objects.Placeables;
 using Player.Inventory;
 using TextDisplay;
 using UnityEngine;
@@ -20,6 +21,8 @@ namespace Utils {
         [SerializeField] private GameObject vinePrefab;
         [SerializeField] private GameObject vineContainer;
         [SerializeField] private QuestLogic questLogic;
+        [SerializeField] private GameObject boatPrefab;
+        [SerializeField] private CircularPhotoPanel circularPhotoPanel;
 
         private void Awake() {
             if (Instance != null) {
@@ -81,6 +84,13 @@ namespace Utils {
 
             var dialogueDiedFromZombie = TextDisplayManager.Instance.diedFromZombie;
 
+            var dialogueDrStorm = TextDisplayManager.Instance.textDisplay.talkedToDrStorm;
+
+            var boatPositions = FindObjectsByType<PlaceableBoat>(FindObjectsInactive.Include, FindObjectsSortMode.None)
+                .Select(boat => (Vector2)boat.transform.position).ToArray();
+
+            var advancedRecipies = circularPhotoPanel.plateuGefunden;
+
             var saveData = new SaveData {
                 items = items,
                 PlayerPosition = playerPosition,
@@ -90,10 +100,11 @@ namespace Utils {
                 PlayerHealth = currentHealth,
                 QuestProgresses = questProgresses,
                 DialogueOpenedRecipies = dialogueOpenedRecipies,
-                DialogueDiedFromZombie = dialogueDiedFromZombie
+                DialogueDiedFromZombie = dialogueDiedFromZombie,
+                DialogueDrStorm = dialogueDrStorm,
+                boatPositions = boatPositions,
+                AdvancedRecipies = advancedRecipies
             };
-
-            saveData.DialogueOpenedRecipies = true;
 
             return saveData;
         }
@@ -154,6 +165,24 @@ namespace Utils {
 
             if (saveData.DialogueDiedFromZombie.HasValue)
                 TextDisplayManager.Instance.diedFromZombie = saveData.DialogueDiedFromZombie.Value;
+
+            if (saveData.DialogueDrStorm.HasValue) {
+                TextDisplayManager.Instance.textDisplay.talkedToDrStorm = saveData.DialogueDrStorm.Value;
+                DrStorm.Instance.gameObject.SetActive(!saveData.DialogueDrStorm.Value);
+            }
+
+            if (saveData.boatPositions is { Length: > 0 }) {
+                foreach (var boat in FindObjectsByType<PlaceableBoat>(FindObjectsInactive.Include,
+                             FindObjectsSortMode.None).Select(boat => boat.transform)) {
+                    Destroy(boat.gameObject);
+                }
+
+                foreach (var boatPosition in saveData.boatPositions) {
+                    Instantiate(boatPrefab, boatPosition, Quaternion.identity);
+                }
+            }
+
+            if (saveData.AdvancedRecipies.HasValue) circularPhotoPanel.plateuGefunden = saveData.AdvancedRecipies.Value;
         }
     }
 
@@ -168,6 +197,9 @@ namespace Utils {
         public (string, int)[] QuestProgresses;
         public bool? DialogueOpenedRecipies;
         public bool? DialogueDiedFromZombie;
+        public bool? DialogueDrStorm;
+        public Vector2[] boatPositions;
+        public bool? AdvancedRecipies;
     }
 
     [Serializable]

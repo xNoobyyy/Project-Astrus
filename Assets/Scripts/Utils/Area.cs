@@ -74,6 +74,7 @@ namespace Utils {
         Labor,
         PlateauSight,
         JungleCave,
-        LilyPads
+        LilyPads,
+        Farm
     }
 }

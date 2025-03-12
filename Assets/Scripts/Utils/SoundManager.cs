@@ -73,10 +73,25 @@ namespace Utils {
             source.Play();
         }
 
-        public void PlaySound(SoundEffect soundEffect, float volume = 1f) {
+        public void PlaySound(SoundEffect soundEffect, float volume = 0.25f) {
             PlaySound(soundEffect, volume, Random.Range(0.8f, 1.2f));
         }
     }
 
-    public enum SoundEffect { }
+    public enum SoundEffect {
+        WalkingGrass,
+        WalkingSand,
+        WalkingCave,
+        WalkingCity,
+        HitTree,
+        HitOre,
+        HitGlomtom,
+        BowShot,
+        Help,
+        Quokka,
+        Ocean,
+        ZombieDeath,
+        ZombieHit,
+        CraftingFinish,
+    }
 }

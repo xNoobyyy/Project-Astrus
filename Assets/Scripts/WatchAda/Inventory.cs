@@ -1,7 +1,7 @@
 using Player.Inventory;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler {
     public OpeningIcon openingIcon;

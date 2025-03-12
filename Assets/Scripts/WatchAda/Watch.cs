@@ -1,9 +1,6 @@
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
-using Image = UnityEngine.UIElements.Image;
-using System.Collections;
 using Logic;
+using UnityEngine;
+using Image = UnityEngine.UIElements.Image;
 
 public class Watch : MonoBehaviour {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,13 +16,10 @@ public class Watch : MonoBehaviour {
     public GameObject openingIcon;
 
     public LogicScript logic;
-    public Image WatchOff;
-    private bool opening = false;
-    private bool closing = false;
-    private bool opened = false;
+    private bool opening;
+    private bool closing;
 
-
-    void Start() {
+    private void Start() {
         mapIcon.SetActive(false);
         inventoryIcon.SetActive(false);
         questsIcon.SetActive(false);
@@ -38,22 +32,22 @@ public class Watch : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    private void Update() {
         if (opening) {
             watchbackground.transform.localScale = Vector2.Lerp(
                 watchbackground.transform.localScale,
                 new Vector2((4), (4)),
-                Time.deltaTime * 10);
+                Time.unscaledDeltaTime * 10);
         }
 
         if (closing) {
             watchbackground.transform.localScale = Vector2.Lerp(
                 watchbackground.transform.localScale,
                 new Vector2((0), (0)),
-                Time.deltaTime * 10);
+                Time.unscaledDeltaTime * 10);
         }
 
-        float tolerance = 0.01f; // Toleranzwert
+        const float tolerance = 0.01f; // Toleranzwert
 
         if (opening) {
             if (Vector2.Distance(watchbackground.transform.localScale, new Vector2(4, 4)) < tolerance) {
@@ -62,102 +56,39 @@ public class Watch : MonoBehaviour {
                 inventoryIcon.SetActive(true);
                 questsIcon.SetActive(true);
                 logIcon.SetActive(true);
-                opened = true;
                 opening = false;
                 logic.watchOpen = true;
             }
         }
 
-        if (closing) {
-            if (Vector2.Distance(watchbackground.transform.localScale, new Vector2(0, 0)) < tolerance) {
-                gameObject.SetActive(false);
-                closing = false;
-                opened = false;
-                logic.watchOpen = false;
-            }
-        }
+        if (!closing) return;
+        if (!(Vector2.Distance(watchbackground.transform.localScale, new Vector2(0, 0)) < tolerance)) return;
+
+        gameObject.SetActive(false);
+        closing = false;
+        logic.watchOpen = false;
     }
 
 
-    public void open() {
-        if (!closing) {
-            gameObject.SetActive(true);
-            opening = true;
-        }
+    public void Open() {
+        if (closing) return;
+
+        gameObject.SetActive(true);
+        opening = true;
     }
 
-    public void close() {
-        if (!opening) {
-            watchOn.SetActive(false);
-            mapIcon.SetActive(false);
-            inventoryIcon.SetActive(false);
-            questsIcon.SetActive(false);
-            logIcon.SetActive(false);
-            closing = true;
-        }
-    }
+    public void Close() {
+        if (opening) return;
 
-    public bool closed() {
-        if (!opened) {
-            return true;
-        } else {
-            return false;
-        }
+        watchOn.SetActive(false);
+        mapIcon.SetActive(false);
+        inventoryIcon.SetActive(false);
+        questsIcon.SetActive(false);
+        logIcon.SetActive(false);
+        closing = true;
     }
 
     public void ReverseAnimation() {
         openingIconSc.ReverseAnimation();
-    }
-
-    IEnumerator DelayInMilliseconds(int milliseconds) {
-        yield return new WaitForSeconds(milliseconds / 1000f);
-    }
-
-    IEnumerator OnOff() {
-        watchOn.SetActive(true);
-        mapIcon.SetActive(true);
-        inventoryIcon.SetActive(true);
-        questsIcon.SetActive(true);
-        logIcon.SetActive(true);
-
-        yield return new WaitForSeconds(0.05f);
-        watchOn.SetActive(false);
-        mapIcon.SetActive(false);
-        inventoryIcon.SetActive(false);
-        questsIcon.SetActive(false);
-        logIcon.SetActive(false);
-        yield return new WaitForSeconds(0.05f);
-        watchOn.SetActive(true);
-        mapIcon.SetActive(true);
-        inventoryIcon.SetActive(true);
-        questsIcon.SetActive(true);
-        logIcon.SetActive(true);
-        yield return new WaitForSeconds(0.05f);
-        watchOn.SetActive(false);
-        mapIcon.SetActive(false);
-        inventoryIcon.SetActive(false);
-        questsIcon.SetActive(false);
-        logIcon.SetActive(false);
-        yield return new WaitForSeconds(0.05f);
-        watchOn.SetActive(true);
-        mapIcon.SetActive(true);
-        inventoryIcon.SetActive(true);
-        questsIcon.SetActive(true);
-        logIcon.SetActive(true);
-        yield return new WaitForSeconds(0.05f);
-        watchOn.SetActive(false);
-        mapIcon.SetActive(false);
-        inventoryIcon.SetActive(false);
-        questsIcon.SetActive(false);
-        logIcon.SetActive(false);
-        yield return new WaitForSeconds(0.05f);
-        watchOn.SetActive(true);
-        mapIcon.SetActive(true);
-        inventoryIcon.SetActive(true);
-        questsIcon.SetActive(true);
-        logIcon.SetActive(true);
-        opened = true;
-        opening = false;
-        logic.watchOpen = true;
     }
 }

@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using System.Linq;
 using Items;
-using UnityEngine;
 
 public class Recipies {
     public Item Item1;
@@ -20,16 +18,16 @@ public class Recipies {
     public Recipies(Item item1, Item item2, Item item3, Item item4,
                     int? numberOfItem1, int? numberOfItem2, int? numberOfItem3, int? numberOfItem4,
                     Item craftedItem, int craftedAmount, bool advanced) {
-        this.Item1 = item1;
-        this.Item2 = item2;
-        this.Item3 = item3;
-        this.Item4 = item4;
-        this.NumberOfItem1 = numberOfItem1;
-        this.NumberOfItem2 = numberOfItem2;
-        this.NumberOfItem3 = numberOfItem3;
-        this.NumberOfItem4 = numberOfItem4;
-        this.CraftedItem = craftedItem;
-        this.CraftedAmount = craftedAmount;
+        Item1 = item1;
+        Item2 = item2;
+        Item3 = item3;
+        Item4 = item4;
+        NumberOfItem1 = numberOfItem1;
+        NumberOfItem2 = numberOfItem2;
+        NumberOfItem3 = numberOfItem3;
+        NumberOfItem4 = numberOfItem4;
+        CraftedItem = craftedItem;
+        CraftedAmount = craftedAmount;
         this.advanced = advanced;
     }
 
@@ -45,10 +43,10 @@ public class Recipies {
 
         // Erstelle Listen der (Item, Anzahl)-Paare für Rezept und Slots
         var recipePairs = new List<(Item item, int? count)> {
-            (this.Item1, this.NumberOfItem1),
-            (this.Item2, this.NumberOfItem2),
-            (this.Item3, this.NumberOfItem3),
-            (this.Item4, this.NumberOfItem4)
+            (Item1, NumberOfItem1),
+            (Item2, NumberOfItem2),
+            (Item3, NumberOfItem3),
+            (Item4, NumberOfItem4)
         };
 
         var slotPairs = new List<(Item item, int? count)> {
@@ -73,7 +71,7 @@ public class Recipies {
                 }
 
                 // Vergleiche zusätzlich die Mengen (nullable int, null-sicher)
-                if (itemsMatch && object.Equals(slotPairs[i].count, recipePair.count)) {
+                if (itemsMatch && Equals(slotPairs[i].count, recipePair.count)) {
                     foundMatch = true;
                     // Entferne den gefundenen Eintrag, um Mehrfachzuordnungen zu vermeiden
                     slotPairs.RemoveAt(i);

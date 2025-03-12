@@ -34,12 +34,17 @@ namespace Player {
         [SerializeField] private GameObject vinePrefab;
         [SerializeField] private GameObject vineContainer;
 
+        [SerializeField] private Collider2D computerCollider;
+        [SerializeField] private Canvas computerScreen;
+
         [NonSerialized] public Camera mainCamera;
         [NonSerialized] public Animator animator;
 
         private Rigidbody2D rb;
 
         public bool InBoat { get; set; }
+
+        public bool Invisible { get; set; }
 
         public bool IsAttacking { get; set; }
         [NonSerialized] public Vector2 attackDirection;
@@ -96,6 +101,7 @@ namespace Player {
         private void Update() {
             if (TextDisplayManager.Instance.textDisplay.isDialogueActive) return;
             if (LogicScript.Instance.watchOpen) return;
+            if (computerScreen.gameObject.activeSelf) return;
 
             var zCoord = mainCamera.WorldToScreenPoint(transform.position).z;
             var mousePosition = Input.mousePosition;
@@ -151,26 +157,31 @@ namespace Player {
                     .Select(c => c.GetComponent<CreatureBase>() ?? c.GetComponentInParent<CreatureBase>())
                     .ToArray();
 
-                if (boat != null) {
-                    if (Vector2.Distance(boat.transform.position, transform.position) > 10f) return;
+                var computer = colliders
+                    .FirstOrDefault(c => c == computerCollider);
 
+                if (computer != null &&
+                    Vector2.Distance(computer.ClosestPoint(transform.position), transform.position) <= 5f) {
+                    computerScreen.gameObject.SetActive(true);
+                    computerScreen.GetComponentInChildren<Animator>().Play("computerscreen", 0, 0f);
+                    Time.timeScale = 0f;
+                    return;
+                }
+
+                if (boat != null && Vector2.Distance(boat.transform.position, transform.position) <= 10f) {
                     boat.OnInteract(transform);
                     return;
                 }
 
-                if (tree != null && currentItem is not AxeItem) {
-                    if (Vector2.Distance(tree.trigger.ClosestPoint(transform.position), transform.position) >
-                        5f) return;
-
+                if (tree != null && currentItem is not AxeItem && currentItem is not BowItem &&
+                    Vector2.Distance(tree.trigger.ClosestPoint(transform.position), transform.position) <= 5f) {
                     tree.Chop(1);
                     Chop();
                     return;
                 }
 
-                if (ore != null && currentItem is not PickaxeItem) {
-                    if (Vector2.Distance(ore.trigger.ClosestPoint(transform.position), transform.position) >
-                        5f) return;
-
+                if (ore != null && currentItem is not PickaxeItem && currentItem is not BowItem &&
+                    Vector2.Distance(ore.trigger.ClosestPoint(transform.position), transform.position) <= 5f) {
                     ore.Break(1);
                     Chop();
                     return;

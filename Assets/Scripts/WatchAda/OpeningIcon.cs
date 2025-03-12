@@ -1,11 +1,7 @@
-using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
 using Logic;
-using Player.Inventory;
+using UnityEngine;
 
-public class OpeningIcon : MonoBehaviour
-{
+public class OpeningIcon : MonoBehaviour {
     public RectTransform animatedImage;
     public LogicScript logic;
     public GameObject openedIcon;
@@ -14,58 +10,52 @@ public class OpeningIcon : MonoBehaviour
     public GameObject mapScreen;
     public MapManager mapManager;
     public GameObject logPanel;
-    public bool moving = false;
-    public bool resizing = false;
-    private bool reversing = false;
-    public bool animationActive = false;
-    
+    public bool moving;
+    public bool resizing;
+    private bool reversing;
+    public bool animationActive;
+
     private Vector2 targetSize = new Vector2(206, 204);
     private Vector2 targetPosition = Vector2.zero;
     private Vector2 startSize = new Vector2(47, 47);
 
     private Vector2 startPosition;
 
-    void Start()
-    {
+    void Start() {
         animatedImage.sizeDelta = startSize;
         gameObject.SetActive(false);
     }
 
-    void Update()
-    {
-        if (moving || resizing)
-        {
+    void Update() {
+        if (moving || resizing) {
             animatedImage.anchoredPosition = Vector2.Lerp(
                 animatedImage.anchoredPosition,
                 targetPosition,
-                Time.deltaTime * 10);
+                Time.unscaledDeltaTime * 10);
 
             animatedImage.sizeDelta = Vector2.Lerp(
                 animatedImage.sizeDelta,
                 targetSize,
-                Time.deltaTime * 10);
+                Time.unscaledDeltaTime * 10);
         }
 
-        if (reversing)
-        {
+        if (reversing) {
             animatedImage.anchoredPosition = Vector2.Lerp(
                 animatedImage.anchoredPosition,
                 startPosition,
-                Time.deltaTime * 10);
+                Time.unscaledDeltaTime * 10);
 
             animatedImage.sizeDelta = Vector2.Lerp(
                 animatedImage.sizeDelta,
                 startSize,
-                Time.deltaTime * 10);
+                Time.unscaledDeltaTime * 10);
         }
 
         float tolerance = 0.5f;
 
-        if (moving || resizing)
-        {
+        if (moving || resizing) {
             if (Vector2.Distance(animatedImage.anchoredPosition, targetPosition) < tolerance &&
-                Vector2.Distance(animatedImage.sizeDelta, targetSize) < tolerance)
-            {
+                Vector2.Distance(animatedImage.sizeDelta, targetSize) < tolerance) {
                 moving = false;
                 resizing = false;
                 animationActive = false;
@@ -80,23 +70,20 @@ public class OpeningIcon : MonoBehaviour
                 if (startPosition == new Vector2(-128, -128)) {
                     questScreen.SetActive(true);
                 }
-                
+
                 if (startPosition == new Vector2(-128, 128)) {
                     mapScreen.SetActive(true);
                 }
-                
+
                 if (startPosition == new Vector2(128, -128)) {
                     logPanel.SetActive(true);
                 }
-                
             }
         }
 
-        if (reversing)
-        {
+        if (reversing) {
             if (Vector2.Distance(animatedImage.anchoredPosition, startPosition) < tolerance &&
-                Vector2.Distance(animatedImage.sizeDelta, startSize) < tolerance)
-            {
+                Vector2.Distance(animatedImage.sizeDelta, startSize) < tolerance) {
                 reversing = false;
                 animationActive = false;
                 gameObject.SetActive(false);
@@ -104,10 +91,8 @@ public class OpeningIcon : MonoBehaviour
         }
     }
 
-    public void StartAnimation(Vector2 startPos)
-    {
-        if (!animationActive)
-        {
+    public void StartAnimation(Vector2 startPos) {
+        if (!animationActive) {
             gameObject.SetActive(true);
             animatedImage.anchoredPosition = startPos;
             animatedImage.sizeDelta = startSize;
@@ -118,10 +103,8 @@ public class OpeningIcon : MonoBehaviour
         }
     }
 
-    public void ReverseAnimation()
-    {
-        if (!animationActive)
-        {
+    public void ReverseAnimation() {
+        if (!animationActive) {
             inventoryScreen.SetActive(false);
             questScreen.SetActive(false);
             mapScreen.SetActive(false);

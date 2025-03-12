@@ -131,6 +131,7 @@ public sealed class ItemCondition : GenericQuestCondition<Item> {
     }
 
     public bool IsMet(Item check) {
+        if (check == null) return false;
         return check.GetType() == itemType;
     }
 }
@@ -143,6 +144,7 @@ public sealed class EnteredCondition : GenericQuestCondition<Area> {
     }
 
     public bool IsMet(Area check) {
+        if (check == null) return false;
         return check.type == areaType;
     }
 }
@@ -162,6 +164,7 @@ public sealed class InteractingCondition : GenericQuestCondition<CreatureInterac
     }
 
     public bool IsMet(CreatureInteractEvent check) {
+        if (check == null) return false;
         return creatureTypes.Contains(check.Creature.type) && check.InteractionType == interactionType;
     }
 }
@@ -174,6 +177,7 @@ public sealed class ItemUseCondition : GenericQuestCondition<Item> {
     }
 
     public bool IsMet(Item check) {
+        if (check == null) return false;
         return check.GetType() == itemType;
     }
 }

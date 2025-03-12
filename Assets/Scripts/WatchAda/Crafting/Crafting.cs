@@ -8,10 +8,8 @@ using Items.Items.AxeItems;
 using Items.Items.BowItems;
 using Items.Items.CombatItems;
 using Logic.Events;
-using Player.Inventory;
 using Player.Inventory.Slots;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class Crafting : MonoBehaviour {
     public static Crafting Instance { get; private set; }

@@ -8,9 +8,8 @@ using Utils;
 using Utils.WhiteFlash;
 
 public class PlayerHealth : MonoBehaviour {
-    
     public static PlayerHealth Instance;
-    
+
     public int maxHealth = 100;
     public int currentHealth;
     public Slider healthSlider;
@@ -41,10 +40,12 @@ public class PlayerHealth : MonoBehaviour {
 
     private void OnEnable() {
         EventManager.Instance.Subscribe<PlayerDamageEvent>(HandlePlayerDamage);
+        EventManager.Instance.Subscribe<PlayerAreaEnterEvent>(HandlePlayerAreaEnter);
     }
 
     private void OnDisable() {
         EventManager.Instance.Unsubscribe<PlayerDamageEvent>(HandlePlayerDamage);
+        EventManager.Instance.Unsubscribe<PlayerAreaEnterEvent>(HandlePlayerAreaEnter);
     }
 
     private void Update() {
@@ -60,6 +61,10 @@ public class PlayerHealth : MonoBehaviour {
         rb.AddForce(knockbackDir * 5f, ForceMode2D.Impulse);
         GetComponent<SpriteFlashEffect>().StartWhiteFlash();
         TakeDamage(e.Damage);
+    }
+
+    private void HandlePlayerAreaEnter(PlayerAreaEnterEvent e) {
+        if (e.Area.type == AreaType.Plateau && !plateau) plateau = true;
     }
 
     public void TakeDamage(int damage) {
@@ -103,6 +108,7 @@ public class PlayerHealth : MonoBehaviour {
             healthSlider.value = currentHealth;
         }
 
+        EventManager.Instance.Trigger(new PlayerDeathEvent());
         EventManager.Instance.Trigger(new PlayerMoveEvent(diedAt, transform.position, transform));
     }
 

@@ -6,6 +6,7 @@ using Player;
 using Unity.VisualScripting;
 using UnityEditor.Animations;
 using UnityEngine;
+using Utils;
 using Object = UnityEngine.Object;
 
 namespace Items {
@@ -28,6 +29,7 @@ namespace Items {
         public override void OnUse(Transform player, Vector3 position, ClickType clickType) {
             if (PlayerItem.Instance.IsBusy || inactive) return;
 
+            SoundManager.Instance.PlaySound(SoundEffect.BowShot);
             PlayerItem.Instance.StartThirdPartyCoroutine(Shoot(player, position, clickType));
         }
 

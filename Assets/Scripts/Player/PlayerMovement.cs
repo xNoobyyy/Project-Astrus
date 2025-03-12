@@ -3,6 +3,8 @@ using Logic;
 using Logic.Events;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem.Controls;
+using Utils;
 
 namespace Player {
     [RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
@@ -23,11 +25,10 @@ namespace Player {
                 Instance = this;
             } else {
                 Destroy(gameObject);
-                return;
             }
         }
 
-        private void Start() {  
+        private void Start() {
             animator = GetComponent<Animator>();
             playerItem = GetComponent<PlayerItem>();
 
@@ -54,6 +55,27 @@ namespace Player {
             transform.position += new Vector3(add.x, add.y, 0f);
             var to = transform.position;
             EventManager.Instance.Trigger(new PlayerMoveEvent(from, to, transform));
+
+            if (PlayerItem.Instance.InBoat || (Mathf.RoundToInt(from.x) == Mathf.RoundToInt(to.x) &&
+                                               Mathf.RoundToInt(from.y) == Mathf.RoundToInt(to.y))) return;
+
+            SoundEffect soundEffect;
+            switch (AreaManager.Instance.LastOrCurrentArea.type) {
+                case AreaType.Cave:
+                    soundEffect = SoundEffect.WalkingCave;
+                    break;
+                case AreaType.Beach:
+                    soundEffect = SoundEffect.WalkingSand;
+                    break;
+                case AreaType.City:
+                    soundEffect = SoundEffect.WalkingCity;
+                    break;
+                default:
+                    soundEffect = SoundEffect.WalkingGrass;
+                    break;
+            }
+
+            SoundManager.Instance.PlaySound(soundEffect, 0.05f);
         }
     }
 }
