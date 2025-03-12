@@ -2,17 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Creatures;
-using Items;
 using Items.Items;
 using Items.Items.ArmorItems;
 using Items.Items.BowItems;
 using Items.Items.CombatItems;
 using Logic.Events;
-using Player.Inventory;
-using Player.Inventory.Slots;
 using TMPro;
-using Utils;
 using UnityEngine;
+using Utils;
 
 namespace WatchAda.Quests {
     public class QuestLogic : MonoBehaviour {
@@ -24,7 +21,7 @@ namespace WatchAda.Quests {
         public TextMeshProUGUI sideText;
 
         public List<QuestGroup> questGroups = new();
-        public int activeGroup = 0;
+        public int activeGroup;
 
         public Quest festlandQuest;
 
@@ -188,7 +185,7 @@ namespace WatchAda.Quests {
             bootQuest = new Quest("id_festland_boot", "Boot", "Baue ein Boot in deinem Inventar.", false, 1, 11);
             bootQuest.AddCondition(new ItemCondition(typeof(Boat)));
 
-            tierQuest = new Quest("id_festland_tier", "Quokkas", "Streichele ein Quokka.", false, 1);
+            tierQuest = new Quest("id_festland_tier", "Quokkas", "Streichele ein Quokka durch anklicken.", false, 1);
             tierQuest.AddCondition(new InteractingCondition(CreatureType.Quokka, InteractionType.Pet));
 
             betreteFestlandQuest = new Quest("id_festland_ankunft", "Ankunft",
@@ -196,7 +193,7 @@ namespace WatchAda.Quests {
             betreteFestlandQuest.AddCondition(new EnteredCondition(AreaType.Beach));
 
             var group1 = new QuestGroup(festlandQuest,
-                new List<Quest>() { baueQuest, tierQuest, bootQuest, betreteFestlandQuest });
+                new List<Quest> { baueQuest, tierQuest, bootQuest, betreteFestlandQuest });
 
 
             // Gruppe 2: Crafting FERTIG
@@ -261,7 +258,7 @@ namespace WatchAda.Quests {
             fakelQuest = new Quest("id_hoehle_fackel", "Fackel", "Baue eine Fackel.", false, 1, 28);
             fakelQuest.AddCondition(new ItemCondition(typeof(Torch)));
 
-            stormQuest = new Quest("id_hoehle_storm", "Person?", "???", false, 1, 48); //!
+            stormQuest = new Quest("id_hoehle_storm", "Person?", "???", false, 1, 48); //?
 
             erzQuest = new Quest("id_hoehle_erz", "Erz", "Baue unbekanntes Erz ab.", false, 1, 49);
             erzQuest.AddCondition(new ItemCondition(typeof(Glomtom)));
@@ -280,7 +277,7 @@ namespace WatchAda.Quests {
             zombie2Quest = new Quest("id_zombies_second_main", "Zombies II", "Entkomme der zweiten Attacke.", true, 2,
                 53);
 
-            zombie3Quest = new Quest("id_zombies_kampf", "Kampf", "Nutze das Glomtom-Schwert.", false, 1); //!
+            zombie3Quest = new Quest("id_zombies_kampf", "Kampf", "Schlage mit dem Glomtomschwert.", false, 1); //!
 
             flussQuest = new Quest("id_zombies_fluss", "Fluss", "Überquere die Seerosen.", false, 1);
             flussQuest.AddCondition(new EnteredCondition(AreaType.LilyPads)); ////////////////////
@@ -485,7 +482,7 @@ namespace WatchAda.Quests {
         }
     }
 
-    [System.Serializable]
+    [Serializable]
     public class QuestGroup {
         public Quest mainQuest;
         public List<Quest> subQuests;

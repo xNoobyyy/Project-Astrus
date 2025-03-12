@@ -1,4 +1,5 @@
-﻿using Player;
+﻿using Logic.Events;
+using Player;
 using UnityEditor.Animations;
 using UnityEngine;
 

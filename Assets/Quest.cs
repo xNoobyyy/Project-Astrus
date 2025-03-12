@@ -165,3 +165,15 @@ public sealed class InteractingCondition : GenericQuestCondition<CreatureInterac
         return creatureTypes.Contains(check.Creature.type) && check.InteractionType == interactionType;
     }
 }
+
+public sealed class ItemUseCondition : GenericQuestCondition<Item> {
+    private readonly Type itemType;
+
+    public ItemUseCondition(Type itemType) {
+        this.itemType = itemType;
+    }
+
+    public bool IsMet(Item check) {
+        return check.GetType() == itemType;
+    }
+}
