@@ -10,36 +10,24 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Player.Inventory {
-    public class AxeSlot : ItemSlot, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler {
-
+    public class AxeSlot : ItemSlot, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler {
         /// <summary>
         /// Setzt das Item in diesem Slot. Akzeptiert nur null oder Items vom Typ PickaxeItem.
         /// Wird ein anderes Item übergeben, wird es ignoriert.
         /// </summary>
         /// <param name="item">Das zu setzende Item</param>
         public GameObject panel;
+
         public new void SetItem(Item item) {
             // Falls das Item nicht null ist und kein PickaxeItem, wird es abgelehnt.
             if (item != null && !(item is AxeItem)) {
                 panel.SetActive(true);
                 return;
             }
+
             panel.SetActive(false);
             // Aufruf der Basisimplementierung für die visuelle Darstellung.
             base.SetItem(item);
-        }
-
-        /// <summary>
-        /// Beim Klick in den Slot: Falls der Slot leer ist, wird immer eine neue IronPickaxe eingefügt.
-        /// </summary>
-        /// <param name="eventData">Informationen zum Klick-Event</param>
-        public new void OnPointerClick(PointerEventData eventData) {
-            // Falls bereits ein Item vorhanden ist, passiert nichts.
-            if (Item != null) return;
-
-            int index = Array.IndexOf(PlayerInventory.Instance.Slots, this);
-            // Bei beiden Maustasten wird eine IronPickaxe eingefügt.
-            PlayerInventory.Instance.SetItem(index, new IronAxe());
         }
 
         /// <summary>

@@ -32,10 +32,10 @@ public class PlayerHealth : MonoBehaviour {
 
     private void Start() {
         currentHealth = maxHealth;
-        if (healthSlider != null) {
-            healthSlider.maxValue = maxHealth;
-            healthSlider.value = currentHealth;
-        }
+        if (healthSlider == null) return;
+
+        healthSlider.maxValue = maxHealth;
+        healthSlider.value = currentHealth;
     }
 
     private void OnEnable() {
@@ -46,12 +46,6 @@ public class PlayerHealth : MonoBehaviour {
     private void OnDisable() {
         EventManager.Instance.Unsubscribe<PlayerDamageEvent>(HandlePlayerDamage);
         EventManager.Instance.Unsubscribe<PlayerAreaEnterEvent>(HandlePlayerAreaEnter);
-    }
-
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.L)) {
-            TakeDamage(20);
-        }
     }
 
     private void HandlePlayerDamage(PlayerDamageEvent e) {
@@ -97,11 +91,7 @@ public class PlayerHealth : MonoBehaviour {
     private void Respawn() {
         var diedAt = transform.position;
 
-        if (plateau) {
-            transform.position = respawnPointPlateau.position;
-        } else {
-            transform.position = respawnPointStrand.position;
-        }
+        transform.position = plateau ? respawnPointPlateau.position : respawnPointStrand.position;
 
         currentHealth = maxHealth;
         if (healthSlider != null) {
@@ -115,9 +105,7 @@ public class PlayerHealth : MonoBehaviour {
     private IEnumerator StartRegeneration() {
         yield return new WaitForSeconds(20);
         while (currentHealth < maxHealth) {
-            currentHealth++;
-            currentHealth = Mathf.Min(currentHealth, maxHealth);
-            healthSlider.value = currentHealth;
+            Heal(1);
             yield return new WaitForSeconds(1f);
         }
 

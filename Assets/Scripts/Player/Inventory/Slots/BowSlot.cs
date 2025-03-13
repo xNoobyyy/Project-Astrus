@@ -10,7 +10,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Player.Inventory {
-    public class BowSlot : ItemSlot, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler,
+    public class BowSlot : ItemSlot, IBeginDragHandler, IDragHandler, IEndDragHandler,
         IDropHandler {
         /// <summary>
         /// Setzt das Item in diesem Slot. Akzeptiert nur null oder Items vom Typ PickaxeItem.
@@ -29,19 +29,6 @@ namespace Player.Inventory {
             panel.SetActive(false);
             // Aufruf der Basisimplementierung für die visuelle Darstellung.
             base.SetItem(item);
-        }
-
-        /// <summary>
-        /// Beim Klick in den Slot: Falls der Slot leer ist, wird immer eine neue IronPickaxe eingefügt.
-        /// </summary>
-        /// <param name="eventData">Informationen zum Klick-Event</param>
-        public new void OnPointerClick(PointerEventData eventData) {
-            // Falls bereits ein Item vorhanden ist, passiert nichts.
-            if (Item != null) return;
-
-            int index = Array.IndexOf(PlayerInventory.Instance.Slots, this);
-            // Bei beiden Maustasten wird eine IronPickaxe eingefügt.
-            PlayerInventory.Instance.SetItem(index, new FireGlomtomBow());
         }
 
         /// <summary>

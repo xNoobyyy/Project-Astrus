@@ -1,7 +1,6 @@
 ﻿using Logic;
 using Player;
 using TextDisplay;
-using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Items {
@@ -10,7 +9,7 @@ namespace Items {
 
         public int Damage { get; private set; }
 
-        protected CombatItem(string name, string description, Sprite icon, AnimatorController animator, int damage) :
+        protected CombatItem(string name, string description, Sprite icon, RuntimeAnimatorController animator, int damage) :
             base(name, description, icon, animator) {
             Damage = damage;
         }

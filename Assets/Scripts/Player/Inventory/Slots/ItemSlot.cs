@@ -8,10 +8,8 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Player.Inventory.Slots {
-    public class ItemSlot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler,
-        IPointerEnterHandler,
-        IPointerExitHandler,
-        IDropHandler {
+    public class ItemSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler,
+        IPointerExitHandler, IDropHandler {
         public Item Item { get; private set; }
         private TextMeshProUGUI floatingText;
         private GameObject floatingTextObject;
@@ -85,37 +83,6 @@ namespace Player.Inventory.Slots {
 
         public void UpdateDisplay() {
             SetItem(Item);
-        }
-
-        public void OnPointerClick(PointerEventData eventData) {
-            if (Item != null) return;
-
-            switch (eventData.button) {
-                case PointerEventData.InputButton.Left:
-                    if (itemRenderer.GetComponent<Animator>() == null) {
-                        PlayerInventory.Instance.SetItem(
-                            Array.IndexOf(PlayerInventory.Instance.Slots, this),
-                            new Stick(1));
-                    } else {
-                        PlayerInventory.Instance.SetItem(
-                            Array.IndexOf(PlayerInventory.Instance.Slots, this),
-                            new Stick(1));
-                    }
-
-                    break;
-                case PointerEventData.InputButton.Right:
-                    if (itemRenderer.GetComponent<Animator>() == null) {
-                        PlayerInventory.Instance.SetItem(
-                            Array.IndexOf(PlayerInventory.Instance.Slots, this),
-                            new Extric(1));
-                    } else {
-                        PlayerInventory.Instance.SetItem(
-                            Array.IndexOf(PlayerInventory.Instance.Slots, this),
-                            new Extric(1));
-                    }
-
-                    break;
-            }
         }
 
         public void OnBeginDrag(PointerEventData eventData) {

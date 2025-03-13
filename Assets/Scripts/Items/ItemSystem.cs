@@ -1,6 +1,4 @@
-﻿using Logic.Events;
-using Player;
-using UnityEditor.Animations;
+﻿using Player;
 using UnityEngine;
 
 namespace Items {
@@ -8,9 +6,9 @@ namespace Items {
         public string Name { get; private set; }
         public string Description { get; private set; }
         public Sprite Icon { get; private set; }
-        public AnimatorController AnimatedIcon { get; private set; }
+        public RuntimeAnimatorController AnimatedIcon { get; private set; }
 
-        protected Item(string name, string description, Sprite icon, AnimatorController animator) {
+        protected Item(string name, string description, Sprite icon, RuntimeAnimatorController animator) {
             Name = name;
             Description = description;
             Icon = icon;

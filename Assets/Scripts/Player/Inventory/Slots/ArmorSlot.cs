@@ -1,16 +1,10 @@
-using System;
 using Items;
-using Items.Items;
-using Items.Items.CombatItems;
 using Player.Inventory.Slots;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 namespace Player.Inventory {
-    public class ArmorSlot : ItemSlot, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler,
+    public class ArmorSlot : ItemSlot, IBeginDragHandler, IDragHandler, IEndDragHandler,
         IDropHandler {
         /// <summary>
         /// Setzt das Item in diesem Slot. Akzeptiert nur null oder Items vom Typ PickaxeItem.
@@ -21,7 +15,7 @@ namespace Player.Inventory {
 
         public new void SetItem(Item item) {
             // Falls das Item nicht null ist und kein PickaxeItem, wird es abgelehnt.
-            if (item != null && !(item is ArmorItem)) {
+            if (item != null && item is not ArmorItem) {
                 panel.SetActive(true);
                 return;
             }
@@ -29,19 +23,6 @@ namespace Player.Inventory {
             // Aufruf der Basisimplementierung für die visuelle Darstellung.
             panel.SetActive(false);
             base.SetItem(item);
-        }
-
-        /// <summary>
-        /// Beim Klick in den Slot: Falls der Slot leer ist, wird immer eine neue IronPickaxe eingefügt.
-        /// </summary>
-        /// <param name="eventData">Informationen zum Klick-Event</param>
-        public new void OnPointerClick(PointerEventData eventData) {
-            // Falls bereits ein Item vorhanden ist, passiert nichts.
-            if (Item != null) return;
-
-            int index = Array.IndexOf(PlayerInventory.Instance.Slots, this);
-            // Bei beiden Maustasten wird eine IronPickaxe eingefügt.
-            PlayerInventory.Instance.SetItem(index, new GlomtomSword());
         }
 
         /// <summary>

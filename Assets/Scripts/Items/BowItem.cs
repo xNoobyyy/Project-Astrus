@@ -4,7 +4,6 @@ using System.Linq;
 using Creatures;
 using Player;
 using Unity.VisualScripting;
-using UnityEditor.Animations;
 using UnityEngine;
 using Utils;
 using Object = UnityEngine.Object;
@@ -19,7 +18,7 @@ namespace Items {
         public int Damage { get; private set; }
         public float Downtime { get; private set; }
 
-        protected BowItem(string name, string description, Sprite icon, AnimatorController animator, int damage,
+        protected BowItem(string name, string description, Sprite icon, RuntimeAnimatorController animator, int damage,
             float downtime) : base(
             name, description, icon, animator) {
             Damage = damage;

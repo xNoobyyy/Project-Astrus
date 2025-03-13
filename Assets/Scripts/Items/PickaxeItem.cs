@@ -2,15 +2,14 @@
 using System.Linq;
 using Objects;
 using Player;
-using UnityEditor.Animations;
+using UnityEngine.Animations;
 using UnityEngine;
-using Tree = UnityEngine.Tree;
 
 namespace Items {
     public abstract class PickaxeItem : Item {
         public int PickPower { get; private set; }
 
-        protected PickaxeItem(string name, string description, Sprite icon, AnimatorController animator, int pickPower)
+        protected PickaxeItem(string name, string description, Sprite icon, RuntimeAnimatorController animator, int pickPower)
             : base(name, description, icon, animator) {
             PickPower = pickPower;
         }

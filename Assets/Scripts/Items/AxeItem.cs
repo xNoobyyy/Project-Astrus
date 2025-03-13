@@ -9,7 +9,7 @@ namespace Items {
     public abstract class AxeItem : Item {
         public int ChopPower { get; private set; }
 
-        protected AxeItem(string name, string description, Sprite icon, AnimatorController animator, int chopPower) :
+        protected AxeItem(string name, string description, Sprite icon, RuntimeAnimatorController animator, int chopPower) :
             base(name, description, icon, animator) {
             ChopPower = chopPower;
         }
