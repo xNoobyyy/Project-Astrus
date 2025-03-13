@@ -191,6 +191,14 @@ namespace WatchAda.Quests {
             }
         }
 
+        /**
+         * TODO:
+         * Farm + quest? + Tagebuch???
+         * Special Flower (+ quest?)
+         * InvisibilityPotion (+ quest / zombie behavior etc.)
+         * Play SoundEffects at the right places
+         * Ending + Boss (already kinda implemented?)
+         */
         private void Start() {
             // Gruppe 1: Festland FERTIG
             festlandQuest = new Quest("id_festland_main", "Festland", "Überquere das Meer.", true, 4);
@@ -415,7 +423,7 @@ namespace WatchAda.Quests {
             virusQuest = new Quest("id_labor_virus", "Virus?", "Klicke auf den eingeschalteten Computerbildschirm.",
                 false, 1, 84); //?  
 
-            laborVerlassenQuest = new Quest("id_labor_verlassen", "Was .. ist ... das", "Stelle dich dem ???.",
+            laborVerlassenQuest = new Quest("id_labor_verlassen", "Was .. ist ... das", "Stelle dich ???.",
                 false, 1,
                 86); //?
 
