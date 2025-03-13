@@ -38,15 +38,14 @@ namespace Items {
         public Sprite Amour2Icon;
         public Sprite Amour3Icon;
 
-
-        public AnimatorController glomtomIcon;
-        public AnimatorController extricIcon;
-        public AnimatorController domilitantIcon;
-        public AnimatorController AstrusIcon;
-        public AnimatorController SwordAni;
-        public AnimatorController AxeAni;
-        public AnimatorController BowAni;
-        public AnimatorController BowAni2;
+        public RuntimeAnimatorController glomtomIcon;
+        public RuntimeAnimatorController extricIcon;
+        public RuntimeAnimatorController domilitantIcon;
+        public RuntimeAnimatorController AstrusIcon;
+        public RuntimeAnimatorController SwordAni;
+        public RuntimeAnimatorController AxeAni;
+        public RuntimeAnimatorController BowAni;
+        public RuntimeAnimatorController BowAni2;
 
         [Header("Prefabs")] public GameObject droppedItemPrefab;
 
