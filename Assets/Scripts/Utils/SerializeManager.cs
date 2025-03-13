@@ -1,12 +1,15 @@
 ﻿using System;
+using System.Collections;
 using System.IO;
 using System.Linq;
 using Items;
 using JetBrains.Annotations;
 using Objects;
 using Objects.Placeables;
+using Player;
 using Player.Inventory;
 using TextDisplay;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 using WatchAda.Quests;
@@ -41,6 +44,14 @@ namespace Utils {
             var saveData = JsonUtility.FromJson<SaveData>(json);
             Debug.Log(saveData, this);
             Load(saveData);
+        }
+
+        private void OnEnable() {
+            InvokeRepeating(nameof(SaveToFile), 300f, 300f);
+        }
+
+        private void SaveToFile() {
+            PauseScreen.SaveToFile(JsonUtility.ToJson(Save(), true));
         }
 
         private static string LoadFromFile() {

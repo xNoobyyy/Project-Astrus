@@ -4953,7 +4953,7 @@ MonoBehaviour:
   destroyOnDeath:
   - {fileID: 7828336729510870555}
   runAwayDistance: 10
-  hearts: {fileID: 0}
+  hearts: {fileID: 3095724357077671972}
 --- !u!114 &7307947283167862677
 MonoBehaviour:
   m_ObjectHideFlags: 0

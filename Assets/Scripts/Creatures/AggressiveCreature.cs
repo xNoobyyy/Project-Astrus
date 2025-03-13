@@ -2,6 +2,7 @@
 using Player;
 using TextDisplay;
 using UnityEngine;
+using Utils;
 
 namespace Creatures {
     public class AggressiveCreature : CreatureBase {
@@ -53,6 +54,7 @@ namespace Creatures {
         public override void OnAttack(Transform attacker, float damage) {
             if (!HandleDamage(attacker, damage))
                 return;
+
             chaseTarget = attacker;
             isChasing = true;
             StopExistingCoroutines();

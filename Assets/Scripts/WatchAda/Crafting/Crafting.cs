@@ -10,30 +10,26 @@ using Items.Items.CombatItems;
 using Logic.Events;
 using Player.Inventory.Slots;
 using UnityEngine;
+using UnityEngine.Serialization;
+using Utils;
 
 public class Crafting : MonoBehaviour {
     public static Crafting Instance { get; private set; }
 
-    public ItemSlot CraftingSlot1;
-    public ItemSlot CraftingSlot2;
-    public ItemSlot CraftingSlot3;
-    public ItemSlot CraftingSlot4;
-    public DragOnlyItemSlot CraftedSlot;
+    public ItemSlot craftingSlot1;
+    public ItemSlot craftingSlot2;
+    public ItemSlot craftingSlot3;
+    public ItemSlot craftingSlot4;
+    public DragOnlyItemSlot craftedSlot;
 
-    public GameObject AmountTextItem1;
-    public GameObject AmountTextItem2;
-    public GameObject AmountTextItem3;
-    public GameObject AmountTextItem4;
-
-
-    public Item CraftingItem1;
-    public Item CraftingItem2;
-    public Item CraftingItem3;
-    public Item CraftingItem4;
-    public int CraftingAmountItem1;
-    public int CraftingAmountItem2;
-    public int CraftingAmountItem3;
-    public int CraftingAmountItem4;
+    private Item craftingItem1;
+    private Item craftingItem2;
+    private Item craftingItem3;
+    private Item craftingItem4;
+    private int craftingAmountItem1;
+    private int craftingAmountItem2;
+    private int craftingAmountItem3;
+    private int craftingAmountItem4;
 
     public Item Stone;
     public Item Stick;
@@ -234,72 +230,73 @@ public class Crafting : MonoBehaviour {
     }
 
     private void Update() {
-        if (CraftedSlot.Item != null) return;
+        if (craftedSlot.Item != null) return;
 
-        CraftingItem1 = CraftingSlot1.Item;
-        CraftingItem2 = CraftingSlot2.Item;
-        CraftingItem3 = CraftingSlot3.Item;
-        CraftingItem4 = CraftingSlot4.Item;
+        craftingItem1 = craftingSlot1.Item;
+        craftingItem2 = craftingSlot2.Item;
+        craftingItem3 = craftingSlot3.Item;
+        craftingItem4 = craftingSlot4.Item;
 
-        if (CraftingItem1 is ResourceItem resourceItem1) {
-            CraftingAmountItem1 = resourceItem1.Amount;
-        } else if (CraftingItem1 != null) {
-            CraftingAmountItem1 = 1;
+        if (craftingItem1 is ResourceItem resourceItem1) {
+            craftingAmountItem1 = resourceItem1.Amount;
+        } else if (craftingItem1 != null) {
+            craftingAmountItem1 = 1;
         } else {
-            CraftingAmountItem1 = 0;
+            craftingAmountItem1 = 0;
         }
 
-        if (CraftingItem2 is ResourceItem resourceItem2) {
-            CraftingAmountItem2 = resourceItem2.Amount;
-        } else if (CraftingItem2 != null) {
-            CraftingAmountItem2 = 1;
+        if (craftingItem2 is ResourceItem resourceItem2) {
+            craftingAmountItem2 = resourceItem2.Amount;
+        } else if (craftingItem2 != null) {
+            craftingAmountItem2 = 1;
         } else {
-            CraftingAmountItem2 = 0;
+            craftingAmountItem2 = 0;
         }
 
-        if (CraftingItem3 is ResourceItem resourceItem3) {
-            CraftingAmountItem3 = resourceItem3.Amount;
-        } else if (CraftingItem3 != null) {
-            CraftingAmountItem3 = 1;
+        if (craftingItem3 is ResourceItem resourceItem3) {
+            craftingAmountItem3 = resourceItem3.Amount;
+        } else if (craftingItem3 != null) {
+            craftingAmountItem3 = 1;
         } else {
-            CraftingAmountItem3 = 0;
+            craftingAmountItem3 = 0;
         }
 
-        if (CraftingItem4 is ResourceItem resourceItem4) {
-            CraftingAmountItem4 = resourceItem4.Amount;
-        } else if (CraftingItem4 != null) {
-            CraftingAmountItem4 = 1;
+        if (craftingItem4 is ResourceItem resourceItem4) {
+            craftingAmountItem4 = resourceItem4.Amount;
+        } else if (craftingItem4 != null) {
+            craftingAmountItem4 = 1;
         } else {
-            CraftingAmountItem4 = 0;
+            craftingAmountItem4 = 0;
         }
 
-        var recipe = AllRecipies.FirstOrDefault(recipe => recipe.checkRecipy(CraftingItem1, CraftingItem2,
-            CraftingItem3, CraftingItem4, CraftingAmountItem1,
-            CraftingAmountItem2, CraftingAmountItem3, CraftingAmountItem4));
+        var recipe = AllRecipies.FirstOrDefault(recipe => recipe.checkRecipy(craftingItem1, craftingItem2,
+            craftingItem3, craftingItem4, craftingAmountItem1,
+            craftingAmountItem2, craftingAmountItem3, craftingAmountItem4));
 
-        if (recipe != null) {
-            CraftingSlot1.ClearSlot();
-            CraftingSlot2.ClearSlot();
-            CraftingSlot3.ClearSlot();
-            CraftingSlot4.ClearSlot();
+        if (recipe == null) return;
 
-            Type typ = recipe.CraftedItem.GetType();
+        craftingSlot1.ClearSlot();
+        craftingSlot2.ClearSlot();
+        craftingSlot3.ClearSlot();
+        craftingSlot4.ClearSlot();
 
-            // Prüfen, ob der Typ von ResourceItem abgeleitet ist
-            if (typeof(ResourceItem).IsAssignableFrom(typ)) {
-                object instance = Activator.CreateInstance(typ, recipe.CraftedAmount);
-                if (instance is ResourceItem resourceItem) {
-                    Debug.Log("Falsches Item");
-                    CraftedSlot.FillSlot(resourceItem);
-                }
-            } else {
-                object instance = Activator.CreateInstance(typ);
-                if (instance is Item item) {
-                    Debug.Log("Sollte funktionieren");
-                    CraftedSlot.FillSlot(item);
-                    EventManager.Instance.Trigger(new PlayerItemEvent(item, CraftedSlot));
-                }
-            }
+        var typ = recipe.CraftedItem.GetType();
+
+        // Prüfen, ob der Typ von ResourceItem abgeleitet ist
+        if (typeof(ResourceItem).IsAssignableFrom(typ)) {
+            var instance = Activator.CreateInstance(typ, recipe.CraftedAmount);
+            if (instance is not ResourceItem resourceItem) return;
+
+            Debug.Log("Falsches Item");
+            craftedSlot.FillSlot(resourceItem);
+        } else {
+            var instance = Activator.CreateInstance(typ);
+            if (instance is not Item item) return;
+
+            Debug.Log("Sollte funktionieren");
+            craftedSlot.FillSlot(item);
+            EventManager.Instance.Trigger(new PlayerItemEvent(item, craftedSlot));
+            SoundManager.Instance.PlaySound(SoundEffect.CraftingFinish);
         }
     }
 }

@@ -154,43 +154,43 @@ namespace Player.Inventory {
                 }
             }
 
-            var beforeItem1 = Crafting.Instance.CraftingSlot1.Item;
-            var beforeItem2 = Crafting.Instance.CraftingSlot2.Item;
-            var beforeItem3 = Crafting.Instance.CraftingSlot3.Item;
-            var beforeItem4 = Crafting.Instance.CraftingSlot4.Item;
+            var beforeItem1 = Crafting.Instance.craftingSlot1.Item;
+            var beforeItem2 = Crafting.Instance.craftingSlot2.Item;
+            var beforeItem3 = Crafting.Instance.craftingSlot3.Item;
+            var beforeItem4 = Crafting.Instance.craftingSlot4.Item;
 
             if (item1 is ResourceItem resourceItem1) {
-                Crafting.Instance.CraftingSlot1.SetItem(item1);
+                Crafting.Instance.craftingSlot1.SetItem(item1);
                 resourceItem1.Amount = item1Amount ?? 1;
             } else {
-                Crafting.Instance.CraftingSlot1.SetItem(item1);
+                Crafting.Instance.craftingSlot1.SetItem(item1);
             }
 
             if (item2 is ResourceItem resourceItem2) {
-                Crafting.Instance.CraftingSlot2.SetItem(item2);
+                Crafting.Instance.craftingSlot2.SetItem(item2);
                 resourceItem2.Amount = item2Amount ?? 1;
             } else {
-                Crafting.Instance.CraftingSlot2.SetItem(item2);
+                Crafting.Instance.craftingSlot2.SetItem(item2);
             }
 
             if (item3 is ResourceItem resourceItem3) {
-                Crafting.Instance.CraftingSlot3.SetItem(item3);
+                Crafting.Instance.craftingSlot3.SetItem(item3);
                 resourceItem3.Amount = item3Amount ?? 1;
             } else {
-                Crafting.Instance.CraftingSlot3.SetItem(item3);
+                Crafting.Instance.craftingSlot3.SetItem(item3);
             }
 
             if (item4 is ResourceItem resourceItem4) {
-                Crafting.Instance.CraftingSlot4.SetItem(item4);
+                Crafting.Instance.craftingSlot4.SetItem(item4);
                 resourceItem4.Amount = item4Amount ?? 1;
             } else {
-                Crafting.Instance.CraftingSlot4.SetItem(item4);
+                Crafting.Instance.craftingSlot4.SetItem(item4);
             }
 
-            Crafting.Instance.CraftingSlot1.UpdateDisplay();
-            Crafting.Instance.CraftingSlot2.UpdateDisplay();
-            Crafting.Instance.CraftingSlot3.UpdateDisplay();
-            Crafting.Instance.CraftingSlot4.UpdateDisplay();
+            Crafting.Instance.craftingSlot1.UpdateDisplay();
+            Crafting.Instance.craftingSlot2.UpdateDisplay();
+            Crafting.Instance.craftingSlot3.UpdateDisplay();
+            Crafting.Instance.craftingSlot4.UpdateDisplay();
 
             if (beforeItem1 != null) {
                 ItemManager.Instance.DropItem(beforeItem1, PlayerItem.Instance.transform.position);

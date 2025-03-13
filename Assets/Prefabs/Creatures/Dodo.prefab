@@ -4953,7 +4953,7 @@ MonoBehaviour:
   destroyOnDeath:
   - {fileID: 7828336729510870555}
   runAwayDistance: 10
-  hearts: {fileID: 0}
+  hearts: {fileID: 3095724357077671972}
 --- !u!114 &7307947283167862677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5062,7 +5062,7 @@ Animator:
   m_GameObject: {fileID: 1072564907757770725}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 02d479eaeda50044a800ebd19a4501e7, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8bfc1047ef89cec45ad136b0232133c5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

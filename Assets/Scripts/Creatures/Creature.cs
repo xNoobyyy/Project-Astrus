@@ -7,6 +7,7 @@ using NavMeshPlus.Components;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Serialization;
+using Utils;
 using Utils.WhiteFlash;
 // for Pathfinding etc.
 using Random = UnityEngine.Random;
@@ -191,6 +192,13 @@ namespace Creatures {
                 damageParticles.Play();
             }
 
+            if (type == CreatureType.Zombie) {
+                SoundManager.Instance.PlaySound(SoundEffect.ZombieHit);
+            } else if (type == CreatureType.Golem) {
+                SoundManager.Instance.PlaySound(SoundEffect.Help);
+            } else if (type == CreatureType.Quokka) {
+                SoundManager.Instance.PlaySound(SoundEffect.Quokka);
+            }
             GetComponent<SpriteFlashEffect>().StartWhiteFlash();
             EventManager.Instance.Trigger(new CreatureInteractEvent(this, InteractionType.Attack));
             if (!(Health <= 0)) return true;
@@ -223,6 +231,9 @@ namespace Creatures {
         public abstract void OnAttack(Transform attacker, float damage);
 
         public virtual void Kill() {
+            if (type == CreatureType.Zombie) {
+                SoundManager.Instance.PlaySound(SoundEffect.ZombieDeath);
+            }
             deathParticles.Play();
             spriteRenderer.enabled = false;
             Health = 0;

@@ -62,6 +62,8 @@ namespace Objects {
         public void Chop(int chopPower) {
             if (IsDestroyed) return;
 
+            SoundManager.Instance.PlaySound(SoundEffect.HitTree);
+
             Damage += chopPower;
             damageParticles.Play();
             if (Damage < Health) return;

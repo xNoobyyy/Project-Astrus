@@ -45,7 +45,7 @@ namespace Objects {
 
         public override void SetInteractedAt(long timestamp) {
             StopCoroutine(respawnCoroutine);
-            
+
             OpenedAt = timestamp;
             respawnCoroutine = StartCoroutine(RespawnTimer());
         }
@@ -68,6 +68,7 @@ namespace Objects {
             OpenedAt = DateTimeOffset.Now.ToUnixTimeMilliseconds();
             ItemManager.Instance.DropItem(new Domilitant(1), transform.position);
             ItemManager.Instance.DropItem(new Domilitant(1), transform.position);
+            ItemManager.Instance.DropItem(new Domilitant(1), transform.position);
 
             spriteRenderer.sprite = open;
 
@@ -88,7 +89,7 @@ namespace Objects {
 
         private new void OnValidate() {
             base.OnValidate();
-            
+
             spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = closed;
         }

@@ -56,8 +56,13 @@ namespace Player {
             var to = transform.position;
             EventManager.Instance.Trigger(new PlayerMoveEvent(from, to, transform));
 
-            if (PlayerItem.Instance.InBoat || (Mathf.RoundToInt(from.x) == Mathf.RoundToInt(to.x) &&
-                                               Mathf.RoundToInt(from.y) == Mathf.RoundToInt(to.y))) return;
+            if ((Mathf.RoundToInt(from.x) == Mathf.RoundToInt(to.x) &&
+                 Mathf.RoundToInt(from.y) == Mathf.RoundToInt(to.y))) return;
+
+            if (PlayerItem.Instance.InBoat) {
+                SoundManager.Instance.PlaySound(SoundEffect.Ocean, 0.05f);
+                return;
+            }
 
             SoundEffect soundEffect;
             switch (AreaManager.Instance.LastOrCurrentArea.type) {

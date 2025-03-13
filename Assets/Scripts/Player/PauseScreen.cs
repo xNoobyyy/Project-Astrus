@@ -37,7 +37,7 @@ namespace Player {
             SceneManager.LoadScene("Scenes/Titlescreen");
         }
 
-        private static void SaveToFile(string json) {
+        public static void SaveToFile(string json) {
             var path = Path.Combine(Application.persistentDataPath, "savegame.json");
             File.WriteAllText(path, json);
             Debug.Log($"Saved to: {path}");

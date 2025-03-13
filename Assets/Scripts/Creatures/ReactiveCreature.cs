@@ -2,6 +2,7 @@
 using Logic.Events;
 using TextDisplay;
 using UnityEngine;
+using Utils;
 
 namespace Creatures {
     public class ReactiveCreature : CreatureBase {
@@ -50,6 +51,9 @@ namespace Creatures {
                         !TextDisplayManager.Instance.textDisplay.isDialogueActive) {
                         timeSinceLastAttack = 0;
                         EventManager.Instance.Trigger(new PlayerDamageEvent(attackDamage, transform));
+                        if (type == CreatureType.Quokka) {
+                            SoundManager.Instance.PlaySound(SoundEffect.Quokka);
+                        }
                     } else {
                         timeSinceLastAttack += Time.deltaTime;
                     }
