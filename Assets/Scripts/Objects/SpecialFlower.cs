@@ -14,12 +14,27 @@ namespace Objects {
         private Coroutine respawnCoroutine;
         private SpriteRenderer spriteRenderer;
         private new Collider2D collider;
-        private new ParticleSystem particleSystem;
+        [SerializeField] private new ParticleSystem particleSystem;
 
         private void Awake() {
             spriteRenderer = GetComponent<SpriteRenderer>();
             collider = GetComponent<Collider2D>();
-            particleSystem = GetComponentInChildren<ParticleSystem>();
+        }
+
+        private void OnEnable() {
+            if (!IsDestroyed) return;
+            if (respawnCoroutine != null) {
+                StopCoroutine(respawnCoroutine);
+                respawnCoroutine = null;
+            }
+
+            respawnCoroutine = StartCoroutine(RespawnTimer());
+        }
+
+        private void OnDisable() {
+            if (respawnCoroutine == null) return;
+            StopCoroutine(respawnCoroutine);
+            respawnCoroutine = null;
         }
 
         public override void SetInteractedAt(long timestamp) {

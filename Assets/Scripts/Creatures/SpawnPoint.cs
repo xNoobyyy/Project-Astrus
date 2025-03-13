@@ -7,9 +7,7 @@ using Random = UnityEngine.Random;
 namespace Creatures {
     public class SpawnPoint : MonoBehaviour {
         [SerializeField] private CreatureBase prefab;
-
-        public PolygonCollider2D Area { get; set; }
-
+        
         private CreatureBase currentCreature;
 
         private void OnEnable() {

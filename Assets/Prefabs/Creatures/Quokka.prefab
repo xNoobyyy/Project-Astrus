@@ -4945,7 +4945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  maxHealth: 8
+  maxHealth: 4
   speed: 1
   damageParticles: {fileID: 4953661432376400174}
   deathParticles: {fileID: 4904858497902227260}
