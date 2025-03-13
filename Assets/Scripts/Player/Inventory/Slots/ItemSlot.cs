@@ -1,6 +1,5 @@
 using System;
 using Items;
-using Items.Items;
 using Logic.Events;
 using TMPro;
 using UnityEngine;
@@ -14,11 +13,9 @@ namespace Player.Inventory.Slots {
         private TextMeshProUGUI floatingText;
         private GameObject floatingTextObject;
 
-
         public GameObject itemRenderer;
         public GameObject itemAmountRenderer;
         public TMP_Text itemAmountText;
-
 
         private void Start() {
             var sibling = transform.parent.Find("ItemNameText");

@@ -1,10 +1,9 @@
-﻿using System;
-using Items;
+﻿using Items;
 using Logic.Events;
 using Player.Inventory.Slots;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Utils;
 
 namespace Player.Inventory {
     public class RecipeButton : MonoBehaviour {

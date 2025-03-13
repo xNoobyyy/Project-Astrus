@@ -1,9 +1,4 @@
-using System;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.UI;
 using WatchAda.Quests;
 
 public class Canvas2 : MonoBehaviour {

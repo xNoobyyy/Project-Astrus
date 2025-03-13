@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 namespace Creatures {
     public class SpawnPoint : MonoBehaviour {
         [SerializeField] private CreatureBase prefab;
-        
+
         private CreatureBase currentCreature;
 
         private void OnEnable() {
@@ -35,6 +35,7 @@ namespace Creatures {
             Spawn();
         }
 
+#if UNITY_EDITOR
         private void OnDrawGizmos() {
             Gizmos.color = Color.white;
             Gizmos.DrawSphere(transform.position, 0.2f);
@@ -52,5 +53,6 @@ namespace Creatures {
                 }
             );
         }
+#endif
     }
 }

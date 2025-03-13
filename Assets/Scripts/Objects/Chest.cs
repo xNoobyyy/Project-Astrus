@@ -88,7 +88,9 @@ namespace Objects {
         }
 
         private new void OnValidate() {
+#if UNITY_EDITOR
             base.OnValidate();
+#endif
 
             spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = closed;

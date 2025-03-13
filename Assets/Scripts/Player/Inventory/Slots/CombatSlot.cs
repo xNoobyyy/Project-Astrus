@@ -1,26 +1,19 @@
-using System;
 using Items;
-using Items.Items;
-using Items.Items.CombatItems;
-using Player.Inventory.Slots;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
-namespace Player.Inventory {
+namespace Player.Inventory.Slots {
     public class CombatSlot : ItemSlot, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler {
+        public GameObject panel;
+        
         /// <summary>
         /// Setzt das Item in diesem Slot. Akzeptiert nur null oder Items vom Typ PickaxeItem.
         /// Wird ein anderes Item übergeben, wird es ignoriert.
         /// </summary>
         /// <param name="item">Das zu setzende Item</param>
-        public GameObject panel;
-
         public new void SetItem(Item item) {
             // Falls das Item nicht null ist und kein PickaxeItem, wird es abgelehnt.
-            if (item != null && !(item is CombatItem)) {
+            if (item != null && item is not CombatItem) {
                 panel.SetActive(true);
                 return;
             }
