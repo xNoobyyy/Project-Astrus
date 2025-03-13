@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using Player;
-using UnityEditor.Animations;
 using UnityEngine;
 using Tree = Objects.Tree;
 

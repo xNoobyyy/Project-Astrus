@@ -1,8 +1,8 @@
 #if UNITY_EDITOR
-using Prefabs.Ruletiles;
+using UnityEditor;
 using UnityEngine;
 
-namespace UnityEditor {
+namespace Prefabs.Ruletiles {
     [CustomEditor(typeof(FriendlyRuleTile))]
     [CanEditMultipleObjects]
     public class AdvancedRuleTileEditor : RuleTileEditor {
