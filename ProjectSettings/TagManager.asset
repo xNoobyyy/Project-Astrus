@@ -11,6 +11,7 @@ TagManager:
   - QuestLogic
   - Textdisplay
   - Placeable
+  - Spaceship
   layers:
   - Default
   - TransparentFX

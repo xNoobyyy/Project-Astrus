@@ -24,6 +24,8 @@ namespace Utils {
         [SerializeField] private QuestLogic questLogic;
         [SerializeField] private GameObject boatPrefab;
         [SerializeField] private CircularPhotoPanel circularPhotoPanel;
+        [SerializeField] private MapManager mapManager;
+        [SerializeField] private PlayerItem playerItem;
 
         private void Awake() {
             if (Instance != null) {
@@ -100,6 +102,10 @@ namespace Utils {
 
             var advancedRecipies = circularPhotoPanel.plateuGefunden;
 
+            var visited = mapManager.visited;
+
+            var finished = playerItem.Finished;
+
             var saveData = new SaveData {
                 items = items,
                 PlayerPosition = playerPosition,
@@ -112,7 +118,9 @@ namespace Utils {
                 DialogueDiedFromZombie = dialogueDiedFromZombie,
                 DialogueDrStorm = dialogueDrStorm,
                 boatPositions = boatPositions,
-                AdvancedRecipies = advancedRecipies
+                AdvancedRecipies = advancedRecipies,
+                Visited = visited,
+                Finished = finished
             };
 
             return saveData;
@@ -192,6 +200,12 @@ namespace Utils {
             }
 
             if (saveData.AdvancedRecipies.HasValue) circularPhotoPanel.plateuGefunden = saveData.AdvancedRecipies.Value;
+
+            if (saveData.Visited is { Length: > 0 }) {
+                mapManager.visited = saveData.Visited;
+            }
+
+            if (saveData.Finished.HasValue) playerItem.Finish();
         }
     }
 
@@ -209,6 +223,8 @@ namespace Utils {
         public bool? DialogueDrStorm;
         public Vector2[] boatPositions;
         public bool? AdvancedRecipies;
+        public bool[,] Visited;
+        public bool? Finished;
     }
 
     [Serializable]

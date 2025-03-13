@@ -113,7 +113,6 @@ public class MapManager : MonoBehaviour
             {
                 if (!mapManager.visited[i, j])
                 {
-                    Debug.Log("false");
                     Vector2 squareCenter = new Vector2(i * coverWidth + coverWidth / 2f, j * coverHeight + coverHeight / 2f);
                     if (Vector2.Distance(squareCenter, gridCenter) <= radius) {
 

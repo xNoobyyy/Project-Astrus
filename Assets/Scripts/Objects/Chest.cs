@@ -2,6 +2,7 @@
 using System.Collections;
 using Items;
 using Items.Items;
+using Player;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -13,6 +14,8 @@ namespace Objects {
         [SerializeField] private Sprite open;
         [SerializeField] public Collider2D trigger;
         [SerializeField] private new Light2D light;
+        [SerializeField] private bool big;
+        [SerializeField] private Canvas cityMapCanvas;
 
         private SpriteRenderer spriteRenderer;
         private Coroutine respawnCoroutine;
@@ -73,6 +76,16 @@ namespace Objects {
             spriteRenderer.sprite = open;
 
             StartCoroutine(RespawnTimer());
+
+            if (!big) return;
+            cityMapCanvas.gameObject.SetActive(true);
+            Time.timeScale = 0f;
+            StartCoroutine(CloseMap());
+        }
+
+        private IEnumerator CloseMap() {
+            yield return new WaitForSeconds(5);
+            cityMapCanvas.GetComponentInChildren<CityMapImage>().CloseCityMap();
         }
 
         public void Respawn() {

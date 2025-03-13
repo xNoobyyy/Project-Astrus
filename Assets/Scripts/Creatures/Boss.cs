@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Logic.Events;
 using UnityEngine;
+using Utils;
 using Random = UnityEngine.Random;
 
 namespace Creatures {
@@ -11,6 +12,7 @@ namespace Creatures {
         [SerializeField] public Transform playerSpawn;
         [SerializeField] private GameObject zombiePrefab;
         [SerializeField] private BoxCollider2D area;
+        [SerializeField] private AudioClip bossSound;
         
         public bool Entered { get; set; }
 
@@ -34,6 +36,7 @@ namespace Creatures {
         }
 
         public void Start() {
+            AudioManager.Instance.PlayMusic(bossSound);
             for (var i = 0; i < 10; i++) StartCoroutine(SpawnZombieAfterDelay(i));
         }
 

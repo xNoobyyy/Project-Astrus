@@ -69,6 +69,10 @@ PrefabInstance:
       value: 0.18867922
       objectReference: {fileID: 0}
     - target: {fileID: 5959120837184597136, guid: 680d2cd3c2005c848a0acd475f2b12f0, type: 3}
+      propertyPath: uuid
+      value: 0127c727-8f6d-43a4-a5fc-7aeecef765ca
+      objectReference: {fileID: 0}
+    - target: {fileID: 5959120837184597136, guid: 680d2cd3c2005c848a0acd475f2b12f0, type: 3}
       propertyPath: requiredPickPower
       value: 1
       objectReference: {fileID: 0}

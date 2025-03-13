@@ -64,6 +64,14 @@ namespace Creatures {
 
         private void Update() {
             if (!isChasing || chaseTarget == null) return;
+            if (PlayerItem.Instance.Invisible) {
+                isChasing = false;
+                chaseTarget = null;
+                Animator.SetBool(Running, false);
+                Agent.ResetPath();
+                StartIdle();
+                return;
+            }
 
             Agent.SetDestination(chaseTarget.position);
 

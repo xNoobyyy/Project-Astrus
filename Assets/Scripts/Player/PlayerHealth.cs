@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Items;
 using Logic.Events;
+using Player.Inventory;
+using Player.Inventory.Slots;
 using TextDisplay;
 using UnityEngine;
 using UnityEngine.UI;
@@ -62,6 +66,9 @@ public class PlayerHealth : MonoBehaviour {
     }
 
     public void TakeDamage(int damage) {
+        var armor = (ArmorItem)PlayerInventory.Instance.Slots.FirstOrDefault(slot => slot is ArmorSlot)?.Item;
+        damage /= (armor?.Lvl ?? 1);
+
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         if (healthSlider != null) {

@@ -19,20 +19,20 @@ namespace Items {
             if (PlayerItem.Instance.IsAttacking) return;
             if (TextDisplayManager.Instance.textDisplay.isDialogueActive) return;
 
-            var zCoord = PlayerItem.Instance.mainCamera.WorldToScreenPoint(PlayerItem.Instance.transform.position).z;
+            var zCoord = PlayerItem.Instance.MainCamera.WorldToScreenPoint(PlayerItem.Instance.transform.position).z;
             var mousePosition = Input.mousePosition;
             mousePosition.z = zCoord;
 
-            var pos = PlayerItem.Instance.mainCamera.ScreenToWorldPoint(mousePosition);
+            var pos = PlayerItem.Instance.MainCamera.ScreenToWorldPoint(mousePosition);
 
             var v = (pos - PlayerItem.Instance.transform.position).normalized;
-            PlayerItem.Instance.attackDirection = v;
+            PlayerItem.Instance.AttackDirection = v;
             var angle = -Vector2.SignedAngle(Vector2.up, v);
             if (angle < 0) angle += 360f;
 
             // Set the attack direction for the animator
             var direction = angle switch { >= 315f or < 45f => 1, < 135f => 2, < 225f => 3, _ => 4 };
-            PlayerItem.Instance.animator.SetInteger(AttackDirection, direction);
+            PlayerItem.Instance.Animator.SetInteger(AttackDirection, direction);
             PlayerItem.Instance.IsAttacking = true;
 
             // Rotate the attack collider

@@ -56,7 +56,7 @@ namespace Objects.Placeables {
             InBoat = true;
             var originalPosition = transform.position;
 
-            PlayerItem.Instance.animator.SetBool(InBoatHash, true);
+            PlayerItem.Instance.Animator.SetBool(InBoatHash, true);
             PlayerMovement.Instance.GetComponent<Rigidbody2D>().linearDamping = 1f;
             PlayerMovement.Instance.speed = 5f;
 
@@ -73,7 +73,7 @@ namespace Objects.Placeables {
             InBoat = false;
             var originalPosition = transform.position;
 
-            PlayerItem.Instance.animator.SetBool(InBoatHash, false);
+            PlayerItem.Instance.Animator.SetBool(InBoatHash, false);
             PlayerMovement.Instance.GetComponent<Rigidbody2D>().linearDamping = 5f;
             PlayerMovement.Instance.speed = 3f;
 

@@ -16,6 +16,8 @@ namespace Logic {
         public bool watchOpen;
         public bool iconOpened;
         public Canvas computerScreen;
+        public Canvas swampMap;
+        public Canvas cityMap;
 
         private void Awake() {
             if (Instance == null) {
@@ -43,6 +45,9 @@ namespace Logic {
             }
             
             if (computerScreen.gameObject.activeSelf) return;
+            if (swampMap.gameObject.activeSelf) return;
+            if (cityMap.gameObject.activeSelf) return;
+            
             if (TextDisplayManager.Instance.textDisplay.isDialogueActive) return;
 
             if (Input.GetKeyDown(KeyCode.E) && !watchOpen) {

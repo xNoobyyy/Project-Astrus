@@ -204,7 +204,6 @@ public class Crafting : MonoBehaviour {
         // Feuerbogen: 1 Bogen + 1 Feuerstein = Feuerbogen
         FireBowRecipy = new Recipies(StoneBow, Firestone, null, null, 1, 1, 0, 0, FireBow, 1, false);
 
-        Debug.Log(StoneAxeRecipy);
         AllRecipies.Add(StoneAxeRecipy);
         AllRecipies.Add(IronAxeRecipy);
         AllRecipies.Add(StonePickaxeRecipy);

@@ -5,19 +5,22 @@ using System.Linq;
 using Creatures;
 using Items;
 using Items.Items;
+using Items.Items.ArmorItems;
 using Logic;
 using Logic.Events;
 using Objects;
 using Objects.Placeables;
 using Player.Inventory;
+using Player.Inventory.Slots;
 using TextDisplay;
 using UnityEngine;
 using Utils;
+using WatchAda.Quests;
 using Tree = Objects.Tree;
 
 namespace Player {
     public class PlayerItem : MonoBehaviour {
-        private static readonly int AttackDirection = Animator.StringToHash("attack_direction");
+        private static readonly int AttackDirectionAnimator = Animator.StringToHash("attack_direction");
 
         public static PlayerItem Instance { get; private set; }
 
@@ -37,21 +40,33 @@ namespace Player {
         [SerializeField] private Collider2D computerCollider;
         [SerializeField] private Canvas computerScreen;
 
-        [NonSerialized] public Camera mainCamera;
-        [NonSerialized] public Animator animator;
+        [SerializeField] private Canvas swampMap;
+        [SerializeField] private Canvas cityMap;
+
+        [SerializeField] private SpriteRenderer spaceshipRenderer;
+        [SerializeField] private Sprite fullSpaceship;
+
+        [SerializeField] private Collider2D lakesCollider;
+
+        [NonSerialized] public Camera MainCamera;
+        [NonSerialized] public Animator Animator;
 
         private Rigidbody2D rb;
+        private SpriteRenderer spriteRenderer;
 
         public bool InBoat { get; set; }
 
-        public bool Invisible { get; set; }
+        public bool Invisible { get; private set; }
+        private Coroutine invisibleCoroutine;
 
         public bool IsAttacking { get; set; }
-        [NonSerialized] public Vector2 attackDirection;
+        [NonSerialized] public Vector2 AttackDirection;
 
         public bool IsChopping { get; private set; }
 
         public bool IsBusy => IsAttacking || IsChopping;
+
+        public bool Finished { get; set; }
 
         private void Awake() {
             if (Instance == null) {
@@ -63,19 +78,30 @@ namespace Player {
 
             IsAttacking = false;
 
-            mainCamera = Camera.main;
-            animator = GetComponent<Animator>();
+            MainCamera = Camera.main;
+            Animator = GetComponent<Animator>();
             rb = GetComponent<Rigidbody2D>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         private void OnEnable() {
             EventManager.Instance.Subscribe<PlayerChangeHeldItemEvent>(OnPlayerChangeHeldItem);
             EventManager.Instance.Subscribe<PlayerMoveEvent>(OnPlayerMove);
+            EventManager.Instance.Subscribe<PlayerMoveItemEvent>(OnMoveItemEvent);
         }
 
         private void OnDisable() {
             EventManager.Instance.Unsubscribe<PlayerChangeHeldItemEvent>(OnPlayerChangeHeldItem);
             EventManager.Instance.Unsubscribe<PlayerMoveEvent>(OnPlayerMove);
+            EventManager.Instance.Unsubscribe<PlayerMoveItemEvent>(OnMoveItemEvent);
+        }
+
+        private void OnMoveItemEvent(PlayerMoveItemEvent e) {
+            if (e.Item is ExtricArmor && e.Slot is ArmorSlot) {
+                lakesCollider.isTrigger = true;
+            } else {
+                if (lakesCollider.isTrigger) lakesCollider.isTrigger = false;
+            }
         }
 
         private void OnPlayerMove(PlayerMoveEvent e) {
@@ -102,12 +128,14 @@ namespace Player {
             if (TextDisplayManager.Instance.textDisplay.isDialogueActive) return;
             if (LogicScript.Instance.watchOpen) return;
             if (computerScreen.gameObject.activeSelf) return;
+            if (swampMap.gameObject.activeSelf) return;
+            if (cityMap.gameObject.activeSelf) return;
 
-            var zCoord = mainCamera.WorldToScreenPoint(transform.position).z;
+            var zCoord = MainCamera.WorldToScreenPoint(transform.position).z;
             var mousePosition = Input.mousePosition;
             mousePosition.z = zCoord;
 
-            var worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);
+            var worldPosition = MainCamera.ScreenToWorldPoint(mousePosition);
 
             if (CheckBoat(worldPosition)) return;
             if (CheckVine(worldPosition)) return;
@@ -157,8 +185,15 @@ namespace Player {
                     .Select(c => c.GetComponent<CreatureBase>() ?? c.GetComponentInParent<CreatureBase>())
                     .ToArray();
 
+                var spaceship = colliders
+                    .FirstOrDefault(c => c.CompareTag("Spaceship"));
+
                 var computer = colliders
                     .FirstOrDefault(c => c == computerCollider);
+
+                if (spaceship != null && PlayerInventory.Instance.Slots.Any(slot => slot.Item is Astrus)) {
+                    Finish();
+                }
 
                 if (computer != null &&
                     Vector2.Distance(computer.ClosestPoint(transform.position), transform.position) <= 5f) {
@@ -205,6 +240,29 @@ namespace Player {
 
                 currentItem?.OnUse(transform, worldPosition, ClickType.Right);
             }
+        }
+
+        public void Finish() {
+            Finished = true;
+            spaceshipRenderer.sprite = fullSpaceship;
+            QuestLogic.Instance.reparierenQuest.CompleteQuest();
+            QuestLogic.Instance.nachHauseQuest.CompleteQuest();
+        }
+
+        public void MakeInvisible() {
+            if (invisibleCoroutine != null) StopCoroutine(invisibleCoroutine);
+
+            Invisible = true;
+            spriteRenderer.color = Color.white.WithAlpha(0.5f);
+            invisibleCoroutine = StartCoroutine(InvisibleTimer());
+        }
+
+        private IEnumerator InvisibleTimer() {
+            yield return new WaitForSeconds(60f);
+            spriteRenderer.color = Color.white;
+            Invisible = false;
+
+            invisibleCoroutine = null;
         }
 
         private bool CheckBoat(Vector2 worldPosition) {
@@ -356,7 +414,7 @@ namespace Player {
         }
 
         private void Attack() {
-            rb.AddForce(-attackDirection.normalized * 3f, ForceMode2D.Impulse);
+            rb.AddForce(-AttackDirection.normalized * 3f, ForceMode2D.Impulse);
 
             var colliders = new List<Collider2D>();
             Physics2D.OverlapCollider(attackCollider, new ContactFilter2D().NoFilter(), colliders);
@@ -364,9 +422,9 @@ namespace Player {
         }
 
         private void AttackFinished() {
-            animator.SetInteger(AttackDirection, 0);
+            Animator.SetInteger(AttackDirectionAnimator, 0);
             IsAttacking = false;
-            attackDirection = Vector2.zero;
+            AttackDirection = Vector2.zero;
         }
 
         private void OnPlayerChangeHeldItem(PlayerChangeHeldItemEvent e) {

@@ -5163,11 +5163,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc89d4a3612143eface33035b2c2316c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uuid: 47490c54-e6d0-4b76-8244-665995717773
   trigger: {fileID: 8724654356456643645}
   damageParticles: {fileID: 5555790791487967409}
   type: 0
-  disableOnDestroy:
-  - {fileID: 0}
+  requiredPickPower: 0
 --- !u!60 &9064181669921198406
 PolygonCollider2D:
   m_ObjectHideFlags: 0
