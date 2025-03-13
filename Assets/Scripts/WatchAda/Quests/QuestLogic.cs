@@ -285,7 +285,7 @@ namespace WatchAda.Quests {
             fakelQuest = new Quest("id_hoehle_fackel", "Fackel", "Baue eine Fackel.", false, 1, 28);
             fakelQuest.AddCondition(new ItemCondition(typeof(Torch)));
 
-            stormQuest = new Quest("id_hoehle_storm", "Person?", "???", false, 1, 48); //?
+            stormQuest = new Quest("id_hoehle_storm", "Person?", "???", false, 1, 29); //?
 
             erzQuest = new Quest("id_hoehle_erz", "Erz", "Baue unbekanntes Erz ab.", false, 1, 49);
             erzQuest.AddCondition(new ItemCondition(typeof(Glomtom)));

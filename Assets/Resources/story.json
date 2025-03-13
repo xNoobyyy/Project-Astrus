@@ -177,7 +177,7 @@
     },
     {
       "id": 32,
-      "text": "[Das ist doch ein toller Zufall, vielleicht kannst du mir ja helfen!][Ich bin mir nicht ganz sicher, ob das ein Grund zur Freude ist...]",
+      "text": "Ich bin mir nicht ganz sicher, ob das ein Grund zur Freude ist...",
       "weiter": true,
       "start": false,
       "person": 0
@@ -233,7 +233,7 @@
     },
     {
       "id": 40,
-      "text": "[Tja, eigentlich habe ich eh nichts mehr zu verlieren.][Nein, habe ich eigentlich nicht.]",
+      "text": "Tja, eigentlich habe ich eh nichts mehr zu verlieren.",
       "weiter": true,
       "start": false,
       "person": 0
@@ -283,22 +283,22 @@
     {
       "id": 47,
       "text": "Ich muss auch los… Melde dich, falls du doch ein Brownie-Rezept in der Farm findest, hihi.",
-      "weiter": false,
+      "weiter": true,
       "start": false,
       "person": 2
     },
     {
       "id": 48,
       "text": "Was für ein interessantes Gespräch! Guck mal {playerName}, dort hinten glitzert etwas.",
-      "weiter": false,
-      "start": true,
+      "weiter": true,
+      "start": false,
       "person": 1
     },
     {
       "id": 49,
       "text": "Oh, das ist Glomtom. Eins der seltenen Erze hier. Öffne meine Rezepte und Crafte neue Werkzeuge.",
       "weiter": false,
-      "start": true,
+      "start": false,
       "person": 1
     },
     {
@@ -324,7 +324,7 @@
     },
     {
       "id": 53,
-      "text": "[Ich sehe jetzt das Plateau.][Juhu, ich bin da!]",
+      "text": "Juhu, ich bin da!",
       "weiter": true,
       "start": true,
       "person": 0
@@ -527,7 +527,7 @@
     },
     {
       "id": 86,
-      "text": "[Dr. Storm?! Sie kontrollieren dies Alles??? Sie kamen mir von Anfang an verdächtig vor!][Oh mein Gott, Dr.Storm??!! Ich dachte sie wären auf meiner Seite!]",
+      "text": "Dr. Storm?! Sie kontrollieren dies Alles??? Sie kamen mir von Anfang an verdächtig vor!",
       "weiter": true,
       "start": true,
       "person": 0
