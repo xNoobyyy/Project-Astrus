@@ -428,6 +428,18 @@ namespace Player {
         }
 
         private void OnPlayerChangeHeldItem(PlayerChangeHeldItemEvent e) {
+            if (e.Item is Torch or Fire) {
+                if (Mathf.Approximately(AreaManager.Instance.caveVolume.weight, 1)) {
+                    AreaManager.Instance.FadeVolumeTo(AreaManager.Instance.caveVolume, 0.5f, 2f);
+                }
+            }
+
+            if (e.Item is not Torch && e.Item is not Fire) {
+                if (Mathf.Approximately(AreaManager.Instance.caveVolume.weight, 0.5f)) {
+                    AreaManager.Instance.FadeVolumeTo(AreaManager.Instance.caveVolume, 1f, 2f);
+                }
+            }
+
             if (e.Item is not BowItem bowItem) {
                 if (bowContainer.gameObject.activeSelf && !e.Shift) bowContainer.gameObject.SetActive(false);
                 if (bowContainerShift.gameObject.activeSelf && e.Shift) bowContainerShift.gameObject.SetActive(false);

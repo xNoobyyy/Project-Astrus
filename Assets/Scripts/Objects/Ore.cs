@@ -75,10 +75,10 @@ namespace Objects {
 
             switch (type) {
                 case OreType.Stone:
-                    ItemManager.Instance.DropItem(new Stone(UnityEngine.Random.Range(1, 4)), transform.position);
+                    ItemManager.Instance.DropItem(new Stone(UnityEngine.Random.Range(3, 6)), transform.position);
                     break;
                 case OreType.Iron:
-                    ItemManager.Instance.DropItem(new Iron(UnityEngine.Random.Range(1, 3)), transform.position);
+                    ItemManager.Instance.DropItem(new Iron(UnityEngine.Random.Range(2, 4)), transform.position);
                     break;
                 case OreType.Glomtom:
                     ItemManager.Instance.DropItem(new Glomtom(), transform.position);

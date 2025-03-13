@@ -88,6 +88,8 @@ namespace Creatures {
 
             homePosition = Vector2Int.RoundToInt(transform.position);
             wanderPoints = GetRandomWanderPointsFromArea();
+
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
         protected void OnEnable() {
@@ -180,6 +182,12 @@ namespace Creatures {
             Animator.SetInteger(Direction, GetAnimDirection(moveDirection));
         }
 
+        private void Update() {
+            if (type == CreatureType.Quokka) {
+                Debug.Log(transform.position + " / " + transform.rotation.eulerAngles);
+            }
+        }
+
         // Processes common damage logic (subtract health, apply knockback, flash, damage particles).
         // Returns false if the creature dies.
         protected bool HandleDamage(Transform attacker, float damage) {
@@ -199,6 +207,7 @@ namespace Creatures {
             } else if (type == CreatureType.Quokka) {
                 SoundManager.Instance.PlaySound(SoundEffect.Quokka);
             }
+
             GetComponent<SpriteFlashEffect>().StartWhiteFlash();
             EventManager.Instance.Trigger(new CreatureInteractEvent(this, InteractionType.Attack));
             if (!(Health <= 0)) return true;
@@ -234,6 +243,7 @@ namespace Creatures {
             if (type == CreatureType.Zombie) {
                 SoundManager.Instance.PlaySound(SoundEffect.ZombieDeath);
             }
+
             deathParticles.Play();
             spriteRenderer.enabled = false;
             Health = 0;

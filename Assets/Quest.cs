@@ -94,6 +94,8 @@ public class Quest {
     /// Markiert die Quest als abgeschlossen und ruft das Abschluss-Event auf.
     /// </summary>
     public void CompleteQuest() {
+        if (isCompleted) return;
+        
         foreach (var condition in Conditions.Keys.ToList()) {
             Conditions[condition] = true;
         }

@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Items;
+using Items.Items;
 using Logic.Events;
 using UnityEngine;
 using Utils;
+using Utils.WhiteFlash;
 using Random = UnityEngine.Random;
 
 namespace Creatures {
@@ -13,7 +16,7 @@ namespace Creatures {
         [SerializeField] private GameObject zombiePrefab;
         [SerializeField] private BoxCollider2D area;
         [SerializeField] private AudioClip bossSound;
-        
+
         public bool Entered { get; set; }
 
         private SpriteRenderer spriteRenderer;
@@ -92,6 +95,7 @@ namespace Creatures {
 
         public void OnAttack(Transform attacker, float damage) {
             health -= damage;
+            GetComponent<SpriteFlashEffect>().StartWhiteFlash();
 
             if (health > 0) return;
             Kill();
@@ -99,6 +103,9 @@ namespace Creatures {
 
         private void Kill() {
             spriteRenderer.enabled = false;
+            for (var i = 0; i < 50; i++) {
+                ItemManager.Instance.DropItem(new Astrus(), transform.position);
+            }
 
             foreach (var zombie in zombies) zombie.Kill();
         }

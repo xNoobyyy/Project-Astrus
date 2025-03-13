@@ -25,9 +25,10 @@ namespace Player.Inventory {
             var dropPosition = playerPosition + direction * (DroppedItemAttractor.AttractionRadius + 0.1f);
 
             ItemManager.Instance.CreateDroppedItem(
-                dropPosition,
                 playerPosition,
-                InventoryScreen.Instance.DraggingFrom.Item
+                playerPosition,
+                InventoryScreen.Instance.DraggingFrom.Item,
+                dropPosition
             );
 
             var draggingItemSlot = Array.IndexOf(

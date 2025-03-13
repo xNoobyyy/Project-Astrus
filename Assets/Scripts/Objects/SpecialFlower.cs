@@ -2,6 +2,7 @@
 using System.Collections;
 using Items;
 using UnityEngine;
+using Utils;
 
 namespace Objects {
     public class SpecialFlower : IdentificatedInteractable {
@@ -55,6 +56,22 @@ namespace Objects {
             Respawn();
         }
 
+        public void Destroy() {
+            if (IsDestroyed) return;
+            if (respawnCoroutine != null) {
+                StopCoroutine(respawnCoroutine);
+                respawnCoroutine = null;
+            }
+
+            DestroyedAt = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+            spriteRenderer.color = Color.white.WithAlpha(0f);
+            particleSystem.gameObject.SetActive(false);
+            collider.enabled = false;
+
+            ItemManager.Instance.DropItem(new Items.Items.SpecialFlower(), transform.position);
+            respawnCoroutine = StartCoroutine(RespawnTimer());
+        }
+
         public void Respawn() {
             if (respawnCoroutine != null) {
                 StopCoroutine(respawnCoroutine);
@@ -69,15 +86,10 @@ namespace Objects {
             collider.enabled = true;
         }
 
-        private void OnCollisionEnter2D(Collision2D other) {
-            if (other.gameObject.CompareTag("Player") && !IsDestroyed) {
-                SetInteractedAt(DateTimeOffset.Now.ToUnixTimeMilliseconds());
-                spriteRenderer.color = Color.clear;
-                collider.enabled = false;
-                particleSystem.gameObject.SetActive(false);
+        private void OnTriggerEnter2D(Collider2D other) {
+            if (!other.CompareTag("Player") || IsDestroyed) return;
 
-                ItemManager.Instance.DropItem(new Items.Items.SpecialFlower(1), transform.position);
-            }
+            Destroy();
         }
     }
 }
