@@ -50,9 +50,11 @@ namespace Objects {
         }
 
         public override void SetInteractedAt(long timestamp) {
-            StopCoroutine(respawnCoroutine);
+            if (respawnCoroutine != null && isActiveAndEnabled) StopCoroutine(respawnCoroutine);
 
             DestroyedAt = timestamp;
+            
+            if (!isActiveAndEnabled) return;
             respawnCoroutine = StartCoroutine(RespawnTimer());
         }
 

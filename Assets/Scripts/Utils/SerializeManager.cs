@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Items;
@@ -10,6 +11,8 @@ using Player;
 using Player.Inventory;
 using TextDisplay;
 using UnityEngine;
+using UnityEngine.Serialization;
+using Utils.Caves;
 using WatchAda.Quests;
 
 namespace Utils {
@@ -26,6 +29,7 @@ namespace Utils {
         [SerializeField] private CircularPhotoPanel circularPhotoPanel;
         [SerializeField] private MapManager mapManager;
         [SerializeField] private PlayerItem playerItem;
+        [SerializeField] private CaveManager caveManager;
 
         private void Awake() {
             if (Instance != null) {
@@ -84,12 +88,16 @@ namespace Utils {
 
             var identifiedInteractables =
                 FindObjectsByType<IdentificatedInteractable>(FindObjectsInactive.Include, FindObjectsSortMode.None)
-                    .Where(ii => ii.InteractedAt != -1).Select(ii => (UUID: ii.Uuid, ii.InteractedAt)).ToArray();
+                    .Where(ii => ii.InteractedAt != -1).Select(ii => new IdentificatedInteractableState {
+                        uuid = ii.Uuid,
+                        interactedAt = ii.InteractedAt
+                    }).ToArray();
 
             var currentHealth = playerHealth.currentHealth;
 
             var questProgresses = questLogic.questGroups.SelectMany(qg => qg.subQuests)
-                .Select(q => (q.id, q.currentProgress)).ToArray();
+                .Select(q => new QuestState { id = q.id, progress = q.currentProgress })
+                .ToArray();
 
             var dialogueOpenedRecipies = TextDisplayManager.Instance.openedRecipies;
 
@@ -106,28 +114,31 @@ namespace Utils {
 
             var finished = playerItem.Finished;
 
+            var inCave = caveManager.IsCave;
+
             var saveData = new SaveData {
                 items = items,
-                PlayerPosition = playerPosition,
-                ReachedPlateau = reachedPlateau,
+                playerPosition = playerPosition,
+                reachedPlateau = reachedPlateau,
                 vinePositions = vinePositions,
-                IdentificatedInteractables = identifiedInteractables,
-                PlayerHealth = currentHealth,
-                QuestProgresses = questProgresses,
-                DialogueOpenedRecipies = dialogueOpenedRecipies,
-                DialogueDiedFromZombie = dialogueDiedFromZombie,
-                DialogueDrStorm = dialogueDrStorm,
+                identificatedInteractables = identifiedInteractables,
+                playerHealth = currentHealth,
+                questProgresses = questProgresses,
+                dialogueOpenedRecipies = dialogueOpenedRecipies,
+                dialogueDiedFromZombie = dialogueDiedFromZombie,
+                dialogueDrStorm = dialogueDrStorm,
                 boatPositions = boatPositions,
-                AdvancedRecipies = advancedRecipies,
+                advancedRecipies = advancedRecipies,
                 Visited = visited,
-                Finished = finished
+                finished = finished,
+                inCave = inCave
             };
 
             return saveData;
         }
 
         public void Load(SaveData saveData) {
-            if (saveData.items is { Length: 0 }) {
+            if (saveData.items is { Length: > 0 }) {
                 for (var i = 0; i < saveData.items.Length; i++) {
                     var saveItem = saveData.items[i];
                     if (saveItem == null || saveItem.id == "") continue;
@@ -141,9 +152,10 @@ namespace Utils {
                 }
             }
 
-            if (saveData.PlayerPosition.HasValue) player.position = saveData.PlayerPosition.Value;
+            if (saveData.playerPosition != Vector2.zero)
+                player.position = saveData.playerPosition;
 
-            if (saveData.ReachedPlateau.HasValue) playerHealth.plateau = saveData.ReachedPlateau.Value;
+            if (saveData.reachedPlateau) playerHealth.plateau = saveData.reachedPlateau;
 
             if (saveData.vinePositions is { Length: > 0 }) {
                 foreach (Transform vine in vineContainer.transform) {
@@ -155,37 +167,38 @@ namespace Utils {
                 }
             }
 
-            if (saveData.IdentificatedInteractables is { Length: > 0 }) {
+            if (saveData.identificatedInteractables is { Length: > 0 }) {
                 var interactables = FindObjectsByType<IdentificatedInteractable>(FindObjectsInactive.Include,
                     FindObjectsSortMode.None);
-                foreach (var (uuid, interactedAt) in saveData.IdentificatedInteractables) {
-                    var interactable = interactables.FirstOrDefault(ii => ii.Uuid == uuid);
+                foreach (var state in saveData.identificatedInteractables) {
+                    var interactable = interactables.FirstOrDefault(ii => ii.Uuid == state.uuid);
                     if (interactable == null) continue;
 
-                    interactable.SetInteractedAt(interactedAt);
+                    interactable.SetInteractedAt(state.interactedAt);
                 }
             }
 
-            if (saveData.PlayerHealth.HasValue) playerHealth.currentHealth = saveData.PlayerHealth.Value;
+            if (saveData.playerHealth != 0) playerHealth.currentHealth = saveData.playerHealth;
 
-            if (saveData.QuestProgresses is { Length: > 0 }) {
-                foreach (var (id, progress) in saveData.QuestProgresses) {
-                    questLogic.questGroups.SelectMany(qg => qg.subQuests).FirstOrDefault(q => q.id == id)
-                        ?.UpdateProgress(progress);
-                    questLogic.UpdateSideQuests();
-                    questLogic.UpdateMainQuest();
+            if (saveData.questProgresses is { Length: > 0 }) {
+                foreach (var qp in saveData.questProgresses) {
+                    var quest = questLogic.questGroups.SelectMany(qg => qg.subQuests)
+                        .FirstOrDefault(q => q.id == qp.id);
+                    Debug.Log($"Setting quest progress for {quest} to {qp.progress}");
+                    if (quest != null) quest.UpdateProgress(qp.progress, false);
+                    else Debug.LogError($"Quest {qp.id} not found");
                 }
             }
 
-            if (saveData.DialogueOpenedRecipies.HasValue)
-                TextDisplayManager.Instance.openedRecipies = saveData.DialogueOpenedRecipies.Value;
+            if (saveData.dialogueOpenedRecipies)
+                TextDisplayManager.Instance.openedRecipies = saveData.dialogueOpenedRecipies;
 
-            if (saveData.DialogueDiedFromZombie.HasValue)
-                TextDisplayManager.Instance.diedFromZombie = saveData.DialogueDiedFromZombie.Value;
+            if (saveData.dialogueDiedFromZombie)
+                TextDisplayManager.Instance.diedFromZombie = saveData.dialogueDiedFromZombie;
 
-            if (saveData.DialogueDrStorm.HasValue) {
-                TextDisplayManager.Instance.textDisplay.talkedToDrStorm = saveData.DialogueDrStorm.Value;
-                DrStorm.Instance.gameObject.SetActive(!saveData.DialogueDrStorm.Value);
+            if (saveData.dialogueDrStorm) {
+                TextDisplayManager.Instance.textDisplay.talkedToDrStorm = saveData.dialogueDrStorm;
+                DrStorm.Instance.gameObject.SetActive(!saveData.dialogueDrStorm);
             }
 
             if (saveData.boatPositions is { Length: > 0 }) {
@@ -199,37 +212,52 @@ namespace Utils {
                 }
             }
 
-            if (saveData.AdvancedRecipies.HasValue) circularPhotoPanel.plateuGefunden = saveData.AdvancedRecipies.Value;
+            if (saveData.advancedRecipies) circularPhotoPanel.plateuGefunden = saveData.advancedRecipies;
 
             if (saveData.Visited is { Length: > 0 }) {
                 mapManager.visited = saveData.Visited;
             }
 
-            if (saveData.Finished.HasValue) playerItem.Finish();
+            if (saveData.finished) playerItem.Finish();
+
+            caveManager.SetInCave(saveData.inCave);
         }
     }
 
     [Serializable]
     public class SaveData {
         [ItemCanBeNull] public SaveItem[] items;
-        public Vector2? PlayerPosition;
-        public bool? ReachedPlateau;
+        public Vector2 playerPosition;
+        public bool reachedPlateau;
         public Vector2[] vinePositions;
-        public (string, long)[] IdentificatedInteractables;
-        public int? PlayerHealth;
-        public (string, int)[] QuestProgresses;
-        public bool? DialogueOpenedRecipies;
-        public bool? DialogueDiedFromZombie;
-        public bool? DialogueDrStorm;
+        public IdentificatedInteractableState[] identificatedInteractables;
+        public int playerHealth;
+        public QuestState[] questProgresses;
+        public bool dialogueOpenedRecipies;
+        public bool dialogueDiedFromZombie;
+        public bool dialogueDrStorm;
         public Vector2[] boatPositions;
-        public bool? AdvancedRecipies;
+        public bool advancedRecipies;
         public bool[,] Visited;
-        public bool? Finished;
+        public bool finished;
+        public bool inCave;
     }
 
     [Serializable]
     public class SaveItem {
         public string id;
         public int amount;
+    }
+
+    [Serializable]
+    public class QuestState {
+        public string id;
+        public int progress;
+    }
+
+    [Serializable]
+    public class IdentificatedInteractableState {
+        public string uuid;
+        public long interactedAt;
     }
 }

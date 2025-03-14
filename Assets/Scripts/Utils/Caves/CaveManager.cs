@@ -18,12 +18,16 @@ namespace Utils.Caves {
             }
 
             IsCave = false;
-            overworld.SetActive(!IsCave);
-            caves.SetActive(IsCave);
         }
 
         public void ToggleCave() {
             IsCave = !IsCave;
+            overworld.SetActive(!IsCave);
+            caves.SetActive(IsCave);
+        }
+        
+        public void SetInCave(bool inCave) {
+            IsCave = inCave;
             overworld.SetActive(!IsCave);
             caves.SetActive(IsCave);
         }

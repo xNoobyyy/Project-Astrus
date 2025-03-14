@@ -68,7 +68,8 @@ public class Quest {
     /// Aktualisiert den Fortschritt der Quest und prüft ob sie abgeschlossen wurde
     /// </summary>
     /// <param name="amount">Die Menge, um die der Fortschritt erhöht werden soll.</param>
-    public void UpdateProgress(int amount) {
+    /// <param name="triggerNotification">Soll eine Benachrichtigung ausgelöst werden, wenn die Quest abgeschlossen wurde?</param>
+    public void UpdateProgress(int amount, bool triggerNotification = true) {
         if (isCompleted) return;
 
         currentProgress += amount;
@@ -78,7 +79,7 @@ public class Quest {
         if (currentProgress < requiredProgress) return;
 
         currentProgress = requiredProgress;
-        CompleteQuest();
+        CompleteQuest(triggerNotification);
     }
 
     public void CompleteCondition(QuestCondition condition) {
@@ -93,18 +94,21 @@ public class Quest {
     /// <summary>
     /// Markiert die Quest als abgeschlossen und ruft das Abschluss-Event auf.
     /// </summary>
-    public void CompleteQuest() {
+    public void CompleteQuest(bool triggerNotification = true) {
         if (isCompleted) return;
-        
-        foreach (var condition in Conditions.Keys.ToList()) {
-            Conditions[condition] = true;
+
+        if (Conditions is { Count: > 0 }) {
+            foreach (var condition in Conditions.Keys.ToList()) {
+                Conditions[condition] = true;
+            }
         }
 
         isCompleted = true;
         QuestLogic.Instance.UpdateMainQuest();
         QuestLogic.Instance.UpdateSideQuests();
 
-        if (textbaustein != 1000) TextDisplayManager.Instance.textDisplay.Notification(textbaustein);
+        if (textbaustein != 1000 && triggerNotification)
+            TextDisplayManager.Instance.textDisplay.Notification(textbaustein);
     }
 
     /// <summary>

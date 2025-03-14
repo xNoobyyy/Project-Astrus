@@ -7,6 +7,7 @@ using Objects;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using WatchAda.Quests;
 
 namespace TextDisplay {
     public class TextDisplay : MonoBehaviour {
@@ -46,7 +47,6 @@ namespace TextDisplay {
             Time.timeScale = 1f;
             storyManager.LoadStory();
             storyBlocks = storyManager.storyBlocks;
-            SpecificStoryDialogue(0);
             notificationButton.onClick.AddListener(OnNotificationClick);
         }
 

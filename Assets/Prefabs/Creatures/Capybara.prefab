@@ -4944,7 +4944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01638864a1864d2b859d9a661a3ade77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 5
   maxHealth: 4
   speed: 1
   damageParticles: {fileID: 4953661432376400174}
@@ -5045,7 +5045,7 @@ NavMeshAgent:
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 0
+  m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 0.2
@@ -5062,7 +5062,7 @@ Animator:
   m_GameObject: {fileID: 1072564907757770725}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 02d479eaeda50044a800ebd19a4501e7, type: 2}
+  m_Controller: {fileID: 9100000, guid: 72e79648c7409494bba5219f3c35d375, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

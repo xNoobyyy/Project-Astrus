@@ -23,6 +23,7 @@ namespace Creatures {
         Zombie,
         ZombieBoss,
         Golem,
+        Capybara,
     }
 
     public abstract class CreatureBase : MonoBehaviour, IAttackable {
@@ -180,12 +181,6 @@ namespace Creatures {
         // Updates the animator parameter based on a movement direction
         protected void SetAnimationDirection(Vector2 moveDirection) {
             Animator.SetInteger(Direction, GetAnimDirection(moveDirection));
-        }
-
-        private void Update() {
-            if (type == CreatureType.Quokka) {
-                Debug.Log(transform.position + " / " + transform.rotation.eulerAngles);
-            }
         }
 
         // Processes common damage logic (subtract health, apply knockback, flash, damage particles).

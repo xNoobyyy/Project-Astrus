@@ -33,7 +33,8 @@ namespace Creatures {
             if (Vector2Int.RoundToInt(e.From) == Vector2Int.RoundToInt(e.To)) return;
 
             if (isChasing) {
-                if (Vector3.Distance(transform.position, chaseTarget.position) < 20f &&
+                Agent.SetDestination(e.To);
+                if (Vector3.Distance(transform.position, chaseTarget.position) < 15f &&
                     !PlayerItem.Instance.Invisible) return;
 
                 isChasing = false;
@@ -42,7 +43,8 @@ namespace Creatures {
                 Agent.ResetPath();
                 StartIdle();
             } else {
-                if (!IsLos(e.Transform.position) || PlayerItem.Instance.Invisible) return;
+                if (!IsLos(e.Transform.position) || PlayerItem.Instance.Invisible ||
+                    Vector3.Distance(transform.position, chaseTarget.position) >= 15f) return;
 
                 chaseTarget = e.Transform;
                 isChasing = true;

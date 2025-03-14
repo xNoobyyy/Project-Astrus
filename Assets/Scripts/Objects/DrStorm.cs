@@ -5,11 +5,9 @@ namespace Objects {
     public class DrStorm : MonoBehaviour {
         public static DrStorm Instance { get; private set; }
 
-        private void Awake() {
+        private void OnEnable() {
             if (Instance == null) {
                 Instance = this;
-            } else {
-                Destroy(gameObject);
             }
         }
 

@@ -226,10 +226,10 @@ namespace WatchAda.Quests {
             // Gruppe 2: Crafting FERTIG
             craftingQuest = new Quest("id_crafting_main", "Werkzeuge", "Erstelle Werkzeuge und Waffen.", true, 4, 15);
 
-            eQuest = new Quest("id_crafting_stein", "Stein", "Finde Stein", false, 1, 14);
+            eQuest = new Quest("id_crafting_stein", "Stein", "Finde Stein und baue es mit der Hand ab.", false, 1, 14);
             eQuest.AddCondition(new ItemCondition(typeof(Stone)));
 
-            sQuest = new Quest("id_crafting_eisen", "Eisen", "Finde Eisen", false, 1);
+            sQuest = new Quest("id_crafting_eisen", "Eisen", "Finde Eisen und baue es mit der Steinspitzhacke ab.", false, 1);
             sQuest.AddCondition(new ItemCondition(typeof(Iron)));
 
             spitzAxtQuest = new Quest("id_crafting_spitzhacke", "Spitzhacke", "Baue eine Spitzhacke aus Stein.", false,
@@ -241,7 +241,7 @@ namespace WatchAda.Quests {
 
             var group2 = new QuestGroup(
                 craftingQuest,
-                new List<Quest> { eQuest, sQuest, spitzAxtQuest, schwertQuest }
+                new List<Quest> { eQuest, spitzAxtQuest, sQuest, schwertQuest }
             );
 
 
